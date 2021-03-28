@@ -16,7 +16,7 @@ class CfgPatches
 class CfgFactionClasses
 {
 	class NO_CATEGORY;
-	class Crows_ZA_cat: NO_CATEGORY
+	class CrowsZA_cat: NO_CATEGORY
 	{
 		displayName = "Crows Zeus Additions";
 	};

@@ -7,5 +7,7 @@ class CROWS_ZA_addon
 		class zeusInit { postInit = 1; };
 
 		class aceDamageToUnit {};
+		class removeTreesZeus {};
+		class removeTrees {};
 	};
 };

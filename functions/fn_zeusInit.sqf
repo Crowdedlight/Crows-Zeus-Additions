@@ -40,6 +40,7 @@ private _wait = [player] spawn
 	private _moduleList = 
 	[
 		["ACE Add Damage to Unit",{_this call crowsZA_fnc_aceDamageToUnit}],
+		["Remove Trees",{_this call crowsZA_fnc_removeTreesZeus}],
 	];
 
 	if !(_hasZen) then 
