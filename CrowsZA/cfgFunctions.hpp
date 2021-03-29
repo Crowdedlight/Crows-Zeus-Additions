@@ -9,5 +9,8 @@ class CrowsZA_addon
 		class aceDamageToUnit {};
 		class removeTreesZeus {};
 		class removeTrees {};
+
+		class animalFollowZeus {};
+		class animalFollow {};
 	};
 };
