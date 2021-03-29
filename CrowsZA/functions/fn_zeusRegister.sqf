@@ -1,7 +1,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fn_zeusInit.sqf
+File: fn_zeusRegister.sqf
 Parameters: none
 Return: none
 
@@ -28,7 +28,7 @@ private _wait = [player] spawn
 	{
 		if (_timeout >= 10) exitWith 
 		{
-			diag_log "fn_zeusInit: Timed out!!!";
+			diag_log "fn_zeusRegister: Timed out!!!";
 			true;
 		};
 		sleep 1;
@@ -39,11 +39,11 @@ private _wait = [player] spawn
 	
 	private _moduleList = 
 	[
-		["ACE Add Damage to Unit",{_this call crowsZA_fnc_aceDamageToUnit}],
-		["Remove Trees",{_this call crowsZA_fnc_removeTreesZeus}],
+		["ACE Add Damage to Unit",{_this call crowsZA_fnc_aceDamageToUnit}, "\CrowsZA\data\icon.paa"],
+		["Remove Trees",{_this call crowsZA_fnc_removeTreesZeus}, "\CrowsZA\data\icon.paa"]
 	];
 
-	if !(_hasZen) then 
+	if !(crowZA_zen) then 
 	{
 		{
 			[
@@ -59,10 +59,10 @@ private _wait = [player] spawn
 				"Crows Zeus Modules", 
 				(_x select 0), 
 				(_x select 1),
-				"\Crows_Zeus_Additions\data\icon.paa"
+				(_x select 2)
 			] call zen_custom_modules_fnc_register;
 		} forEach _moduleList;
 	};
 };
 //waitUntil {scriptDone _wait};
-diag_log format ["fn_zeusInit: Zeus initialization complete. Achilles Detected: %1 -- Zeus Enhanced Detected: %2",_hasAch,_hasZen];
+diag_log format ["fn_zeusRegister: Zeus initialization complete. Achilles Detected: %1 -- Zeus Enhanced Detected: %2",_hasAch,_hasZen];

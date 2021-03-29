@@ -23,5 +23,5 @@ class CfgFactionClasses
 };
 class CfgFunctions
 {
-	#include "\cfgFunctions.hpp"
+	#include "\CrowsZA\cfgFunctions.hpp"
 };
