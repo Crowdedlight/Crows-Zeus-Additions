@@ -46,12 +46,8 @@ if (crowZA_zen) then
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 	if (isNull _unit) exitWith { _return; };
 
-	//debug 
-	//diag_log _unit;
-
-	//private _debug = missionNamespace getVariable [_unit , objNull];
-
-	//diag_log _debug;
+	//log it
+	diag_log format ["Zeus applying %1 dmg to %2 limb with type %3 on unit %4", _dmg, _bodypart, _dmgType, _unit];
 	
 	//apply ACE dmg as ZEN SLider is a number
 	[_unit, _dmg, _bodyPart, _dmgType, _unit] call ace_medical_fnc_addDamageToUnit;
