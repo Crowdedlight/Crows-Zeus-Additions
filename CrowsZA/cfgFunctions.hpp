@@ -12,5 +12,9 @@ class CrowsZA_addon
 
 		class animalFollowZeus {};
 		class animalFollow {};
+
+		class scatterTeleportZeus {};
+		class scatterTeleport {};
+		class scatterPatternOutwardSpiral {};
 	};
 };
