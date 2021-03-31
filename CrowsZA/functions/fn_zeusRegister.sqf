@@ -41,7 +41,7 @@ private _wait = [player] spawn
 	[
 		["ACE Add Damage to Unit",{_this call crowsZA_fnc_aceDamageToUnit}, "\CrowsZA\data\icon.paa"],
 		["Remove Trees",{_this call crowsZA_fnc_removeTreesZeus}, "\CrowsZA\data\icon.paa"],
-		["Follow Unit With Animal",{_this call crowsZA_fnc_animalFollowZeus}, "\CrowsZA\data\icon.paa"]
+		["Follow Unit With Animal",{_this call crowsZA_fnc_animalFollowZeus}, "\CrowsZA\data\icon.paa"],
 		["Scatter Teleport",{_this call crowsZA_fnc_scatterTeleportZeus}, "\CrowsZA\data\icon.paa"]
 	];
 

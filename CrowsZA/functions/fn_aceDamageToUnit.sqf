@@ -47,8 +47,8 @@ if (crowZA_zen) then
 	if (isNull _unit) exitWith { _return; };
 
 	//log it
-	diag_log format ["Zeus applying %1 dmg to %2 limb with type %3 on unit %4", _dmg, _bodypart, _dmgType, _unit];
-	
+	diag_log format ["CrowsZA-AceDamage: Zeus applying %1 dmg to %2 limb with type %3 on unit %4", _dmg, _bodypart, _dmgType, _unit];
+
 	//force to be in this limb, even if non-specific damage type
 	// represents all incoming damage for selecting a non-selection Specific wound location, (used for selectRandomWeighted [value1,weight1,value2....])
 	// #define HITPOINT_INDEX_HEAD 0
@@ -131,7 +131,7 @@ if (crowZA_zen) then
 	};
 
 	//log it
-	diag_log format ["Zeus applying %1 dmg to %2 limb with type %3 on unit %4", _dmg, _bodypart, _dmgType, _unit];
+	diag_log format ["CrowsZA-AceDamage: Zeus applying %1 dmg to %2 limb with type %3 on unit %4", _dmg, _bodypart, _dmgType, _unit];
 
 	//force to be in this limb, even if non-specific damage type
 	// represents all incoming damage for selecting a non-selection Specific wound location, (used for selectRandomWeighted [value1,weight1,value2....])

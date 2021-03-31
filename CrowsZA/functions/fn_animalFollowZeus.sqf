@@ -10,7 +10,7 @@ Creates an animal that follows the player while it is alive
 *///////////////////////////////////////////////
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-if (isNull _unit) exitWith { _return; };
+if (isNull _unit) exitWith { };
 
 // open dialog
 //either Ares or ZEN

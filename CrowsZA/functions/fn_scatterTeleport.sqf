@@ -8,7 +8,7 @@ Return: none
 Removes trees in an area around the selected point
 
 *///////////////////////////////////////////////
-params [["_targetPos", "_players", "_playerOffset", "_targetAltitude"];
+params ["_targetPos", "_players", "_playerOffset", "_targetAltitude"];
 
 // TODO validation of inputs, we need at least some players and none of the paramteres can be null
 
@@ -21,7 +21,7 @@ private _tpArray = [_targetPos, count _players, _playerOffset, _targetAltitude] 
 // now run through each player and tp
 private _i = 0;
 {
-    _x setPos _tpArray select _i;
+    _x setPos (_tpArray select _i);
 	_i = _i + 1;
 }
 forEach _players;

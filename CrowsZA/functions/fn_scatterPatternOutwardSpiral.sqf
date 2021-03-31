@@ -8,7 +8,7 @@ Return: array of positions for TP each player
 Generates an list of 3d positions for an outward spiral pattern. Used together with scatterTeleport
 
 *///////////////////////////////////////////////
-params [["_targetPos", "_amount", "_offset", "_targetAltitude"];
+params ["_targetPos", "_amount", "_offset", "_targetAltitude"];
 
 // create array of _amount positions to fill with teleport positions, We don't use the first position which is the targetPos, but build around it. 
 private _tpPositions = [];
@@ -22,8 +22,8 @@ private _dj = 0;
 private _segmentLength = 1;
 
 // current position (i, j) and how much of current segment we passed.
-private _i = getPos _targetPos select 0;
-private _j = getPos _targetPos select 1;
+private _i = _targetPos select 0;
+private _j = _targetPos select 1;
 private _targetAltitude = _targetAltitude;
 
 private _segmentPassed = 0;
