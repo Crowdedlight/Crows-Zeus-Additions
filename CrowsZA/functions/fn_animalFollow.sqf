@@ -24,7 +24,7 @@ _animal = createAgent [_animalClassname, getPos _src, [], 5, "CAN_COLLIDE"];
 _animal setVariable ["BIS_fnc_animalBehaviour_disable", true]; 
 
 //log it
-diag_log format["Zeus has spawned a %1 to follow %2", _animalType, _src];
+diag_log format["CrowZA:animalFollow: Zeus has spawned a %1 to follow %2", _animalType, _src];
 
 // spawn thread that handle behaviour
 nul = [_src, _animal, _animalType] spawn { 

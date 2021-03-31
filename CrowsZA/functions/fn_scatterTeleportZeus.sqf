@@ -10,12 +10,9 @@ Teleports selected players to the position clicked in a pattern with the selecte
 *///////////////////////////////////////////////
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-//if no zen, return. Should be cleaned up and only support ZEN. So remove the ARES register hook and only check of ZEN in registering script
-if !(crowZA_zen) exitWith { };
-
 //ZEN dialog, just ignore ARES, as that mod itself is EOL and links to ZEN
-	private _onConfirm =
-	{
+private _onConfirm =
+{
 	params ["_dialogResult","_in"];
 	_dialogResult params
 	[

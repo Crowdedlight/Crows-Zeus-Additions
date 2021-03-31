@@ -29,12 +29,9 @@ switch (false) do {
 };
 
 // open dialog
-//either Ares or ZEN
-if (crowZA_zen) then 
+//ZEN
+private _onConfirm =
 {
-	//ZEN
-	private _onConfirm =
-	{
 	params ["_dialogResult","_in"];
 	_dialogResult params
 	[
@@ -100,68 +97,3 @@ if (crowZA_zen) then
 	{},
 	_this
 ] call zen_dialog_fnc_create;
-
-} else 
-{
-	//ARES 
-	private _dialogResult =
-	[
-		"Add ACE Damage to Unit",
-		[
-			["Body Part", ["head", "body", "leg_l", "leg_r", "hand_l", "hand_r"],3,true],
-			["Projectile Type", ["falling", "ropeburn", "vehiclecrash", "collision", "unknown", "explosive", "grenade", "shell", "bullet", "backblast", "bite", "punch", "stab", "drowning"],0,true],
-			["Damage", "", "0.6"]
-		]
-	] call Ares_fnc_showChooseDialog;
-
-	if (_dialogResult isEqualTo []) exitWith{};
-
-	_dialogResult params 
-	[
-		"_bodyPart",
-		"_dmgType",
-		"_dmg"
-	];
-
-	//check that _dmg is a number
-	private _strArr = _dmg splitString "";
-	if (count (_strArr select {typeName _x != "SCALAR"}) >= 0) exitWith
-	{
-		["Damage has to be a number. No letters, spaces or other characters are allowed"] call Achilles_fnc_showZeusErrorMessage;
-	};
-
-	//log it
-	diag_log format ["CrowsZA-AceDamage: Zeus applying %1 dmg to %2 limb with type %3 on unit %4", _dmg, _bodypart, _dmgType, _unit];
-
-	//force to be in this limb, even if non-specific damage type
-	// represents all incoming damage for selecting a non-selection Specific wound location, (used for selectRandomWeighted [value1,weight1,value2....])
-	private _damageSelectionArray = [
-        0, 0, 1, 0, 2, 0, 
-        3, 0, 4, 0, 5, 0
-    ];
-
-	// set true for the selected limb based on case
-	switch (_bodyPart) do {
-		case "head": {
-			_damageSelectionArray set [1, 1];
-		};
-		case "body": {
-			_damageSelectionArray set [3, 1];
-		};
-		case "hand_l": {
-			_damageSelectionArray set [5, 1];
-		};
-		case "hand_r": {
-			_damageSelectionArray set [7, 1];
-		};
-		case "leg_l": {
-			_damageSelectionArray set [9, 1];
-		};
-		case "leg_r": {
-			_damageSelectionArray set [11, 1];
-		};
-	};
-
-	//apply ACE dmg as ZEN SLider is a number
-	[_unit, _dmg, _bodyPart, _dmgType, _unit, _damageSelectionArray] call ace_medical_fnc_addDamageToUnit;
-};
