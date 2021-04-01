@@ -1,7 +1,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fn_removeTreesZeus.sqf
+File: fn_restoreTreesZeus.sqf
 Parameters: pos
 Return: none
 
@@ -21,12 +21,12 @@ private _onConfirm =
 	];
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 	
-	//remove trees as ZEN slider always returns number
-	[_pos, _radius] call crowsZA_fnc_removeTrees;
+	//restore trees
+	[_pos, _radius] call crowsZA_fnc_restoreTrees;
 	
 };
 [
-	"Remove Trees and bushes in radius", 
+	"Restore Trees and bushes in radius", 
 	[
 		["SLIDER","Radius",[0,500,10,0]] //0 to 500, default 10 and showing 0 decimal
 	],

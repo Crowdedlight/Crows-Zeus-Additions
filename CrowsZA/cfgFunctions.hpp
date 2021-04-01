@@ -7,8 +7,12 @@ class CrowsZA_addon
 		class zeusRegister { postInit = 1; };
 
 		class aceDamageToUnit {};
+
 		class removeTreesZeus {};
 		class removeTrees {};
+
+		class restoreTreesZeus {};
+		class restoreTrees {};
 
 		class animalFollowZeus {};
 		class animalFollow {};
@@ -16,5 +20,9 @@ class CrowsZA_addon
 		class scatterTeleportZeus {};
 		class scatterTeleport {};
 		class scatterPatternOutwardSpiral {};
+
+		class setNumberplate {};
+
+		class deleteAllDeadBodies {};
 	};
 };

@@ -1,34 +1,36 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fn_removeTreesZeus.sqf
-Parameters: pos
+File: fn_setNumberplate.sqf
+Parameters: pos, _unit
 Return: none
 
-Removes trees in an area around the selected point
+Set numberplate of VIC to what you want
 
 *///////////////////////////////////////////////
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-// open dialog
-//ZEN
+//ZEN dialog
 private _onConfirm =
 {
 	params ["_dialogResult","_in"];
 	_dialogResult params
 	[
-		"_radius"
+		"_numberplate"
 	];
+	//Get in params again
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
+
+	//if unit is zero, exit
+	if (isNull _unit) exitWith { };
 	
-	//remove trees as ZEN slider always returns number
-	[_pos, _radius] call crowsZA_fnc_removeTrees;
-	
+	//Run teleport script
+	_unit setPlateNumber _numberplate;
 };
 [
-	"Remove Trees and bushes in radius", 
+	"Set Numberplate", 
 	[
-		["SLIDER","Radius",[0,500,10,0]] //0 to 500, default 10 and showing 0 decimal
+		["EDIT","Text"] //all defaults, no sanitizing function as we shouldn't need it
 	],
 	_onConfirm,
 	{},

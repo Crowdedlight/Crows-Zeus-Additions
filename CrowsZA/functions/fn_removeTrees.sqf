@@ -29,4 +29,5 @@ _posAGL = ASLToAGL _pos;
 //remoteexec spawn function, 0 = global, for all players, JIP: True, make sure is run for reconnecting players
 //_jipID = [_newObject, { waitUntil {!isNull _this}; { _x hideObject true } foreach hideTObjs] remoteExec ["spawn", 0, True];
 
-{ _x hideObjectGlobal true } foreach (nearestTerrainObjects [_posAGL,["TREE", "SMALL TREE", "BUSH"],_radius]);
+//run on remoteExec for server as globalhide command is designed to clear it for all clients and JIP. 
+[{ _x hideObjectGlobal true } foreach (nearestTerrainObjects [_posAGL,["TREE", "SMALL TREE", "BUSH"],_radius])] remoteExec ["spawn", 2, false];
