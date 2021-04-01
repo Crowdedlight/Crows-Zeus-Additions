@@ -12,6 +12,7 @@ params ["_targetPos", "_players", "_playerOffset", "_targetAltitude"];
 
 // TODO validation of inputs, we need at least some players and none of the paramteres can be null
 
+
 // get array of TP positions, split into own file for future support of different "shapes"/patterns
 private _tpArray = [_targetPos, count _players, _playerOffset, _targetAltitude] call crowsZA_fnc_scatterPatternOutwardSpiral;
 
