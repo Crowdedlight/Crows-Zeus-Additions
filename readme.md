@@ -19,7 +19,7 @@ Currently including:
 The code is written for MP and dedicated server usage. All functions have been tested on "MP" using the Eden editor and "play scenario in MP".    
 The following has been tested on dedicated server:
 
-- [ ] Scatter Teleport
+- [X] Scatter Teleport
 - [X] ACE Medical Damage
 - [X] Remove Trees - Including collision
 - [X] Restore Trees - Including collision

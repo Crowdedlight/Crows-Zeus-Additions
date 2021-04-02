@@ -16,6 +16,7 @@ class CrowsZA_addon
 
 		class animalFollowZeus {};
 		class animalFollow {};
+		class deleteAllAnimalFollow {};
 
 		class scatterTeleportZeus {};
 		class scatterTeleport {};

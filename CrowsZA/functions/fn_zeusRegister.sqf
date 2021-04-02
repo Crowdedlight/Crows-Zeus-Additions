@@ -18,6 +18,10 @@ if !(_hasZen) exitWith
 
 if (!hasInterface) exitWith {};
 
+//private global var
+crowsZA_animalFollowList = [];
+publicVariable "crowsZA_animalFollowList";
+
 private _wait = [player] spawn
 {
 	params ["_unit"];
@@ -41,6 +45,7 @@ private _wait = [player] spawn
 		["Remove Trees",{_this call crowsZA_fnc_removeTreesZeus}, "\CrowsZA\data\axe.paa"],
 		["Restore Trees",{_this call crowsZA_fnc_restoreTreesZeus}, "\CrowsZA\data\tree.paa"],
 		["Follow Unit With Animal",{_this call crowsZA_fnc_animalFollowZeus}, "\CrowsZA\data\sheep.paa"],
+		["Delete All Spawned Follow Animals",{_this call crowsZA_fnc_deleteAllAnimalFollow}, "\CrowsZA\data\sheep.paa"],
 		["Scatter Teleport",{_this call crowsZA_fnc_scatterTeleportZeus}, "\CrowsZA\data\tp.paa"],
 		["Set Numberplate",{_this call crowsZA_fnc_setNumberplate}, "\CrowsZA\data\numberplate.paa"],
 		["Delete ALL dead bodies",{_this call crowsZA_fnc_deleteAllDeadBodies}, "\CrowsZA\data\cleanup.paa"]
