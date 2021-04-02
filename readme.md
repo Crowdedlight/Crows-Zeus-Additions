@@ -20,10 +20,10 @@ The code is written for MP and dedicated server usage. All functions have been t
 The following has been tested on dedicated server:
 
 - [ ] Scatter Teleport
-- [ ] ACE Medical Damage
-- [ ] Remove Trees - Including collision
-- [ ] Restore Trees - Including collision
-- [ ] Animal Follower
-- [ ] Set Numberplate
-- [ ] Delete All Dead Bodies
+- [X] ACE Medical Damage
+- [X] Remove Trees - Including collision
+- [X] Restore Trees - Including collision
+- [X] Animal Follower
+- [X] Set Numberplate
+- [X] Delete All Dead Bodies
 

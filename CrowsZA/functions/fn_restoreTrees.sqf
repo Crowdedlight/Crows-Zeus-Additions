@@ -26,6 +26,8 @@ private _hideTObjs = [];
 	} else {}; 
 } foreach (nearestTerrainObjects [_posAGL,[],_radius]);
 
-//run on remoteExec for server as globalhide command is designed to clear it for all clients and JIP. 
-[{ _x hideObjectGlobal false } foreach _hideTObjs] remoteExec ["spawn", 2, false];
+//log
+diag_log format["crowsZA-restoreTrees: showing %1 objects", count _hideTObjs];
 
+// remote exec on server side, has to be with [argument, code] and "spawn" otherwise it doesn't work properly...
+[_hideTObjs,{{_x hideObjectGlobal false} foreach _this}] remoteExec ["spawn",2]; 

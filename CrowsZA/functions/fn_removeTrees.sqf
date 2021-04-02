@@ -18,7 +18,7 @@ _posAGL = ASLToAGL _pos;
 private _hideTObjs = [];
 
 // removal based on https://gist.github.com/coldnebo/ec1ff71a42fffa91def88e8aba2b66b2 
-// these are the main classes of folliage
+// these are the main classes of trees
 { _hideTObjs pushBack _x } foreach (nearestTerrainObjects [_posAGL,["TREE", "SMALL TREE", "BUSH"],_radius]);
 
 // but there are some other model names (unclassified) that we should clean up too
@@ -26,13 +26,11 @@ private _hideTObjs = [];
 	if ((str(_x) find "fallen" >= 0) || (str(_x) find "stump" >= 0) || (str(_x) find "stone" >= 0)) then 
 	{ 
 		_hideTObjs pushBack _x;
-	} else {}; 
+	};
 } foreach (nearestTerrainObjects [_posAGL,[],_radius]);
 
-// good, now hide them all
-//{ _x hideObjectGlobal true } foreach hideTObjs;
-//remoteexec spawn function, 0 = global, for all players, JIP: True, make sure is run for reconnecting players
-//_jipID = [_newObject, { waitUntil {!isNull _this}; { _x hideObject true } foreach hideTObjs] remoteExec ["spawn", 0, True];
+//log
+diag_log format["crowsZA-removeTrees: Hiding %1 objects", count _hideTObjs];
 
-//run on remoteExec for server as globalhide command is designed to clear it for all clients and JIP. 
-[{ _x hideObjectGlobal true } foreach _hideTObjs] remoteExec ["spawn", 2, false];
+// remote exec on server side, has to be with [argument, code] and "spawn" otherwise it doesn't work properly...
+[_hideTObjs,{{_x hideObjectGlobal true} foreach _this}] remoteExec ["spawn",2]; 

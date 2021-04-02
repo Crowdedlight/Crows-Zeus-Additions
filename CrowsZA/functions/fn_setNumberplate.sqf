@@ -23,9 +23,22 @@ private _onConfirm =
 
 	//if unit is zero, exit
 	if (isNull _unit) exitWith { };
-	
-	//Run teleport script
-	_unit setPlateNumber _numberplate;
+
+	//only showing dialog to make sure Zeus wants to delete all dead bodies
+	crowsZA_fnc_setNumPlate = {
+		//params
+		params ["_numberPlate","_unit"];
+		//log 
+		diag_log format["crowsZA-setNumberPlate: Setting numberplate of %1 to %2", _unit, _numberplate];
+		//set numberplate
+		_unit setPlateNumber _numberplate;
+	};
+
+	//log 
+	diag_log format["crowsZA-setNumberPlate: Setting numberplate of %1 to %2", _unit, _numberplate];
+
+	//set numberplate
+	[_numberplate, _unit] remoteExec ["crowsZA_fnc_setNumPlate", 0, true]; //2 = server, for all players, With JIP
 };
 [
 	"Set Numberplate", 

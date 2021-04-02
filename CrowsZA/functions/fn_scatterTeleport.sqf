@@ -5,24 +5,29 @@ File: fn_scatterTeleport.sqf
 Parameters: center pos in AGL, array of players, distance between players, altitude to teleport to
 Return: none
 
-Removes trees in an area around the selected point
+Teleports selected players, but placing them in an outward spiral, with set distance between eachother and at target altitude over ground. 
+Useful for TP'ing section into parachute drop. 
 
 *///////////////////////////////////////////////
 params ["_targetPos", "_players", "_playerOffset", "_targetAltitude"];
 
-// TODO validation of inputs, we need at least some players and none of the paramteres can be null
-
+// validation of inputs, we need at least some players and none of the paramteres can be null
+if ((count _targetPos) > 3) exitWith { diag_log "CrowsZA-ScatterTeleport: position for TP target can not be null"};
+if ((count _players) <= 0) exitWith { diag_log "CrowsZA-ScatterTeleport: No units to teleport..."};
+if (typename _playerOffset != "SCALAR") exitWith { diag_log "CrowsZA-ScatterTeleport: should always get a player offset which is a scalar, we didn't.... indicates internal script error"};
+if (typename _targetAltitude != "SCALAR") exitWith { diag_log "CrowsZA-ScatterTeleport: should always get a altitude which is a scalar, we didn't.... indicates internal script error"};
 
 // get array of TP positions, split into own file for future support of different "shapes"/patterns
 private _tpArray = [_targetPos, count _players, _playerOffset, _targetAltitude] call crowsZA_fnc_scatterPatternOutwardSpiral;
 
-//TODO should validate that we are not beyond limits with selected position calculations. X, Y and Z are limited to values between -50km and +500km in arma 3. 
-// if we are outside that interval with any position, we should call pattern generation again, but shifted center position away from edge
+//TODO should probably validate that we are not beyond limits with selected position calculations. X, Y and Z are limited to values between -50km and +500km in arma 3. 
+//  if we are outside that interval with any position, we should call pattern generation again, but shifted center position away from edge
 
 // now run through each player and tp
-private _i = 0;
 {
-    _x setPos (_tpArray select _i);
-	_i = _i + 1;
+	//do not teleport if inside a vic
+	if (isNull objectParent _x) then {
+		_x setPos (_tpArray select _forEachIndex);
+	};
 }
 forEach _players;

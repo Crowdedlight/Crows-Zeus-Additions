@@ -63,8 +63,11 @@ private _onConfirm =
 		};
 	};
 
+	//only keep the ones that is not in vics
+	private _filteredArray = _selectArray select { isNull objectParent _x };
+
 	//Run teleport script
-	[_targetPos, _selectArray, _offset, _altitude] call crowsZA_fnc_scatterTeleport;
+	[_targetPos, _filteredArray, _offset, _altitude] call crowsZA_fnc_scatterTeleport;
 };
 [
 	"Scatter Teleport Selected Players", 
