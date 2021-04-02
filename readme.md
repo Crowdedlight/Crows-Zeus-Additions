@@ -9,6 +9,7 @@ Currently including:
 * **Remove trees:** Remove trees in an distance from position. Works globally and should work for JIP. Removes collision of removed objects
 * **Restore trees:** Restores trees previously removed in an distance from the clicked position.
 * **Animal Follower:** Spawns an animal that follows the selected player around
+* **Delete All Spawned Animal Followers:** Deletes all animals spawned with **Animal Follower** module. For easy cleanup.
 * **Set Numberplate:** Can set the numberplate of a vehicle
 * **Delete All Dead Bodies:** A cleanup script that removes all dead bodies that is not inside a vehicle. As the command for deleteing bodies can cause "ghosts" if used on units inside a vehicle. Does not delete downed units that is not fully dead. Works over the entire map, so be careful not to use if you got corpses out for "scenery" or intel discoveries. 
 
@@ -24,6 +25,7 @@ The following has been tested on dedicated server:
 - [X] Remove Trees - Including collision
 - [X] Restore Trees - Including collision
 - [X] Animal Follower
+- [X] Delete All Spawned Animals following 
 - [X] Set Numberplate
 - [X] Delete All Dead Bodies
 
