@@ -45,8 +45,9 @@ private _wait = [player] spawn
 		["Remove Trees",{_this call crowsZA_fnc_removeTreesZeus}, "\CrowsZA\data\axe.paa"],
 		["Restore Trees",{_this call crowsZA_fnc_restoreTreesZeus}, "\CrowsZA\data\tree.paa"],
 		["Follow Unit With Animal",{_this call crowsZA_fnc_animalFollowZeus}, "\CrowsZA\data\sheep.paa"],
-		["Delete All Spawned Follow Animals",{_this call crowsZA_fnc_deleteAllAnimalFollow}, "\CrowsZA\data\sheep.paa"],
+		["Delete All Follow Animals",{_this call crowsZA_fnc_deleteAllAnimalFollow}, "\CrowsZA\data\sheep.paa"],
 		["Scatter Teleport",{_this call crowsZA_fnc_scatterTeleportZeus}, "\CrowsZA\data\tp.paa"],
+		// ["Scatter Teleport With Parachute",{_this call crowsZA_fnc_scatterTeleportWithParachuteZeus}, "\CrowsZA\data\tp_chute.paa"],
 		["Set Numberplate",{_this call crowsZA_fnc_setNumberplate}, "\CrowsZA\data\numberplate.paa"],
 		["Delete ALL dead bodies",{_this call crowsZA_fnc_deleteAllDeadBodies}, "\CrowsZA\data\cleanup.paa"]
 	];
@@ -61,6 +62,20 @@ private _wait = [player] spawn
 			(_x select 2)
 		] call zen_custom_modules_fnc_register;
 	} forEach _moduleList;
+
+	private _contextActionList = 
+	[	//Action name, Display name, Icon and Icon colour, code, Condition to show, arguments, dynamic children, modifier functions
+		["camera_center_unit","Camera Center Unit","\CrowsZA\data\camera.paa", {_hoveredEntity call crowsZA_fnc_centerZeusViewUnit}] call zen_context_menu_fnc_createAction
+	];
+
+	//register context actions
+	{
+		private _reg = [
+			//action, parent path, priority
+			_x, [], 0
+		] call zen_context_menu_fnc_addAction;
+	} forEach _contextActionList;
+
 };
 //waitUntil {scriptDone _wait};
 diag_log format ["CrowZA:fn_zeusRegister: Zeus initialization complete. Zeus Enhanced Detected: %2",_hasZen];

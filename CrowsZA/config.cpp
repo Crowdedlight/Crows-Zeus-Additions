@@ -4,7 +4,11 @@ class CfgPatches
 	{
 		units[] = {};
 		weapons[] = {};
-		requiredAddons[] = { "ace_medical_engine" };
+		requiredAddons[] = { 
+			"ace_medical_engine",
+			"zen_context_menu",
+			"zen_attributes"
+		 };
 		author = "Crowdedlight";
 		authorUrl = "https://forums.bohemia.net/profile/1173289-crowdedlight/";
 		version = 0.1.0;

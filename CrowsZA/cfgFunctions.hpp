@@ -20,10 +20,16 @@ class CrowsZA_addon
 
 		class scatterTeleportZeus {};
 		class scatterTeleport {};
+
 		class scatterPatternOutwardSpiral {};
+
+		// class scatterTeleportWithParachute {};
+		// class scatterTeleportWithParachuteZeus {};
 
 		class setNumberplate {};
 
 		class deleteAllDeadBodies {};
+
+		class centerZeusViewUnit {};
 	};
 };

@@ -18,7 +18,8 @@ private _onConfirm =
 	[
 		"_selection",
 		"_offset",
-		"_altitude"
+		"_altitude",
+		"_includeVehicles"
 	];
 	//Get in params again
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
@@ -63,18 +64,24 @@ private _onConfirm =
 		};
 	};
 
-	//only keep the ones that is not in vics
-	private _filteredArray = _selectArray select { isNull objectParent _x };
+	//if include vics, get the vics, otherwise we remove all players inside vics for TP. 
+	if (_includeVehicles) then {
+		_selectArray = _selectArray apply {vehicle _x}; //if in vic, gets the vic instead
+		_selectArray = _selectArray arrayIntersect _selectArray; //removes duplicates
+	} else {
+		_selectArray = _selectArray select { isNull objectParent _x };
+	};
 
 	//Run teleport script
 	[_targetPos, _filteredArray, _offset, _altitude] call crowsZA_fnc_scatterTeleport;
 };
 [
-	"Scatter Teleport Selected Players", 
+	"Scatter Teleport Players", 
 	[
 		["OWNERS","Units to TP",[[],[],[],1]], //no preselected defaults, and default tab open is groups.
 		["SLIDER","Distance Between Players [m]",[5,500,15,0]], //5 to 500, default 15 and showing 0 decimal. (Don't allow teleport with 0 seperation, use normal TP for that...)
-		["SLIDER","Altitude Above Ground [m]",[0,10000,1000,0]] //0 to 10km, default 1km and showing 0 decimal
+		["SLIDER","Altitude Above Ground [m]",[0,10000,1000,0]], //0 to 10km, default 1km and showing 0 decimal
+		["TOOLBOX:YESNO", ["Include Vehicles", "Teleports vehicles if selected player is crew"], false]
 	],
 	_onConfirm,
 	{},

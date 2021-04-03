@@ -26,7 +26,7 @@ for "_x" from 1 to _amount do {
 
 	//save animal to public var
 	crowsZA_animalFollowList pushback _animal;
-
+	
 	//log it
 	diag_log format["CrowZA:animalFollow: Zeus has spawned a %1 to follow %2", _animalType, _src];
 

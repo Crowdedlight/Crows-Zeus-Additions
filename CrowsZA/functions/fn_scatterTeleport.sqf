@@ -25,9 +25,14 @@ private _tpArray = [_targetPos, count _players, _playerOffset, _targetAltitude] 
 
 // now run through each player and tp
 {
-	//do not teleport if inside a vic
-	if (isNull objectParent _x) then {
+	//reset velocity 
+	_x setvelocity [0,0,0];
+
+	//set position, use setPos or setVehiclePosition depending on type
+	if (_x isKindOf "CAManBase") then {
 		_x setPos (_tpArray select _forEachIndex);
+	} else {
+		_x setVehiclePosition [(_tpArray select _forEachIndex), [], 0, "CAN_COLLIDE"];
 	};
 }
 forEach _players;
