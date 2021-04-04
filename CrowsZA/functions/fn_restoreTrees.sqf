@@ -30,7 +30,7 @@ if (_bushRemoval) then {
 };
 //STONES
 if (_stoneRemoval) then {
-	_hideSubTypes append ["stone"];
+	_hideSubTypes append ["stone", "boulder"];
 };
 
 // these are the main classes of objects

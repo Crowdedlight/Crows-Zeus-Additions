@@ -5,8 +5,10 @@ File: fn_scatterTeleport.sqf
 Parameters: center pos in AGL, array of players, distance between players, altitude to teleport to
 Return: none
 
-Teleports selected players, but placing them in an outward spiral, with set distance between eachother and at target altitude over ground. 
+Teleports selected players or vehicles if they are mounted and vehicle is included, but placing them in an outward spiral, with set distance between eachother and at target altitude over ground. 
 Useful for TP'ing section into parachute drop. 
+OBS. for now, if vehicles are not included and a mounted player is selected for TP, then the player will not be TP'ed.
+Could in future add so if player is mounted it "dismount" first then TP.
 
 *///////////////////////////////////////////////
 params ["_targetPos", "_players", "_playerOffset", "_targetAltitude"];
