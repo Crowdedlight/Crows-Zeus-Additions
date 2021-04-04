@@ -34,7 +34,9 @@ if (_stoneRemoval) then {
 };
 
 // these are the main classes of objects
-{ _hideTObjs pushBack _x } foreach (nearestTerrainObjects [_posAGL,_hideMainTypes,_radius]);
+if (count _hideMainTypes > 0) then {
+	{ _hideTObjs pushBack _x } foreach (nearestTerrainObjects [_posAGL,_hideMainTypes,_radius]);
+};
 
 // but there are some other model names (unclassified) that we should clean up too
 { 
