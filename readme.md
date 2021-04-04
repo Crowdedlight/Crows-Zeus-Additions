@@ -41,3 +41,7 @@ The following has been tested on dedicated server:
 
 ### Follow Unit Camera
 ...  
+
+## Contributors
+Crowdedlight
+Windwalker

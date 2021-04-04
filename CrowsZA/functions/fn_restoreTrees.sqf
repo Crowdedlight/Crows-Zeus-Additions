@@ -8,22 +8,42 @@ Return: none
 Restores trees in that area
 
 *///////////////////////////////////////////////
-params [["_pos",[0,0,0],[[]],3], ["_radius", 5, [0]]];
+params [["_pos",[0,0,0],[[]],3], ["_radius", 5, [0]], "_treeRemoval", "_bushRemoval", "_stoneRemoval"];
 
 //pos change to AGL for nearestTerrainObjects function
 _posAGL = ASLToAGL _pos;
 
 private _hideTObjs = [];
 
-// these are the main classes of folliage
-{ _hideTObjs pushBack _x } foreach (nearestTerrainObjects [_posAGL,["TREE", "SMALL TREE", "BUSH"],_radius]);
+//make list of main type to remove
+private _hideMainTypes = [];
+private _hideSubTypes = [];
+
+//TREES
+if (_treeRemoval) then {
+	_hideMainTypes append ["TREE", "SMALL TREE"];
+	_hideSubTypes append ["stump", "fallen"];
+};
+//BUSHES
+if (_bushRemoval) then {
+	_hideMainTypes append ["BUSH"];
+};
+//STONES
+if (_stoneRemoval) then {
+	_hideSubTypes append ["stone"];
+};
+
+// these are the main classes of objects
+{ _hideTObjs pushBack _x } foreach (nearestTerrainObjects [_posAGL,_hideMainTypes,_radius]);
 
 // but there are some other model names (unclassified) that we should clean up too
 { 
-	if ((str(_x) find "fallen" >= 0) || (str(_x) find "stump" >= 0) || (str(_x) find "stone" >= 0)) then 
-	{ 
+	private _tempValue = str(_x);
+	//checks if any element on the _hideSubTypes array can be found in the object name for this iterations object. 
+	if (_hideSubTypes findIf { (_tempValue find _x >= 0) } > -1) then {
 		_hideTObjs pushBack _x;
-	} else {}; 
+	};
+
 } foreach (nearestTerrainObjects [_posAGL,[],_radius]);
 
 //log
