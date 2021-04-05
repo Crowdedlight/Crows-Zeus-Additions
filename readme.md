@@ -40,6 +40,7 @@ All logging made to the .RPT file will start with ``CrowsZA-module:`` where the 
 - [ ] mass surrender - surrender all on a faction or a group with easy selection
 - [ ] spawn arsenal - spawns our default boxes, and make it into an ACE arsenal automatically
 - [ ] unit follow view - A further development on the unit-center function but always keep the camera relative to the unit while moving with the default options of rotating when holding right-click and zoom with scroll-wheel.
+- [ ] Move instructions info from readme to wiki
 
 ### Contributors
 Crowdedlight (Main Author)  
