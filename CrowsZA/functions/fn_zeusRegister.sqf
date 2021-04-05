@@ -12,16 +12,17 @@ Using the same setup method as JShock in JSHK contamination mod.
 private _hasZen = isClass (configFile >> "CfgPatches" >> "zen_custom_modules");
 if !(_hasZen) exitWith
 {
-	private _msg = "******CBA and/or ZEN not detected. They are required for Crows Zeus Additions.";
-	diag_log _msg;
+	diag_log "******CBA and/or ZEN not detected. They are required for Crows Zeus Additions.";
 };
 
+//only load for zeus
 if (!hasInterface) exitWith {};
 
 //private global var
 crowsZA_animalFollowList = [];
 publicVariable "crowsZA_animalFollowList";
 
+//spawn script to register zen modules
 private _wait = [player] spawn
 {
 	params ["_unit"];
@@ -77,5 +78,4 @@ private _wait = [player] spawn
 	} forEach _contextActionList;
 
 };
-//waitUntil {scriptDone _wait};
 diag_log format ["CrowZA:fn_zeusRegister: Zeus initialization complete. Zeus Enhanced Detected: %2",_hasZen];
