@@ -12,7 +12,7 @@ Currently including:
 * **Animal Follower:** Spawns an animal that follows the selected player around
 * **Delete All Spawned Animal Followers:** Deletes all animals spawned with **Animal Follower** module. For easy cleanup.
 * **Set Numberplate:** Can set the numberplate of a vehicle
-* **Delete All Dead Bodies:** A cleanup script that removes all dead bodies that is not inside a vehicle. As the command for deleteing bodies can cause "ghosts" if used on units inside a vehicle. Does not delete downed units that is not fully dead. Works over the entire map, so be careful not to use if you got corpses out for "scenery" or intel discoveries. 
+* **Delete All Dead Bodies:** A cleanup script that removes all dead bodies that is not inside a vehicle.
 
 **Requires Zeus Enhanced (ZEN)**  
 **ACE Medical damage module requires ACE3 Medical**  
@@ -47,7 +47,7 @@ Windwalker
 
 ## Instructions
 This section provides a description with an image of each functionality. It can also explain how to use it, or what to be mindful of when using it.   
-Some of the functionality can be seen demostrated in a video at: https://www.youtube.com/playlist?list=PLhmLsanXHDRBU_XAcYTBPyXzzsNTwY2b1 
+Windwalker has made some nice videos showing some of the functionality at: https://www.youtube.com/playlist?list=PLhmLsanXHDRBU_XAcYTBPyXzzsNTwY2b1 
 
 ### Scatter Teleport
 A teleport function that teleport selected groups/sides/players to the selected position but in a pattern with a configurable distance between each unit and the possibility to set the height over terrain. This is useful for mass-teleport units into the air for "parachute insertion" while ensuring a safe distance between each unit and no collision happens. It includes the option to teleport vehicles aswell.   
@@ -92,7 +92,7 @@ Set the numberplate on a vehicle and syncronises it across users and adds it so 
 ![image](https://user-images.githubusercontent.com/7889925/113602062-6ddadd00-9642-11eb-800e-1263b3ddf396.png)
 
 ### Delete All Dead Bodies
-Cleanup script that removes all dead bodies on the entire map. A quick way for zeus to cleanup. It only removes dead bodies, and not downed units. It does not delete wrecks.   
+Cleanup script that removes all dead bodies on the entire map. A quick way for zeus to cleanup. It only removes dead bodies, and not downed units. It does not delete wrecks nor dead bodies inside vehicles. (As the command for deleteing bodies can cause "ghosts" if used on units inside a vehicle)  
 **OBS: Works on all dead bodies on map. Be mindful if you have placed dead bodies for story or intel purposes**
 
 
