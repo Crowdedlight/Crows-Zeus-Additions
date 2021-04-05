@@ -29,16 +29,16 @@ private _onConfirm =
 		//params
 		params ["_numberPlate","_unit"];
 		//log 
-		diag_log format["crowsZA-setNumberPlate: Setting numberplate of %1 to %2", _unit, _numberplate];
+		diag_log format["CrowsZA-setNumberPlate: Setting numberplate of %1 to %2", _unit, _numberplate];
 		//set numberplate
 		_unit setPlateNumber _numberplate;
 	};
 
 	//log 
-	diag_log format["crowsZA-setNumberPlate: Setting numberplate of %1 to %2", _unit, _numberplate];
+	diag_log format["CrowsZA-setNumberPlate: Setting numberplate of %1 to %2", _unit, _numberplate];
 
 	//set numberplate
-	[_numberplate, _unit] remoteExec ["crowsZA_fnc_setNumPlate", 0, true]; //2 = server, for all players, With JIP
+	[_numberplate, _unit] remoteExec ["crowsZA_fnc_setNumPlate", 0, true]; //2 = server, 0 == for all players and server, With JIP
 };
 [
 	"Set Numberplate", 
