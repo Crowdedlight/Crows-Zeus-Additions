@@ -7,8 +7,8 @@ Currently including:
 * **Scatter Teleport:** Allows Zeus to select players to teleport to position spread in a pattern. Can include the vic players are inside. Useful for TPing into parachuting while ensuring players are seperated from eachother 
 * **Center Camera on Unit:** Right click a unit and select this option, and the zeus camera will continously center on the unit even while moving. Is handy for following moving targets while finding the module or setting you need.
 * **Inflict ACE Medical damage:** with selection of limb, damage-type and damage. (Useful for medic training of specific wounds. Logs dmg and target in RPT log files when used)
-* **Remove trees:** Remove trees in an distance from position. Works globally and should work for JIP. Removes collision of removed objects
-* **Restore trees:** Restores trees previously removed in an distance from the clicked position.
+* **Remove trees:** Remove trees/bushes/stones in an distance from position. Works globally and should work for JIP. Removes collision of removed objects.
+* **Restore trees:** Restores trees/bushes/stones previously removed in an distance from the clicked position.
 * **Animal Follower:** Spawns an animal that follows the selected player around
 * **Delete All Spawned Animal Followers:** Deletes all animals spawned with **Animal Follower** module. For easy cleanup.
 * **Set Numberplate:** Can set the numberplate of a vehicle
@@ -43,5 +43,5 @@ The following has been tested on dedicated server:
 ...  
 
 ## Contributors
-Crowdedlight
-Windwalker
+Crowdedlight (Main Author)  
+Windwalker  

@@ -19,7 +19,9 @@ private _onConfirm =
 		"_selection",
 		"_offset",
 		"_altitude",
-		"_includeVehicles"
+		"_includeVehicles",
+		"_tpPattern",
+		"_tpDirection"
 	];
 	//Get in params again
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
@@ -69,11 +71,11 @@ private _onConfirm =
 		_selectArray = _selectArray apply {vehicle _x}; //if in vic, gets the vic instead
 		_selectArray = _selectArray arrayIntersect _selectArray; //removes duplicates
 	} else {
-		_selectArray = _selectArray select { isNull objectParent _x };
+		_selectArray = _selectArray select { isNull objectParent _x }; //removes units inside vehicles
 	};
 
 	//Run teleport script
-	[_targetPos, _filteredArray, _offset, _altitude] call crowsZA_fnc_scatterTeleport;
+	[_targetPos, _selectArray, _offset, _altitude, _tpPattern, _tpDirection] call crowsZA_fnc_scatterTeleport;
 };
 [
 	"Scatter Teleport Players", 
@@ -81,7 +83,9 @@ private _onConfirm =
 		["OWNERS","Units to TP",[[],[],[],1]], //no preselected defaults, and default tab open is groups.
 		["SLIDER","Distance Between Players [m]",[5,500,15,0]], //5 to 500, default 15 and showing 0 decimal. (Don't allow teleport with 0 seperation, use normal TP for that...)
 		["SLIDER","Altitude Above Ground [m]",[0,10000,1000,0]], //0 to 10km, default 1km and showing 0 decimal
-		["TOOLBOX:YESNO", ["Include Vehicles", "Teleports vehicles if selected player is crew"], false]
+		["TOOLBOX:YESNO", ["Include Vehicles", "Teleports vehicles if selected player is crew"], false],
+		["COMBO",["TP Pattern", "What pattern the units should be teleported as"],[["outward_spiral", "line"], ["Outward Spiral", "Line"],0]],
+		["COMBO",["Direction (If LinePattern)", "The direction the line grows"],[["north", "north_east", "north_west", "east", "south", "south_east", "south_west", "west"], ["North", "North East", "North West", "East", "South", "South East", "South West", "West"],0]]
 	],
 	_onConfirm,
 	{},

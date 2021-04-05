@@ -23,11 +23,15 @@ private _onConfirm =
 	_null = [] spawn {
 		{
 			//only delete if not inside vic. As deleteVehicle cause issues if deleting units inside an vic. 
-			// Arma suggest to use deleteVehicleCrew for this case, however for now we want to clean up vics ourselves
 			if (vehicle player == player) then {
 				deleteVehicle _x; 
 				sleep 0.01; 
 			};
+			//todo future, if we want.
+			//clean up vehicle crews first, if we include wrecks 
+			// private _vic = _x;
+			// { _vic deleteVehicleCrew _x } forEach crew _vic;
+			// deleteVehicle _vic;
 		} foreach allDeadMen;
 	}
 };

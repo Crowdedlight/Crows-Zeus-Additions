@@ -11,7 +11,7 @@ OBS. for now, if vehicles are not included and a mounted player is selected for 
 Could in future add so if player is mounted it "dismount" first then TP.
 
 *///////////////////////////////////////////////
-params ["_targetPos", "_players", "_playerOffset", "_targetAltitude"];
+params ["_targetPos", "_players", "_playerOffset", "_targetAltitude", "_tpPattern", "_tpDirection"];
 
 // validation of inputs, we need at least some players and none of the paramteres can be null
 if ((count _targetPos) > 3) exitWith { diag_log "CrowsZA-ScatterTeleport: position for TP target can not be null"};
@@ -20,7 +20,28 @@ if (typename _playerOffset != "SCALAR") exitWith { diag_log "CrowsZA-ScatterTele
 if (typename _targetAltitude != "SCALAR") exitWith { diag_log "CrowsZA-ScatterTeleport: should always get a altitude which is a scalar, we didn't.... indicates internal script error"};
 
 // get array of TP positions, split into own file for future support of different "shapes"/patterns
-private _tpArray = [_targetPos, count _players, _playerOffset, _targetAltitude] call crowsZA_fnc_scatterPatternOutwardSpiral;
+private _tpArray = [];
+switch (_tpPattern) do 
+{
+	case "outward_spiral":
+	{
+		//calculate spots with outward spiral
+		_tpArray = [_targetPos, count _players, _playerOffset, _targetAltitude] call crowsZA_fnc_scatterPatternOutwardSpiral;
+	};
+	case "line":
+	{
+		//calculate with line
+		_tpArray = [_targetPos, count _players, _playerOffset, _targetAltitude, _tpDirection] call crowsZA_fnc_scatterPatternLine;
+	};
+	default 
+	{
+		//no argument found, so we failed... log and stop execution
+		diag_log "CrowsZA-ScatterTeleport: No valid pattern was given for teleport";
+		exit;
+	};
+};
+
+diag_log _tpArray;
 
 //TODO should probably validate that we are not beyond limits with selected position calculations. X, Y and Z are limited to values between -50km and +500km in arma 3. 
 //  if we are outside that interval with any position, we should call pattern generation again, but shifted center position away from edge
