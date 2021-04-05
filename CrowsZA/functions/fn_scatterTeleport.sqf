@@ -41,8 +41,6 @@ switch (_tpPattern) do
 	};
 };
 
-diag_log _tpArray;
-
 //TODO should probably validate that we are not beyond limits with selected position calculations. X, Y and Z are limited to values between -50km and +500km in arma 3. 
 //  if we are outside that interval with any position, we should call pattern generation again, but shifted center position away from edge
 
@@ -51,11 +49,8 @@ diag_log _tpArray;
 	//reset velocity 
 	_x setvelocity [0,0,0];
 
-	//set position, use setPos or setVehiclePosition depending on type
-	if (_x isKindOf "CAManBase") then {
-		_x setPos (_tpArray select _forEachIndex);
-	} else {
-		_x setVehiclePosition [(_tpArray select _forEachIndex), [], 0, "CAN_COLLIDE"];
-	};
+	//set position, use setPos for vics too as setVehiclePosition doesn't allow altitude setting
+	_x setPos (_tpArray select _forEachIndex);
+
 }
 forEach _players;

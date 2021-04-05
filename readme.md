@@ -45,6 +45,9 @@ All logging made to the .RPT file will start with ``CrowsZA-module:`` where the 
 Crowdedlight (Main Author)  
 Windwalker  
 
+### License
+Crows Zeus Additions is licensed under the GPL-3.0 license.
+
 ## Instructions
 This section provides a description with an image of each functionality. It can also explain how to use it, or what to be mindful of when using it.   
 Windwalker has made some nice videos showing some of the functionality at: https://www.youtube.com/playlist?list=PLhmLsanXHDRBU_XAcYTBPyXzzsNTwY2b1 
@@ -53,6 +56,8 @@ Windwalker has made some nice videos showing some of the functionality at: https
 A teleport function that teleport selected groups/sides/players to the selected position but in a pattern with a configurable distance between each unit and the possibility to set the height over terrain. This is useful for mass-teleport units into the air for "parachute insertion" while ensuring a safe distance between each unit and no collision happens. It includes the option to teleport vehicles aswell.   
 If teleporting vehicles the crew gets teleported together with it.   
 If not teleporting vehicles, it will not teleport any units selected that is inside a vehicle. As that can cause ghost/dsync behaviour. So make sure the infantry you want to teleport is not mounted in vehicles.   
+**OBS: All selections in the three tabs counts not just the current one showing. That means that if you select side and a group or player, the group/player and all units belong to the said will be teleported. Remember to change selection between different teleports. The unselect all button is handy here**  
+
 ![image](https://user-images.githubusercontent.com/7889925/113602132-89de7e80-9642-11eb-9f88-95068547a6c0.png)  
 ![image](https://user-images.githubusercontent.com/7889925/113602158-91058c80-9642-11eb-82c1-688794e799b3.png)
 
@@ -63,7 +68,9 @@ It can help in cases where you need to ensure you keep a moving unit within the 
 ![image](https://user-images.githubusercontent.com/7889925/113602114-80edad00-9642-11eb-8fcc-6425d1af258a.png)
 
 ### Inflict ACE Medical damage
-A module that inflicts the configured damage to the selected units limb with the projectile type and damage set. Can be used to artificial apply specific damages to units for roleplay or as a tool for medic training. Every time a zeus uses this module the damage, projectile type, limb and unit it applies to is logged to the servers .RPT file in the format of: ``"CrowsZA-AceDamage: Zeus applying %1 dmg to %2 limb with type %3 on unit %4"``
+A module that inflicts the configured damage to the selected units limb with the projectile type and damage set. Can be used to artificial apply specific damages to units for roleplay or as a tool for medic training. Every time a zeus uses this module the damage, projectile type, limb and unit it applies to is logged to the servers .RPT file in the format of: ``"CrowsZA-AceDamage: Zeus applying %1 dmg to %2 limb with type %3 on unit %4"``    
+**OBS: It does not respect ``invincible`` status and still inflicts the damage.**    
+
 ![image](https://user-images.githubusercontent.com/7889925/113601958-513ea500-9642-11eb-8285-f3e6e9917680.png)  
 
 
@@ -80,7 +87,8 @@ The reverse of the removal of trees, this module is identical and just shows the
 
 
 ### Animal Follower
-Spawn simple AI animals that follow the unit they are spawned on. Multiple animals can be spawned in one go. They persists until they die. Due to simple AI pathfinding they can sometimes run abit around and not go direct to the player. 
+Spawn simple AI animals that follow the unit they are spawned on. Multiple animals can be spawned in one go. They persists until they die. Due to simple AI pathfinding they can sometimes run abit around and not go direct to the player.   
+
 ![image](https://user-images.githubusercontent.com/7889925/113602201-9ebb1200-9642-11eb-804a-9d4e2f1d0c91.png) 
 
 ### Delete All Spawned Animal Followers
