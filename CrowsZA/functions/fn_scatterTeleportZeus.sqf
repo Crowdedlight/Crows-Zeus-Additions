@@ -80,7 +80,7 @@ private _onConfirm =
 		["SLIDER","Distance Between Players [m]",[5,500,15,0]], //5 to 500, default 15 and showing 0 decimal. (Don't allow teleport with 0 seperation, use normal TP for that...)
 		["SLIDER","Altitude Above Ground [m]",[0,10000,1000,0]], //0 to 10km, default 1km and showing 0 decimal
 		["TOOLBOX:YESNO", ["Include Vehicles", "Teleports vehicles if selected player is crew"], false],
-		["COMBO",["TP Pattern", "What pattern the units should be teleported as"],[["outward_spiral", "line"], ["Outward Spiral", "Line"],0]],
+		["COMBO",["TP Pattern", "What pattern the units should be teleported as"],[["outward_spiral", "line", "odd"], ["Outward Spiral", "Line", "P Pattern"],0]],
 		["COMBO",["Direction (If LinePattern)", "The direction the line grows"],[["north", "north_east", "north_west", "east", "south", "south_east", "south_west", "west"], ["North", "North East", "North West", "East", "South", "South East", "South West", "West"],0]]
 	],
 	_onConfirm,
