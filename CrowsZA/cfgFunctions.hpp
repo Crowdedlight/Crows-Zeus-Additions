@@ -23,6 +23,7 @@ class CrowsZA_addon
 
 		class scatterPatternOutwardSpiral {};
 		class scatterPatternLine {};
+		class scatterPatternOddPattern {};
 
 		// class scatterTeleportWithParachute {};
 		// class scatterTeleportWithParachuteZeus {};
