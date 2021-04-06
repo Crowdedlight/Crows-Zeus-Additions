@@ -34,5 +34,7 @@ class CrowsZA_addon
 		class centerZeusViewUnit {};
 
 		class massSurrender {};
+
+		class spawnArsenal {};
 	};
 };

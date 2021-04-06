@@ -25,6 +25,9 @@ _cam setPos (_camhelp modelToWorld [0, -40, 0]);
 //display 312 == zeus. Can add events like this for possible override of keyboard and mouse
 findDisplay 312 displayAddEventHandler ["KeyDown", "diag_log str _this;"];
 
+//consider just using CBA event handlers... can do keyevents too and we can clean them up afterwards... 
+// https://cbateam.github.io/CBA_A3/docs/files/events/fnc_addKeyHandler-sqf.html
+
 //escape key, 
 16:21:49 "[Display #312,57,false,false,false]"
 
