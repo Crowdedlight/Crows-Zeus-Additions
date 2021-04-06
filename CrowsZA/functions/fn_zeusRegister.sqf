@@ -51,7 +51,8 @@ private _wait = [player] spawn
 		// ["Scatter Teleport With Parachute",{_this call crowsZA_fnc_scatterTeleportWithParachuteZeus}, "\CrowsZA\data\tp_chute.paa"],
 		["Set Numberplate",{_this call crowsZA_fnc_setNumberplate}, "\CrowsZA\data\numberplate.paa"],
 		["Delete ALL dead bodies",{_this call crowsZA_fnc_deleteAllDeadBodies}, "\CrowsZA\data\cleanup.paa"],
-		["Mass-Surrender Toggle",{_this call crowsZA_fnc_massSurrender}, "\z\ace\addons\captives\UI\Surrender_ca.paa"]
+		["Mass-Surrender Toggle",{_this call crowsZA_fnc_massSurrender}, "\z\ace\addons\captives\UI\Surrender_ca.paa"],
+		["Spawn Arsenal",{_this call crowsZA_fnc_spawnArsenal}, "\a3\ui_f\data\logos\a_64_ca.paa"]
 	];
 
 	//registering ZEN custom modules
