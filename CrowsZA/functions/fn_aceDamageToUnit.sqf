@@ -21,10 +21,10 @@ private _fnc_errorAndClose = {
 // check if something is selected and only infantry is selected
 switch (false) do {
     case !(isNull _unit): {
-        ["Nothing Selected for ACE Damage"] call _fnc_errorAndClose;
+        ["CrowsZA-AceDamage: Nothing Selected for ACE Damage"] call _fnc_errorAndClose;
     };
     case (_unit isKindOf "CAManBase"): {
-        ["Only allowed to pick infantry for ACE Damage"] call _fnc_errorAndClose;
+        ["CrowsZA-AceDamage: Only allowed to pick infantry for ACE Damage"] call _fnc_errorAndClose;
     };
 };
 

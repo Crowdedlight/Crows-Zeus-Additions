@@ -45,7 +45,6 @@ private _onConfirm =
 	if (count (_selection select 1) > 0) then
 	{
 		//units works both with group and sides
-		diag_log "Side or group chosen";
 		{
 			_selectArray append (units _x);
 		} forEach (_selection select 1);

@@ -35,7 +35,7 @@ if (_stoneRemoval) then {
 
 // these are the main classes of objects
 if (count _hideMainTypes > 0) then {
-	{ _hideTObjs pushBack _x } foreach (nearestTerrainObjects [_posAGL,_hideMainTypes,_radius]);
+	{ _hideTObjs pushBack _x } foreach (nearestTerrainObjects [_posAGL,_hideMainTypes,_radius, false, true]);
 };
 
 // but there are some other model names (unclassified) that we should clean up too
@@ -46,7 +46,7 @@ if (count _hideMainTypes > 0) then {
 		_hideTObjs pushBack _x;
 	};
 
-} foreach (nearestTerrainObjects [_posAGL,[],_radius]);
+} foreach (nearestTerrainObjects [_posAGL,[],_radius, false, true]);
 
 //log
 diag_log format["crowsZA-restoreTrees: showing %1 objects", count _hideTObjs];

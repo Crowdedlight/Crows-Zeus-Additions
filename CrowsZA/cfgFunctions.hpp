@@ -32,5 +32,9 @@ class CrowsZA_addon
 		class deleteAllDeadBodies {};
 
 		class centerZeusViewUnit {};
+
+		class massSurrender {};
+
+		class spawnArsenal {};
 	};
 };
