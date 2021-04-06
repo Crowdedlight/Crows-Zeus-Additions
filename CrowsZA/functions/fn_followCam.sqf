@@ -42,3 +42,14 @@ onMouseButtonUp = QUOTE(_this call FUNC(onMouseButtonUp));
 onMouseMoving = QUOTE(_this call FUNC(handleMouse));
 onMouseHolding = QUOTE(_this call FUNC(handleMouse));
 onMouseZChanged = QUOTE(_this call FUNC(onMouseZChanged));
+
+// Add camera update handler
+GVAR(camDraw3D) = addMissionEventHandler ["Draw3D", {call FUNC(updateCamera)}];
+
+//update cam event
+[GVAR(camHelper), [GVAR(camYaw) + 180, -GVAR(camPitch), 0]] call BIS_fnc_setObjectRotation;
+GVAR(camHelper) attachTo [GVAR(center), GVAR(helperPos)];
+
+GVAR(camera) setPos (GVAR(camHelper) modelToWorld [0, -GVAR(camDistance), 0]);
+GVAR(camera) setVectorDirAndUp [vectorDir GVAR(camHelper), vectorUp GVAR(camHelper)];
+
