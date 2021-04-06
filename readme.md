@@ -15,6 +15,7 @@ Currently including:
 * **Delete All Spawned Animal Followers:** Deletes all animals spawned with **Animal Follower** module. For easy cleanup.
 * **Set Numberplate:** Can set the numberplate of a vehicle
 * **Delete All Dead Bodies:** A cleanup script that removes all dead bodies that is not inside a vehicle.
+* **Mass Surrender/Captive:** Can select entire sides or players/groups to toggle surrender or captive. 
 
 **Requires Zeus Enhanced (ZEN)**  
 **ACE Medical damage module requires ACE3 Medical**  
@@ -33,16 +34,17 @@ The following has been tested on dedicated server with default settings:
 - [X] Delete All Spawned Animals following 
 - [X] Set Numberplate
 - [X] Delete All Dead Bodies
+- [X] Mass Surrender/Captive
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the log.
 
 ### On todo-list
 - [ ] color texture changer synced on JIP - Can make cars in fancy colours
-- [ ] mass surrender - surrender all on a faction or a group with easy selection
+- [X] mass surrender - surrender all on a faction or a group with easy selection
 - [ ] spawn arsenal - spawns our default boxes, and make it into an ACE arsenal automatically
 - [ ] unit follow view - A further development on the unit-center function but always keep the camera relative to the unit while moving with the default options of rotating when holding right-click and zoom with scroll-wheel.
-- [ ] Move instructions info from readme to wiki
+- [X] Move instructions info from readme to wiki
 
 ### Contributors
 Crowdedlight (Main Author)  
