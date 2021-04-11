@@ -11,9 +11,9 @@ class CfgPatches
 		 };
 		author = "Crowdedlight";
 		authorUrl = "https://forums.bohemia.net/profile/1173289-crowdedlight/";
-		version = 1.1.0;
-		versionStr = "1.1.0";
-		versionAr[] = {1,1,0};
+		version = 1.2.0;
+		versionStr = "1.2.0";
+		versionAr[] = {1,2,0};
 	};
 };
 
