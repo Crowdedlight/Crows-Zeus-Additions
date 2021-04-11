@@ -36,5 +36,7 @@ class CrowsZA_addon
 		class massSurrender {};
 
 		class spawnArsenal {};
+
+		class setColour {};
 	};
 };
