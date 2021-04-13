@@ -38,5 +38,7 @@ class CrowsZA_addon
 		class spawnArsenal {};
 
 		class setColour {};
+
+		class contextPasteLoadout {};
 	};
 };

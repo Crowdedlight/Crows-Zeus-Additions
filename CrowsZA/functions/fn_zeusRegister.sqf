@@ -69,14 +69,19 @@ private _wait = [player] spawn
 
 	private _contextActionList = 
 	[	//Action name, Display name, Icon and Icon colour, code, Condition to show, arguments, dynamic children, modifier functions
-		["camera_center_unit","Camera Center Unit","\CrowsZA\data\camera.paa", {_hoveredEntity call crowsZA_fnc_centerZeusViewUnit}, {!isNull _hoveredEntity}] call zen_context_menu_fnc_createAction
+		[["camera_center_unit","Camera Center Unit","\CrowsZA\data\camera.paa", {_hoveredEntity call crowsZA_fnc_centerZeusViewUnit}, {!isNull _hoveredEntity}] call zen_context_menu_fnc_createAction,
+		 [], 
+		 0],
+		[["paste_loadout_to_inventory","Paste Loadout","\CrowsZA\data\paste.paa", {_hoveredEntity call crowsZA_fnc_contextPasteLoadout}, {!isNil "zen_context_actions_loadout" && !isNull _hoveredEntity}] call zen_context_menu_fnc_createAction,
+		 ["Inventory"], 
+		 0]
 	];
 
 	//register context actions
 	{
 		private _reg = [
 			//action, parent path, priority
-			_x, [], 0
+			(_x select 0), (_x select 1), (_x select 2)
 		] call zen_context_menu_fnc_addAction;
 	} forEach _contextActionList;
 
