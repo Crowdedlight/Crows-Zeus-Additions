@@ -33,27 +33,27 @@ for "_k" from 1 to _amount do {
 	private _tmpJ = 0;
 	
 	switch (_tick) do {
-		case 0:  { _tmpI = _i + 0  	 + 0 	  ;		_tmpJ = _j + 0 +	(10 * _row)};
-		case 1:  { _tmpI = _i + 2    + _offset; 	_tmpJ = _j + 2 + 	(10 * _row)};
-		case 2:  { _tmpI = _i + 4    + _offset; 	_tmpJ = _j + 13 + 	(10 * _row)};
-		case 3:  { _tmpI = _i + 6    + _offset; 	_tmpJ = _j + 2 + 	(10 * _row)};
-		case 4:  { _tmpI = _i + 8    + _offset; 	_tmpJ = _j + 0 + 	(10 * _row)};
-		case 5:  { _tmpI = _i + 10    + _offset; 	_tmpJ = _j + 13 + 	(10 * _row)};
-		case 6:  { _tmpI = _i + 10.2  + _offset; 	_tmpJ = _j + 18 + 	(10 * _row)};
-		case 7:  { _tmpI = _i + 10.6  + _offset; 	_tmpJ = _j + 22 + 	(10 * _row)};
-		case 8:  { _tmpI = _i + 11.2  + _offset; 	_tmpJ = _j + 28 + 	(10 * _row)};
-		case 9:  { _tmpI = _i + 12    + _offset;	_tmpJ = _j + 32 + 	(10 * _row)};
-		case 10: { _tmpI = _i + 13.3  + _offset; 	_tmpJ = _j + 35 + 	(10 * _row)};
-		case 11: { _tmpI = _i + 14.8  + _offset; 	_tmpJ = _j + 32 + 	(10 * _row)};
-		case 12: { _tmpI = _i + 15.6  + _offset; 	_tmpJ = _j + 28 + 	(10 * _row)};
-		case 13: { _tmpI = _i + 16.2  + _offset; 	_tmpJ = _j + 22 + 	(10 * _row)};
-		case 14: { _tmpI = _i + 16.6  + _offset; 	_tmpJ = _j + 18 + 	(10 * _row)};
-		case 15: { _tmpI = _i + 16.8  + _offset; 	_tmpJ = _j + 13 + 	(10 * _row)};
-		case 16: { _tmpI = _i + 18.8  + _offset; 	_tmpJ = _j + 0 + 	(10 * _row)};
-		case 17: { _tmpI = _i + 20.8 + _offset; 	_tmpJ = _j + 2 + 	(10 * _row)};
-		case 18: { _tmpI = _i + 22.8 + _offset; 	_tmpJ = _j + 13 + 	(10 * _row)};
-		case 19: { _tmpI = _i + 24.8 + _offset; 	_tmpJ = _j + 2 + 	(10 * _row)};
-		case 20: { _tmpI = _i + 26.8 + _offset; 	_tmpJ = _j + 0 + 	(10 * _row);  _row = _row + 1 };
+		case 0:  { _tmpI = _i + 0  	 + 0 	  ;			_tmpJ = _j + 0 	+					(10 * _row)};
+		case 1:  { _tmpI = _i + 2    + _offset; 		_tmpJ = _j + 2 	+  _offset 	   	+	(10 * _row)};
+		case 2:  { _tmpI = _i + 4    + _offset * 2; 	_tmpJ = _j + 13 +  _offset * 2 	+	(10 * _row)};
+		case 3:  { _tmpI = _i + 6    + _offset * 3; 	_tmpJ = _j + 2	+  _offset     	+	(10 * _row)};
+		case 4:  { _tmpI = _i + 8    + _offset * 4; 	_tmpJ = _j + 0 	+					(10 * _row)};
+		case 5:  { _tmpI = _i + 10    + _offset * 5; 	_tmpJ = _j + 13 +  _offset * 2 	+	(10 * _row)};
+		case 6:  { _tmpI = _i + 10.2  + _offset * 6; 	_tmpJ = _j + 18 +  _offset * 3 	+	(10 * _row)};
+		case 7:  { _tmpI = _i + 10.6  + _offset * 7; 	_tmpJ = _j + 22 +  _offset * 4 	+	(10 * _row)};
+		case 8:  { _tmpI = _i + 11.2  + _offset * 8; 	_tmpJ = _j + 28 +  _offset * 5 	+	(10 * _row)};
+		case 9:  { _tmpI = _i + 12    + _offset * 9;	_tmpJ = _j + 32 +  _offset * 6 	+	(10 * _row)};
+		case 10: { _tmpI = _i + 13.3  + _offset * 10; 	_tmpJ = _j + 35 +  _offset * 7 	+	(10 * _row)};
+		case 11: { _tmpI = _i + 14.8  + _offset * 11; 	_tmpJ = _j + 32 +  _offset * 6 	+	(10 * _row)};
+		case 12: { _tmpI = _i + 15.6  + _offset * 12; 	_tmpJ = _j + 28 +  _offset * 5 	+	(10 * _row)};
+		case 13: { _tmpI = _i + 16.2  + _offset * 13; 	_tmpJ = _j + 22 +  _offset * 4 	+	(10 * _row)};
+		case 14: { _tmpI = _i + 16.6  + _offset * 14; 	_tmpJ = _j + 18 +  _offset * 3 	+	(10 * _row)};
+		case 15: { _tmpI = _i + 16.8  + _offset * 15; 	_tmpJ = _j + 13 +  _offset * 2 	+	(10 * _row)};
+		case 16: { _tmpI = _i + 18.8  + _offset * 16; 	_tmpJ = _j + 0 	+					(10 * _row)};
+		case 17: { _tmpI = _i + 20.8 + _offset * 17; 	_tmpJ = _j + 2 	+  _offset  	+	(10 * _row)};
+		case 18: { _tmpI = _i + 22.8 + _offset * 18; 	_tmpJ = _j + 13 +  _offset * 2 	+	(10 * _row)};
+		case 19: { _tmpI = _i + 24.8 + _offset * 19; 	_tmpJ = _j + 2 	+  _offset  	+	(10 * _row)};
+		case 20: { _tmpI = _i + 26.8 + _offset * 20; 	_tmpJ = _j + 0 	+   				(10 * _row);  _row = _row + 1 };
 		default {  };
 	};
 	
