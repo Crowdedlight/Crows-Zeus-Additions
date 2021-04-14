@@ -1,3 +1,8 @@
+//imports & defines
+#include "common_defines.hpp"
+//loadout gui include
+#include "ui\loadoutGui.hpp"
+
 class CfgPatches
 {
 	class CrowsZA
