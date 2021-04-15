@@ -20,6 +20,7 @@ Currently including:
 * **Set Colour:** Sets the colour of the target. For vehicles with multiple textures you can select which texture. Also has a reset checkbox to reset to originally texture
 * **Paste Loadout into Inventory:** When using the Zeus Enhanced "copy loadout" context menu, you get a new option when right-clicking a vehicle or box and under "inventory" you can select "paste loadout" which will paste that units loadout into the inventory if there is enough space. 
 * **Unit Loadout Viewer:** Quickly See Loadout of Unit without going into full arsenal. A right-click menu to see unit loadout without loading a full arsenal.  
+* **Capture Player:** Easily capture the unit it is used on. It does a full zeus heal on the unit, set them captive, and removes weapons and radio and place it inside a box next to them.
 
 **Requires Zeus Enhanced (ZEN)**  
 **ACE Medical damage module requires ACE3 Medical**  
@@ -42,7 +43,8 @@ The following has been tested on dedicated server with default settings:
 - [X] Spawn Arsenal
 - [X] Set Colour
 - [X] Paste Loadout into inventory
-- [X] Quickly See Load of unit without going into arsenal. 
+- [X] Quickly See Load of unit without going into arsenal 
+- [X] Capture Player  
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the log.
