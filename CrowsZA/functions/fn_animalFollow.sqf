@@ -8,7 +8,7 @@ Return: none
 Creates an animal that follows the source while it is alive
 
 *///////////////////////////////////////////////
-params ["_animalType", "_src", "_amount"];
+params ["_animalType", "_src", "_amount", "_invincible"];
 private["_animalClassname"]; 
 
 // set correct class names
@@ -23,6 +23,11 @@ for "_x" from 1 to _amount do {
 	// spawn animal
 	_animal = createAgent [_animalClassname, getPos _src, [], 5, "CAN_COLLIDE"]; 
 	_animal setVariable ["BIS_fnc_animalBehaviour_disable", true]; 
+
+	//set invincible if param is chosen 
+	if (_invincible) then {
+		_animal allowDamage false;
+	};
 
 	//save animal to public var
 	crowsZA_animalFollowList pushback _animal;
