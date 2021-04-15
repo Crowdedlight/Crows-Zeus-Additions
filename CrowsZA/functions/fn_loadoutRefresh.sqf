@@ -1,3 +1,4 @@
+#include "common_defines.hpp"
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
@@ -19,19 +20,21 @@ lnbClear _ctrlList;
 private _unit = _display getVariable "crowsZA_loadout_viewer_unit";
 private _loadoutArr = getUnitLoadout _unit;
 
+diag_log _loadoutArr;
+
 // Update weight number
 private _weightABS = (loadAbs _unit) * 0.1;
 private _weightKG = (round (_weightABS * (1/2.2046) * 100)) / 100;
 
 private _ctrlWeight = _display displayCtrl IDC_WEIGHT;
-_ctrlWeight ctrlSetText toUpper format ["%1kg", _weightKG];
+_ctrlWeight ctrlSetText format ["Weight: %1kg", _weightKG];
 
 //make array for loadout list in format [[type, item, amount, [attachments if weapon]], [type, item, amount, [attachments if weapon]]...]
 private _list = [];
 
 //main wep, secondary, handgun
 private _weapons = (_loadoutArr select [0, 3]) + [_loadoutArr select 8];
-private _containers = _loadoutArr select [2,3]; //3,4,5 == uniform, vest and backpack 
+private _containers = _loadoutArr select [3,3]; //3,4,5 == uniform, vest and backpack 
 private _helmet = _loadoutArr select 6;
 private _facewear = _loadoutArr select 7;
 private _items = _loadoutArr select 9;
@@ -63,36 +66,63 @@ crowsZA_loadout_addOrIncrement = {
 
 //handle weapons, for now we don't show accessorys, so just add weapons
 {
-    if (isNil "_x") then {continue};
+    if (isNil "_x" || count _x < 1) then {continue};
     //_x == ["main weapon", "silencer", "pointer", "optic", ["loaded primary mag", ammo count], ["loaded secoundary mag", ammo count], "bipod"]
     private _mainWep = _x select 0;
     //add to list 
     [TYPE_WEAPON, _mainWep, 1, _list] call crowsZA_loadout_addOrIncrement;
 } forEach _weapons;
 
-//containers 
-{
-    if (isNil "_x") then {continue};
-
-} forEach _containers;
-
 //helmet 
-[TYPE_ITEM, _helmet, 1, _list] call crowsZA_loadout_addOrIncrement;
+if (_helmet != "") then {[TYPE_ITEM, _helmet, 1, _list] call crowsZA_loadout_addOrIncrement};
 
 //facewear
-[TYPE_ITEM, _helmet, 1, _list] call crowsZA_loadout_addOrIncrement;
+if (_facewear != "") then {[TYPE_ITEM, _facewear, 1, _list] call crowsZA_loadout_addOrIncrement};
+
+//adding containers here instead of in loop, to make the loadout show in format of weapons, headgear, facewear, containers, items
+//uniform
+private _uniform = (_containers select 0); 
+if (!isNil "_uniform" && count _uniform > 0) then {[TYPE_CONTAINER, (_uniform select 0), 1, _list] call crowsZA_loadout_addOrIncrement};
+    
+//vest
+private _vest = (_containers select 1); 
+if (!isNil "_vest" && count _vest > 0) then {[TYPE_CONTAINER, (_vest select 0), 1, _list] call crowsZA_loadout_addOrIncrement};
+
+//backpack
+private _backpack = (_containers select 2); 
+if (!isNil "_backpack" && count _backpack > 0) then {[TYPE_CONTAINER, (_backpack select 0), 1, _list] call crowsZA_loadout_addOrIncrement};
+
+//containers 
+diag_log "_containers";
+diag_log _containers;
+{
+    if (isNil "_x" || count _x < 1) then {continue};
+
+    diag_log "single container array";
+    diag_log _x;
+
+    //iterate the container and add items
+    {
+        //_x = ["30Rnd_65x39_caseless_mag", 3, 30], or ["FirstAidKit", 1]
+        // as both item and magazines has the amount as param 1, we can ignore the ones with an extra param and deal with all identically
+        diag_log "item in container array";
+        diag_log _x;
+        [TYPE_ITEM, (_x select 0), (_x select 1), _list] call crowsZA_loadout_addOrIncrement;
+    } forEach (_x select 1);
+} forEach _containers;
 
 //items
 {
-    if (isNil "_x") then {continue};
+    if (isNil "_x" || _x == "") then {continue};
     [TYPE_ITEM, _x, 1, _list] call crowsZA_loadout_addOrIncrement;
 } forEach _items;
 
+diag_log _list;
 
 //loop our array and add to list - TODO handle weapon cases and show attachments or something
 // _list = [[type, item, amount, [attachments if weapon]],...]
 {
-    private _mainItem = _x select 0;
+    private _mainItem = _x select 1;
 
     private _config = [_mainItem] call CBA_fnc_getItemConfig;
     private _name = getText (_config >> "displayName");
@@ -116,15 +146,6 @@ crowsZA_loadout_addOrIncrement = {
         _ctrlList lnbSetData    [[_index, 0], _mainItem];
     // };
 } forEach _list;
-
-
-
-
-
-
-
-
-
 
 // test funciton 
 // private _arr = [];
@@ -167,6 +188,3 @@ crowsZA_loadout_addOrIncrement = {
 
 
 
-// Refresh the list's sorting
-private _ctrlSorting = _display displayCtrl IDC_SORTING;
-_ctrlSorting lnbSetCurSelRow -1;

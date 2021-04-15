@@ -12,7 +12,7 @@ class RscControlsGroupNoScrollbars;
 class crowsZA_loadout_display {
     idd = -1;
     movingEnable = 1;
-    onLoad = (uiNamespace setVariable ["crowsZA_loadout_display",_this select 0]);
+    onLoad = "uiNamespace setVariable ['crowsZA_loadout_display',_this select 0];";
     class controls {
         class Title: RscText {
             idc = IDC_TITLE;
@@ -21,6 +21,7 @@ class crowsZA_loadout_display {
             h = POS_H(1);
             colorBackground[] = GUI_THEME_COLOR;
             moving = 1;
+            text = "test";
         };
         class Background: RscText {
             idc = IDC_BACKGROUND;
@@ -30,7 +31,7 @@ class crowsZA_loadout_display {
         };
         class Content: RscControlsGroupNoScrollbars {
             idc = IDC_CONTENT;
-            h = POS_H(13/3 + 15.3);
+            h = POS_H(15.3);
             x = POS_X(7);
             w = POS_W(26);
             class controls {
@@ -41,30 +42,56 @@ class crowsZA_loadout_display {
                     _config = configHierarchy _config select 1; \
                     _display setVariable [ARR_2(QQGVAR(config),_config)]; \ */
                 //);
-                class Sorting: ctrlListNBox {
-                    idc = IDC_SORTING;
+                // class Sorting: ctrlListNBox {
+                //     idc = IDC_SORTING;
+                //     x = 0;
+                //     y = 0;
+                //     w = POS_W(26);
+                //     h = POS_H(1);
+                //     disableOverflow = 1;
+                //     columns[] = {0, 0.8};
+                //     colorSelect[] = {0, 0, 0, 0.7}; //hack for now to not allow selection
+                //     class Items {
+                //         class Name {
+                //             text = "Name";
+                //             value = 1;
+                //         };
+                //         class Amount {
+                //             text = "Amount";
+                //             data = "value";
+                //         };
+                //     };
+                // };
+                //item - amount coloumns
+                class HeadlineBackground: RscText {
+                    idc = -1;
+                    style = ST_CENTER;
                     x = 0;
                     y = 0;
                     w = POS_W(26);
                     h = POS_H(1);
-                    disableOverflow = 1;
-                    columns[] = {0, 0.8};
-                    class Items {
-                        class Name {
-                            text = "Name";
-                            value = 1;
-                        };
-                        class Amount {
-                            text = "Amount";
-                            data = "value";
-                        };
-                    };
+                    colorBackground[] = {0, 0, 0, 0.5};
                 };
-                class RscBackground: RscText {
+                class TitleName: RscText {
+                    idc = -1;
+                    x = POS_W(1);
+                    y = 0;
+                    w = POS_W(4);
+                    h = POS_H(1);
+                    text = "Name";
+                };
+                class TitleAmount: RscText {
+                    idc = -1;
+                    x = POS_W(20.8);
+                    w = POS_W(4);
+                    h = POS_H(1);
+                    text = "Amount";
+                };                
+                class ListBackground: RscText {
                     idc = -1;
                     style = ST_CENTER;
                     x = 0;
-                    y = POS_H(13/3 + 1);
+                    y = POS_H(1);
                     w = POS_W(26);
                     h = POS_H(13);
                     colorText[] = {1, 1, 1, 0.5};
@@ -75,7 +102,7 @@ class crowsZA_loadout_display {
                     idcLeft = IDC_BTN_REMOVE;
                     idcRight = IDC_BTN_ADD;
                     x = 0;
-                    y = POS_H(13/3 + 1);
+                    y = POS_H(1);
                     w = POS_W(26);
                     h = POS_H(13);
                     drawSideArrows = 1;
@@ -83,26 +110,27 @@ class crowsZA_loadout_display {
                     tooltipPerColumn = 0;
                     columns[] = {0.05, 0.15, 0.8};
                 };
-                class ButtonRemove: ctrlButton {
-                    idc = IDC_BTN_REMOVE;
-                    text = "−";
-                    font = "RobotoCondensedBold";
-                    x = -1;
-                    y = -1;
-                    w = POS_W(1);
-                    h = POS_H(1);
-                    sizeEx = POS_H(1.2);
-                };
-                class ButtonAdd: ButtonRemove {
-                    idc = IDC_BTN_ADD;
-                    text = "+";
-                };
+                // only viewing, no editing
+                // class ButtonRemove: ctrlButton {
+                //     idc = IDC_BTN_REMOVE;
+                //     text = "−";
+                //     font = "RobotoCondensedBold";
+                //     x = -1;
+                //     y = -1;
+                //     w = POS_W(1);
+                //     h = POS_H(1);
+                //     sizeEx = POS_H(1.2);
+                // };
+                // class ButtonAdd: ButtonRemove {
+                //     idc = IDC_BTN_ADD;
+                //     text = "+";
+                // };
                 class ButtonSearch: ctrlButtonPicture {
                     idc = IDC_BTN_SEARCH;
                     text = "\a3\Ui_f\data\GUI\RscCommon\RscButtonSearch\search_start_ca.paa";
                     tooltip = "Search for specific item";
                     x = 0;
-                    y = POS_H(13/3 + 14.3);
+                    y = POS_H(14.3);
                     w = POS_W(1);
                     h = POS_H(1);
                     colorBackground[] = {0, 0, 0, 0.5};
@@ -111,7 +139,7 @@ class crowsZA_loadout_display {
                 class SearchBar: RscEdit {
                     idc = IDC_SEARCH_BAR;
                     x = POS_W(1.2);
-                    y = POS_H(13/3 + 14.3);
+                    y = POS_H(14.3);
                     w = POS_W(8);
                     h = POS_H(1);
                     sizeEx = POS_H(0.9);
@@ -120,26 +148,11 @@ class crowsZA_loadout_display {
                 };
                 class weightNumber : RscText {
                     idc = IDC_WEIGHT;
-                    x = POS_W(25);
-                    y = POS_H(13/3 + 14.3);
-                    w = POS_W(1);
+                    x = POS_W(21);
+                    y = POS_H(14.3);
+                    w = POS_W(6);
                     h = POS_H(1);
                 };
-                // class Load: ctrlProgress {
-                //     idc = IDC_LOAD_BAR;
-                //     x = POS_W(14.4 + 3.6);
-                //     y = POS_H(13/3 + 14.4);
-                //     w = POS_W(8);
-                //     h = POS_H(0.8);
-                //     colorFrame[] = {1, 1, 1, 1};
-                // };
-                //TODO should figure out how to show attachments to weapons...
-                // class ButtonWeapon: ButtonSearch {
-                //     idc = IDC_BTN_WEAPON;
-                //     text = "\a3\3den\data\displays\display3den\entitymenu\arsenal_ca.paa";
-                //     tooltip = CSTRING(Weapon_Tooltip);
-                //     x = POS_W(22.6);
-                // };
             };
         };
         class ButtonOK: RscButtonMenuOK {

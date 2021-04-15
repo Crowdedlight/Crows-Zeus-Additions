@@ -19,23 +19,24 @@
 //colour defines 
 #define COLOR_BACKGROUND_SETTING {1,1,1,0.1}
 
-//IDC for the gui
+//IDC for the gui - Cannot change this as the initial display pos from ZEN depends on the same three defines
 #define IDC_TITLE 10
 #define IDC_BACKGROUND 20
 #define IDC_CONTENT 30
 
-#define IDC_SORTING    1501
-#define IDC_LIST       1503
-#define IDC_BTN_REMOVE 1504
-#define IDC_BTN_ADD    1505
-#define IDC_BTN_SEARCH 1506
-#define IDC_SEARCH_BAR 1507
-#define IDC_WEIGHT	   1508
+// #define IDC_TITLE_NAME 		1540
+// #define IDC_TITLE_AMOUNT 	1541
+// #define IDC_SORTING    		1501
+#define IDC_LIST       		1543
+// #define IDC_BTN_REMOVE 		1544
+// #define IDC_BTN_ADD    		1545
+#define IDC_BTN_SEARCH 		1546
+#define IDC_SEARCH_BAR 		1547
+#define IDC_WEIGHT	   		1548
 
 // #define IDC_BTN_WEAPON 1509
 
 //array types
 #define TYPE_WEAPON "weapon"
-#define TYPE_MAGAZINE "magazine"
 #define TYPE_CONTAINER "container"
 #define TYPE_ITEM "item"
