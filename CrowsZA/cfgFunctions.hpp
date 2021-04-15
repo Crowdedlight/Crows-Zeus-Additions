@@ -40,5 +40,8 @@ class CrowsZA_addon
 		class setColour {};
 
 		class contextPasteLoadout {};
+		
+		class loadoutViewer {};
+		class loadoutRefresh {};
 	};
 };
