@@ -35,33 +35,6 @@ class crowsZA_loadout_display {
             x = POS_X(7);
             w = POS_W(26);
             class controls {
-                /* Store the display's config, onLoad event for displays is not passed the config
-                onLoad = QUOTE( \
-                    params [ARR_2('_control','_config')]; \
-                    private _display = ctrlParent _control; \
-                    _config = configHierarchy _config select 1; \
-                    _display setVariable [ARR_2(QQGVAR(config),_config)]; \ */
-                //);
-                // class Sorting: ctrlListNBox {
-                //     idc = IDC_SORTING;
-                //     x = 0;
-                //     y = 0;
-                //     w = POS_W(26);
-                //     h = POS_H(1);
-                //     disableOverflow = 1;
-                //     columns[] = {0, 0.8};
-                //     colorSelect[] = {0, 0, 0, 0.7}; //hack for now to not allow selection
-                //     class Items {
-                //         class Name {
-                //             text = "Name";
-                //             value = 1;
-                //         };
-                //         class Amount {
-                //             text = "Amount";
-                //             data = "value";
-                //         };
-                //     };
-                // };
                 //item - amount coloumns
                 class HeadlineBackground: RscText {
                     idc = -1;
@@ -99,53 +72,22 @@ class crowsZA_loadout_display {
                 };
                 class List: ctrlListNBox {
                     idc = IDC_LIST;
-                    idcLeft = IDC_BTN_REMOVE;
-                    idcRight = IDC_BTN_ADD;
                     x = 0;
                     y = POS_H(1);
                     w = POS_W(26);
                     h = POS_H(13);
-                    drawSideArrows = 1;
+                    drawSideArrows = 0;
                     disableOverflow = 1;
                     tooltipPerColumn = 0;
                     columns[] = {0.05, 0.15, 0.8};
                 };
-                // only viewing, no editing
-                // class ButtonRemove: ctrlButton {
-                //     idc = IDC_BTN_REMOVE;
-                //     text = "−";
-                //     font = "RobotoCondensedBold";
-                //     x = -1;
-                //     y = -1;
-                //     w = POS_W(1);
-                //     h = POS_H(1);
-                //     sizeEx = POS_H(1.2);
-                // };
-                // class ButtonAdd: ButtonRemove {
-                //     idc = IDC_BTN_ADD;
-                //     text = "+";
-                // };
-                class ButtonSearch: ctrlButtonPicture {
-                    idc = IDC_BTN_SEARCH;
-                    text = "\a3\Ui_f\data\GUI\RscCommon\RscButtonSearch\search_start_ca.paa";
-                    tooltip = "Search for specific item";
+                class TitleGroup: RscText {
+                    idc = IDC_TITLE_GROUP;
                     x = 0;
                     y = POS_H(14.3);
-                    w = POS_W(1);
+                    w = POS_W(10);
                     h = POS_H(1);
-                    colorBackground[] = {0, 0, 0, 0.5};
-                };
-                //maybe delete... hardly used when using it on unit/player
-                class SearchBar: RscEdit {
-                    idc = IDC_SEARCH_BAR;
-                    x = POS_W(1.2);
-                    y = POS_H(14.3);
-                    w = POS_W(8);
-                    h = POS_H(1);
-                    sizeEx = POS_H(0.9);
-                    colorText[] = {1, 1, 1, 1};
-                    colorBackground[] = {0, 0, 0, 0.2};
-                };
+                };   
                 class weightNumber : RscText {
                     idc = IDC_WEIGHT;
                     x = POS_W(21);

@@ -25,45 +25,16 @@ _display setVariable ["crowsZA_loadout_viewer_unit", _entity];
 
 //get common info, weight, name etc.
 private _displayName = name _entity;
+private _groupName = groupId (group _entity);
+private _groupLeader = leader group _entity;
 
 // Set the display's title to the object name
 private _ctrlTitle = _display displayCtrl IDC_TITLE;
 _ctrlTitle ctrlSetText toUpper format ["Loadout - %1", _displayName];
 
-// Refresh the items list when the search field changes
-// private _ctrlSearchBar = _display displayCtrl IDC_SEARCH_BAR;
-// _ctrlSearchBar ctrlAddEventHandler ["KeyUp", {
-//     params ["_ctrlSearchBar"];
-
-//     private _display = ctrlParent _ctrlSearchBar;
-//     [_display] call FUNC(refresh);
-// }];
-
-// Clear search when the search bar is right clicked
-// _ctrlSearchBar ctrlAddEventHandler ["MouseButtonClick", {
-//     params ["_ctrlSearchBar", "_button"];
-
-//     if (_button != 1) exitWith {};
-
-//     _ctrlSearchBar ctrlSetText "";
-//     ctrlSetFocus _ctrlSearchBar;
-
-//     private _display = ctrlParent _ctrlSearchBar;
-//     [_display] call FUNC(refresh);
-// }];
-
-// Clear search when the search button is clicked
-// private _ctrlButtonSearch = _display displayCtrl IDC_BTN_SEARCH;
-// _ctrlButtonSearch ctrlAddEventHandler ["ButtonClick", {
-//     params ["_ctrlButtonSearch"];
-
-//     private _display = ctrlParent _ctrlButtonSearch;
-//     private _ctrlSearchBar = _display displayCtrl IDC_SEARCH_BAR;
-//     _ctrlSearchBar ctrlSetText "";
-//     ctrlSetFocus _ctrlSearchBar;
-
-//     [_display] call FUNC(refresh);
-// }];
+//todo test and see what happens if not in group etc.
+private _ctrlTitleGroup = _display displayCtrl IDC_TITLE_GROUP;
+_ctrlTitleGroup ctrlSetText format ["Group: %1, SL: %2", _groupName, _groupLeader];
 
 // Initially populate the list with items
 [_display] call crowsZA_fnc_loadoutRefresh;

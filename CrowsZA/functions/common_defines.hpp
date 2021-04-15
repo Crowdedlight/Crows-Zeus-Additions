@@ -24,7 +24,7 @@
 #define IDC_BACKGROUND 20
 #define IDC_CONTENT 30
 
-// #define IDC_TITLE_NAME 		1540
+#define IDC_TITLE_GROUP 		1540
 // #define IDC_TITLE_AMOUNT 	1541
 // #define IDC_SORTING    		1501
 #define IDC_LIST       		1543

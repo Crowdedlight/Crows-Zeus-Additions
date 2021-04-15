@@ -20,8 +20,6 @@ lnbClear _ctrlList;
 private _unit = _display getVariable "crowsZA_loadout_viewer_unit";
 private _loadoutArr = getUnitLoadout _unit;
 
-diag_log _loadoutArr;
-
 // Update weight number
 private _weightABS = (loadAbs _unit) * 0.1;
 private _weightKG = (round (_weightABS * (1/2.2046) * 100)) / 100;
@@ -93,20 +91,13 @@ private _backpack = (_containers select 2);
 if (!isNil "_backpack" && count _backpack > 0) then {[TYPE_CONTAINER, (_backpack select 0), 1, _list] call crowsZA_loadout_addOrIncrement};
 
 //containers 
-diag_log "_containers";
-diag_log _containers;
 {
     if (isNil "_x" || count _x < 1) then {continue};
-
-    diag_log "single container array";
-    diag_log _x;
 
     //iterate the container and add items
     {
         //_x = ["30Rnd_65x39_caseless_mag", 3, 30], or ["FirstAidKit", 1]
         // as both item and magazines has the amount as param 1, we can ignore the ones with an extra param and deal with all identically
-        diag_log "item in container array";
-        diag_log _x;
         [TYPE_ITEM, (_x select 0), (_x select 1), _list] call crowsZA_loadout_addOrIncrement;
     } forEach (_x select 1);
 } forEach _containers;
@@ -117,74 +108,27 @@ diag_log _containers;
     [TYPE_ITEM, _x, 1, _list] call crowsZA_loadout_addOrIncrement;
 } forEach _items;
 
-diag_log _list;
-
-//loop our array and add to list - TODO handle weapon cases and show attachments or something
-// _list = [[type, item, amount, [attachments if weapon]],...]
+//display all items
 {
     private _mainItem = _x select 1;
 
     private _config = [_mainItem] call CBA_fnc_getItemConfig;
     private _name = getText (_config >> "displayName");
 
-    // Handle searching items by display name or class name
-    // private _text = [_name, _mainItem] select _filterByClass;
+    private _picture = getText (_config >> "picture");
+    private _tooltip = format ["%1\n%2", _name, _mainItem];
+    private _count = _x select 2;
+    private _alpha = 1;
 
-    //TODO allow filtering
-    // if (_filter in toLower _text) then {
-        private _picture = getText (_config >> "picture");
-        private _tooltip = format ["%1\n%2", _name, _mainItem];
-        private _count = _x select 2;
-        private _alpha = 1;
+    private _index = _ctrlList lnbAddRow ["", _name, str _count];
+    _ctrlList lnbSetPicture [[_index, 0], _picture];
+    _ctrlList lnbSetTooltip [[_index, 0], _tooltip];
+    _ctrlList lnbSetColor   [[_index, 1], [1, 1, 1, _alpha]];
+    _ctrlList lnbSetColor   [[_index, 2], [1, 1, 1, _alpha]];
+    _ctrlList lnbSetValue   [[_index, 2], _count];
+    _ctrlList lnbSetData    [[_index, 0], _mainItem];
 
-        private _index = _ctrlList lnbAddRow ["", _name, str _count];
-        _ctrlList lnbSetPicture [[_index, 0], _picture];
-        _ctrlList lnbSetTooltip [[_index, 0], _tooltip];
-        _ctrlList lnbSetColor   [[_index, 1], [1, 1, 1, _alpha]];
-        _ctrlList lnbSetColor   [[_index, 2], [1, 1, 1, _alpha]];
-        _ctrlList lnbSetValue   [[_index, 2], _count];
-        _ctrlList lnbSetData    [[_index, 0], _mainItem];
-    // };
 } forEach _list;
-
-// test funciton 
-// private _arr = [];
-// crowsZA_loadout_addOrIncrement = {
-//     params ["_type", "_item", "_count", "_array"];
-//     private _exists = -1;
-//     {
-//         if (_x select 1 isEqualTo _item) exitWith{_exists = _forEachIndex};
-//     } forEach _array;
-//     if (_exists == -1) then 
-//     {
-//         _array pushBack [_type, _item, _count];
-//     } else 
-//     {
-//         private _temp = _array select _exists;
-//         _temp set [2, (_temp select 2) + _count];
-//         _array set [_exists, _temp];
-//     }
-// };
-// ["weapon","arifle_MXC_Holo_pointer_F",2,_arr] call crowsZA_loadout_addOrIncrement;
-// ["weapon","arifle_MXC_Holo_pointer_F",3,_arr] call crowsZA_loadout_addOrIncrement;
-
-
-
-//test weapons array
-// private _arr = [
-// 	["arifle_MXC_Holo_pointer_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_65x39_caseless_mag", 30], [], ""],
-// 	["launch_B_Titan_short_F", "", "", "", ["Titan_AT", 1], [], ""],
-// 	["hgun_P07_F", "", "", "", ["16Rnd_9x21_Mag", 16], [], ""],
-// 	["U_B_CombatUniform_mcam", [["FirstAidKit", 1], ["30Rnd_65x39_caseless_mag", 2, 30], ["Chemlight_green", 1, 1]]],
-// 	["V_PlateCarrier1_rgr", [["30Rnd_65x39_caseless_mag", 3, 30], ["16Rnd_9x21_Mag", 2, 16], ["SmokeShell", 1 ,1], ["SmokeShellGreen", 1, 1], ["Chemlight_green", 1, 1]]],
-// 	["B_AssaultPack_mcamo_AT",[["Titan_AT", 2, 1]]],
-// 	"H_HelmetB_light_desert", "G_Bandanna_tan",["Binocular", "", "", "", [], [], ""],
-// 	["ItemMap","","ItemRadio","ItemCompass","ItemWatch","NVGoggles"]
-// ];
-// systemChat str ((_arr select [0, 3]) + [_arr select 8]);
-
-
-
 
 
 
