@@ -32,9 +32,12 @@ private _groupLeader = leader group _entity;
 private _ctrlTitle = _display displayCtrl IDC_TITLE;
 _ctrlTitle ctrlSetText toUpper format ["Loadout - %1", _displayName];
 
-//todo test and see what happens if not in group etc.
+//fill out group and groupleader info
 private _ctrlTitleGroup = _display displayCtrl IDC_TITLE_GROUP;
-_ctrlTitleGroup ctrlSetText format ["Group: %1, SL: %2", _groupName, _groupLeader];
+_ctrlTitleGroup ctrlSetText format ["Group: %1", _groupName];
+
+private _ctrlTitleGroupLeader = _display displayCtrl IDC_TITLE_GROUP_LEADER;
+_ctrlTitleGroupLeader ctrlSetText format ["SL: %1", _groupLeader];
 
 // Initially populate the list with items
 [_display] call crowsZA_fnc_loadoutRefresh;

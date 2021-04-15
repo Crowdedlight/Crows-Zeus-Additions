@@ -88,6 +88,14 @@ class crowsZA_loadout_display {
                     w = POS_W(10);
                     h = POS_H(1);
                 };   
+                class TitleGroupLeader: RscText {
+                    idc = IDC_TITLE_GROUP_LEADER;
+                    style = ST_CENTER;
+                    x = POS_W(8);
+                    y = POS_H(14.3);
+                    w = POS_W(10);
+                    h = POS_H(1);
+                };  
                 class weightNumber : RscText {
                     idc = IDC_WEIGHT;
                     x = POS_W(21);

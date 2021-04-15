@@ -69,6 +69,23 @@ crowsZA_loadout_addOrIncrement = {
     private _mainWep = _x select 0;
     //add to list 
     [TYPE_WEAPON, _mainWep, 1, _list] call crowsZA_loadout_addOrIncrement;
+
+    //add attachments 
+    for "_y" from 1 to (count _x) - 1 do 
+    {
+        private _attachment = _x select _y;
+    
+        diag_log _attachment;
+
+        //handle mags
+        if (count _attachment > 0 && _attachment isEqualType []) then {_attachment = (_attachment select 0)};
+
+        //handle no items
+        if (_attachment isEqualTo "" || _attachment isEqualType []) then {continue}; 
+        
+        //add to array
+        [TYPE_WEAPON_ATTACHMENT, _attachment, 1, _list] call crowsZA_loadout_addOrIncrement;
+    };
 } forEach _weapons;
 
 //helmet 
@@ -119,6 +136,12 @@ if (!isNil "_backpack" && count _backpack > 0) then {[TYPE_CONTAINER, (_backpack
     private _tooltip = format ["%1\n%2", _name, _mainItem];
     private _count = _x select 2;
     private _alpha = 1;
+
+    //if type attachments then add indentation
+    if ((_x select 0) isEqualTo TYPE_WEAPON_ATTACHMENT) then 
+    {
+        _name = format ["  - %1", _name];
+    };
 
     private _index = _ctrlList lnbAddRow ["", _name, str _count];
     _ctrlList lnbSetPicture [[_index, 0], _picture];

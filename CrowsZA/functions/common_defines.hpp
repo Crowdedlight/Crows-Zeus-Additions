@@ -17,7 +17,7 @@
 #define GUI_THEME_COLOR {GUI_THEME_RGB_R,GUI_THEME_RGB_G,GUI_THEME_RGB_B,GUI_THEME_ALPHA}
 
 //colour defines 
-#define COLOR_BACKGROUND_SETTING {1,1,1,0.1}
+#define COLOR_BACKGROUND_SETTING {1,1,1,0.2}
 
 //IDC for the gui - Cannot change this as the initial display pos from ZEN depends on the same three defines
 #define IDC_TITLE 10
@@ -25,18 +25,14 @@
 #define IDC_CONTENT 30
 
 #define IDC_TITLE_GROUP 		1540
-// #define IDC_TITLE_AMOUNT 	1541
-// #define IDC_SORTING    		1501
-#define IDC_LIST       		1543
-// #define IDC_BTN_REMOVE 		1544
-// #define IDC_BTN_ADD    		1545
-#define IDC_BTN_SEARCH 		1546
-#define IDC_SEARCH_BAR 		1547
-#define IDC_WEIGHT	   		1548
-
-// #define IDC_BTN_WEAPON 1509
-
+#define IDC_TITLE_GROUP_LEADER	1541
+#define IDC_LIST       			1543
+#define IDC_BTN_SEARCH 			1546
+#define IDC_SEARCH_BAR 			1547
+#define IDC_WEIGHT	   			1548
+	
 //array types
 #define TYPE_WEAPON "weapon"
+#define TYPE_WEAPON_ATTACHMENT "attachment"
 #define TYPE_CONTAINER "container"
 #define TYPE_ITEM "item"
