@@ -25,10 +25,19 @@ private _onConfirm =
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 	if (isNull _unit) exitWith { _return; };
 
-	//tp unit to target 
 	//reset velocity 
 	_unit setvelocity [0,0,0];
-	_unit setPos (position _tpTarget);
+
+	//if target in vehicle
+	if (_tpTarget != vehicle _tpTarget) then
+	{
+		//try to move into vehicle, if it can't, just move next to vehicle
+		private _movedIntoVic = _unit moveInAny (vehicle _tpTarget);
+		if (!_movedIntoVic) then {
+			//failed to move into, we just gonna tp next to vic
+			_unit setPos (position _tpTarget);
+		};
+	};	
 };
 
 //get squad members
@@ -36,7 +45,19 @@ private _allSquadMembers = units group _unit;
 //remove _unit from the list - We don't need to check, as deleteAt supports handling -1
 _allSquadMembers deleteAt (_allSquadMembers find _unit);
 //get pretty names
-private _allSquadMembersNames = _allSquadMembers apply {if (_x == leader _x) then {format ["%1 (SquadLeader)", name _x]} else {name _x}};
+private _allSquadMembersNames = _allSquadMembers apply {
+	private _name = "";
+	if (_x == leader _x) then 
+	{
+		_name = format ["%1 [SquadLeader]", name _x]
+	} else 
+	{
+		_name = name _x
+	};
+	//if in vic, add vic tag
+	if (_x != vehicle _x) then {_name = _name + " [In Vehicle]"};
+	_name;
+};
 
 [
 	"Select SquadMember to teleport to", 
