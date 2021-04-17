@@ -25,6 +25,8 @@ class CrowsZA_addon
 		class scatterPatternLine {};
 		class scatterPatternOddPattern {};
 
+		class teleportToSquadMember {};
+
 		// class scatterTeleportWithParachute {};
 		// class scatterTeleportWithParachuteZeus {};
 
@@ -46,5 +48,6 @@ class CrowsZA_addon
 		
 		class loadoutViewer {};
 		class loadoutRefresh {};
+
 	};
 };

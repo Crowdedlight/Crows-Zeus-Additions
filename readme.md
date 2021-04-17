@@ -7,6 +7,7 @@ Simple clientside mod which adds whatever functions I wanted as zeus modules.
 Currently including:
 
 * **Scatter Teleport:** Allows Zeus to select players to teleport to position spread in a pattern. Can include the vic players are inside. Useful for TPing into parachuting while ensuring players are seperated from eachother 
+* **Teleport To Squadmember:** Allows Zeus to select a unit and get a promt of squadmembers to teleport said unit to. Makes it easy to teleport lost players to their squad without finding them first.
 * **Center Camera on Unit:** Right click a unit and select this option, and the zeus camera will continously center on the unit even while moving. Is handy for following moving targets while finding the module or setting you need.
 * **Inflict ACE Medical damage:** with selection of limb, damage-type and damage. (Useful for medic training of specific wounds. Logs dmg and target in RPT log files when used)
 * **Remove trees:** Remove trees/bushes/stones in an distance from position. Works globally and should work for JIP. Removes collision of removed objects.
@@ -31,6 +32,8 @@ The following has been tested on dedicated server with default settings:
 
 - [X] Scatter Teleport - Spiral Pattern
 - [X] Scatter Teleport - Line Pattern
+- [X] Scatter Teleport - P Pattern
+- [X] Teleport To Squadmember
 - [X] Center Camera on Unit
 - [X] ACE Medical Damage
 - [X] Remove Trees - Including collision
