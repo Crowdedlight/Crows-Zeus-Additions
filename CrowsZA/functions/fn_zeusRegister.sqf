@@ -53,7 +53,9 @@ private _wait = [player] spawn
 		["Delete ALL dead bodies",{_this call crowsZA_fnc_deleteAllDeadBodies}, "\CrowsZA\data\cleanup.paa"],
 		["Mass-Surrender Toggle",{_this call crowsZA_fnc_massSurrender}, "\z\ace\addons\captives\UI\Surrender_ca.paa"],
 		["Spawn Arsenal",{_this call crowsZA_fnc_spawnArsenal}, "\a3\ui_f\data\logos\a_64_ca.paa"],
-		["Set Colour",{_this call crowsZA_fnc_setColour}, "\CrowsZA\data\paint.paa"]
+		["Set Colour",{_this call crowsZA_fnc_setColour}, "\CrowsZA\data\paint.paa"],
+		["Capture Player",{_this call crowsZA_fnc_capturePlayer}, "\z\ace\addons\captives\UI\captive_ca.paa"],
+		["Teleport To Squadmember",{_this call crowsZA_fnc_teleportToSquadMember}, "\CrowsZA\data\tp.paa"] //TODO change tp logo to indicate squad 
 	];
 
 	//registering ZEN custom modules
@@ -69,14 +71,22 @@ private _wait = [player] spawn
 
 	private _contextActionList = 
 	[	//Action name, Display name, Icon and Icon colour, code, Condition to show, arguments, dynamic children, modifier functions
-		["camera_center_unit","Camera Center Unit","\CrowsZA\data\camera.paa", {_hoveredEntity call crowsZA_fnc_centerZeusViewUnit}, {!isNull _hoveredEntity}] call zen_context_menu_fnc_createAction
+		[["camera_center_unit","Camera Center Unit","\CrowsZA\data\camera.paa", {_hoveredEntity call crowsZA_fnc_centerZeusViewUnit}, {!isNull _hoveredEntity}] call zen_context_menu_fnc_createAction,
+		 [], 
+		 0],
+		[["paste_loadout_to_inventory","Paste Loadout","\CrowsZA\data\paste.paa", {_hoveredEntity call crowsZA_fnc_contextPasteLoadout}, {!isNil "zen_context_actions_loadout" && !isNull _hoveredEntity}] call zen_context_menu_fnc_createAction,
+		 ["Inventory"], 
+		 0],
+		[["loadout_viewer","View","\a3\Ui_F_Curator\Data\RscCommon\RscAttributeInventory\filter_0_ca.paa", {_hoveredEntity call crowsZA_fnc_loadoutViewer}, {!isNull _hoveredEntity && alive _hoveredEntity && _hoveredEntity isKindOf "CAManBase"}] call zen_context_menu_fnc_createAction,
+		 ["Loadout"], 
+		 0]
 	];
 
 	//register context actions
 	{
 		private _reg = [
 			//action, parent path, priority
-			_x, [], 0
+			(_x select 0), (_x select 1), (_x select 2)
 		] call zen_context_menu_fnc_addAction;
 	} forEach _contextActionList;
 

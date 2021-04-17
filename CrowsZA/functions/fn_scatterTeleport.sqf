@@ -23,6 +23,11 @@ if (typename _targetAltitude != "SCALAR") exitWith { diag_log "CrowsZA-ScatterTe
 private _tpArray = [];
 switch (_tpPattern) do 
 {
+	case "odd":
+	{
+		//calculate spots with outward spiral
+		_tpArray = [_targetPos, count _players, _playerOffset, _targetAltitude] call crowsZA_fnc_scatterPatternOddPattern;
+	};
 	case "outward_spiral":
 	{
 		//calculate spots with outward spiral

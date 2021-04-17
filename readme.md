@@ -7,6 +7,7 @@ Simple clientside mod which adds whatever functions I wanted as zeus modules.
 Currently including:
 
 * **Scatter Teleport:** Allows Zeus to select players to teleport to position spread in a pattern. Can include the vic players are inside. Useful for TPing into parachuting while ensuring players are seperated from eachother 
+* **Teleport To Squadmember:** Allows Zeus to select a unit and get a promt of squadmembers to teleport said unit to. Makes it easy to teleport lost players to their squad without finding them first.
 * **Center Camera on Unit:** Right click a unit and select this option, and the zeus camera will continously center on the unit even while moving. Is handy for following moving targets while finding the module or setting you need.
 * **Inflict ACE Medical damage:** with selection of limb, damage-type and damage. (Useful for medic training of specific wounds. Logs dmg and target in RPT log files when used)
 * **Remove trees:** Remove trees/bushes/stones in an distance from position. Works globally and should work for JIP. Removes collision of removed objects.
@@ -18,6 +19,9 @@ Currently including:
 * **Mass Surrender/Captive:** Can select entire sides or players/groups to toggle surrender or captive. 
 * **Spawn Arsenal:** Spawns a NATO Supply Crate on the position clicked and makes it into an ACE arsenal in one go. 
 * **Set Colour:** Sets the colour of the target. For vehicles with multiple textures you can select which texture. Also has a reset checkbox to reset to originally texture
+* **Paste Loadout into Inventory:** When using the Zeus Enhanced "copy loadout" context menu, you get a new option when right-clicking a vehicle or box and under "inventory" you can select "paste loadout" which will paste that units loadout into the inventory if there is enough space. 
+* **Unit Loadout Viewer:** Quickly See Loadout of Unit without going into full arsenal. A right-click menu to see unit loadout without loading a full arsenal.  
+* **Capture Player:** Easily capture the unit it is used on. It does a full zeus heal on the unit, set them captive, and removes weapons and radio and place it inside a box next to them.
 
 **Requires Zeus Enhanced (ZEN)**  
 **ACE Medical damage module requires ACE3 Medical**  
@@ -28,6 +32,8 @@ The following has been tested on dedicated server with default settings:
 
 - [X] Scatter Teleport - Spiral Pattern
 - [X] Scatter Teleport - Line Pattern
+- [X] Scatter Teleport - P Pattern
+- [X] Teleport To Squadmember
 - [X] Center Camera on Unit
 - [X] ACE Medical Damage
 - [X] Remove Trees - Including collision
@@ -39,6 +45,9 @@ The following has been tested on dedicated server with default settings:
 - [X] Mass Surrender/Captive
 - [X] Spawn Arsenal
 - [X] Set Colour
+- [X] Paste Loadout into inventory
+- [X] Quickly See Load of unit without going into arsenal 
+- [X] Capture Player  
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the log.

@@ -23,6 +23,9 @@ class CrowsZA_addon
 
 		class scatterPatternOutwardSpiral {};
 		class scatterPatternLine {};
+		class scatterPatternOddPattern {};
+
+		class teleportToSquadMember {};
 
 		// class scatterTeleportWithParachute {};
 		// class scatterTeleportWithParachuteZeus {};
@@ -34,9 +37,17 @@ class CrowsZA_addon
 		class centerZeusViewUnit {};
 
 		class massSurrender {};
+		
+		class capturePlayer {}; 
 
 		class spawnArsenal {};
 
 		class setColour {};
+
+		class contextPasteLoadout {};
+		
+		class loadoutViewer {};
+		class loadoutRefresh {};
+
 	};
 };
