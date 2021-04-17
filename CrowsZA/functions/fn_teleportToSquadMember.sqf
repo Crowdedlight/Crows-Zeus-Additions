@@ -37,6 +37,10 @@ private _onConfirm =
 			//failed to move into, we just gonna tp next to vic
 			_unit setPos (position _tpTarget);
 		};
+	} else 
+	{
+		//not in vic, teleport directly
+		_unit setPos (position _tpTarget);
 	};	
 };
 

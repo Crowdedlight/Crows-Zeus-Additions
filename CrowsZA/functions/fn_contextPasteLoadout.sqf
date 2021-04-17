@@ -17,7 +17,7 @@ private _mainWep = _arr select 0;
 private _secWep = _arr select 1;
 private _handgun = _arr select 2;
 
-private _containers = _arr select [2,3]; //3,4,5 == uniform, vest and backpack 
+private _containers = _arr select [3,3]; //3,4,5 == uniform, vest and backpack 
 
 private _helmet = _arr select 6;
 private _facewear = _arr select 7;
@@ -53,7 +53,6 @@ if (count _bino != 0) then {_entity addItemCargoGlobal [_bino select 0, 1]};
 		// if size is 2, then we got [item, amount]
 		_entity addItemCargoGlobal [_x select 0, _x select 1];
 	} forEach (_x select 1);
-
 } forEach _containers;
 
 //items

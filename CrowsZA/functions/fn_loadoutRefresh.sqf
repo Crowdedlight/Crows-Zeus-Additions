@@ -74,8 +74,6 @@ crowsZA_loadout_addOrIncrement = {
     for "_y" from 1 to (count _x) - 1 do 
     {
         private _attachment = _x select _y;
-    
-        diag_log _attachment;
 
         //handle mags
         if (count _attachment > 0 && _attachment isEqualType []) then {_attachment = (_attachment select 0)};
