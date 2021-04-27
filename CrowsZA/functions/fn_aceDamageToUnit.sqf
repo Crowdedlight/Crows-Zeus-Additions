@@ -83,8 +83,8 @@ private _onConfirm =
 		};
 	};
 
-	//apply ACE dmg as ZEN SLider is a number
-	[_unit, _dmg, _bodyPart, _dmgType, _unit, _damageSelectionArray] call ace_medical_fnc_addDamageToUnit;
+	//apply ACE dmg as ZEN SLider is a number. Using remoteExec as it needs to be run where the unit is local
+	[_unit, _dmg, _bodyPart, _dmgType, _unit, _damageSelectionArray] remoteExec ["ace_medical_fnc_addDamageToUnit", _unit];
 };
 [
 	"Add ACE Damage to Unit", 
