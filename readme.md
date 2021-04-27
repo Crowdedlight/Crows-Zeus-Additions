@@ -17,6 +17,7 @@ Currently including:
 * **Set Numberplate:** Can set the numberplate of a vehicle
 * **Delete All Dead Bodies:** A cleanup script that removes all dead bodies that is not inside a vehicle.
 * **Mass Surrender/Captive:** Can select entire sides or players/groups to toggle surrender or captive. 
+* **Mass Unconscious:** Can select entire sides or players/groups to toggle ACE unconscious on. 
 * **Spawn Arsenal:** Spawns a NATO Supply Crate on the position clicked and makes it into an ACE arsenal in one go. 
 * **Set Colour:** Sets the colour of the target. For vehicles with multiple textures you can select which texture. Also has a reset checkbox to reset to originally texture
 * **Paste Loadout into Inventory:** When using the Zeus Enhanced "copy loadout" context menu, you get a new option when right-clicking a vehicle or box and under "inventory" you can select "paste loadout" which will paste that units loadout into the inventory if there is enough space. 
@@ -48,6 +49,7 @@ The following has been tested on dedicated server with default settings:
 - [X] Paste Loadout into inventory
 - [X] Quickly See Load of unit without going into arsenal 
 - [X] Capture Player  
+- [X] Mass Unconscious
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the log.

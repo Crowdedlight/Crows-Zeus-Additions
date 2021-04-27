@@ -38,6 +38,8 @@ class CrowsZA_addon
 
 		class massSurrender {};
 		
+		class massUnconscious {};
+		
 		class capturePlayer {}; 
 
 		class spawnArsenal {};
