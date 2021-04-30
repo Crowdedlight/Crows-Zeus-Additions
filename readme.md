@@ -23,6 +23,7 @@ Currently including:
 * **Paste Loadout into Inventory:** When using the Zeus Enhanced "copy loadout" context menu, you get a new option when right-clicking a vehicle or box and under "inventory" you can select "paste loadout" which will paste that units loadout into the inventory if there is enough space. 
 * **Unit Loadout Viewer:** Quickly See Loadout of Unit without going into full arsenal. A right-click menu to see unit loadout without loading a full arsenal.  
 * **Capture Player:** Easily capture the unit it is used on. It does a full zeus heal on the unit, set them captive, and removes weapons and radio and place it inside a box next to them.
+* **Radius Heal:** Heals all units in a sphere radius around the clicked position. Makes it easy to heal all units if a vehicle is arma'ed or otherwise need to pick all up. 
 
 **Requires Zeus Enhanced (ZEN)**  
 **ACE Medical damage module requires ACE3 Medical**  
@@ -50,6 +51,7 @@ The following has been tested on dedicated server with default settings:
 - [X] Quickly See Load of unit without going into arsenal 
 - [X] Capture Player  
 - [X] Mass Unconscious
+- [ ] Radius Heal
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the log.
