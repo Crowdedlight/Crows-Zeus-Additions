@@ -51,5 +51,6 @@ class CrowsZA_addon
 		class loadoutViewer {};
 		class loadoutRefresh {};
 
+		class radiusHeal {};
 	};
 };
