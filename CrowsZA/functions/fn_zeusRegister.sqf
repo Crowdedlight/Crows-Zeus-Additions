@@ -40,6 +40,7 @@ private _wait = [player,_loadedMods] spawn
 		if (count allCurators == 0 || {!isNull (getAssignedCuratorLogic _unit)}) exitWith {true};
 		false;
 	};
+<<<<<<< HEAD
 	 
 	private _aceModIndex = _loadedMods findIf { _x select 1 == "@ace" };
 	private _aceModLoaded = _aceModIndex != -1;
@@ -71,6 +72,27 @@ private _wait = [player,_loadedMods] spawn
 		_otherModules;
 		};
 	};	
+=======
+	
+	private _moduleList = 
+	[
+		["ACE Add Damage to Unit",{_this call crowsZA_fnc_aceDamageToUnit}, "\CrowsZA\data\sword.paa"],
+		["Remove Trees",{_this call crowsZA_fnc_removeTreesZeus}, "\CrowsZA\data\axe.paa"],
+		["Restore Trees",{_this call crowsZA_fnc_restoreTreesZeus}, "\CrowsZA\data\tree.paa"],
+		["Follow Unit With Animal",{_this call crowsZA_fnc_animalFollowZeus}, "\CrowsZA\data\sheep.paa"],
+		["Delete All Follow Animals",{_this call crowsZA_fnc_deleteAllAnimalFollow}, "\CrowsZA\data\sheep.paa"],
+		["Scatter Teleport",{_this call crowsZA_fnc_scatterTeleportZeus}, "\CrowsZA\data\tp.paa"],
+		// ["Scatter Teleport With Parachute",{_this call crowsZA_fnc_scatterTeleportWithParachuteZeus}, "\CrowsZA\data\tp_chute.paa"],
+		["Set Numberplate",{_this call crowsZA_fnc_setNumberplate}, "\CrowsZA\data\numberplate.paa"],
+		["Delete ALL dead bodies",{_this call crowsZA_fnc_deleteAllDeadBodies}, "\CrowsZA\data\cleanup.paa"],
+		["Mass-Surrender Toggle",{_this call crowsZA_fnc_massSurrender}, "\z\ace\addons\captives\UI\Surrender_ca.paa"],
+		["Mass-Unconscious Toggle",{_this call crowsZA_fnc_massUnconscious}, "\z\ace\addons\zeus\UI\Icon_Module_Zeus_Unconscious_ca.paa"],
+		["Spawn Arsenal",{_this call crowsZA_fnc_spawnArsenal}, "\a3\ui_f\data\logos\a_64_ca.paa"],
+		["Set Colour",{_this call crowsZA_fnc_setColour}, "\CrowsZA\data\paint.paa"],
+		["Capture Player",{_this call crowsZA_fnc_capturePlayer}, "\z\ace\addons\captives\UI\captive_ca.paa"],
+		["Teleport To Squadmember",{_this call crowsZA_fnc_teleportToSquadMember}, "\CrowsZA\data\tp.paa"] //TODO change tp logo to indicate squad
+	];
+>>>>>>> 585c99f (preparing develop update)
 
 	//registering ZEN custom modules
 	{
