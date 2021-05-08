@@ -10,6 +10,11 @@ Sets unit captive, full heals, removes weapons and radio
 *///////////////////////////////////////////////
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
+//if unit is empty/null, exit
+if (isNull _unit || !(_unit isKindOf "CAManBase")) exitWith { 
+	diag_log "CrowsZA-capturePlayer: Tried to capture a null or invalid unit";
+};
+
 //log it
 diag_log format ["CrowsZA-capturePlayer: Zeus is capturing unit %1. They have been set captive, healed and their weapons and radio is placed into the box next to them", name _unit];
 

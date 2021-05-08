@@ -4,29 +4,32 @@ Simple clientside mod which adds whatever functions I wanted as zeus modules.
 
 **Wiki:** https://github.com/Crowdedlight/Crows-Zeus-Additions/wiki
 
-Currently including:
+**Requires Zeus Enhanced (ZEN)**  
 
+The features requiring ACE is only available and loaded if ACE is loaded.
+
+Features:   
 * **Scatter Teleport:** Allows Zeus to select players to teleport to position spread in a pattern. Can include the vic players are inside. Useful for TPing into parachuting while ensuring players are seperated from eachother 
 * **Teleport To Squadmember:** Allows Zeus to select a unit and get a promt of squadmembers to teleport said unit to. Makes it easy to teleport lost players to their squad without finding them first.
 * **Center Camera on Unit:** Right click a unit and select this option, and the zeus camera will continously center on the unit even while moving. Is handy for following moving targets while finding the module or setting you need.
-* **Inflict ACE Medical damage:** with selection of limb, damage-type and damage. (Useful for medic training of specific wounds. Logs dmg and target in RPT log files when used)
 * **Remove trees:** Remove trees/bushes/stones in an distance from position. Works globally and should work for JIP. Removes collision of removed objects.
 * **Restore trees:** Restores trees/bushes/stones previously removed in an distance from the clicked position.
 * **Animal Follower:** Spawns an animal that follows the selected player around
 * **Delete All Spawned Animal Followers:** Deletes all animals spawned with **Animal Follower** module. For easy cleanup.
 * **Set Numberplate:** Can set the numberplate of a vehicle
 * **Delete All Dead Bodies:** A cleanup script that removes all dead bodies that is not inside a vehicle.
-* **Mass Surrender/Captive:** Can select entire sides or players/groups to toggle surrender or captive. 
-* **Mass Unconscious:** Can select entire sides or players/groups to toggle ACE unconscious on. 
-* **Spawn Arsenal:** Spawns a NATO Supply Crate on the position clicked and makes it into an ACE arsenal in one go. 
 * **Set Colour:** Sets the colour of the target. For vehicles with multiple textures you can select which texture. Also has a reset checkbox to reset to originally texture
 * **Paste Loadout into Inventory:** When using the Zeus Enhanced "copy loadout" context menu, you get a new option when right-clicking a vehicle or box and under "inventory" you can select "paste loadout" which will paste that units loadout into the inventory if there is enough space. 
 * **Unit Loadout Viewer:** Quickly See Loadout of Unit without going into full arsenal. A right-click menu to see unit loadout without loading a full arsenal.  
+
+Features Requireing ACE:   
+* **Set Rearm Vehicle:** Set an object or vehicle as an ACE rearm vehicle
 * **Capture Player:** Easily capture the unit it is used on. It does a full zeus heal on the unit, set them captive, and removes weapons and radio and place it inside a box next to them.
 * **Radius Heal:** Heals all units in a sphere radius around the clicked position. Makes it easy to heal all units if a vehicle is arma'ed or otherwise need to pick all up. 
-
-**Requires Zeus Enhanced (ZEN)**  
-**ACE Medical damage module requires ACE3 Medical**  
+* **Spawn Arsenal:** Spawns a NATO Supply Crate on the position clicked and makes it into an ACE arsenal in one go. 
+* **Mass Surrender/Captive:** Can select entire sides or players/groups to toggle surrender or captive. 
+* **Mass Unconscious:** Can select entire sides or players/groups to toggle ACE unconscious on. 
+* **Inflict ACE Medical damage:** with selection of limb, damage-type and damage. (Useful for medic training of specific wounds. Logs dmg and target in RPT log files when used)
 
 ### Test Status
 The code is written for MP and dedicated server usage. All functions have been tested on "MP" using the Eden editor and "play scenario in MP".    
@@ -52,6 +55,7 @@ The following has been tested on dedicated server with default settings:
 - [X] Capture Player  
 - [X] Mass Unconscious
 - [ ] Radius Heal
+- [ ] Rearm Vehicle
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the log.
@@ -66,6 +70,7 @@ All logging made to the .RPT file will start with ``CrowsZA-module:`` where the 
 ### Contributors
 Crowdedlight (Main Author)  
 Windwalker  
+MrPepsiMax
 
 ### License
 Crows Zeus Additions is licensed under the GPL-3.0 license.

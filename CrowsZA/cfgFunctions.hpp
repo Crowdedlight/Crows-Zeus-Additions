@@ -28,7 +28,6 @@ class CrowsZA_addon
 		class teleportToSquadMember {};
 
 		// class scatterTeleportWithParachute {};
-		// class scatterTeleportWithParachuteZeus {};
 
 		class setNumberplate {};
 
@@ -52,5 +51,7 @@ class CrowsZA_addon
 		class loadoutRefresh {};
 
 		class radiusHeal {};
+
+		class setRearmVehicle {};
 	};
 };
