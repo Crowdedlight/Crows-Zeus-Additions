@@ -24,7 +24,7 @@ private _hideSubTypes = [];
 //TREES
 if (_treeRemoval) then {
 	_hideMainTypes append ["TREE", "SMALL TREE"];
-	_hideSubTypes append ["stump", "fallen"];
+	_hideSubTypes append ["stump", "fallen", "misc_stubleafs_pmc","t_piceaabies_1f","kmen_1_buk","misc_stub2"];
 };
 //BUSHES
 if (_bushRemoval) then {
