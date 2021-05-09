@@ -54,8 +54,8 @@ The following has been tested on dedicated server with default settings:
 - [X] Quickly See Load of unit without going into arsenal 
 - [X] Capture Player  
 - [X] Mass Unconscious
-- [ ] Radius Heal
-- [ ] Rearm Vehicle
+- [X] Radius Heal
+- [X] Rearm Vehicle
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the log.

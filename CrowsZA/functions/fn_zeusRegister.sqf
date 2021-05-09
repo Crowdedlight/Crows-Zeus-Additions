@@ -41,10 +41,11 @@ private _wait = [player,_loadedMods] spawn
 		false;
 	};
 	 
+	// save ace loaded variable as public var. So context menu check just needs to check var, instead of 
 	private _aceModIndex = _loadedMods findIf { _x select 1 == "@ace" };
-	private _aceModLoaded = _aceModIndex != -1;
+	crowsZA_common_aceModLoaded = _aceModIndex != -1;
 
-	private _moduleList = [_aceModLoaded] call {
+	private _moduleList = [crowsZA_common_aceModLoaded] call {
 		params ["_isAceLoaded"];
 		private _aceDependentModules = [
 			["ACE Add Damage to Unit",{_this call crowsZA_fnc_aceDamageToUnit}, "\CrowsZA\data\sword.paa"],
@@ -95,8 +96,13 @@ private _wait = [player,_loadedMods] spawn
 		[["loadout_viewer","View","\a3\Ui_F_Curator\Data\RscCommon\RscAttributeInventory\filter_0_ca.paa", {_hoveredEntity call crowsZA_fnc_loadoutViewer}, {!isNull _hoveredEntity && alive _hoveredEntity && _hoveredEntity isKindOf "CAManBase"}] call zen_context_menu_fnc_createAction,
 		 ["Loadout"], 
 		 0],
-		 [["radius_heal","Radius Heal","\CrowsZA\data\radiusheal.paa", {_hoveredEntity call crowsZA_fnc_radiusHeal}, { _aceModLoaded }] call zen_context_menu_fnc_createAction,
-		 ["Heal"], 
+		 [["radius_heal","Radius Heal","\CrowsZA\data\radiusheal.paa", {[_position] call crowsZA_fnc_radiusHeal}, { crowsZA_common_aceModLoaded }, [], {[
+			 [["radius_heal_10","10m","\CrowsZA\data\radiusheal.paa", {[_position, 10] call crowsZA_fnc_radiusHeal}] call zen_context_menu_fnc_createAction, [], 10],
+			 [["radius_heal_50","50m","\CrowsZA\data\radiusheal.paa", {[_position, 50] call crowsZA_fnc_radiusHeal}] call zen_context_menu_fnc_createAction, [], 10],
+			 [["radius_heal_100","100m","\CrowsZA\data\radiusheal.paa", {[_position, 100] call crowsZA_fnc_radiusHeal}] call zen_context_menu_fnc_createAction, [], 10],
+			 [["radius_heal_150","150m","\CrowsZA\data\radiusheal.paa", {[_position, 150] call crowsZA_fnc_radiusHeal}] call zen_context_menu_fnc_createAction, [], 10]
+		 ]}] call zen_context_menu_fnc_createAction,
+		 ["HealUnits"], 
 		 0]
 	];
 
