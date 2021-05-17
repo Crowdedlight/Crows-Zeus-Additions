@@ -56,7 +56,7 @@ class CrowsZA_addon
 
 		// draw building and helper functions
 		class getPosFromMouse {};
-		class selectPositions {};
+		class drawBuildSelectPosition {};
 		class drawBuildZeus {};
 		class drawBuild {};
 	};
