@@ -21,6 +21,7 @@ if (!hasInterface) exitWith {};
 //private global var
 crowsZA_animalFollowList = [];
 publicVariable "crowsZA_animalFollowList";
+crowsZA_common_selectPositionActive = false;
 
 private _loadedMods = getLoadedModsInfo;
 //spawn script to register zen modules
@@ -65,7 +66,8 @@ private _wait = [player,_loadedMods] spawn
 			["Set Numberplate",{_this call crowsZA_fnc_setNumberplate}, "\CrowsZA\data\numberplate.paa"],
 			["Delete ALL dead bodies",{_this call crowsZA_fnc_deleteAllDeadBodies}, "\CrowsZA\data\cleanup.paa"],
 			["Set Colour",{_this call crowsZA_fnc_setColour}, "\CrowsZA\data\paint.paa"],
-			["Teleport To Squadmember",{_this call crowsZA_fnc_teleportToSquadMember}, "\CrowsZA\data\tpToSquad.paa"] 
+			["Teleport To Squadmember",{_this call crowsZA_fnc_teleportToSquadMember}, "\CrowsZA\data\tpToSquad.paa"], 
+			["DrawBuild",{_this call crowsZA_fnc_drawBuildZeus}, "\CrowsZA\data\tpToSquad.paa"] 
 		];
 		if(_isAceLoaded) then {
 			_otherModules + _aceDependentModules;

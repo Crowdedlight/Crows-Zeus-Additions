@@ -53,5 +53,11 @@ class CrowsZA_addon
 		class radiusHeal {};
 
 		class setRearmVehicle {};
+
+		// draw building and helper functions
+		class getPosFromMouse {};
+		class selectPositions {};
+		class drawBuildZeus {};
+		class drawBuild {};
 	};
 };
