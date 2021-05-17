@@ -8,9 +8,10 @@ Return: none
 returns the coordinates in the world or map based on the mouse position
 */
 
-params [["_screenPos", getMousePosition, [[]], 2]];
+// get screen pos 
+private _screenPos = getMousePosition;
 
-private _position;
+private _position = [];
 
 // if map is visible get the 2D position and make 3D, otherwise use the mouse pointer position
 if (visibleMap) then {

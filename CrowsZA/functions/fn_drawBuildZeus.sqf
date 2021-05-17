@@ -10,7 +10,10 @@ Starts the selection handler to select multiple points for you to draw
 *///////////////////////////////////////////////
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
+diag_log "called drawBuildZeus";
 private _positions = [_pos];
+diag_log _positions;
+
 [_positions, {
     params ["_successful", "_positions"];
 
@@ -24,6 +27,6 @@ private _positions = [_pos];
     };
 
     // call build script
-    [_positions] call crowsZA_drawBuild;
+    [_positions] call crowsZA_fnc_drawBuild;
 
-}, "Click to Build"] call crowsZA_selectPositions;
+}, "Click to Build"] call crowsZA_fnc_selectPositions;

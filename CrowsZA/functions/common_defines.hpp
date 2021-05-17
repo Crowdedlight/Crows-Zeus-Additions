@@ -30,6 +30,8 @@
 #define IDC_BTN_SEARCH 			1546
 #define IDC_SEARCH_BAR 			1547
 #define IDC_WEIGHT	   			1548
+
+//IDC for 
 	
 //array types
 #define TYPE_WEAPON "weapon"

@@ -1,3 +1,4 @@
+#include "common_defines.hpp"
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
@@ -39,11 +40,14 @@ if (crowsZA_common_selectPositionActive) exitWith {
 // set as active 
 crowsZA_common_selectPositionActive = true;
 
+// global vars, as we need to update between event calls
+crowsZA_drawBuild_positions = _positions;
+
 // icon vars
 private _angle = 45;
 private _colour = [0.28, 0.78, 0.96, 1]; //xcom blue
 private _icon = "\a3\ui_f\data\igui\cfg\cursors\select_target_ca.paa";
-private _iconPastPos = "\A3\modules_f\data\portraitModule_ca.paa";
+private _iconPastPos = "\a3\modules_f\data\portraitModule_ca.paa";
 
 // display vars 
 private _display = findDisplay IDD_RSCDISPLAYCURATOR;
@@ -53,7 +57,7 @@ private _visuals = [_text, _icon, _angle, _colour, _iconPastPos];
 diag_log "before event handlers";
 
 // mouse eventhandler to get clicks/positions
-private _mouseEH = [_display, "MouseButtonDown", {
+private _mouseEH = [_display, "MouseButtonUp", {
     params ["", "_button", "", "", "_shift", "_ctrl", "_alt"];
 
 	// if not leftclick
@@ -62,12 +66,11 @@ private _mouseEH = [_display, "MouseButtonDown", {
 	diag_log "left click";
 
 	// get position clicked
-    private _position = [] call crowsZA_getPosFromMouse;
-    _thisArgs params ["_positions"];
+    private _position = [] call crowsZA_fnc_getPosFromMouse;
 
 	// add to array
-	_positions pushBack _position;
-}, [_positions]] call CBA_fnc_addBISEventHandler;
+	crowsZA_drawBuild_positions pushBack _position;
+}, []] call CBA_fnc_addBISEventHandler;
 
 // eventhandler to register ESC/space so we can end selection
 private _keyboardEH = [_display, "KeyDown", {
@@ -79,27 +82,27 @@ private _keyboardEH = [_display, "KeyDown", {
 	diag_log "space/esc hit";
 
 	// if ESC, we are calling _function with the positions gathered
-    _thisArgs params ["_positions", "_function"];
+    _thisArgs params ["_function"];
 
-    [true, _positions] call _function;
+    [true, crowsZA_drawBuild_positions] call _function;
 
 	// and setting instance to false
     crowsZA_common_selectPositionActive = false;
 
     true // handled
-}, [_positions, _function]] call CBA_fnc_addBISEventHandler;
+}, [_function]] call CBA_fnc_addBISEventHandler;
 
 // draw event handler for map
 private _drawEH = [_ctrlMap, "Draw", {
     params ["_ctrlMap"];
-    _thisArgs params ["_positions", "_visuals"];
+    _thisArgs params ["_visuals"];
 
 	// get visual params
     _visuals params ["_text", "_icon", "_angle", "_color", "__iconPastPos"];
 
 	// get 2d pos for mouse and draw icon on it
     private _pos2D = _ctrlMap ctrlMapScreenToWorld getMousePosition;
-    private _textSize = (0.05 max ctrlMapScale _ctrlMap) min 0.07;
+    private _textSize = 0.05 max ctrlMapScale _ctrlMap min 0.07;
 
     _ctrlMap drawIcon [_icon, _color, _pos2D, 24, 24, _angle, _text, 0, _textSize, "RobotoCondensed", "right"];
 
@@ -110,20 +113,21 @@ private _drawEH = [_ctrlMap, "Draw", {
 
 		// draw line if not first pos
 		if (_forEachIndex != 0) then {
-			_ctrlMap drawLine [(_positions select (_forEachIndex - 1)), _x, _color];	
+			private _linePos = crowsZA_drawBuild_positions select (_forEachIndex - 1);
+			_ctrlMap drawLine [_linePos, _x, _color];	
 		};        
-    } forEach _positions;
-}, [_positions, _visuals]] call CBA_fnc_addBISEventHandler;
+    } forEach crowsZA_drawBuild_positions;
+}, [_visuals]] call CBA_fnc_addBISEventHandler;
 
 diag_log "before main handler";
 // main handler
 [{
     params ["_args", "_pfhID"];
-    _args params ["_positions", "_function", "_visuals", "_mouseEH", "_keyboardEH", "_drawEH"];
+    _args params ["_function", "_visuals", "_mouseEH", "_keyboardEH", "_drawEH"];
 
     // End selection with failure if an object is deleted, Zeus display is closed, or pause menu is opened
-	if ({isNull findDisplay IDD_RSCDISPLAYCURATOR} || {!isNull findDisplay IDD_INTERRUPT}) then {
-        [false, _positions] call _function;
+	if (isNull findDisplay IDD_RSCDISPLAYCURATOR || !isNull findDisplay IDD_INTERRUPT) then {
+        [false, crowsZA_drawBuild_positions] call _function;
         crowsZA_common_selectPositionActive = false;
     };
 
@@ -138,6 +142,9 @@ diag_log "before main handler";
         private _ctrlMap = _display displayCtrl IDC_RSCDISPLAYCURATOR_MAINMAP;
         _ctrlMap ctrlRemoveEventHandler ["Draw", _drawEH];
 
+		// clear global vars
+		crowsZA_drawBuild_positions = []; 
+
 		// remove myself
         [_pfhID] call CBA_fnc_removePerFrameHandler;
     };
@@ -146,7 +153,7 @@ diag_log "before main handler";
     if (visibleMap) exitWith {};
 
 	// get current pos to draw as pointer
-    private _currPos = [] call crowsZA_getPosFromMouse;
+    private _currPos = [] call crowsZA_fnc_getPosFromMouse;
     _visuals params ["_text", "_icon", "_angle", "_color", "__iconPastPos"];
     
 	// convert to AGL for drawing
@@ -156,15 +163,13 @@ diag_log "before main handler";
 
 	// draw lines between each pos in _positions and line between them
     {
+		diag_log format["Draw icon from array positions, current position: ASL: %1, AGL: %2", _x, ASLToAGL _x];
 		// draw icon - blue circle
-		drawIcon3D [_iconPastPos, _color, ASLtoAGL _x, 1.5, 1.5, 0];
+		drawIcon3D [_icon, _color, (ASLtoAGL _x), 1.5, 1.5, 0, str(_forEachIndex+1)];  
+    } forEach crowsZA_drawBuild_positions;
 
-		// draw line if not first pos
-		if (_forEachIndex != 0) then {
-			private _lastPos = ASLtoAGL (_positions select (_forEachIndex - 1));
-			drawLine3D [_lastPos, ASLtoAGL _x, _color];	
-		};        
-    } forEach _positions;
+	// draw line from last position to current pos to show where next click would be
+	private _lastPos = ASLtoAGL (crowsZA_drawBuild_positions select (count crowsZA_drawBuild_positions -1));
+	drawLine3D [_lastPos, _currPos, _color];	
 
-}, 0, [_positions, _function, _visuals, _mouseEH, _keyboardEH, _drawEH]] call CBA_fnc_addPerFrameHandler;
-diag_log "after mainhandler";
+}, 0, [_function, _visuals, _mouseEH, _keyboardEH, _drawEH]] call CBA_fnc_addPerFrameHandler;
