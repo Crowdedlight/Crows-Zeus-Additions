@@ -41,16 +41,12 @@ private _textStart = "Start Position";
 private _display = findDisplay IDD_RSCDISPLAYCURATOR;
 private _visuals = [_text, _icon, _angle, _colour, _textStart];
 
-diag_log "before event handlers";
-
 // mouse eventhandler to get clicks/positions
 private _mouseEH = [_display, "MouseButtonUp", {
     params ["", "_button", "", "", "_shift", "_ctrl", "_alt"];
 
 	// if not leftclick
     if (_button != 0) exitWith {};
-
-	diag_log "left click";
 
 	// get position clicked
     private _position = [] call crowsZA_fnc_getPosFromMouse;
@@ -69,8 +65,6 @@ private _keyboardEH = [_display, "KeyDown", {
 	// exit if key is not ESC or space
     if (_key != DIK_ESCAPE && _key != DIK_SPACE) exitWith {false};
 
-	diag_log "space/esc hit";
-
 	// if ESC, we are calling _function with the positions gathered
     _thisArgs params ["_function"];
 
@@ -82,7 +76,6 @@ private _keyboardEH = [_display, "KeyDown", {
     true // handled
 }, [_function]] call CBA_fnc_addBISEventHandler;
 
-diag_log "before main handler";
 // main handler
 [{
     params ["_args", "_pfhID"];

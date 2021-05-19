@@ -10,8 +10,6 @@ Starts the selection handler to select multiple points for you to draw
 *///////////////////////////////////////////////
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-diag_log "called drawBuildZeus";
-
 // todo future, have dialog of build settings etc. 
 
 //no return function as we build in segments with selectPosition 
