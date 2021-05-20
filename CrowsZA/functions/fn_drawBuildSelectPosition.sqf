@@ -91,7 +91,7 @@ private _keyboardEH = [_display, "KeyDown", {
     if (!crowsZA_common_selectPositionActive) exitWith {
         private _display = findDisplay IDD_RSCDISPLAYCURATOR;
 		// mouse and keyboard
-        _display displayRemoveEventHandler ["MouseButtonDown", _mouseEH];
+        _display displayRemoveEventHandler ["MouseButtonUp", _mouseEH];
         _display displayRemoveEventHandler ["KeyDown", _keyboardEH];
 
 		// clear global vars

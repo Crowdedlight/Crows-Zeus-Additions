@@ -16,12 +16,15 @@ private _objectName = "Land_HBarrier_3_F";
 
 // get placement and direction offset (We want to place it from edge to edge)
 private _spawnObjectLength = 0;
+private _spawnObjectLengthOffset = 0;
+private _spawnDirOffset = 0;
+
 switch(_objectName) do {
 	// smaller hesco
 	case "Land_HBarrier_3_F":
 	{
 		_spawnObjectLength = 3.55376;
-		_spawnObjectLengthOffset = _spawnObjectLength*0.5;
+		_spawnObjectLengthOffset = 1.7;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// large hesco
@@ -52,7 +55,7 @@ private _tempPos = _startPos;
 private _nextPos = [];
 
 // dist to move each iteration
-private _distMove = _spawnObjectLength + _spawnObjectLengthOffset;
+private _distMove = _spawnObjectLength;
 
 // array of spawned objects 
 private _allObjects = [];
@@ -61,11 +64,15 @@ private _allObjects = [];
 for "_i" from 1 to _iterations do {
 	// increment distance - https://community.bistudio.com/wiki/getPos
 	// if first position, we only move the offset from clicked position, for the rest we move position and offset.
+	diag_log format["spawnObjectOffset: %1, direction: %2", _spawnObjectLengthOffset, _direction];
+
 	if (_i == 1) then {
 		_nextPos = _tempPos getPos [_spawnObjectLengthOffset, _direction];
 	} else {
 		_nextPos = _tempPos getPos [_distMove, _direction]; 	
 	};
+
+	diag_log format["nextpos: %1", _nextPos];
 
 	// spawn hesco - https://community.bistudio.com/wiki/createVehicle
 	_object = createVehicle [_objectName, _nextPos, [], 0, "CAN_COLLIDE"];
@@ -74,7 +81,7 @@ for "_i" from 1 to _iterations do {
 	[_object, false] remoteExec ["enableSimulationGlobal", 2];
 
 	// rotate it - https://community.bistudio.com/wiki/setVectorDir 
-	_object setDir 34.3194 + _spawnDirOffset; //is individual offset
+	_object setDir _direction + _spawnDirOffset; //is individual offset
 
 	// set same position again to sync rotation across clients (Also snaps it to ground level better after rotation)
 	_object setPos (getPos _object);
