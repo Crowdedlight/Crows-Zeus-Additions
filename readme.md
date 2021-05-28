@@ -21,6 +21,7 @@ Features:
 * **Set Colour:** Sets the colour of the target. For vehicles with multiple textures you can select which texture. Also has a reset checkbox to reset to originally texture
 * **Paste Loadout into Inventory:** When using the Zeus Enhanced "copy loadout" context menu, you get a new option when right-clicking a vehicle or box and under "inventory" you can select "paste loadout" which will paste that units loadout into the inventory if there is enough space. 
 * **Unit Loadout Viewer:** Quickly See Loadout of Unit without going into full arsenal. A right-click menu to see unit loadout without loading a full arsenal.  
+* **Draw Build:** Select start position, the type of object to build, and start building by simply clicking the straight lines you want. Quick way to make hesco or sandbag walls without having to manually place each wall segment.     
 
 Features Requireing ACE:   
 * **Set Rearm Vehicle:** Set an object or vehicle as an ACE rearm vehicle
@@ -30,6 +31,9 @@ Features Requireing ACE:
 * **Mass Surrender/Captive:** Can select entire sides or players/groups to toggle surrender or captive. 
 * **Mass Unconscious:** Can select entire sides or players/groups to toggle ACE unconscious on. 
 * **Inflict ACE Medical damage:** with selection of limb, damage-type and damage. (Useful for medic training of specific wounds. Logs dmg and target in RPT log files when used)
+
+Features Requiring TFAR:  
+* **Set Vehicle Radio Side:** Set the radio side on the selected vehicle. Makes it possible to swap the vehicle radios to the wanted side.  
 
 ### Test Status
 The code is written for MP and dedicated server usage. All functions have been tested on "MP" using the Eden editor and "play scenario in MP".    
@@ -56,9 +60,11 @@ The following has been tested on dedicated server with default settings:
 - [X] Mass Unconscious
 - [X] Radius Heal
 - [X] Rearm Vehicle
+- [ ] DrawBuild
+- [ ] Set TFAR vehicle side
 
 ### Debugging
-All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the log.
+All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the entry.
 
 ### On todo-list
 - [X] color texture changer synced on JIP - Can make cars in fancy colours

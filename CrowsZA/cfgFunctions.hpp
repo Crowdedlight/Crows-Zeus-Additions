@@ -6,6 +6,8 @@ class CrowsZA_addon
 		file = "\CrowsZA\functions";
 		class zeusRegister { postInit = 1; };
 
+		class showHint {};
+
 		class aceDamageToUnit {};
 
 		class removeTreesZeus {};
@@ -59,5 +61,8 @@ class CrowsZA_addon
 		class drawBuildSelectPosition {};
 		class drawBuildZeus {};
 		class drawBuild {};
+
+		// TFAR related 
+		class tfarSetVehicleSide {};
 	};
 };
