@@ -8,27 +8,20 @@ Return: none
 
 handles selection of multiple points to draw lines between them
 
-Inspired by how ZEN handles selection with teleport players
+Inspired by how ZEN handles selection with teleport player
 
 *///////////////////////////////////////////////
-params [
-    ["_startPosition", [], []],
-    ["_function", {}, [{}]]
-];
-
-diag_log "entered drawBuildSelectPosition";
+params ["_object"];
 
 // exit if instance is already running
-if (crowsZA_common_selectPositionActive) exitWith {
-	// didn't succeed
-    [false, []] call _function;
-};
+if (crowsZA_common_selectPositionActive) exitWith {};
 
 // set as active 
 crowsZA_common_selectPositionActive = true;
 
 // global vars, as we need to update between event calls
-crowsZA_drawBuild_startPos = _startPosition;
+crowsZA_drawBuild_startPos = [];
+crowsza_drawBuild_objectType = _object;
 
 // icon vars
 private _angle = 45;
@@ -42,7 +35,7 @@ private _display = findDisplay IDD_RSCDISPLAYCURATOR;
 private _visuals = [_text, _icon, _angle, _colour, _textStart];
 
 // mouse eventhandler to get clicks/positions
-private _mouseEH = [_display, "MouseButtonUp", {
+private _mouseEH = [_display, "MouseButtonDown", {
     params ["", "_button", "", "", "_shift", "_ctrl", "_alt"];
 
 	// if not leftclick
@@ -51,8 +44,12 @@ private _mouseEH = [_display, "MouseButtonUp", {
 	// get position clicked
     private _position = [] call crowsZA_fnc_getPosFromMouse;
 
-	// call build function 
-    [crowsZA_drawBuild_startPos, _position] call crowsZA_fnc_drawBuild;
+    // check if first position, and set start point
+    if ((count crowsZA_drawBuild_startPos) != 0) then {
+        // call build function 
+        [crowsZA_drawBuild_startPos, _position, crowsza_drawBuild_objectType] call crowsZA_fnc_drawBuild;   
+    };
+
     // set start pos to new pos 
     crowsZA_drawBuild_startPos = _position;
 
@@ -65,25 +62,19 @@ private _keyboardEH = [_display, "KeyDown", {
 	// exit if key is not ESC or space
     if (_key != DIK_ESCAPE && _key != DIK_SPACE) exitWith {false};
 
-	// if ESC, we are calling _function with the positions gathered
-    _thisArgs params ["_function"];
-
-    [true, crowsZA_drawBuild_startPos] call _function;
-
-	// and setting instance to false
+	// if ESC, setting instance to false
     crowsZA_common_selectPositionActive = false;
 
     true // handled
-}, [_function]] call CBA_fnc_addBISEventHandler;
+}, []] call CBA_fnc_addBISEventHandler;
 
 // main handler
 [{
     params ["_args", "_pfhID"];
-    _args params ["_function", "_visuals", "_mouseEH", "_keyboardEH", "_drawEH"];
+    _args params ["_visuals", "_mouseEH", "_keyboardEH", "_drawEH"];
 
     // End selection with failure if an object is deleted, Zeus display is closed, or pause menu is opened
 	if (isNull findDisplay IDD_RSCDISPLAYCURATOR || !isNull findDisplay IDD_INTERRUPT) then {
-        [false, crowsZA_drawBuild_startPos] call _function;
         crowsZA_common_selectPositionActive = false;
     };
 
@@ -91,7 +82,7 @@ private _keyboardEH = [_display, "KeyDown", {
     if (!crowsZA_common_selectPositionActive) exitWith {
         private _display = findDisplay IDD_RSCDISPLAYCURATOR;
 		// mouse and keyboard
-        _display displayRemoveEventHandler ["MouseButtonUp", _mouseEH];
+        _display displayRemoveEventHandler ["MouseButtonDown", _mouseEH];
         _display displayRemoveEventHandler ["KeyDown", _keyboardEH];
 
 		// clear global vars
@@ -110,15 +101,23 @@ private _keyboardEH = [_display, "KeyDown", {
     
 	// convert to AGL for drawing
 	_currPos = ASLtoAGL _currPos;
-    private _startPos = ASLToAGL crowsZA_drawBuild_startPos;
+    
+	// draw from start pos, only if we got start pos
+    if ((count crowsZA_drawBuild_startPos) > 0) then {
+        private _startPos = ASLToAGL crowsZA_drawBuild_startPos;
 
-	// draw start pos icon in 3D
-	drawIcon3D [_icon, _color, _startPos, 1, 1, _angle, _textStart];
+        // draw start pos icon in 3D
+        drawIcon3D [_icon, _color, _startPos, 1, 1, _angle, _textStart];
 
-	// draw current icon in 3D, xcom blue
-    drawIcon3D [_icon, _color, _currPos, 1.5, 1.5, _angle, _text];
+        // draw line between the positions 
+        drawLine3D [_startPos, _currPos, _color];	
 
-    // draw line between the positions 
-    drawLine3D [_startPos, _currPos, _color];	
+        // draw current icon in 3D, xcom blue
+        drawIcon3D [_icon, _color, _currPos, 1.5, 1.5, _angle, _text];
+        
+    } else {
+        // draw start pos icon
+        drawIcon3D [_icon, _color, _currPos, 1.5, 1.5, _angle, _textStart];
+    };
 
-}, 0, [_function, _visuals, _mouseEH, _keyboardEH]] call CBA_fnc_addPerFrameHandler;
+}, 0, [_visuals, _mouseEH, _keyboardEH]] call CBA_fnc_addPerFrameHandler;

@@ -23,11 +23,8 @@ private _onConfirm =
 	//Get in params again
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-	// check for selection
-	if (count _side == 0) exitWith { ["No side selected..."] call crowsZA_fnc_showHint; };
-
 	// select first element in array, if more than one are selected just take the first
-	_side = toLower(str(_side select 0));
+	_side = toLower(str(_side));
 
 	// make variable lowercase and set it. variable only works with "west" or "east" anything else will just be "independent", so even if we click civilian it will still be independent.
 	_unit setVariable ["tf_side", _side, false];
@@ -39,7 +36,7 @@ private _onConfirm =
 [
 	"Set TFAR Vehicle Side", 
 	[
-		["SIDES","TFAR Vehicle Side",[], true]
+		["SIDES","TFAR Vehicle Side", west]
 	],
 	_onConfirm,
 	{},

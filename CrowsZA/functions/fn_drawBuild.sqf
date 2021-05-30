@@ -9,10 +9,10 @@ builds objects along the drawn line
 
 *///////////////////////////////////////////////
 // both pos comes as ASL
-params ["_startPos", "_endPos"];
+params ["_startPos", "_endPos", "_objectName"];
 
 // todo make dialog where you choose what to build... 
-private _objectName = "Land_HBarrier_3_F";
+// private _objectName = "Land_HBarrier_3_F";
 
 // get placement and direction offset (We want to place it from edge to edge)
 private _spawnObjectLength = 0;

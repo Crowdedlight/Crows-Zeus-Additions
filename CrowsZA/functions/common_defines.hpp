@@ -31,7 +31,9 @@
 #define IDC_SEARCH_BAR 			1547
 #define IDC_WEIGHT	   			1548
 
-//IDC for 
+//IDC for drawbuild
+#define IDC_CONTROL_GROUP 1630
+#define IDC_ICON_GRID_FIRST 1640
 	
 //array types
 #define TYPE_WEAPON "weapon"
