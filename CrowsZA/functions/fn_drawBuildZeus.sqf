@@ -31,6 +31,8 @@ private _arrOptions = [
 	"Land_HBarrier_3_F",
 	"Land_HBarrier_Big_F",
 	"Land_BagFence_Short_F"
+	//trenches
+	//green tanoa sandbags
 ];
 
 //display all items
@@ -64,8 +66,6 @@ private _arrOptions = [
 			//todo change so we don't give first position, but selectPosition script expects to select the first point first, then goes into the loop. 
 
 			// start draw building
-			diag_log _pos;
-			diag_log _object;
 			[_object] call crowsZA_fnc_drawBuildSelectPosition;
 			
     }, [_mainItem]] call CBA_fnc_addBISEventHandler;

@@ -62,8 +62,14 @@ private _keyboardEH = [_display, "KeyDown", {
 	// exit if key is not ESC or space
     if (_key != DIK_ESCAPE && _key != DIK_SPACE) exitWith {false};
 
-	// if ESC, setting instance to false
-    crowsZA_common_selectPositionActive = false;
+    //TODO if _somekey_ reset start position, so we can do multiple segments. 
+    if (_key == DIK_SPACE) then {
+        // reset start position
+        crowsZA_drawBuild_startPos = [];
+    } else {
+        // if ESC, setting instance to false
+        crowsZA_common_selectPositionActive = false;
+    };
 
     true // handled
 }, []] call CBA_fnc_addBISEventHandler;

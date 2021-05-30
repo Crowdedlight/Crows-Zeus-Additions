@@ -61,7 +61,7 @@ The following has been tested on dedicated server with default settings:
 - [X] Radius Heal
 - [X] Rearm Vehicle
 - [ ] DrawBuild
-- [ ] Set TFAR vehicle side
+- [X] Set TFAR vehicle side
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the entry.

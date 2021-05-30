@@ -23,20 +23,22 @@ switch(_objectName) do {
 	// smaller hesco
 	case "Land_HBarrier_3_F":
 	{
-		_spawnObjectLength = 3.55376;
+		_spawnObjectLength = 3.45376;
 		_spawnObjectLengthOffset = 1.7;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// large hesco
 	case "Land_HBarrier_Big_F":
 	{
-		_spawnObjectLength = 9.02888;
+		_spawnObjectLength = 8.5;
+		_spawnObjectLengthOffset = 4.25;
 		_spawnDirOffset = 90; //90deg offset
 	};		
 	// sandbags
 	case "Land_BagFence_Short_F":
 	{
-		_spawnObjectLength = 1.98357;
+		_spawnObjectLength = 1.88357;
+		_spawnObjectLengthOffset = 0.9;
 		_spawnDirOffset = 90; //90deg offset
 	};
 };
