@@ -24,7 +24,7 @@ class crowsZA_drawbuild_display {
         };
         class Content: RscControlsGroupNoScrollbars {
             idc = IDC_CONTENT;
-            h = POS_H(3);
+            h = POS_H(5);
             x = POS_X(12);
             w = POS_W(14);
             class controls {
@@ -54,6 +54,37 @@ class crowsZA_drawbuild_display {
                     idc = IDC_ICON_GRID_FIRST + 4;
                     x = POS_W(12);
                 };
+                // bottom rows for toggle enables, simulation
+                class cbSimulation: RscCheckBox {
+                    idc = IDC_CHECKBOX_SIMULATION;
+                    x = 0;
+                    y = POS_H(3);
+                    w = POS_W(1);
+                    h = POS_H(1);
+                    soundClick[] = {"\a3\ui_f\data\sound\rscbutton\soundclick", 0.09, 1};
+                    soundEnter[] = {"\a3\ui_f\data\sound\rscbutton\soundenter", 0.09, 1};
+                    soundEscape[] = {"\a3\ui_f\data\sound\rscbutton\soundescape", 0.09, 1};
+                    soundPush[] = {"\a3\ui_f\data\sound\rscbutton\soundpush", 0.09, 1};
+                    checked = 0; //default to be disabled
+                };
+                class lblSimulation: RscText {
+                    idc = -1;
+                    x = POS_W(1);
+                    y = POS_H(3);
+                    w = POS_W(10);
+                    h = POS_H(1);
+                    colorBackground[] = {0, 0, 0, 0.5};
+                    text = "Enable Simulation";
+                };
+                // damage
+                class cbDamage: cbSimulation {
+                    idc = IDC_CHECKBOX_DAMAGE;
+                    y = POS_H(4);
+                };
+                class lblDamage: lblSimulation {
+                    y = POS_H(4);
+                    text = "Enable Damage";
+                };        
             };
         };
     };

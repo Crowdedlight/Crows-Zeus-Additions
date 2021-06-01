@@ -33,6 +33,8 @@
 
 //IDC for drawbuild
 #define IDC_CONTROL_GROUP 1630
+#define IDC_CHECKBOX_SIMULATION 1632
+#define IDC_CHECKBOX_DAMAGE 1633
 #define IDC_ICON_GRID_FIRST 1640
 	
 //array types

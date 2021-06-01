@@ -11,7 +11,7 @@ handles selection of multiple points to draw lines between them
 Inspired by how ZEN handles selection with teleport player
 
 *///////////////////////////////////////////////
-params ["_object"];
+params ["_object", "_enableSim", "_enableDmg"];
 
 // exit if instance is already running
 if (crowsZA_common_selectPositionActive) exitWith {};
@@ -21,7 +21,7 @@ crowsZA_common_selectPositionActive = true;
 
 // global vars, as we need to update between event calls
 crowsZA_drawBuild_startPos = [];
-crowsza_drawBuild_objectType = _object;
+// crowsza_drawBuild_objectType = _object;
 
 // icon vars
 private _angle = 45;
@@ -38,6 +38,7 @@ private _visuals = [_text, _icon, _angle, _colour, _textStart];
 private _mouseEH = [_display, "MouseButtonDown", {
     params ["", "_button", "", "", "_shift", "_ctrl", "_alt"];
 
+
 	// if not leftclick
     if (_button != 0) exitWith {};
 
@@ -46,14 +47,17 @@ private _mouseEH = [_display, "MouseButtonDown", {
 
     // check if first position, and set start point
     if ((count crowsZA_drawBuild_startPos) != 0) then {
+        // get extra options
+        _thisArgs params ["_object", "_enableSim", "_enableDmg"];
+        
         // call build function 
-        [crowsZA_drawBuild_startPos, _position, crowsza_drawBuild_objectType] call crowsZA_fnc_drawBuild;   
+        [crowsZA_drawBuild_startPos, _position, _object, _enableSim, _enableDmg] call crowsZA_fnc_drawBuild;   
     };
 
     // set start pos to new pos 
     crowsZA_drawBuild_startPos = _position;
 
-}, []] call CBA_fnc_addBISEventHandler;
+}, [_object, _enableSim, _enableDmg]] call CBA_fnc_addBISEventHandler;
 
 // eventhandler to register ESC/space so we can end selection
 private _keyboardEH = [_display, "KeyDown", {

@@ -33,6 +33,9 @@ private _arrOptions = [
 	"Land_BagFence_Short_F"
 	//trenches
 	//green tanoa sandbags
+	//big fence 
+	//military wall
+	//go-cart tracks, tire walls
 ];
 
 //display all items
@@ -63,10 +66,15 @@ private _arrOptions = [
 			// close dialog
 			closeDialog 1;
 
-			//todo change so we don't give first position, but selectPosition script expects to select the first point first, then goes into the loop. 
+			// get options for simulation and damage 
+			private _ctrlSimCheckbox = _display displayCtrl IDC_CHECKBOX_SIMULATION;
+			private _ctrlDmgCheckbox = _display displayCtrl IDC_CHECKBOX_DAMAGE;
+
+			private _enableSim = cbChecked _ctrlSimCheckbox;
+			private _enableDmg = cbChecked _ctrlDmgCheckbox;
 
 			// start draw building
-			[_object] call crowsZA_fnc_drawBuildSelectPosition;
+			[_object, _enableSim, _enableDmg] call crowsZA_fnc_drawBuildSelectPosition;
 			
     }, [_mainItem]] call CBA_fnc_addBISEventHandler;
 
