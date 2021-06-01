@@ -41,6 +41,90 @@ switch(_objectName) do {
 		_spawnObjectLengthOffset = 0.9;
 		_spawnDirOffset = 90; //90deg offset
 	};
+	// trench
+	case "Land_Trench_01_grass_F": //todo
+	{
+		_spawnObjectLength = 1.88357;
+		_spawnObjectLengthOffset = 0.9;
+		_spawnDirOffset = 90; //90deg offset
+	};
+	// concrete wall
+	case "Land_ConcreteWall_01_m_4m_F": //todo
+	{
+		_spawnObjectLength = 1.88357;
+		_spawnObjectLengthOffset = 0.9;
+		_spawnDirOffset = 90; //90deg offset
+	};
+	// smaller hesco - green
+	case "Land_HBarrier_01_line_3_green_F": //test
+	{
+		_spawnObjectLength = 3.45376;
+		_spawnObjectLengthOffset = 1.7;
+		_spawnDirOffset = 90; //90deg offset
+	};
+	// big hesco - green 
+	case "Land_HBarrier_01_big_4_green_F": //test
+	{
+		_spawnObjectLength = 8.5;
+		_spawnObjectLengthOffset = 4.25;
+		_spawnDirOffset = 90; //90deg offset
+	};
+	// sandbag wall - green
+	case "Land_BagFence_01_short_green_F": //test
+	{
+		_spawnObjectLength = 1.88357;
+		_spawnObjectLengthOffset = 0.9;
+		_spawnDirOffset = 90; //90deg offset
+	};
+	// military wall big
+	case "Land_Mil_WallBig_4m_F": //todo
+	{
+		_spawnObjectLength = 1.88357;
+		_spawnObjectLengthOffset = 0.9;
+		_spawnDirOffset = 90; //90deg offset
+	};
+	// land fortress wall 5m
+	case "Land_Fortress_01_5m_F": //todo
+	{
+		_spawnObjectLength = 1.88357;
+		_spawnObjectLengthOffset = 0.9;
+		_spawnDirOffset = 90; //90deg offset
+	};
+	// grass hedge
+	case "Land_Hedge_01_s_2m_F": //todo
+	{
+		_spawnObjectLength = 1.88357;
+		_spawnObjectLengthOffset = 0.9;
+		_spawnDirOffset = 90; //90deg offset
+	};
+	// net fence
+	case "Land_NetFence_02_m_4m_F": //todo
+	{
+		_spawnObjectLength = 1.88357;
+		_spawnObjectLengthOffset = 0.9;
+		_spawnDirOffset = 90; //90deg offset
+	};
+	// wired fence
+	case "Land_New_WiredFence_5m_F": //todo
+	{
+		_spawnObjectLength = 1.88357;
+		_spawnObjectLengthOffset = 0.9;
+		_spawnDirOffset = 90; //90deg offset
+	};
+	// razorwire
+	case "Land_Razorwire_F": //todo
+	{
+		_spawnObjectLength = 1.88357;
+		_spawnObjectLengthOffset = 0.9;
+		_spawnDirOffset = 90; //90deg offset
+	};
+	// tire barrier
+	case "Land_TyreBarrier_01_line_x4_F": //todo
+	{
+		_spawnObjectLength = 1.88357;
+		_spawnObjectLengthOffset = 0.9;
+		_spawnDirOffset = 90; //90deg offset
+	};
 };
 
 // calculate distance between points to know amount of hesco to cover the length - https://community.bistudio.com/wiki/vectorDistance

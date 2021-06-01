@@ -28,14 +28,25 @@ private _display = uiNamespace getVariable "crowsZA_drawbuild_display";
 
 // array of "options" to build with
 private _arrOptions = [
-	"Land_HBarrier_3_F",
-	"Land_HBarrier_Big_F",
-	"Land_BagFence_Short_F"
-	//trenches
-	//green tanoa sandbags
-	//big fence 
-	//military wall
-	//go-cart tracks, tire walls
+	"Land_HBarrier_3_F",					//hesco default
+	"Land_HBarrier_Big_F",					//big hesco default
+	"Land_BagFence_Short_F",				//sandbag wall - default
+	"Land_Trench_01_grass_F",				//trench grass
+	"Land_ConcreteWall_01_m_4m_F", 			//concrete wall
+	
+	//tanoa sandbags
+	"Land_HBarrier_01_line_3_green_F",		//tanoa hesco (green)
+	"Land_HBarrier_01_big_4_green_F",		//big tanoa hesco 
+	"Land_BagFence_01_short_green_F",		//tanoa sandbag wall
+	"Land_Mil_WallBig_4m_F",				//military wall
+	"Land_Fortress_01_5m_F",				//land fortress wall 5m
+
+	//fences
+	"Land_Hedge_01_s_2m_F",					//grass hedge
+	"Land_NetFence_02_m_4m_F",				//net fence
+	"Land_New_WiredFence_5m_F",				//wire fence
+	"Land_Razorwire_F",						//razor wire
+	"Land_TyreBarrier_01_line_x4_F"			//tire wall
 ];
 
 //display all items

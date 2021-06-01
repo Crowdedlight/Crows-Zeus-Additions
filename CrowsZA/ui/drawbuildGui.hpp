@@ -1,4 +1,5 @@
 class RscActivePicture;
+class RscCheckBox;
 
 //main display class
 class crowsZA_drawbuild_display {
@@ -24,7 +25,7 @@ class crowsZA_drawbuild_display {
         };
         class Content: RscControlsGroupNoScrollbars {
             idc = IDC_CONTENT;
-            h = POS_H(5);
+            h = POS_H(10);
             x = POS_X(12);
             w = POS_W(14);
             class controls {
@@ -54,11 +55,55 @@ class crowsZA_drawbuild_display {
                     idc = IDC_ICON_GRID_FIRST + 4;
                     x = POS_W(12);
                 };
+                // row 2
+                class row2: grid1 {
+                    idc = IDC_ICON_GRID_FIRST + 5;
+                    x = 0;
+                    y = POS_H(3);
+                };
+                class grid7: row2 {
+                    idc = IDC_ICON_GRID_FIRST + 6;
+                    x = POS_W(3);
+                };
+                class grid8: row2 {
+                    idc = IDC_ICON_GRID_FIRST + 7;
+                    x = POS_W(6);
+                };
+                class grid9: row2 {
+                    idc = IDC_ICON_GRID_FIRST + 8;
+                    x = POS_W(9);
+                };
+                class grid10: row2 {
+                    idc = IDC_ICON_GRID_FIRST + 9;
+                    x = POS_W(12);
+                };
+                // row 3
+                class row3: grid1 {
+                    idc = IDC_ICON_GRID_FIRST + 10;
+                    x = 0;
+                    y = POS_H(5.5);
+                };
+                class grid7: row3 {
+                    idc = IDC_ICON_GRID_FIRST + 11;
+                    x = POS_W(3);
+                };
+                class grid8: row3 {
+                    idc = IDC_ICON_GRID_FIRST + 12;
+                    x = POS_W(6);
+                };
+                class grid9: row3 {
+                    idc = IDC_ICON_GRID_FIRST + 13;
+                    x = POS_W(9);
+                };
+                class grid10: row3 {
+                    idc = IDC_ICON_GRID_FIRST + 14;
+                    x = POS_W(12);
+                };
                 // bottom rows for toggle enables, simulation
                 class cbSimulation: RscCheckBox {
                     idc = IDC_CHECKBOX_SIMULATION;
                     x = 0;
-                    y = POS_H(3);
+                    y = POS_H(8);
                     w = POS_W(1);
                     h = POS_H(1);
                     soundClick[] = {"\a3\ui_f\data\sound\rscbutton\soundclick", 0.09, 1};
@@ -70,7 +115,7 @@ class crowsZA_drawbuild_display {
                 class lblSimulation: RscText {
                     idc = -1;
                     x = POS_W(1);
-                    y = POS_H(3);
+                    y = POS_H(8);
                     w = POS_W(10);
                     h = POS_H(1);
                     colorBackground[] = {0, 0, 0, 0.5};
@@ -79,7 +124,7 @@ class crowsZA_drawbuild_display {
                 // damage
                 class cbDamage: cbSimulation {
                     idc = IDC_CHECKBOX_DAMAGE;
-                    y = POS_H(4);
+                    y = POS_H(9.5);
                 };
                 class lblDamage: lblSimulation {
                     y = POS_H(4);

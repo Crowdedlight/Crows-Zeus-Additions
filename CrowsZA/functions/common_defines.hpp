@@ -35,7 +35,7 @@
 #define IDC_CONTROL_GROUP 1630
 #define IDC_CHECKBOX_SIMULATION 1632
 #define IDC_CHECKBOX_DAMAGE 1633
-#define IDC_ICON_GRID_FIRST 1640
+#define IDC_ICON_GRID_FIRST 1640 //uses incremental from there, should reserve up to 1660 for 20 elements
 	
 //array types
 #define TYPE_WEAPON "weapon"
