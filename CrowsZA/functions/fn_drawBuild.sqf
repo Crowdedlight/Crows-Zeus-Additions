@@ -37,92 +37,92 @@ switch(_objectName) do {
 	// sandbags
 	case "Land_BagFence_Short_F":
 	{
-		_spawnObjectLength = 1.88357;
-		_spawnObjectLengthOffset = 0.9;
+		_spawnObjectLength = 1.6;
+		_spawnObjectLengthOffset = 0.7;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// trench
-	case "Land_Trench_01_grass_F": //todo
+	case "fort_envelopebig": //only exists if grad trenches is on the server
 	{
-		_spawnObjectLength = 1.88357;
-		_spawnObjectLengthOffset = 0.9;
-		_spawnDirOffset = 90; //90deg offset
+		_spawnObjectLength = 6;
+		_spawnObjectLengthOffset = 3;
+		_spawnDirOffset = 270;
 	};
 	// concrete wall
-	case "Land_ConcreteWall_01_m_4m_F": //todo
+	case "Land_ConcreteWall_01_m_4m_F":
 	{
-		_spawnObjectLength = 1.88357;
-		_spawnObjectLengthOffset = 0.9;
+		_spawnObjectLength = 4;
+		_spawnObjectLengthOffset = 2;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// smaller hesco - green
-	case "Land_HBarrier_01_line_3_green_F": //test
+	case "Land_HBarrier_01_line_3_green_F":
 	{
 		_spawnObjectLength = 3.45376;
 		_spawnObjectLengthOffset = 1.7;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// big hesco - green 
-	case "Land_HBarrier_01_big_4_green_F": //test
+	case "Land_HBarrier_01_big_4_green_F":
 	{
 		_spawnObjectLength = 8.5;
 		_spawnObjectLengthOffset = 4.25;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// sandbag wall - green
-	case "Land_BagFence_01_short_green_F": //test
+	case "Land_BagFence_01_short_green_F":
 	{
-		_spawnObjectLength = 1.88357;
-		_spawnObjectLengthOffset = 0.9;
+		_spawnObjectLength = 1.6;
+		_spawnObjectLengthOffset = 0.7;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// military wall big
-	case "Land_Mil_WallBig_4m_F": //todo
+	case "Land_Mil_WallBig_4m_F":
 	{
-		_spawnObjectLength = 1.88357;
-		_spawnObjectLengthOffset = 0.9;
+		_spawnObjectLength = 4;
+		_spawnObjectLengthOffset = 2;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// land fortress wall 5m
-	case "Land_Fortress_01_5m_F": //todo
+	case "Land_Fortress_01_5m_F":
 	{
-		_spawnObjectLength = 1.88357;
-		_spawnObjectLengthOffset = 0.9;
+		_spawnObjectLength = 10.25;
+		_spawnObjectLengthOffset = 5.12;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// grass hedge
-	case "Land_Hedge_01_s_2m_F": //todo
+	case "Land_Hedge_01_s_2m_F":
 	{
-		_spawnObjectLength = 1.88357;
-		_spawnObjectLengthOffset = 0.9;
-		_spawnDirOffset = 90; //90deg offset
+		_spawnObjectLength = 2;
+		_spawnObjectLengthOffset = 0.5;
+		_spawnDirOffset = 0;
 	};
 	// net fence
-	case "Land_NetFence_02_m_4m_F": //todo
+	case "Land_NetFence_02_m_4m_F":
 	{
-		_spawnObjectLength = 1.88357;
-		_spawnObjectLengthOffset = 0.9;
+		_spawnObjectLength = 4;
+		_spawnObjectLengthOffset = 2;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// wired fence
-	case "Land_New_WiredFence_5m_F": //todo
+	case "Land_New_WiredFence_5m_F":
 	{
-		_spawnObjectLength = 1.88357;
-		_spawnObjectLengthOffset = 0.9;
+		_spawnObjectLength = 5.20;
+		_spawnObjectLengthOffset = 2.6;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// razorwire
-	case "Land_Razorwire_F": //todo
+	case "Land_Razorwire_F":
 	{
-		_spawnObjectLength = 1.88357;
-		_spawnObjectLengthOffset = 0.9;
+		_spawnObjectLength = 8.46;
+		_spawnObjectLengthOffset = 4.20;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// tire barrier
-	case "Land_TyreBarrier_01_line_x4_F": //todo
+	case "Land_TyreBarrier_01_line_x4_F":
 	{
-		_spawnObjectLength = 1.88357;
-		_spawnObjectLengthOffset = 0.9;
+		_spawnObjectLength = 2.6;
+		_spawnObjectLengthOffset = 1.2;
 		_spawnDirOffset = 90; //90deg offset
 	};
 };

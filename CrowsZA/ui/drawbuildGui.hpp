@@ -25,7 +25,7 @@ class crowsZA_drawbuild_display {
         };
         class Content: RscControlsGroupNoScrollbars {
             idc = IDC_CONTENT;
-            h = POS_H(10);
+            h = POS_H(11);
             x = POS_X(12);
             w = POS_W(14);
             class controls {
@@ -83,19 +83,19 @@ class crowsZA_drawbuild_display {
                     x = 0;
                     y = POS_H(5.5);
                 };
-                class grid7: row3 {
+                class grid12: row3 {
                     idc = IDC_ICON_GRID_FIRST + 11;
                     x = POS_W(3);
                 };
-                class grid8: row3 {
+                class grid13: row3 {
                     idc = IDC_ICON_GRID_FIRST + 12;
                     x = POS_W(6);
                 };
-                class grid9: row3 {
+                class grid14: row3 {
                     idc = IDC_ICON_GRID_FIRST + 13;
                     x = POS_W(9);
                 };
-                class grid10: row3 {
+                class grid15: row3 {
                     idc = IDC_ICON_GRID_FIRST + 14;
                     x = POS_W(12);
                 };
@@ -110,7 +110,7 @@ class crowsZA_drawbuild_display {
                     soundEnter[] = {"\a3\ui_f\data\sound\rscbutton\soundenter", 0.09, 1};
                     soundEscape[] = {"\a3\ui_f\data\sound\rscbutton\soundescape", 0.09, 1};
                     soundPush[] = {"\a3\ui_f\data\sound\rscbutton\soundpush", 0.09, 1};
-                    checked = 0; //default to be disabled
+                    checked = 1; //default to be enabled
                 };
                 class lblSimulation: RscText {
                     idc = -1;
@@ -118,16 +118,17 @@ class crowsZA_drawbuild_display {
                     y = POS_H(8);
                     w = POS_W(10);
                     h = POS_H(1);
-                    colorBackground[] = {0, 0, 0, 0.5};
+                    // colorBackground[] = {0, 0, 0, 0.7};
                     text = "Enable Simulation";
                 };
                 // damage
                 class cbDamage: cbSimulation {
                     idc = IDC_CHECKBOX_DAMAGE;
                     y = POS_H(9.5);
+                    checked = 0; //default to be disabled
                 };
                 class lblDamage: lblSimulation {
-                    y = POS_H(4);
+                    y = POS_H(9.5);
                     text = "Enable Damage";
                 };        
             };

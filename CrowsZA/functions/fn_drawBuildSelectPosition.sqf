@@ -23,6 +23,9 @@ crowsZA_common_selectPositionActive = true;
 crowsZA_drawBuild_startPos = [];
 // crowsza_drawBuild_objectType = _object;
 
+diag_log _enableDmg;
+diag_log _enableSim;
+
 // icon vars
 private _angle = 45;
 private _colour = [0.28, 0.78, 0.96, 1]; //xcom blue

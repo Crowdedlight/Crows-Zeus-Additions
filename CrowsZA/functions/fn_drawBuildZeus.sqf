@@ -31,7 +31,7 @@ private _arrOptions = [
 	"Land_HBarrier_3_F",					//hesco default
 	"Land_HBarrier_Big_F",					//big hesco default
 	"Land_BagFence_Short_F",				//sandbag wall - default
-	"Land_Trench_01_grass_F",				//trench grass
+	"Land_TyreBarrier_01_line_x4_F",		//tire wall
 	"Land_ConcreteWall_01_m_4m_F", 			//concrete wall
 	
 	//tanoa sandbags
@@ -45,9 +45,14 @@ private _arrOptions = [
 	"Land_Hedge_01_s_2m_F",					//grass hedge
 	"Land_NetFence_02_m_4m_F",				//net fence
 	"Land_New_WiredFence_5m_F",				//wire fence
-	"Land_Razorwire_F",						//razor wire
-	"Land_TyreBarrier_01_line_x4_F"			//tire wall
+	"Land_Razorwire_F"						//razor wire
 ];
+
+// only add grad trenches if that mod is loaded
+private _hasGradTrench = isClass (configFile >> "CfgPatches" >> "grad_trenches_main");
+if (_hasGradTrench) then {
+	_arrOptions = _arrOptions + ["fort_envelopebig"]
+};
 
 //display all items
 {
@@ -72,7 +77,7 @@ private _arrOptions = [
 	// handler for click on icon
 	[_ctrlSpot, "ButtonClick", {
             params ["_ctrlSpot"];
-            _thisArgs params ["_object"];
+            _thisArgs params ["_object", "_display"];
 
 			// close dialog
 			closeDialog 1;
@@ -87,6 +92,6 @@ private _arrOptions = [
 			// start draw building
 			[_object, _enableSim, _enableDmg] call crowsZA_fnc_drawBuildSelectPosition;
 			
-    }, [_mainItem]] call CBA_fnc_addBISEventHandler;
+    }, [_mainItem, _display]] call CBA_fnc_addBISEventHandler;
 
 } forEach _arrOptions;
