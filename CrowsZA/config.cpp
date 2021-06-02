@@ -2,6 +2,7 @@
 #include "functions\common_defines.hpp"
 //loadout gui include
 #include "ui\loadoutGui.hpp"
+#include "ui\drawbuildGui.hpp"
 
 class CfgPatches
 {
