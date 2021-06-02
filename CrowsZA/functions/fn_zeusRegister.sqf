@@ -9,6 +9,7 @@ Using the same setup method as JShock in JSHK contamination mod.
 
 *///////////////////////////////////////////////
 
+// check for zen 
 private _hasZen = isClass (configFile >> "CfgPatches" >> "zen_custom_modules");
 if !(_hasZen) exitWith
 {
@@ -21,6 +22,7 @@ if (!hasInterface) exitWith {};
 //private global var
 crowsZA_animalFollowList = [];
 publicVariable "crowsZA_animalFollowList";
+crowsZA_common_selectPositionActive = false;
 
 private _loadedMods = getLoadedModsInfo;
 //spawn script to register zen modules
@@ -41,12 +43,14 @@ private _wait = [player,_loadedMods] spawn
 		false;
 	};
 	 
-	// save ace loaded variable as public var. So context menu check just needs to check var, instead of 
-	private _aceModIndex = _loadedMods findIf { _x select 1 == "@ace" };
-	crowsZA_common_aceModLoaded = _aceModIndex != -1;
+	// save ace loaded variable as public var. So context menu check just needs to check var
+	crowsZA_common_aceModLoaded = isClass (configFile >> "CfgPatches" >> "ace_main");
 
-	private _moduleList = [crowsZA_common_aceModLoaded] call {
-		params ["_isAceLoaded"];
+	// check if tfar is loaded 
+	private _hasTFAR = isClass (configFile >> "CfgPatches" >> "task_force_radio");
+
+	private _moduleList = [crowsZA_common_aceModLoaded, _hasTFAR] call {
+		params ["_isAceLoaded", "_isTFARLoaded"];
 		private _aceDependentModules = [
 			["ACE Add Damage to Unit",{_this call crowsZA_fnc_aceDamageToUnit}, "\CrowsZA\data\sword.paa"],
 			["Mass-Unconscious Toggle",{_this call crowsZA_fnc_massUnconscious}, "\z\ace\addons\zeus\UI\Icon_Module_Zeus_Unconscious_ca.paa"],
@@ -65,13 +69,24 @@ private _wait = [player,_loadedMods] spawn
 			["Set Numberplate",{_this call crowsZA_fnc_setNumberplate}, "\CrowsZA\data\numberplate.paa"],
 			["Delete ALL dead bodies",{_this call crowsZA_fnc_deleteAllDeadBodies}, "\CrowsZA\data\cleanup.paa"],
 			["Set Colour",{_this call crowsZA_fnc_setColour}, "\CrowsZA\data\paint.paa"],
-			["Teleport To Squadmember",{_this call crowsZA_fnc_teleportToSquadMember}, "\CrowsZA\data\tpToSquad.paa"] 
+			["Teleport To Squadmember",{_this call crowsZA_fnc_teleportToSquadMember}, "\CrowsZA\data\tpToSquad.paa"], 
+			["DrawBuild",{_this call crowsZA_fnc_drawBuildZeus}, "\CrowsZA\data\drawbuild.paa"] 
 		];
-		if(_isAceLoaded) then {
-			_otherModules + _aceDependentModules;
-		} else {
-			_otherModules;
+		private _tfarModules = [
+			["Set TFAR Vehicle Radio Side",{_this call crowsZA_fnc_tfarSetVehicleSide}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"] 
+		];
+
+		// return the ones to load
+		private _combinedArr = _otherModules;
+		
+		if (_isAceLoaded) then {
+			_combinedArr = _combinedArr + _aceDependentModules;
 		};
+		
+		if (_isTFARLoaded) then {
+			_combinedArr = _combinedArr + _tfarModules;
+		};
+		_combinedArr;
 	};	
 
 	//registering ZEN custom modules
