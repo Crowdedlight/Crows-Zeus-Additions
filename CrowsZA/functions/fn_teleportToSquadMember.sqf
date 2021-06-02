@@ -35,12 +35,12 @@ private _onConfirm =
 		private _movedIntoVic = _unit moveInAny (vehicle _tpTarget);
 		if (!_movedIntoVic) then {
 			//failed to move into, we just gonna tp next to vic
-			_unit setPos (position _tpTarget);
+			_unit setVehiclePosition [_tpTarget, [], 0, ""];
 		};
 	} else 
 	{
 		//not in vic, teleport directly
-		_unit setPos (position _tpTarget);
+		_unit setVehiclePosition [_tpTarget, [], 0, ""];
 	};	
 };
 
