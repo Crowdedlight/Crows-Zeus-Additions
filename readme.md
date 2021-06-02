@@ -60,7 +60,7 @@ The following has been tested on dedicated server with default settings:
 - [X] Mass Unconscious
 - [X] Radius Heal
 - [X] Rearm Vehicle
-- [ ] DrawBuild
+- [X] DrawBuild
 - [X] Set TFAR vehicle side
 
 ### Debugging

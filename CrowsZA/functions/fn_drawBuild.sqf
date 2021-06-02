@@ -86,8 +86,8 @@ switch(_objectName) do {
 	// land fortress wall 5m
 	case "Land_Fortress_01_5m_F":
 	{
-		_spawnObjectLength = 10.25;
-		_spawnObjectLengthOffset = 5.12;
+		_spawnObjectLength = 10;
+		_spawnObjectLengthOffset = 5;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// grass hedge
@@ -134,7 +134,7 @@ private _iterations = ceil (_euclideanDist / _spawnObjectLength); //always round
 // calculate the direction between points
 private _direction = _startPos getDir _endPos;
 
-diag_log format["distance: %1, direction: %2", _euclideanDist, _direction];
+// diag_log format["distance: %1, direction: %2", _euclideanDist, _direction];
 
 // save start pos in temp var for iteration
 private _tempPos = _startPos;
@@ -150,7 +150,7 @@ private _allObjects = [];
 for "_i" from 1 to _iterations do {
 	// increment distance - https://community.bistudio.com/wiki/getPos
 	// if first position, we only move the offset from clicked position, for the rest we move position and offset.
-	diag_log format["spawnObjectOffset: %1, direction: %2", _spawnObjectLengthOffset, _direction];
+	// diag_log format["spawnObjectOffset: %1, direction: %2", _spawnObjectLengthOffset, _direction];
 
 	if (_i == 1) then {
 		_nextPos = _tempPos getPos [_spawnObjectLengthOffset, _direction];

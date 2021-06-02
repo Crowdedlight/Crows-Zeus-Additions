@@ -23,9 +23,6 @@ crowsZA_common_selectPositionActive = true;
 crowsZA_drawBuild_startPos = [];
 // crowsza_drawBuild_objectType = _object;
 
-diag_log _enableDmg;
-diag_log _enableSim;
-
 // icon vars
 private _angle = 45;
 private _colour = [0.28, 0.78, 0.96, 1]; //xcom blue
@@ -67,13 +64,23 @@ private _keyboardEH = [_display, "KeyDown", {
     params ["", "_key", "_shift", "_ctrl", "_alt"];
 
 	// exit if key is not ESC or space
-    if (_key != DIK_ESCAPE && _key != DIK_SPACE) exitWith {false};
+    if (_key != DIK_ESCAPE && _key != DIK_SPACE && _key != DIK_R) exitWith {false};
 
-    //if space reset start position, so we can do multiple segments. 
+    // if space reset start position, so we can do multiple segments. 
     if (_key == DIK_SPACE) then {
         // reset start position
         crowsZA_drawBuild_startPos = [];
-    } else {
+    };
+
+    // if R select new object
+    if (_key == DIK_R) then {
+        crowsZA_common_selectPositionActive = false;
+        // relaunch module, the time it takes to select a new object should make sure the previous eventhandlers are removed
+        [] call crowsZA_fnc_drawBuildZeus;
+    };
+
+    // if ESCAPE
+    if (_key == DIK_ESCAPE) then {
         // if ESC, setting instance to false
         crowsZA_common_selectPositionActive = false;
     };
