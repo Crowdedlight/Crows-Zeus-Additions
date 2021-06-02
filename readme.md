@@ -21,7 +21,7 @@ Features:
 * **Set Colour:** Sets the colour of the target. For vehicles with multiple textures you can select which texture. Also has a reset checkbox to reset to originally texture
 * **Paste Loadout into Inventory:** When using the Zeus Enhanced "copy loadout" context menu, you get a new option when right-clicking a vehicle or box and under "inventory" you can select "paste loadout" which will paste that units loadout into the inventory if there is enough space. 
 * **Unit Loadout Viewer:** Quickly See Loadout of Unit without going into full arsenal. A right-click menu to see unit loadout without loading a full arsenal.  
-* **Draw Build:** Select start position, the type of object to build, and start building by simply clicking the straight lines you want. Quick way to make hesco or sandbag walls without having to manually place each wall segment.     
+* **Draw Build:** Select the type of object to build, and start building by simply clicking the straight lines you want. Quick way to make hesco or sandbag walls without having to manually place each wall segment.     
 
 Features Requireing ACE:   
 * **Set Rearm Vehicle:** Set an object or vehicle as an ACE rearm vehicle
