@@ -6,7 +6,7 @@ Simple clientside mod which adds whatever functions I wanted as zeus modules.
 
 **Requires Zeus Enhanced (ZEN)**  
 
-The features requiring ACE is only available and loaded if ACE is loaded.
+Features that is not base-features are only available if the mod required is detected as Loaded. 
 
 Features:   
 * **Scatter Teleport:** Allows Zeus to select players to teleport to position spread in a pattern. Can include the vic players are inside. Useful for TPing into parachuting while ensuring players are seperated from eachother 
