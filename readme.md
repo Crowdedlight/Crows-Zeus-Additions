@@ -17,7 +17,7 @@ Features:
 * **Animal Follower:** Spawns an animal that follows the selected player around
 * **Delete All Spawned Animal Followers:** Deletes all animals spawned with **Animal Follower** module. For easy cleanup.
 * **Set Numberplate:** Can set the numberplate of a vehicle
-* **Delete All Dead Bodies:** A cleanup script that removes all dead bodies that is not inside a vehicle.
+* **Delete All Dead:** A cleanup script that removes all dead bodies/wrecks.
 * **Set Colour:** Sets the colour of the target. For vehicles with multiple textures you can select which texture. Also has a reset checkbox to reset to originally texture
 * **Paste Loadout into Inventory:** When using the Zeus Enhanced "copy loadout" context menu, you get a new option when right-clicking a vehicle or box and under "inventory" you can select "paste loadout" which will paste that units loadout into the inventory if there is enough space. 
 * **Unit Loadout Viewer:** Quickly See Loadout of Unit without going into full arsenal. A right-click menu to see unit loadout without loading a full arsenal.  

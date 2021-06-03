@@ -33,7 +33,7 @@ class CrowsZA_addon
 
 		class setNumberplate {};
 
-		class deleteAllDeadBodies {};
+		class deleteAllDead {};
 
 		class centerZeusViewUnit {};
 
