@@ -23,21 +23,21 @@ _jammerObject setVariable ["crowsza_tfar_jamming_radius", _radius];
 _jammerObject setVariable ["crowsza_tfar_jamming_strength", _strength];
 
 // add actions to deactive and activate jamming
-private _fnc_jamming_start = 
+crowsza_fnc_jamming_start = 
 {
 	params ["_target", "_caller", "_actionId", "_arguments"];
 	_target setVariable ["crowsza_tfar_jamming_enabled", true];
 };
-private _fnc_jamming_stop = 
+crowsza_fnc_jamming_stop = 
 {
 	params ["_target", "_caller", "_actionId", "_arguments"];
 	_target setVariable ["crowsza_tfar_jamming_enabled", false];
 };
-_jammerObject addAction ["<t color=""#FFFF00"">start jamming", _fnc_jamming_start, [], 7, true, true, "", "[[position _target, _radius], _this] call BIS_fnc_inTrigger && !(_target getVariable 'crowsza_tfar_jamming_enabled')"];
-_jammerObject addAction ["<t color=""#FFFF00"">stop jamming", _fnc_jamming_stop, [], 7, true, true, "", "[[position _target, _radius], _this] call BIS_fnc_inTrigger && (_target getVariable 'crowsza_tfar_jamming_enabled')"];
+_jammerObject addAction ["<t color=""#FFFF00"">start jamming", crowsza_fnc_jamming_start, [], 7, true, true, "", "[[position _target, _radius], _this] call BIS_fnc_inTrigger && !(_target getVariable 'crowsza_tfar_jamming_enabled')"];
+_jammerObject addAction ["<t color=""#FFFF00"">stop jamming", crowsza_fnc_jamming_stop, [], 7, true, true, "", "[[position _target, _radius], _this] call BIS_fnc_inTrigger && (_target getVariable 'crowsza_tfar_jamming_enabled')"];
 
 // function to update markers, only called for zeuses
-private _fnc_updateJammerMarker = 
+crowsza_fnc_updateJammerMarker = 
 {
 	params ["_jammer", "_creating"];
 
@@ -66,7 +66,7 @@ private _fnc_updateJammerMarker =
 	_jammer setVariable ["crowsza_tfar_jamming_mark_area", _markArea];
 	_jammer setVariable ["crowsza_tfar_jamming_mark_pos", _markPos];
 };
-private _fnc_removeJammerMarker = 
+crowsza_fnc_removeJammerMarker = 
 {
 	params ["_jammer"];
 	private _markArea = _jammer getVariable ["crowsza_tfar_jamming_mark_area", netId _jammer];
@@ -76,7 +76,7 @@ private _fnc_removeJammerMarker =
 };
 
 // add function to add jammer to array, as we also want to add marker for zeus side of where the jammer is etc. 
-private _fnc_addJammer = 
+crowsza_fnc_addJammer = 
 {
 	params ["_jammer"];
 	crowsZA_tfar_jamming_list pushBack _jammer;
@@ -91,11 +91,11 @@ private _fnc_addJammer =
 // if script is already running, we don't start a new loop and just exit
 if (player getVariable ["crowsza_tfar_jamming_loop", false]) then {
 	// always pushback the current jammer as long as its alive, the jam script loop check if active and alive, and deals with removing it. 
-	[_jammerObject] call _fnc_addJammer;
+	[_jammerObject] call crowsza_fnc_addJammer;
 	exit;
 } else {
 	// always pushback the current jammer as long as its alive, the jam script loop check if active and alive, and deals with removing it. 
-	[_jammerObject] call _fnc_addJammer;
+	[_jammerObject] call crowsza_fnc_addJammer;
 };
 
 // start main loop and set variable on player that its started
@@ -111,7 +111,7 @@ while {count crowsZA_tfar_jamming_list > 0} do {
 
 			// remove marker from map, if zeus 
 			if (!isNull (getAssignedCuratorLogic player)) then {
-				[_x] call _fnc_removeJammerMarker;
+				[_x] call crowsza_fnc_removeJammerMarker;
 			};
 		};
 	} forEach crowsZA_tfar_jamming_list;
@@ -123,7 +123,7 @@ while {count crowsZA_tfar_jamming_list > 0} do {
 	if (!isNull (getAssignedCuratorLogic player)) then {
 		// update markers 
 		{
-			[_x, false] call _fnc_updateJammerMarker;
+			[_x, false] call crowsza_fnc_updateJammerMarker;
 		} forEach crowsZA_tfar_jamming_list;
 	
 		// sleep 3.0; TODO uncomment, currently commented out for testing purpose
