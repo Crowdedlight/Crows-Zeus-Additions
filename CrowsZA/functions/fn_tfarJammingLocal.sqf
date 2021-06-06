@@ -11,45 +11,92 @@ The script that gets run on each client locally, spawned from zeus module. Each 
 params [["_jammerObject",objNull], ["_radius",500], ["_strength", 50]];
 // we want to spawn this script on scheduled for all clients, and add it to JIP. 
 
+// if on server or headless, stop execution
+if (!hasInterface) exitWith {};
+
+// get the current list, or get empty if doesn't exist. Is nessecary to avoid errors of "unknown variable"
+crowsZA_tfar_jamming_list = player getVariable ["crowsZA_tfar_jamming_list", []];
+
 // set variable on object, as that is the easiest way to ensure turning on and off is equal for everyone
 _jammerObject setVariable ["crowsza_tfar_jamming_enabled", true];
 _jammerObject setVariable ["crowsza_tfar_jamming_radius", _radius];
 _jammerObject setVariable ["crowsza_tfar_jamming_strength", _strength];
 
 // add actions to deactive and activate jamming
-private fnc_jamming_start = 
+private _fnc_jamming_start = 
 {
 	params ["_target", "_caller", "_actionId", "_arguments"];
 	_target setVariable ["crowsza_tfar_jamming_enabled", true];
 };
-private fnc_jamming_stop = 
+private _fnc_jamming_stop = 
 {
 	params ["_target", "_caller", "_actionId", "_arguments"];
 	_target setVariable ["crowsza_tfar_jamming_enabled", false];
 };
-player addAction ["<t color=""#FFFF00"">start jamming", fnc_jamming_start, [], 7, true, true, "", "[_target, player] call BIS_fnc_inTrigger && !(_target getVariable ""crowsza_tfar_jamming_enabled"")"];
-player addAction ["<t color=""#FFFF00"">stop jamming", fnc_jamming_stop, [], 7, true, true, "", "[_target, player] call BIS_fnc_inTrigger && (_target getVariable ""crowsza_tfar_jamming_enabled"")"];
- 
-// add function to add jammer to array, as we also want to add marker for zeus side of where the jammer is etc. 
-private fnc_addJammer = 
+_jammerObject addAction ["<t color=""#FFFF00"">start jamming", _fnc_jamming_start, [], 7, true, true, "", "[[position _target, _radius], _this] call BIS_fnc_inTrigger && !(_target getVariable 'crowsza_tfar_jamming_enabled')"];
+_jammerObject addAction ["<t color=""#FFFF00"">stop jamming", _fnc_jamming_stop, [], 7, true, true, "", "[[position _target, _radius], _this] call BIS_fnc_inTrigger && (_target getVariable 'crowsza_tfar_jamming_enabled')"];
+
+// function to update markers, only called for zeuses
+private _fnc_updateJammerMarker = 
+{
+	params ["_jammer", "_creating"];
+
+	// get marker name to delete and recreate 
+	private _markArea = _jammer getVariable ["crowsza_tfar_jamming_mark_area", netId _jammer];
+	private _markPos = _jammer getVariable ["crowsza_tfar_jamming_mark_pos", netId _jammer];
+	private _markDist = _jammer getVariable ["crowsza_tfar_jamming_radius", 0];
+
+	// delete existing marker, unless we are creating them first time
+	if (!_creating) then {
+		deletemarkerLocal _markArea;
+		deletemarkerLocal _markPos;
+	};
+
+	_markArea = createMarkerLocal [_markArea, position _jammer];
+	_markArea setMarkerShapeLocal "ELLIPSE";
+	_markArea setMarkerSizeLocal [_markDist, _markDist];
+	_markArea setMarkerAlphaLocal 0.5;
+	
+	//Position Marker
+	_markPos = createMarkerLocal [_markPos, position _jammer];
+	_markPos setMarkerShapeLocal "ICON";
+	_markPos setMarkerTypeLocal "mil_dot";
+
+	// save in jam vars
+	_jammer setVariable ["crowsza_tfar_jamming_mark_area", _markArea];
+	_jammer setVariable ["crowsza_tfar_jamming_mark_pos", _markPos];
+};
+private _fnc_removeJammerMarker = 
 {
 	params ["_jammer"];
-	crowsZA_tfar_jamming_list pushBack [_jammerObject];
+	private _markArea = _jammer getVariable ["crowsza_tfar_jamming_mark_area", netId _jammer];
+	private _markPos = _jammer getVariable ["crowsza_tfar_jamming_mark_pos", netId _jammer];
+	deletemarkerLocal _markArea;
+	deletemarkerLocal _markPos;
+};
+
+// add function to add jammer to array, as we also want to add marker for zeus side of where the jammer is etc. 
+private _fnc_addJammer = 
+{
+	params ["_jammer"];
+	crowsZA_tfar_jamming_list pushBack _jammer;
+
+	// update player var 
+	player setVariable ["crowsZA_tfar_jamming_list", crowsZA_tfar_jamming_list];
 
 	//TODO ADD MARKERS FOR ZEUS
+	[_jammer, true] call _fnc_updateJammerMarker;
 };
 
 // if script is already running, we don't start a new loop and just exit
 if (player getVariable ["crowsza_tfar_jamming_loop", false]) then {
 	// always pushback the current jammer as long as its alive, the jam script loop check if active and alive, and deals with removing it. 
-	[_jammerObject] call fnc_addJammer;
+	[_jammerObject] call _fnc_addJammer;
 	exit;
 } else {
 	// always pushback the current jammer as long as its alive, the jam script loop check if active and alive, and deals with removing it. 
-	[_jammerObject] call fnc_addJammer;
+	[_jammerObject] call _fnc_addJammer;
 };
-
-//IF ZEUS, DON'T JAM...EXIT
 
 // start main loop and set variable on player that its started
 player setVariable ["crowsza_tfar_jamming_loop", true];
@@ -61,13 +108,27 @@ while {count crowsZA_tfar_jamming_list > 0} do {
 		// if object not alive, add to deletion list 
 		if (!alive _x) then {
 			_jamRemoveList pushBack _x;
-			
-			//TODO delete markers for the jammers for zeus 
+
+			// remove marker from map, if zeus 
+			if (!isNull (getAssignedCuratorLogic player)) then {
+				[_x] call _fnc_removeJammerMarker;
+			};
 		};
 	} forEach crowsZA_tfar_jamming_list;
 
 	// update list of alive jammers
 	crowsZA_tfar_jamming_list = crowsZA_tfar_jamming_list - _jamRemoveList;
+
+	//IF ZEUS, DON'T JAM...update markers, sleep and skip.
+	if (!isNull (getAssignedCuratorLogic player)) then {
+		// update markers 
+		{
+			[_x, false] call _fnc_updateJammerMarker;
+		} forEach crowsZA_tfar_jamming_list;
+	
+		// sleep 3.0; TODO uncomment, currently commented out for testing purpose
+		// continue;
+	};
 
 	// find nearest jammer within range
 	private _nearestJammer = objNull;
@@ -133,22 +194,9 @@ while {count crowsZA_tfar_jamming_list > 0} do {
 	// https://github.com/Grezvany13/ILBE-Assault-Pack-Rewrite/blob/master/y/tfw_radios/addons/rf3080/scripts/fn_distanceMultiplicator.sqf#L24 
 
 	//Debugging loaned for now from "Jam Radios script for TFAR created by Asherion and Rebel"
-	if (true) then {
-		deletemarkerLocal "CIS_DebugMarker";
-		deletemarkerLocal "CIS_DebugMarker2";
-		//Area marker
-		_debugMarker = createmarkerLocal ["CIS_DebugMarker", position _nearestJammer];
-		_debugMarker setMarkerShapeLocal "ELLIPSE";
-		_debugMarker setMarkerSizeLocal [_distRad, _distRad];
-		
-		//Position Marker
-		_debugMarker2 = createmarkerLocal ["CIS_DebugMarker2", position _nearestJammer];
-		_debugMarker2 setMarkerShapeLocal "ICON";
-		_debugMarker2 setMarkerTypeLocal "mil_dot";
-		_debugMarker2 setMarkerTextLocal format ["%1", _nearestJammer];
-		
+	if (true) then {	
 		systemChat format ["Distance: %1, Percent: %2, Interference: %3, Send Interference: %4", _distJammer,  100 * _distPercent, _rxInterference, _txInterference];
-		systemChat format ["Active Jammer: %1, Jammers: %2",_nearestJammer, _nearestJammer];
+		systemChat format ["Active Jammers: %1, Closest Jammer: %2",crowsZA_tfar_jamming_list, _nearestJammer];
 		//copyToClipboard (str(Format ["Distance: %1, Percent: %2, Interference: %3", _dist,  100 * _distPercent, _interference]));
 	};
 
