@@ -74,13 +74,14 @@ private _onConfirm =
 	then{
 		_type = _customType;
 	};
-
+	diag_log "guns:";
+	diag_log str _guns;
 	//Set variables to logic gameobject
 	_logic setVariable ["_type", _type];
 	_logic setVariable ["_radius", _radius];
 	_logic setVariable ["_seconds", _seconds];
-	_logic setVariable ["_salvos", _salvos];
-	_logic setVariable ["_guns", _guns];
+	_logic setVariable ["_salvos", round _salvos];
+	_logic setVariable ["_guns", round _guns];
 	
 
 	_spawnBarrage = 
