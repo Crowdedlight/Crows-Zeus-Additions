@@ -22,6 +22,7 @@ Features:
 * **Paste Loadout into Inventory:** When using the Zeus Enhanced "copy loadout" context menu, you get a new option when right-clicking a vehicle or box and under "inventory" you can select "paste loadout" which will paste that units loadout into the inventory if there is enough space. 
 * **Unit Loadout Viewer:** Quickly See Loadout of Unit without going into full arsenal. A right-click menu to see unit loadout without loading a full arsenal.  
 * **Draw Build:** Select the type of object to build, and start building by simply clicking the straight lines you want. Quick way to make hesco or sandbag walls without having to manually place each wall segment.     
+* **Fire Support:** Call in fire support without having to set up vehicles that might run out of ammuntion. Supports 82mm Mortar, 155mm Artillery and 230mm Rockets (Other ammunition also possible via the Custom Type (ex.) field by entering the CfgAmmo name. Each ammo needs individual testing). Sliders for radius, amount of salvos (leave 0 for infinite), seconds between the salvos, delay after placing and amount of "guns" firing. Move object to change center of radius, reapply module to change settings and delete to end prematurly.
 
 Features Requireing ACE:   
 * **Set Rearm Vehicle:** Set an object or vehicle as an ACE rearm vehicle
@@ -62,6 +63,7 @@ The following has been tested on dedicated server with default settings:
 - [X] Rearm Vehicle
 - [X] DrawBuild
 - [X] Set TFAR vehicle side
+- [X] Fire Support
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the entry.

@@ -79,8 +79,8 @@ private _onConfirm =
 	_logic setVariable ["_type", _type];
 	_logic setVariable ["_radius", _radius];
 	_logic setVariable ["_seconds", _seconds];
-	_logic setVariable ["_salvos", floor _salvos];
-	_logic setVariable ["_guns", floor _guns];
+	_logic setVariable ["_salvos", _salvos];
+	_logic setVariable ["_guns", _guns];
 	
 
 	_spawnBarrage = 
