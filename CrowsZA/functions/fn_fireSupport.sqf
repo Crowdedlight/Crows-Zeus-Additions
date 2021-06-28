@@ -2,7 +2,7 @@
 Author: Radkewolf
 			   
 File: fn_fireSupport.sqf
-Parameters: pos
+Parameters: pos, logic
 Return: none
 
 Sets off firesupport in the targeted area
@@ -18,6 +18,27 @@ private _fnc_errorAndClose = {
     breakOut "Main";
 };
 
+private _checkIfFireSupport = 
+{
+	params ["_logic"];
+
+	private _is = !isNull _logic;
+
+	// check if object is firesupport module
+	if(_is) then {
+		if(!(_logic isKindOf "Logic")) then {
+			_is = false;
+		}
+		else {
+			_mod = _logic getVariable ["crowsZA_module", ""];
+			if(_mod == "firesupport") then {
+				_is = true;
+			};
+		}
+	};
+	_is
+};
+
 // open dialog
 //ZEN
 private _onConfirm =
@@ -31,32 +52,15 @@ private _onConfirm =
 		"_seconds",
 		"_delay",
 		"_salvos",
-		"_guns"
+		"_guns",
+		"_display"
 	];
 
 	// get in params again
-	_in params [["_pos",[0,0,0],[[]],3], ["_logic",objNull,[objNull]]];
-
-	// check if placed on an object
-	private _create = isNull _logic;
-
-	// check if object is firesupport module
-	if(!_create) then {
-		if(!(_logic isKindOf "Logic")) then {
-			_create = true;
-		}
-		else {
-			_mod = _logic getVariable ["crowsZA_module", ""];
-			if(_mod != "firesupport")
-			then
-			{
-				_create = true;
-			};
-		}
-	};
+	_in params [["_pos",[0,0,0],[[]],3], ["_logic",objNull,[objNull]], ["_isFireSupport", false]];
 
 	// create new module if not placed on existing one
-	if(_create) then {
+	if(!_isFireSupport) then {
 		_logicCenter = createCenter sideLogic;
 		_logicGroup = createGroup _logicCenter;
 		_logic = _logicGroup createUnit ["Logic", _pos, [], 0, "NONE"];
@@ -77,18 +81,18 @@ private _onConfirm =
 	_logic setVariable ["crowsZA_firesupport_guns", round _guns, true];
 	
 
-	_spawnBarrage = 
+	private _spawnBarrage = 
 	{
 		params ["_logic", "_code"];
 
 		while {!isNull _logic} do {
 			// read values from logic object
-			_pos = getPos _logic;
-			_type = _logic getVariable ["crowsZA_firesupport_type", ""];
-			_radius = _logic getVariable ["crowsZA_firesupport_radius", 0];
-			_seconds = _logic getVariable ["crowsZA_firesupport_seconds", 1];
-			_salvos = _logic getVariable ["crowsZA_firesupport_salvos", 1];
-			_guns = _logic getVariable ["crowsZA_firesupport_guns", 1];
+			private _pos = getPos _logic;
+			private _type = _logic getVariable ["crowsZA_firesupport_type", ""];
+			private _radius = _logic getVariable ["crowsZA_firesupport_radius", 0];
+			private _seconds = _logic getVariable ["crowsZA_firesupport_seconds", 1];
+			private _salvos = _logic getVariable ["crowsZA_firesupport_salvos", 1];
+			private _guns = _logic getVariable ["crowsZA_firesupport_guns", 1];
 
 			// spawn salvo with values
 			[_pos, _type, _radius, _guns, [0, 0.5]] spawn BIS_fnc_fireSupportVirtual;
@@ -115,7 +119,7 @@ private _onConfirm =
 		}
 	};
 
-	_delayedBarrage =
+	private _delayedBarrage =
 	{
 		params ["_logic","_delay","_code"];
 		
@@ -163,9 +167,46 @@ private _onConfirm =
 
 	// };
 
-	if(_create) then {
+	if(!_isFireSupport) then {
 		[_logic, _delay, _spawnBarrage] spawn _delayedBarrage;
 		// [_logic, _radius, _pos] spawn _spawnAreaMarker;
+	};
+};
+
+// check if _logic is fire support module
+private _isFireSupport = _logic call _checkIfFireSupport;
+
+// set default values
+private _type = 0;
+private _customType = "";
+private _radius = 100;
+private _seconds = 5;
+private _salvos = 1;
+private _guns = 1;
+
+// if _logic is fire support set default to current values
+if(_isFireSupport) then {
+	_radius = _logic getVariable ["crowsZA_firesupport_radius", 0];
+	_seconds = _logic getVariable ["crowsZA_firesupport_seconds", 1];
+	_salvos = _logic getVariable ["crowsZA_firesupport_salvos", 1];
+	_guns = _logic getVariable ["crowsZA_firesupport_guns", 1];
+
+	private _varType = _logic getVariable ["crowsZA_firesupport_type", ""];
+
+	// check whether or not _type is custom and set default _type and _customType accordingly
+	switch (_varType) do {
+		case ("Sh_82mm_AMOS"): {
+			_type = 0;
+		};
+		case ("Sh_155mm_AMOS"): {
+			_type = 1;
+		};
+		case ("Cluster_155mm_AMOS"): {
+			_type = 2;
+		};
+		default {
+			_customType = _varType;
+		};
 	};
 };
 
@@ -173,15 +214,15 @@ private _onConfirm =
 [
 	"Select Firesupport Type and Area", 
 	[
-		["COMBO","Type",[["Sh_82mm_AMOS", "Sh_155mm_AMOS", "Cluster_155mm_AMOS"], ["82 mm Mortar", "155 mm Howitzer", "230 mm Rocket"],0]],
-		["EDIT","Custom Type (ex.)",""],
-		["SLIDER","Radius",[0,5000,500,0]],
-		["SLIDER","Seconds between Salvos",[0,30,5,1]],
-		["SLIDER","Start after ... seconds",[0,30,1,1]],
-		["SLIDER","Stop After Salvos (0 = indef.)",[0,100,1,0]],
-		["SLIDER","Guns",[1,30,1,0]]
+		["COMBO","Type",[["Sh_82mm_AMOS", "Sh_155mm_AMOS", "Cluster_155mm_AMOS"], ["82 mm Mortar", "155 mm Howitzer", "230 mm Rocket"],_type],_isFireSupport],
+		["EDIT","Custom Type (ex.)",_customType,_isFireSupport],
+		["SLIDER","Radius",[0,5000,_radius,0],_isFireSupport],
+		["SLIDER","Seconds between Salvos",[0,30,_seconds,1],_isFireSupport],
+		["SLIDER","Start after ... seconds",[0,30,1,1],_isFireSupport],
+		["SLIDER","Stop After Salvos (0 = indef.)",[0,100,_salvos,0],_isFireSupport],
+		["SLIDER","Guns",[1,30,_guns,0],_isFireSupport]
 	],
 	_onConfirm,
 	{},
-	_this
+	[_pos, _logic, _isFireSupport]
 ] call zen_dialog_fnc_create;
