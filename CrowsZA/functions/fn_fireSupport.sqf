@@ -117,9 +117,7 @@ private _onConfirm =
 
 	_delayedBarrage =
 	{
-		_logic = (_this select 0);
-		_delay = (_this select 1);
-		_code = (_this select 2);
+		params ["_logic","_delay","_code"];
 		
 		// spawn barrage after delay
 		sleep _delay;
