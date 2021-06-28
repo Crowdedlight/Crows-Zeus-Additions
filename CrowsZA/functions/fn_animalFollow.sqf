@@ -34,11 +34,14 @@ crowsZA_fnc_addAceActionPetDog =
 	params["_animal", "_animalType", "_response", "_animalAceOffset"];
 	private _action = ["crowszaPetAnimal",format ["Pet %1",_animalType],"",
 	{		
-		systemChat str _response;
-		[_player, "gesturePoint"] call ace_common_fnc_doGesture;
-		[str _response, true, 5, 2] call ace_common_fnc_displayText;
-	},
-	{true},{},[], _animalAceOffset, 3] call ace_interact_menu_fnc_createAction;
+		params ["_target", "_player", "_actionParams"];
+		diag_log (_actionParams select 0);
+		_player PlayMove "gesturePoint";
+		hint (_actionParams select 0);
+		[(_actionParams select 0), true, 5, 2] call ace_common_fnc_displayText;
+
+	},{true},{},[_response], _animalAceOffset, 3] call ace_interact_menu_fnc_createAction;
+
 	[_animal, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
 };
 
@@ -60,7 +63,8 @@ for "_x" from 1 to _amount do {
 
 	//add ace interaction option to pet the animal, if ace is loaded 
 	if (crowsZA_common_aceModLoaded) then {
-		[_animal, _animalType, _animalResponse, _animalAceOffset] remoteExec ["crowsZA_fnc_addAceActionPetDog", -2, true];
+		// [_animal, _animalType, _animalResponse, _animalAceOffset] remoteExecCall ["crowsZA_fnc_addAceActionPetDog", -2, true];
+		[[_animal, _animalType, _animalResponse, _animalAceOffset], crowsZA_fnc_addAceActionPetDog] remoteExec ["call", [ 0, -2 ] select isDedicated, true];
 	};
 
 	//log it

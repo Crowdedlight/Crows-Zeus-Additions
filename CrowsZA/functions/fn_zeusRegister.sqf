@@ -73,8 +73,7 @@ private _wait = [player,_loadedMods] spawn
 			["DrawBuild",{_this call crowsZA_fnc_drawBuildZeus}, "\CrowsZA\data\drawbuild.paa"] 
 		];
 		private _tfarModules = [
-			["Set TFAR Vehicle Radio Side",{_this call crowsZA_fnc_tfarSetVehicleSide}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"], 
-			["TFAR Jammer",{_this call crowsZA_fnc_tfarJammingZeus}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"] 
+			["Set TFAR Vehicle Radio Side",{_this call crowsZA_fnc_tfarSetVehicleSide}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
 		];
 
 		// return the ones to load

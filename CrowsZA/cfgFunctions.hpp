@@ -64,7 +64,5 @@ class CrowsZA_addon
 
 		// TFAR related 
 		class tfarSetVehicleSide {};
-		class tfarJammingLocal {};
-		class tfarJammingZeus {};
 	};
 };
