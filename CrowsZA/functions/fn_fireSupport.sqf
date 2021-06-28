@@ -59,6 +59,10 @@ private _onConfirm =
 	// get in params again
 	_in params [["_pos",[0,0,0],[[]],3], ["_logic",objNull,[objNull]], ["_isFireSupport", false]];
 
+	if(_radius > 200) then {
+		_display = false;
+	};
+
 	// create new module if not placed on existing one
 	if(!_isFireSupport) then {
 		_logicCenter = createCenter sideLogic;
@@ -67,6 +71,11 @@ private _onConfirm =
 		_logic setVariable ["crowsZA_module", "firesupport"];
 		["zen_common_addObjects", [[_logic], objNull]] call CBA_fnc_serverEvent;
 	};
+	
+	private _currDisplay = _logic getVariable ["crowsZA_firesupport_display", false];
+	diag_log format ["_currDisplay: %1", str _currDisplay];
+	private _createDisplay = (!_isFireSupport || !_currDisplay) && _display;
+	diag_log format ["_createDisplay : %1", str _createDisplay ];
 
 	// use specific cfgAmmo if filled
 	if(_customType != "") then {
@@ -79,6 +88,7 @@ private _onConfirm =
 	_logic setVariable ["crowsZA_firesupport_seconds", _seconds, true];
 	_logic setVariable ["crowsZA_firesupport_salvos", round _salvos, true];
 	_logic setVariable ["crowsZA_firesupport_guns", round _guns, true];
+	_logic setVariable ["crowsZA_firesupport_display", _display, true];
 	
 
 	private _spawnBarrage = 
@@ -128,48 +138,52 @@ private _onConfirm =
 		[_logic, _code] spawn _code;
 	};
 
-	// _spawnAreaMarker =
-	// {
-	// 	_logic = (_this select 0);
-	// 	_radius = (_this select 1);
-	// 	_pos = (_this select 2);
-		
-	// 	_obj = createSimpleObject ["\a3\Modules_F_Curator\Ordnance\surfaceMortar.p3d", _pos];
-	// 	_scale = 0.025 * _radius;
-	// 	_obj setObjectScale _scale;
+	crowsZA_fnc_spawnAreaMarker =
+	{
+		params ["_logic","_radius","_pos"];
+		diag_log "Called spawn";
+		private _obj = createSimpleObject ["\a3\Modules_F_Curator\Ordnance\surfaceHowitzer.p3d", _pos, true];
+		private _scale = 0.0125 * _radius;
+		_obj setObjectScale _scale;
 
-	// 	[_logic, _obj] spawn {
-	// 		_logic = (_this select 0);
-	// 		_obj = (_this select 1);
+		[_logic, _obj, _radius] spawn {
+			params ["_logic","_obj","_radius"];
+			private _display = true;
+			while{!(isNull _logic) && _display} do {
+				sleep 0.5;
 
-	// 		while{!(isNull _logic)}
-	// 		do {
-	// 			sleep 0.5;
+				_display = _logic getVariable ["crowsZA_firesupport_display", false];
 
-	// 			if(isNull _logic)
-	// 			then{
-	// 				deleteVehicle _obj;
-	// 			}
-	// 			else{
-	// 				_pos1 = getPos _logic;
-	// 				_pos2 = getPos _obj;
+				if(isNull _logic || !_display) then {
+					deleteVehicle _obj;
+				}
+				else{
+					private _pos1 = getPos _logic;
+					private _pos2 = getPos _obj;
 
-	// 				diag_log str _pos1;
-	// 				diag_log str _pos2;
+					if(_pos1 select 0 != _pos2 select 0 && _pos1 select 1 != _pos2 select 1) then {
+						_obj setPosWorld (getPos _logic);
+					};
 
-	// 				if(_pos1 select 0 != _pos2 select 0 && _pos1 select 1 != _pos2 select 1)
-	// 				then{
-	// 					_obj setPosWorld (getPos _logic);
-	// 				}
-	// 			}
-	// 		};
-	// 	};
+					private _logicRadius = _logic getVariable ["crowsZA_firesupport_radius", 0];
+					if(_radius != _logicRadius) then {
+						_radius = _logicRadius;
+						_scale = 0.0125 * _radius;
+						_obj setObjectScale _scale;
+					};
+				}
+			};
+		};
 
-	// };
-
+	};
+	
 	if(!_isFireSupport) then {
 		[_logic, _delay, _spawnBarrage] spawn _delayedBarrage;
-		// [_logic, _radius, _pos] spawn _spawnAreaMarker;
+	};
+	if(_createDisplay) then {
+		{
+			[[_logic,_radius,_pos], crowsZA_fnc_spawnAreaMarker] remoteExec ["call", _x, true]; 
+		} forEach allCurators;
 	};
 };
 
@@ -183,6 +197,7 @@ private _radius = 100;
 private _seconds = 5;
 private _salvos = 1;
 private _guns = 1;
+private _display = false;
 
 // if _logic is fire support set default to current values
 if(_isFireSupport) then {
@@ -190,6 +205,7 @@ if(_isFireSupport) then {
 	_seconds = _logic getVariable ["crowsZA_firesupport_seconds", 1];
 	_salvos = _logic getVariable ["crowsZA_firesupport_salvos", 1];
 	_guns = _logic getVariable ["crowsZA_firesupport_guns", 1];
+	_display = _logic getVariable ["crowsZA_firesupport_display", false];
 
 	private _varType = _logic getVariable ["crowsZA_firesupport_type", ""];
 
@@ -220,7 +236,8 @@ if(_isFireSupport) then {
 		["SLIDER","Seconds between Salvos",[0,30,_seconds,1],_isFireSupport],
 		["SLIDER","Start after ... seconds",[0,30,1,1],_isFireSupport],
 		["SLIDER","Stop After Salvos (0 = indef.)",[0,100,_salvos,0],_isFireSupport],
-		["SLIDER","Guns",[1,30,_guns,0],_isFireSupport]
+		["SLIDER","Guns",[1,30,_guns,0],_isFireSupport],
+		["CHECKBOX","Display Radius (not supported above 200m radius)",_display,_isFireSupport]
 	],
 	_onConfirm,
 	{},
