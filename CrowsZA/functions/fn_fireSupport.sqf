@@ -34,23 +34,19 @@ private _onConfirm =
 		"_guns"
 	];
 
-	//Get in params again
+	// get in params again
 	_in params [["_pos",[0,0,0],[[]],3], ["_logic",objNull,[objNull]]];
 
-	//Check if placed on an object
-	_create = isNull _logic;
+	// check if placed on an object
+	private _create = isNull _logic;
 
-	//Check if object is firesupport module
-	if(!_create)
-	then
-	{
-		if(!(_logic isKindOf "Logic"))
-		then
-		{
+	// check if object is firesupport module
+	if(!_create) then {
+		if(!(_logic isKindOf "Logic")) then {
 			_create = true;
 		}
 		else {
-			_mod = _logic getVariable ["_module", ""];
+			_mod = _logic getVariable ["crowsZA_module", ""];
 			if(_mod != "firesupport")
 			then
 			{
@@ -59,74 +55,63 @@ private _onConfirm =
 		}
 	};
 
-	//Create new module if not placed on existing one
-	if(_create)
-	then{
+	// create new module if not placed on existing one
+	if(_create) then {
 		_logicCenter = createCenter sideLogic;
 		_logicGroup = createGroup _logicCenter;
 		_logic = _logicGroup createUnit ["Logic", _pos, [], 0, "NONE"];
-		_logic setVariable ["_module", "firesupport"];
+		_logic setVariable ["crowsZA_module", "firesupport"];
 		["zen_common_addObjects", [[_logic], objNull]] call CBA_fnc_serverEvent;
 	};
 
-	//Use specific cfgAmmo if filled
-	if(_customType != "")
-	then{
+	// use specific cfgAmmo if filled
+	if(_customType != "") then {
 		_type = _customType;
 	};
-	diag_log "guns:";
-	diag_log str _guns;
-	//Set variables to logic gameobject
-	_logic setVariable ["_type", _type];
-	_logic setVariable ["_radius", _radius];
-	_logic setVariable ["_seconds", _seconds];
-	_logic setVariable ["_salvos", round _salvos];
-	_logic setVariable ["_guns", round _guns];
+	
+	// set variables to logic gameobject
+	_logic setVariable ["crowsZA_firesupport_type", _type, true];
+	_logic setVariable ["crowsZA_firesupport_radius", _radius, true];
+	_logic setVariable ["crowsZA_firesupport_seconds", _seconds, true];
+	_logic setVariable ["crowsZA_firesupport_salvos", round _salvos, true];
+	_logic setVariable ["crowsZA_firesupport_guns", round _guns, true];
 	
 
 	_spawnBarrage = 
 	{
-		_logic = (_this select 0);
-		_code = (_this select 1);
+		params ["_logic", "_code"];
 
-		if(!(isNull _logic))
-		then{
-			//Read values from logic gameobject
+		while {!isNull _logic} do {
+			// read values from logic object
 			_pos = getPos _logic;
-			_type = _logic getVariable "_type";
-			_radius = _logic getVariable "_radius";
-			_seconds = _logic getVariable "_seconds";
-			_salvos = _logic getVariable "_salvos";
-			_guns = _logic getVariable "_guns";
+			_type = _logic getVariable ["crowsZA_firesupport_type", ""];
+			_radius = _logic getVariable ["crowsZA_firesupport_radius", 0];
+			_seconds = _logic getVariable ["crowsZA_firesupport_seconds", 1];
+			_salvos = _logic getVariable ["crowsZA_firesupport_salvos", 1];
+			_guns = _logic getVariable ["crowsZA_firesupport_guns", 1];
 
-			//Spawn salvo with values
+			// spawn salvo with values
 			[_pos, _type, _radius, _guns, [0, 0.5]] spawn BIS_fnc_fireSupportVirtual;
 
-			//Wait till next salvo
+			// wait till next salvo
 			sleep _seconds;
 			
-			//Check if more salvos should be spawned
-			if (_salvos > 1) 
-			then { 
-				//Reduces amount of remaining salvos and spawn next
-				_logic setVariable ["_salvos", _salvos -1];
-				[_logic, _code] spawn _code; 
-			} 
-			else {if (_salvos == 1) 
-				then{
-					//Delete if all salvos are done
+			// check if more salvos should be spawned
+			switch (true) do {
+				// case salvo == 1
+				case (_salvos == 1): {
+					// delete if all salvos are done
 					deleteVehicle _logic;
-				}
-				else {if(_salvos == 0)
-					then {
-						//Don't stop if savlos is equal to 0
-						[_logic, _code] spawn _code;
-					}
-					else{
-						deleteVehicle _logic;
-					}
-				}
-			}
+				};
+				// case more than 1 salvo left
+				case (_salvos > 1): {
+					// reduces amount of remaining salvos, sync variable
+					_logic setVariable ["crowsZA_firesupport_salvos", _salvos -1,true];
+				};
+			};
+
+			// wait till next salvo
+			sleep _seconds;
 		}
 	};
 
@@ -136,7 +121,7 @@ private _onConfirm =
 		_delay = (_this select 1);
 		_code = (_this select 2);
 		
-		//Spawn barrage after delay
+		// spawn barrage after delay
 		sleep _delay;
 		[_logic, _code] spawn _code;
 	};
@@ -180,14 +165,13 @@ private _onConfirm =
 
 	// };
 
-	if(_create)
-	then{
+	if(_create) then {
 		[_logic, _delay, _spawnBarrage] spawn _delayedBarrage;
 		// [_logic, _radius, _pos] spawn _spawnAreaMarker;
 	};
 };
 
-//Display dialog
+// display dialog
 [
 	"Select Firesupport Type and Area", 
 	[
