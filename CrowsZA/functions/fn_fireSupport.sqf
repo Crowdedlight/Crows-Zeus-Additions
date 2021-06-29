@@ -104,8 +104,16 @@ private _onConfirm =
 			private _salvos = _logic getVariable ["crowsZA_firesupport_salvos", 1];
 			private _guns = _logic getVariable ["crowsZA_firesupport_guns", 1];
 
+			// check if parent of flare, then reduce vertical speed
+			private _ammoParent = str(inheritsFrom (configFile >> "CfgAmmo" >> _type));
+			_ammoParent = ([_ammoParent, "/"] call BIS_fnc_splitString);
+			_ammoParent = _ammoParent select (count _ammoParent - 1);
+
+			private _verticalSpeed = 150; //default 
+			if (_ammoParent == "FlareCore") then {_verticalSpeed = 5;};
+
 			// spawn salvo with values
-			[_pos, _type, _radius, _guns, [0, 0.5]] spawn BIS_fnc_fireSupportVirtual;
+			[_pos, _type, _radius, _guns, [0, 0.5], {false}, 0, 250, _verticalSpeed] spawn BIS_fnc_fireSupportVirtual;
 
 			// wait till next salvo
 			sleep _seconds;
@@ -158,7 +166,7 @@ private _onConfirm =
 				_display = _logic getVariable ["crowsZA_firesupport_display", false];
 
 				if(_display) then {
-					// postions and check for cahnges
+					// postions and check for changes
 					private _pos1 = getPos _logic;
 					private _pos2 = getPos _obj;
 					if(_pos1 select 0 != _pos2 select 0 || _pos1 select 1 != _pos2 select 1) then {
@@ -224,6 +232,12 @@ if(_isFireSupport) then {
 		case ("Cluster_155mm_AMOS"): {
 			_type = 2;
 		};
+		case ("F_40mm_White"): {
+			_type = 3;
+		};
+		case ("Smoke_120mm_AMOS_White"): {
+			_type = 4;
+		};		
 		default {
 			_customType = _varType;
 		};
@@ -234,7 +248,10 @@ if(_isFireSupport) then {
 [
 	"Select Firesupport Type and Area", 
 	[
-		["COMBO","Type",[["Sh_82mm_AMOS", "Sh_155mm_AMOS", "Cluster_155mm_AMOS"], ["82 mm Mortar", "155 mm Howitzer", "230 mm Rocket"],_type],_isFireSupport],
+		["COMBO","Type",[
+			["Sh_82mm_AMOS", "Sh_155mm_AMOS", "Cluster_155mm_AMOS", "F_40mm_White", "Smoke_120mm_AMOS_White"], 
+			["82 mm Mortar", "155 mm Howitzer", "230 mm Rocket", "Flare 40mm White", "Smoke 120mm White"]
+			,_type],_isFireSupport],
 		["EDIT","Custom Type (ex.)",_customType,_isFireSupport],
 		["SLIDER","Radius",[0,5000,_radius,0],_isFireSupport],
 		["SLIDER","Seconds between Salvos",[0,30,_seconds,1],_isFireSupport],
