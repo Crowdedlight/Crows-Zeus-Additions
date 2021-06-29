@@ -56,8 +56,7 @@ private _wait = [player,_loadedMods] spawn
 			["Mass-Unconscious Toggle",{_this call crowsZA_fnc_massUnconscious}, "\z\ace\addons\zeus\UI\Icon_Module_Zeus_Unconscious_ca.paa"],
 			["Capture Player",{_this call crowsZA_fnc_capturePlayer}, "\z\ace\addons\captives\UI\captive_ca.paa"],
 			["Mass-Surrender Toggle",{_this call crowsZA_fnc_massSurrender}, "\z\ace\addons\captives\UI\Surrender_ca.paa"],
-			["Set Rearm Vehicle",{_this call crowsZA_fnc_setRearmVehicle}, "\CrowsZA\data\rearmvehicle.paa"],
-			["Spawn Arsenal",{_this call crowsZA_fnc_spawnArsenal}, "\a3\ui_f\data\logos\a_64_ca.paa"]
+			["Set Rearm Vehicle",{_this call crowsZA_fnc_setRearmVehicle}, "\CrowsZA\data\rearmvehicle.paa"]			
 		];
 		private _otherModules = [
 			["Remove Trees",{_this call crowsZA_fnc_removeTreesZeus}, "\CrowsZA\data\axe.paa"],
@@ -65,7 +64,7 @@ private _wait = [player,_loadedMods] spawn
 			["Follow Unit With Animal",{_this call crowsZA_fnc_animalFollowZeus}, "\CrowsZA\data\sheep.paa"],
 			["Delete All Follow Animals",{_this call crowsZA_fnc_deleteAllAnimalFollow}, "\CrowsZA\data\sheep.paa"],
 			["Scatter Teleport",{_this call crowsZA_fnc_scatterTeleportZeus}, "\CrowsZA\data\tp.paa"],
-			// ["Scatter Teleport With Parachute",{_this call crowsZA_fnc_scatterTeleportWithParachuteZeus}, "\CrowsZA\data\tp_chute.paa"],
+			["Spawn Arsenal",{_this call crowsZA_fnc_spawnArsenal}, "\a3\ui_f\data\logos\a_64_ca.paa"],
 			["Set Numberplate",{_this call crowsZA_fnc_setNumberplate}, "\CrowsZA\data\numberplate.paa"],
 			["Delete ALL dead",{_this call crowsZA_fnc_deleteAllDead}, "\CrowsZA\data\cleanup.paa"],
 			["Set Colour",{_this call crowsZA_fnc_setColour}, "\CrowsZA\data\paint.paa"],
