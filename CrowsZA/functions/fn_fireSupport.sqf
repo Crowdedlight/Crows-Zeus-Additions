@@ -59,6 +59,7 @@ private _onConfirm =
 	// get in params again
 	_in params [["_pos",[0,0,0],[[]],3], ["_logic",objNull,[objNull]], ["_isFireSupport", false]];
 
+	// because of performance only create display if radius <200
 	if(_radius > 200) then {
 		_display = false;
 	};
@@ -72,10 +73,9 @@ private _onConfirm =
 		["zen_common_addObjects", [[_logic], objNull]] call CBA_fnc_serverEvent;
 	};
 	
+	// check if display variable has changed or is new module
 	private _currDisplay = _logic getVariable ["crowsZA_firesupport_display", false];
-	diag_log format ["_currDisplay: %1", str _currDisplay];
 	private _createDisplay = (!_isFireSupport || !_currDisplay) && _display;
-	diag_log format ["_createDisplay : %1", str _createDisplay ];
 
 	// use specific cfgAmmo if filled
 	if(_customType != "") then {
@@ -141,45 +141,49 @@ private _onConfirm =
 	crowsZA_fnc_spawnAreaMarker =
 	{
 		params ["_logic","_radius","_pos"];
-		diag_log "Called spawn";
+		
+		// create a marker using the the howitzer module model
 		private _obj = createSimpleObject ["\a3\Modules_F_Curator\Ordnance\surfaceHowitzer.p3d", _pos, true];
+		// base model has a radius of 80m 
 		private _scale = 0.0125 * _radius;
 		_obj setObjectScale _scale;
 
+		// continously check for changes
 		[_logic, _obj, _radius] spawn {
 			params ["_logic","_obj","_radius"];
+			// declare display variable for first run
 			private _display = true;
 			while{!(isNull _logic) && _display} do {
-				sleep 0.5;
-
+				// get current display variable
 				_display = _logic getVariable ["crowsZA_firesupport_display", false];
 
-				if(isNull _logic || !_display) then {
-					deleteVehicle _obj;
-				}
-				else{
+				if(_display) then {
+					// postions and check for cahnges
 					private _pos1 = getPos _logic;
 					private _pos2 = getPos _obj;
-
-					if(_pos1 select 0 != _pos2 select 0 && _pos1 select 1 != _pos2 select 1) then {
+					if(_pos1 select 0 != _pos2 select 0 || _pos1 select 1 != _pos2 select 1) then {
 						_obj setPosWorld (getPos _logic);
 					};
 
+					// check if radius changed and update if neccessary
 					private _logicRadius = _logic getVariable ["crowsZA_firesupport_radius", 0];
 					if(_radius != _logicRadius) then {
 						_radius = _logicRadius;
 						_scale = 0.0125 * _radius;
 						_obj setObjectScale _scale;
 					};
+					sleep 0.5;
 				}
 			};
+			deleteVehicle _obj;
 		};
-
 	};
 	
+	// spawn only if new module is created
 	if(!_isFireSupport) then {
 		[_logic, _delay, _spawnBarrage] spawn _delayedBarrage;
 	};
+	// create only if display needs creation
 	if(_createDisplay) then {
 		{
 			[[_logic,_radius,_pos], crowsZA_fnc_spawnAreaMarker] remoteExec ["call", _x, true]; 
@@ -197,7 +201,7 @@ private _radius = 100;
 private _seconds = 5;
 private _salvos = 1;
 private _guns = 1;
-private _display = false;
+private _display = true;
 
 // if _logic is fire support set default to current values
 if(_isFireSupport) then {
@@ -205,7 +209,7 @@ if(_isFireSupport) then {
 	_seconds = _logic getVariable ["crowsZA_firesupport_seconds", 1];
 	_salvos = _logic getVariable ["crowsZA_firesupport_salvos", 1];
 	_guns = _logic getVariable ["crowsZA_firesupport_guns", 1];
-	_display = _logic getVariable ["crowsZA_firesupport_display", false];
+	_display = _logic getVariable ["crowsZA_firesupport_display", true];
 
 	private _varType = _logic getVariable ["crowsZA_firesupport_type", ""];
 
@@ -237,7 +241,7 @@ if(_isFireSupport) then {
 		["SLIDER","Start after ... seconds",[0,30,1,1],_isFireSupport],
 		["SLIDER","Stop After Salvos (0 = indef.)",[0,100,_salvos,0],_isFireSupport],
 		["SLIDER","Guns",[1,30,_guns,0],_isFireSupport],
-		["CHECKBOX","Display Radius (not supported above 200m radius)",_display,_isFireSupport]
+		["CHECKBOX","Display Radius (only <=200m)",_display,_isFireSupport]
 	],
 	_onConfirm,
 	{},
