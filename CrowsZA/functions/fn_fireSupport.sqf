@@ -110,7 +110,7 @@ private _onConfirm =
 			_ammoParent = _ammoParent select (count _ammoParent - 1);
 
 			private _verticalSpeed = 150; //default 
-			if (_ammoParent == "FlareCore") then {_verticalSpeed = 5;};
+			if (_ammoParent in ["FlareCore", "FlareBase"]) then {_verticalSpeed = 5;};
 
 			// spawn salvo with values
 			[_pos, _type, _radius, _guns, [0, 0.5], {false}, 0, 250, _verticalSpeed] spawn BIS_fnc_fireSupportVirtual;
