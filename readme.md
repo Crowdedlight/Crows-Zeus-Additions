@@ -20,6 +20,7 @@ Features:
 * **Delete All Dead:** A cleanup script that removes all dead bodies/wrecks.
 * **Set Colour:** Sets the colour of the target. For vehicles with multiple textures you can select which texture. Also has a reset checkbox to reset to originally texture
 * **Paste Loadout into Inventory:** When using the Zeus Enhanced "copy loadout" context menu, you get a new option when right-clicking a vehicle or box and under "inventory" you can select "paste loadout" which will paste that units loadout into the inventory if there is enough space. 
+* **Spawn Arsenal:** Spawns a NATO Supply Crate on the position clicked and makes it into an arsenal in one go. If ACE is loaded it will be an ACE arsenal, otherwise a base-game arsenal.    
 * **Unit Loadout Viewer:** Quickly See Loadout of Unit without going into full arsenal. A right-click menu to see unit loadout without loading a full arsenal.  
 * **Draw Build:** Select the type of object to build, and start building by simply clicking the straight lines you want. Quick way to make hesco or sandbag walls without having to manually place each wall segment.     
 * **Fire Support:** Call in fire support without having to set up vehicles that might run out of ammuntion. Supports 82mm Mortar, 155mm Artillery and 230mm Rockets (Other ammunition also possible via the Custom Type (ex.) field by entering the CfgAmmo name. Each ammo needs individual testing). Sliders for radius, amount of salvos (leave 0 for infinite), seconds between the salvos, delay after placing and amount of "guns" firing. Move object to change center of radius, reapply module to change settings and delete to end prematurly.
@@ -28,7 +29,6 @@ Features Requireing ACE:
 * **Set Rearm Vehicle:** Set an object or vehicle as an ACE rearm vehicle
 * **Capture Player:** Easily capture the unit it is used on. It does a full zeus heal on the unit, set them captive, and removes weapons and radio and place it inside a box next to them.
 * **Radius Heal:** Heals all units in a sphere radius around the clicked position. Makes it easy to heal all units if a vehicle is arma'ed or otherwise need to pick all up. 
-* **Spawn Arsenal:** Spawns a NATO Supply Crate on the position clicked and makes it into an ACE arsenal in one go. 
 * **Mass Surrender/Captive:** Can select entire sides or players/groups to toggle surrender or captive. 
 * **Mass Unconscious:** Can select entire sides or players/groups to toggle ACE unconscious on. 
 * **Inflict ACE Medical damage:** with selection of limb, damage-type and damage. (Useful for medic training of specific wounds. Logs dmg and target in RPT log files when used)
