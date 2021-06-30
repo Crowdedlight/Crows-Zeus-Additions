@@ -14,7 +14,7 @@ Features:
 * **Center Camera on Unit:** Right click a unit and select this option, and the zeus camera will continously center on the unit even while moving. Is handy for following moving targets while finding the module or setting you need.
 * **Remove trees:** Remove trees/bushes/stones in an distance from position. Works globally and should work for JIP. Removes collision of removed objects.
 * **Restore trees:** Restores trees/bushes/stones previously removed in an distance from the clicked position.
-* **Animal Follower:** Spawns an animal that follows the selected player around
+* **Animal Follower:** Spawns an animal that follows the selected player around. Can be petted with ace-interaction.
 * **Delete All Spawned Animal Followers:** Deletes all animals spawned with **Animal Follower** module. For easy cleanup.
 * **Set Numberplate:** Can set the numberplate of a vehicle
 * **Delete All Dead:** A cleanup script that removes all dead bodies/wrecks.
