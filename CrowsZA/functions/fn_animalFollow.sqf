@@ -9,15 +9,30 @@ Creates an animal that follows the source while it is alive
 
 *///////////////////////////////////////////////
 params ["_animalType", "_src", "_amount", "_invincible"];
-private["_animalClassname"]; 
+private["_animalClassname", "_animalResponse", "_animalAceOffset"]; 
 
 // set correct class names
-if ( _animalType == "Dog" ) then { _animalClassname = "Fin_random_F"; }; 
-if ( _animalType == "Sheep" ) then { _animalClassname = "Sheep_random_F"; }; 
-if ( _animalType == "Goat" ) then { _animalClassname = "Goat_random_F"; }; 
-if ( _animalType == "Rabbit" ) then { _animalClassname = "Rabbit_F"; }; 
-if ( _animalType == "Hen" ) then { _animalClassname = "Hen_random_F"; }; 
-if ( _animalType == "Snake" ) then { _animalClassname = "Snake_random_F"; }; 
+if ( _animalType == "Dog" ) then { _animalClassname = "Fin_random_F"; _animalResponse = "WOOF"; _animalAceOffset = [0,0,0.5]; }; 
+if ( _animalType == "Sheep" ) then { _animalClassname = "Sheep_random_F"; _animalResponse = "MÆÆÆÆÆHH"; _animalAceOffset = [0,0.5,0.8];}; 
+if ( _animalType == "Goat" ) then { _animalClassname = "Goat_random_F"; _animalResponse = "MAAAAA..Mariner..AAAA"; _animalAceOffset = [0,0.4,0.7];}; 
+if ( _animalType == "Rabbit" ) then { _animalClassname = "Rabbit_F"; _animalResponse = "PUUUUUUURRRRR"; _animalAceOffset = [0,0.2,0.2];}; 
+if ( _animalType == "Hen" ) then { _animalClassname = "Hen_random_F"; _animalResponse = "CLUCK-CLUCK"; _animalAceOffset = [0,0.2,0.3];}; 
+if ( _animalType == "Snake" ) then { _animalClassname = "Snake_random_F"; _animalResponse = "HISSSSS, No Step On Snek!"; _animalAceOffset = [0,0,0];}; 
+
+crowsZA_fnc_addAceActionPetDog = 
+{
+	params["_animal", "_animalType", "_response", "_animalAceOffset"];
+	private _action = ["crowszaPetAnimal",format ["Pet %1",_animalType],"",
+	{		
+		params ["_target", "_player", "_actionParams"];
+		_player playActionNow "gesturePoint";
+		hint (_actionParams select 0);
+		[(_actionParams select 0), true, 5, 2] call ace_common_fnc_displayText;
+
+	},{true},{},[_response], _animalAceOffset, 3] call ace_interact_menu_fnc_createAction;
+
+	[_animal, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
+};
 
 for "_x" from 1 to _amount do {
 	// spawn animal
@@ -34,6 +49,11 @@ for "_x" from 1 to _amount do {
 
 	//make animal curator editable 
 	["zen_common_addObjects", [[_animal], objNull]] call CBA_fnc_serverEvent;
+
+	//add ace interaction option to pet the animal, if ace is loaded 
+	if (crowsZA_common_aceModLoaded) then {
+		[[_animal, _animalType, _animalResponse, _animalAceOffset], crowsZA_fnc_addAceActionPetDog] remoteExec ["call", [ 0, -2 ] select isDedicated, true];
+	};
 
 	//log it
 	diag_log format["CrowZA:animalFollow: Zeus has spawned a %1 to follow %2", _animalType, _src];

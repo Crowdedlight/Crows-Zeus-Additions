@@ -1,6 +1,6 @@
 //imports & defines
 #include "functions\common_defines.hpp"
-//loadout gui include
+//gui include
 #include "ui\loadoutGui.hpp"
 #include "ui\drawbuildGui.hpp"
 
@@ -16,9 +16,9 @@ class CfgPatches
 		 };
 		author = "Crowdedlight";
 		authorUrl = "https://forums.bohemia.net/profile/1173289-crowdedlight/";
-		version = 1.6.0;
-		versionStr = "1.6.0";
-		versionAr[] = {1,6,0};
+		version = 1.7.0;
+		versionStr = "1.7.0";
+		versionAr[] = {1,7,0};
 	};
 };
 

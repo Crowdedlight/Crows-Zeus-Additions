@@ -48,14 +48,24 @@ switch (_tpPattern) do
 
 //TODO should probably validate that we are not beyond limits with selected position calculations. X, Y and Z are limited to values between -50km and +500km in arma 3. 
 //  if we are outside that interval with any position, we should call pattern generation again, but shifted center position away from edge
+private _playerEffect = {
+	if (!hasInterface) exitWith {};
+	private _spawn = [] spawn {
+		titleCut ["", "BLACK OUT", 1];
+		sleep 1.5;
+		titleCut ["", "BLACK IN", 1];
+	};
+};
 
 // now run through each player and tp
 {
+	// fade to black
+	[[], _playerEffect] remoteExec ["call", _x];
+	
 	//reset velocity 
 	_x setvelocity [0,0,0];
 
 	//set position, use setPos for vics too as setVehiclePosition doesn't allow altitude setting
 	_x setPos (_tpArray select _forEachIndex);
-
 }
 forEach _players;
