@@ -70,7 +70,8 @@ private _wait = [player,_loadedMods] spawn
 			["Set Colour",{_this call crowsZA_fnc_setColour}, "\CrowsZA\data\paint.paa"],
 			["Teleport To Squadmember",{_this call crowsZA_fnc_teleportToSquadMember}, "\CrowsZA\data\tpToSquad.paa"], 
 			["DrawBuild",{_this call crowsZA_fnc_drawBuildZeus}, "\CrowsZA\data\drawbuild.paa"],
-			["Fire Support",{_this call crowsZA_fnc_fireSupport}, "\x\zen\addons\modules\ui\target_ca.paa"] 
+			["Fire Support",{_this call crowsZA_fnc_fireSupport}, "\x\zen\addons\modules\ui\target_ca.paa"],
+			["Resupply Player Loadouts",{_this call crowsZA_fnc_resupplyPlayerLoadouts}, "\x\zen\addons\modules\ui\target_ca.paa"]
 		];
 		private _tfarModules = [
 			["Set TFAR Vehicle Radio Side",{_this call crowsZA_fnc_tfarSetVehicleSide}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
@@ -118,7 +119,10 @@ private _wait = [player,_loadedMods] spawn
 			 [["radius_heal_150","150m","\CrowsZA\data\radiusheal.paa", {[_position, 150] call crowsZA_fnc_radiusHeal}] call zen_context_menu_fnc_createAction, [], 10]
 		 ]}] call zen_context_menu_fnc_createAction,
 		 ["HealUnits"], 
-		 0]
+		 0]//,
+		// [["ace_medical_menu","Medical Menu","\z\ace\addons\medical_gui\ui\cross.paa", {_hoveredEntity call crowsZA_fnc_medicalStatus}, {!isNull _hoveredEntity && alive _hoveredEntity && _hoveredEntity isKindOf "CAManBase" && crowsZA_common_aceModLoaded}] call zen_context_menu_fnc_createAction,
+		//  ["HealUnits"], 
+		//  0]
 	];
 
 	//register context actions

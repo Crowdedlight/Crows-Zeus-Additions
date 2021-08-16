@@ -58,6 +58,9 @@ class CrowsZA_addon
 		
 		class fireSupport {};
 
+		class resupplyPlayerLoadouts {};
+		class spawnSupplyDrop {};
+
 		// draw building and helper functions
 		class getPosFromMouse {};
 		class drawBuildSelectPosition {};

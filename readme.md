@@ -78,7 +78,7 @@ All logging made to the .RPT file will start with ``CrowsZA-module:`` where the 
 ### Contributors
 Crowdedlight (Main Author)  
 Windwalker  
-MrPepsiMax 
+MrPepsiMax   
 Radkewolf
 
 ### License
