@@ -122,6 +122,7 @@ private _onConfirm =
 		_waypoint setWaypointBehaviour "CARELESS";
 		_waypoint setWaypointCombatMode "BLUE";
 		_waypoint setWaypointSpeed _speed;
+		_waypoint setWaypointCompletionRadius 2; // only complete if within 2m of the waypoint
 
 		// when over drop-point, spawn crate below plane and attach chute 
 		_waypoint setWaypointStatements ["true", format["[this,%1,%2] call crowsZA_fnc_spawnSupplyDrop;", _addAmount, _ammoList]];

@@ -15,11 +15,12 @@ private _aircraft = vehicle _groupLeader;
 private _pos = ASLToAGL (getPosASL _aircraft);
 
 // as we should be over drop-position, we spawn crate 0.5m behind us. 
-private _airdropPos = _pos getPos [0.1, (getDir _aircraft) - 180];
+private _airdropPos = _pos getPos [0.2, (getDir _aircraft) - 180];
 _airdropPos set [2, _pos select 2];
 
 // spawn container 
 private _container = createVehicle ["C_IDAP_supplyCrate_F", _airdropPos,[],0,"CAN_COLLIDE"];
+_container setVelocity [0,0,0];
 
 clearWeaponCargo _container;
 clearMagazineCargo _container;
@@ -40,20 +41,47 @@ private _indicatorSpawn = [_container, 300] spawn {
 	params ["_box", "_maxTime"];
 	private _startTime = time;
 
-	_supplyLight = "Chemlight_blue" createVehicle (position _box);
-	_supplyLight attachTo [_box, [0,0,0]];
+	// blue chemlight ends 
+	_supplyLight1 = "Chemlight_blue" createVehicle (position _box);
+	_supplyLight1 attachTo [_box, [-0.655,0,0.3]];
+	_supplyLight2 = "Chemlight_blue" createVehicle (position _box);
+	_supplyLight2 attachTo [_box, [0.655,0,0.3]];
+
+	// blue chemlight sides - rotate object
+	_supplyLight3 = "Chemlight_blue" createVehicle (position _box);
+	_supplyLight3 attachTo [_box, [0,0.39,0.3]];
+	_supplyLight3 setDir 90;
+
+	_supplyLight4 = "Chemlight_blue" createVehicle (position _box);
+	_supplyLight4 attachTo [_box, [0,-0.39,0.3]];
+	_supplyLight4 setDir 90;
 
 	_supplySmoke = "SmokeShellBlue" createVehicle (position _box);
 	_supplySmoke attachTo [_box, [0,0,0]];
 
 	// repeat until time is up
 	while {(time - _startTime) <= _maxTime} do {
-		// check if null, then respawn and attach
-		if (isNull _supplyLight) then {
-			_supplyLight = "Chemlight_blue" createVehicle (position _box);
-			_supplyLight attachTo [_box, [0,0,0]];
+		// chemlights respawn
+		if (isNull _supplyLight1) then {
+			_supplyLight1 = "Chemlight_blue" createVehicle (position _box);
+			_supplyLight1 attachTo [_box, [-0.655,0,0.3]];
+		};
+		if (isNull _supplyLight2) then {
+			_supplyLight2 = "Chemlight_blue" createVehicle (position _box);
+			_supplyLight2 attachTo [_box, [0.655,0,0.3]];
+		};
+		if (isNull _supplyLight3) then {
+			_supplyLight3 = "Chemlight_blue" createVehicle (position _box);
+			_supplyLight3 attachTo [_box, [0,0.39,0.3]];
+			_supplyLight3 setDir 90;
+		};
+		if (isNull _supplyLight4) then {
+			_supplyLight4 = "Chemlight_blue" createVehicle (position _box);
+			_supplyLight4 attachTo [_box, [0,-0.39,0.3]];
+			_supplyLight4 setDir 90;
 		};
 
+		// smoke respawn
 		if (isNull _supplySmoke) then {
 			_supplySmoke = "SmokeShellBlue" createVehicle (position _box);
 			_supplySmoke attachTo [_box, [0,0,0]];
