@@ -17,6 +17,7 @@ private _onConfirm =
 	[
 		"_zeusMultiplier",
 		"_airdrop",
+		"_useAircraft",
 		"_height"
 	];
 	//Get in params again
@@ -70,82 +71,91 @@ private _onConfirm =
 	// if airdrop is set start prepping for airdrop
 	else {
 
-		// get random direction from 0 to 7 index and convert to degrees
-		private _direction = (random 7) * 45;
-		private _distance = 2000;
-		private _aircraftType = "B_T_VTOL_01_vehicle_F";
-		private _speed = ["LIMITED", "NORMAL", "FULL"] select 1;
+		// check if we just spawn it at pos and altitude, or use aircraft
+		if (!_useAircraft) then {
+			// spawn crate in air
+			[ASLToAGL _pos, _addAmount, _ammoList] call crowsZA_fnc_spawnSupplyDrop;
 
-		// convert to AGL
-		_pos = ASLToAGL _pos;
-		
-		// calculate to and from waypoints for plane, and direction to look. 
-		private _startPos = _pos getPos [_distance, _direction - 180];
-		private _endPos   = _pos getPos [_distance, _direction];
+		} else {
 
-		// set altitude as flight-height
-		_startPos set [2, _height];
-		_endPos   set [2, _height];
+			// get random direction from 0 to 7 index and convert to degrees
+			private _direction = (random 7) * 45;
+			private _distance = 2000;
+			private _aircraftType = "B_T_VTOL_01_vehicle_F";
+			private _speed = ["LIMITED", "NORMAL", "FULL"] select 1;
 
-		// create group - Using civilian so none shoots at it. Set to delete when empty
-		private _group = createGroup [civilian, true];
+			// convert to AGL
+			_pos = ASLToAGL _pos;
+			
+			// calculate to and from waypoints for plane, and direction to look. 
+			private _startPos = _pos getPos [_distance, _direction - 180];
+			private _endPos   = _pos getPos [_distance, _direction];
 
-		// spawn plane at start pos and start it flying in direction 
-    	private _aircraft = createVehicle [_aircraftType, _startPos, [], 0, "FLY"];
-		_aircraft setPos _startPos;
-		_aircraft setDir _direction;
+			// set altitude as flight-height
+			_startPos set [2, _height];
+			_endPos   set [2, _height];
 
-		// set initial velocity
-		_aircraft setVelocity [sin _direction * 100, cos _direction * 100, 0];
+			// create group - Using civilian so none shoots at it. Set to delete when empty
+			private _group = createGroup [civilian, true];
 
-		// create aircraft crew
-		createVehicleCrew _aircraft;
-		crew _aircraft joinSilent _group;
-		_group addVehicle _aircraft;
+			// spawn plane at start pos and start it flying in direction 
+			private _aircraft = createVehicle [_aircraftType, _startPos, [], 0, "FLY"];
+			_aircraft setPos _startPos;
+			_aircraft setDir _direction;
 
-		// set flight height 
-		_aircraft flyInHeight _height;
+			// set initial velocity
+			_aircraft setVelocity [sin _direction * 100, cos _direction * 100, 0];
 
-		// make crew handle aircraft better by changing behaviour and ignoring surroundings
-		_aircraft setCaptive true;
-		{
-			_x disableAI "TARGET";
-			_x disableAI "AUTOTARGET";
-			_x disableAI "AUTOCOMBAT";
-			_x setCaptive true;
-			_x setSkill 1;
-		} forEach crew _aircraft;
+			// create aircraft crew
+			createVehicleCrew _aircraft;
+			crew _aircraft joinSilent _group;
+			_group addVehicle _aircraft;
 
-		// set first waypoint, over dropzone 
-		private _waypoint = _group addWaypoint [_pos, -1];
-		_waypoint setWaypointType "MOVE";
-		_waypoint setWaypointBehaviour "CARELESS";
-		_waypoint setWaypointCombatMode "BLUE";
-		_waypoint setWaypointSpeed _speed;
-		_waypoint setWaypointCompletionRadius 2; // only complete if within 2m of the waypoint
+			// set flight height 
+			_aircraft flyInHeight _height;
 
-		// when over drop-point, spawn crate below plane and attach chute 
-		_waypoint setWaypointStatements ["true", format["[this,%1,%2] call crowsZA_fnc_spawnSupplyDrop;", _addAmount, _ammoList]];
+			// make crew handle aircraft better by changing behaviour and ignoring surroundings
+			_aircraft setCaptive true;
+			{
+				_x disableAI "TARGET";
+				_x disableAI "AUTOTARGET";
+				_x disableAI "AUTOCOMBAT";
+				_x setCaptive true;
+				_x setSkill 1;
+			} forEach crew _aircraft;
 
-		// final waypoint 
-		private _waypointEnd = _group addWaypoint [_endPos, 1];
-		_waypointEnd setWaypointType "MOVE";
-		_waypointEnd setWaypointBehaviour "CARELESS";
-		_waypointEnd setWaypointCombatMode "BLUE";
-		_waypointEnd setWaypointSpeed _speed;
+			// set first waypoint, over dropzone 
+			private _waypoint = _group addWaypoint [_pos, -1];
+			_waypoint setWaypointType "MOVE";
+			_waypoint setWaypointBehaviour "CARELESS";
+			_waypoint setWaypointCombatMode "BLUE";
+			_waypoint setWaypointSpeed _speed;
+			_waypoint setWaypointCompletionRadius 2; // only complete if within 2m of the waypoint
 
-		// cleanup
-		_waypointEnd setWaypointStatements ["true", "private _group = group this; private _aircrafts = []; {_aircrafts pushBackUnique vehicle _x; deleteVehicle _x} forEach thisList; {deleteVehicle _x} forEach _aircrafts; deleteGroup _group"];
+			// when over drop-point, spawn crate below plane and attach chute 
+			_waypoint setWaypointStatements ["true", format["[this,%1,%2] call crowsZA_fnc_spawnSupplyDrop;", _addAmount, _ammoList]];
 
-		// add plane to zeus editable so they can see it coming
-		["zen_common_addObjects", [[_aircraft], objNull]] call CBA_fnc_serverEvent;
+			// final waypoint 
+			private _waypointEnd = _group addWaypoint [_endPos, 1];
+			_waypointEnd setWaypointType "MOVE";
+			_waypointEnd setWaypointBehaviour "CARELESS";
+			_waypointEnd setWaypointCombatMode "BLUE";
+			_waypointEnd setWaypointSpeed _speed;
+
+			// cleanup
+			_waypointEnd setWaypointStatements ["true", "private _group = group this; private _aircrafts = []; {_aircrafts pushBackUnique vehicle _x; deleteVehicle _x} forEach thisList; {deleteVehicle _x} forEach _aircrafts; deleteGroup _group"];
+
+			// add plane to zeus editable so they can see it coming
+			["zen_common_addObjects", [[_aircraft], objNull]] call CBA_fnc_serverEvent;
+		};
 	};
 };
 [
 	"Set multipler for ammo supply", 
 	[
 		["SLIDER","Multiplier (amount per player)",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
-		["CHECKBOX",["Airdrop", "Make it airdrop from 300m"],[false]],
+		["CHECKBOX",["Airdrop", "Make it airdrop from 300m"],[true]],
+		["CHECKBOX",["Aircraft", "Make aircraft drop it"],[true]],
 		["SLIDER","Airdrop height [m]",[50,1000,200,0]]
 	],
 	_onConfirm,

@@ -10,13 +10,19 @@ Return: none
 
 params ["_groupLeader", "_addAmount", "_ammoList"];
 
-// get aircraft
-private _aircraft = vehicle _groupLeader; 
-private _pos = ASLToAGL (getPosASL _aircraft);
+private _airdropPos = [];
+// if array we got a pos, otherwise we got aircraft
+if (isArray _groupLeader) then {
+	_airdropPos = _groupLeader;
+} else {
+	// get aircraft
+	private _aircraft = vehicle _groupLeader; 
+	private _pos = ASLToAGL (getPosASL _aircraft);
 
-// as we should be over drop-position, we spawn crate 0.5m behind us. 
-private _airdropPos = _pos getPos [0.2, (getDir _aircraft) - 180];
-_airdropPos set [2, _pos select 2];
+	// as we should be over drop-position, we spawn crate 0.5m behind us. 
+	_airdropPos = _pos getPos [0.2, (getDir _aircraft) - 180];
+	_airdropPos set [2, _pos select 2];
+};
 
 // spawn container 
 private _container = createVehicle ["C_IDAP_supplyCrate_F", _airdropPos,[],0,"CAN_COLLIDE"];
