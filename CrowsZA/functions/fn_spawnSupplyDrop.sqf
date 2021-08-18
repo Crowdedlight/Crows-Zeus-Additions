@@ -12,7 +12,7 @@ params ["_groupLeader", "_addAmount", "_ammoList"];
 
 private _airdropPos = [];
 // if array we got a pos, otherwise we got aircraft
-if (isArray _groupLeader) then {
+if (typeName _groupLeader == "ARRAY") then {
 	_airdropPos = _groupLeader;
 } else {
 	// get aircraft

@@ -74,7 +74,11 @@ private _onConfirm =
 		// check if we just spawn it at pos and altitude, or use aircraft
 		if (!_useAircraft) then {
 			// spawn crate in air
-			[ASLToAGL _pos, _addAmount, _ammoList] call crowsZA_fnc_spawnSupplyDrop;
+			// modify pos to altitude
+			private _airDropPos = ASLToAGL _pos;
+			_airDropPos set [2, _height];
+
+			[_airDropPos, _addAmount, _ammoList] call crowsZA_fnc_spawnSupplyDrop;
 
 		} else {
 
