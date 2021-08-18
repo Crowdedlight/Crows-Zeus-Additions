@@ -8,7 +8,7 @@ Return: none
 Creates an animal that follows the source while it is alive
 
 *///////////////////////////////////////////////
-params ["_animalType", "_src", "_amount", "_invincible"];
+params ["_animalType", "_src", "_amount", "_invincible", "_offset", "_scale"];
 private["_animalClassname", "_animalResponse", "_animalAceOffset"]; 
 
 // set correct class names
@@ -34,9 +34,17 @@ crowsZA_fnc_addAceActionPetDog =
 	[_animal, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
 };
 
+// get offset where to spawn
+private _pos = getPosATL _src;
+if (_offset != 0) then {
+	// random direction
+	private _direction = (random 7) * 45;
+	_pos = _pos getPos [_offset, _direction];
+};
+
 for "_x" from 1 to _amount do {
 	// spawn animal
-	_animal = createAgent [_animalClassname, getPos _src, [], 5, "CAN_COLLIDE"]; 
+	_animal = createAgent [_animalClassname, _pos, [], 5, "CAN_COLLIDE"]; 
 	_animal setVariable ["BIS_fnc_animalBehaviour_disable", true]; 
 
 	//set invincible if param is chosen 
@@ -54,6 +62,20 @@ for "_x" from 1 to _amount do {
 	if (crowsZA_common_aceModLoaded) then {
 		[[_animal, _animalType, _animalResponse, _animalAceOffset], crowsZA_fnc_addAceActionPetDog] remoteExec ["call", [ 0, -2 ] select isDedicated, true];
 	};
+
+	// scale it if != 1. first spawn object to attach to
+	if (_scale != 1) then {
+		private _spawnedScaleFunc = [_scale, _animal] spawn {
+			params ["_scale", "_animal"];
+
+			private _scaleObj = createVehicle ["Land_Can_V2_F", getPos _animal, [], 5, "CAN_COLLIDE"];
+			_animal attachTo [_scaleObj, [0,0,0]]; 
+			_animal setObjectScale _scale;
+			sleep 0.1;
+			deleteVehicle _scaleObj;
+		};
+	};
+
 
 	//log it
 	diag_log format["CrowZA:animalFollow: Zeus has spawned a %1 to follow %2", _animalType, _src];
