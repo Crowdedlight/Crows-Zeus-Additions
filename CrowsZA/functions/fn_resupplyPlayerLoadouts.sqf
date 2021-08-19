@@ -29,7 +29,7 @@ private _onConfirm =
 	// run though all players
 	{
 		// if zeus, skip it
-		// if (!isNull (getAssignedCuratorLogic player)) then { continue; }; TODO UNCOMMENT
+		if (!isNull (getAssignedCuratorLogic player)) then { continue; }; TODO UNCOMMENT
 
 		// get all magazines from players
 		private _mags = magazines [_x, true];
