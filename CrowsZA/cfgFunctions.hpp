@@ -54,7 +54,7 @@ class CrowsZA_addon
 
 		class radiusHeal {};
 
-		class setRearmVehicle {};
+		class setSupplyVehicle {};
 		
 		class fireSupport {};
 
