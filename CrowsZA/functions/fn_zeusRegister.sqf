@@ -56,7 +56,7 @@ private _wait = [player,_loadedMods] spawn
 			["Mass-Unconscious Toggle",{_this call crowsZA_fnc_massUnconscious}, "\z\ace\addons\zeus\UI\Icon_Module_Zeus_Unconscious_ca.paa"],
 			["Capture Player",{_this call crowsZA_fnc_capturePlayer}, "\z\ace\addons\captives\UI\captive_ca.paa"],
 			["Mass-Surrender Toggle",{_this call crowsZA_fnc_massSurrender}, "\z\ace\addons\captives\UI\Surrender_ca.paa"],
-			["Set Rearm Vehicle",{_this call crowsZA_fnc_setRearmVehicle}, "\CrowsZA\data\rearmvehicle.paa"]			
+			["Set Supply Vehicle",{_this call crowsZA_fnc_setSupplyVehicle}, "\CrowsZA\data\rearmvehicle.paa"]			
 		];
 		private _otherModules = [
 			["Remove Trees",{_this call crowsZA_fnc_removeTreesZeus}, "\CrowsZA\data\axe.paa"],
@@ -70,7 +70,8 @@ private _wait = [player,_loadedMods] spawn
 			["Set Colour",{_this call crowsZA_fnc_setColour}, "\CrowsZA\data\paint.paa"],
 			["Teleport To Squadmember",{_this call crowsZA_fnc_teleportToSquadMember}, "\CrowsZA\data\tpToSquad.paa"], 
 			["DrawBuild",{_this call crowsZA_fnc_drawBuildZeus}, "\CrowsZA\data\drawbuild.paa"],
-			["Fire Support",{_this call crowsZA_fnc_fireSupport}, "\x\zen\addons\modules\ui\target_ca.paa"] 
+			["Fire Support",{_this call crowsZA_fnc_fireSupport}, "\x\zen\addons\modules\ui\target_ca.paa"],
+			["Resupply Player Loadouts",{_this call crowsZA_fnc_resupplyPlayerLoadouts}, "\CrowsZA\data\resupplyplayerloadout.paa"]
 		];
 		private _tfarModules = [
 			["Set TFAR Vehicle Radio Side",{_this call crowsZA_fnc_tfarSetVehicleSide}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
@@ -118,7 +119,10 @@ private _wait = [player,_loadedMods] spawn
 			 [["radius_heal_150","150m","\CrowsZA\data\radiusheal.paa", {[_position, 150] call crowsZA_fnc_radiusHeal}] call zen_context_menu_fnc_createAction, [], 10]
 		 ]}] call zen_context_menu_fnc_createAction,
 		 ["HealUnits"], 
-		 0]
+		 0]//,
+		// [["ace_medical_menu","Medical Menu","\z\ace\addons\medical_gui\ui\cross.paa", {_hoveredEntity call crowsZA_fnc_medicalStatus}, {!isNull _hoveredEntity && alive _hoveredEntity && _hoveredEntity isKindOf "CAManBase" && crowsZA_common_aceModLoaded}] call zen_context_menu_fnc_createAction,
+		//  ["HealUnits"], 
+		//  0]
 	];
 
 	//register context actions
