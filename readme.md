@@ -29,7 +29,7 @@ Features:
 
 
 Features Requireing ACE:   
-* **Set Rearm Vehicle:** Set an object or vehicle as an ACE rearm vehicle
+* **Set supply Vehicle:** Set an object or vehicle as an ACE rearm/refuel/repair vehicle
 * **Capture Player:** Easily capture the unit it is used on. It does a full zeus heal on the unit, set them captive, and removes weapons and radio and place it inside a box next to them.
 * **Radius Heal:** Heals all units in a sphere radius around the clicked position. Makes it easy to heal all units if a vehicle is arma'ed or otherwise need to pick all up. 
 * **Mass Surrender/Captive:** Can select entire sides or players/groups to toggle surrender or captive. 
