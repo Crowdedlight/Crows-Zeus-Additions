@@ -69,5 +69,8 @@ class CrowsZA_addon
 
 		// TFAR related 
 		class tfarSetVehicleSide {};
+
+		// jshk heal for ACE while its broken
+		class jshkHeal {};
 	};
 };

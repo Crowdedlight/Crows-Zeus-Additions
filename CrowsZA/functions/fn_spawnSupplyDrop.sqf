@@ -20,7 +20,7 @@ if (typeName _groupLeader == "ARRAY") then {
 	private _pos = ASLToAGL (getPosASL _aircraft);
 
 	// as we should be over drop-position, we spawn crate 0.5m behind us. 
-	_airdropPos = _pos getPos [0.2, (getDir _aircraft) - 180];
+	_airdropPos = _pos getPos [0.5, (getDir _aircraft) - 180];
 	_airdropPos set [2, _pos select 2];
 };
 
@@ -99,4 +99,3 @@ private _indicatorSpawn = [_container, 300] spawn {
 
 // add container to editable
 ["zen_common_addObjects", [[_container], objNull]] call CBA_fnc_serverEvent;
-
