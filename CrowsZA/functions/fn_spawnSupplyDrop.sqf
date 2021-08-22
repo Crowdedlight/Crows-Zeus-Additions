@@ -28,10 +28,10 @@ if (typeName _groupLeader == "ARRAY") then {
 private _container = createVehicle ["C_IDAP_supplyCrate_F", _airdropPos,[],0,"CAN_COLLIDE"];
 _container setVelocity [0,0,0];
 
-clearWeaponCargo _container;
-clearMagazineCargo _container;
-clearItemCargo _container;
-clearBackpackCargo _container;
+clearWeaponCargoGlobal _container;
+clearMagazineCargoGlobal _container;
+clearItemCargoGlobal _container;
+clearBackpackCargoGlobal _container;
 
 // go through all mags, and add them to container based on zeus amount set multiplied with player count
 {
@@ -39,8 +39,8 @@ clearBackpackCargo _container;
 	_container addMagazineCargoGlobal [_x, _addAmount];
 } forEach _ammoList;
 
-private _chute = createvehicle ["i_parachute_02_f", _airdropPos,[],0,"CAN_COLLIDE"]; 
-_container attachTo [_chute,[0,0,0.5]];
+// use BIS function for parachute
+[objNull, _container] call BIS_fnc_curatorObjectEdited;
 
 // attach smoke/chemlight grenade to crate and make it smoke. Spawning function to ensure it keeps smoking and lighting up until at least 5min have passed
 private _indicatorSpawn = [_container, 300] spawn {
@@ -99,4 +99,3 @@ private _indicatorSpawn = [_container, 300] spawn {
 
 // add container to editable
 ["zen_common_addObjects", [[_container], objNull]] call CBA_fnc_serverEvent;
-

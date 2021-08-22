@@ -29,7 +29,7 @@ private _onConfirm =
 	// run though all players
 	{
 		// if zeus, skip it
-		if (!isNull (getAssignedCuratorLogic player)) then { continue; };
+		if (!isNull (getAssignedCuratorLogic _x)) then { continue; };
 
 		// get all magazines from players
 		private _mags = magazines [_x, true];
@@ -54,10 +54,10 @@ private _onConfirm =
 		// spawn container 
 		private _container = "C_IDAP_supplyCrate_F" createVehicle (ASLToAGL _pos);
 
-		clearWeaponCargo _container;
-		clearMagazineCargo _container;
-		clearItemCargo _container;
-		clearBackpackCargo _container;
+		clearWeaponCargoGlobal _container;
+		clearMagazineCargoGlobal _container;
+		clearItemCargoGlobal _container;
+		clearBackpackCargoGlobal _container;
 
 		// go through all mags, and add them to container based on zeus amount set multiplied with player count
 		{

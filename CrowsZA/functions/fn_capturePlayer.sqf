@@ -41,7 +41,8 @@ private _items = _loadoutArr select 9;
 	_unit removeWeaponGlobal _wep; 
 
 	//add it to container
-	_crate addItemCargoGlobal [_wep, 1];
+	_crate addWeaponWithAttachmentsCargoGlobal [_x, 1];
+
 } forEach _weapons;
 
 //remove radio - check for "Radio" or "TFAR"
