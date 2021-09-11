@@ -9,12 +9,17 @@ Return: none
 *///////////////////////////////////////////////
 
 params ["_groupLeader", "_addAmount", "_ammoList"];
+scopeName "main"; 
 
 private _airdropPos = [];
 // if array we got a pos, otherwise we got aircraft
 if (typeName _groupLeader == "ARRAY") then {
 	_airdropPos = _groupLeader;
 } else {
+	// as this is by waypoint statement it will be executed on all machines. Check for locality to only spawn one.
+	if (!local _groupLeader) then {
+		breakOut "main";
+	};
 	// get aircraft
 	private _aircraft = vehicle _groupLeader; 
 	private _pos = ASLToAGL (getPosASL _aircraft);
