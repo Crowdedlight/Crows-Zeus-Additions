@@ -8,7 +8,8 @@ Return: none
 
 *///////////////////////////////////////////////
 
-params ["_groupLeader", "_addAmount", "_ammoList"];
+params ["_groupLeader", "_addAmount", "_ammoList", "_itemList", "_rearm"];
+
 scopeName "main"; 
 
 private _airdropPos = [];
@@ -43,6 +44,11 @@ clearBackpackCargoGlobal _container;
 	// add to container 
 	_container addMagazineCargoGlobal [_x, _addAmount];
 } forEach _ammoList;
+
+// item list
+{
+	_container addItemCargoGlobal [_x, _addAmount];
+} forEach _itemList;
 
 // use BIS function for parachute
 [objNull, _container] call BIS_fnc_curatorObjectEdited;
@@ -104,3 +110,8 @@ private _indicatorSpawn = [_container, 300] spawn {
 
 // add container to editable
 ["zen_common_addObjects", [[_container], objNull]] call CBA_fnc_serverEvent;
+
+// if rearm, set as ace rearm vehicle 
+if (_rearm) then {
+	[_container] remoteExec ["ace_rearm_fnc_makeSource", 2];
+};
