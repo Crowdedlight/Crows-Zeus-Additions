@@ -18,13 +18,19 @@ private _onConfirm =
 		"_zeusMultiplier",
 		"_airdrop",
 		"_useAircraft",
-		"_height"
+		"_height",
+		"_medical",
+		"_rearm"
 	];
 	//Get in params again
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
 	private _ammoList = [];
+	private _itemList = [];
 	private _playerCount = 0;
+
+	// if rearm is null, we set it to false
+	if (isNil "_rearm") then { _rearm = false; };
 
 	// run though all players
 	{
@@ -37,13 +43,38 @@ private _onConfirm =
 		// append to array
 		_ammoList append _mags;
 
+		// get mags loaded from current weapons
+		private _weaponsList = weaponsItems _x;
+		{
+			private _primaryMag = _x select 4;
+			private _secondaryMag = _x select 5;
+
+			// if not empty, add the magazines
+			if (count _primaryMag == 2) then {
+				_ammoList pushBack (_primaryMag select 0);
+			};
+			if (count _secondaryMag == 2) then {
+				_ammoList pushBack (_secondaryMag select 0);
+			};
+		} forEach _weaponsList;
+
 		// increment players, could get it from playercount, but we are here anyway and can sort zeus out this way
 		_playerCount = _playerCount + 1;
 
 	} forEach allPlayers;
 
+	// add medical if enabled. Either ACE or base-game
+	if (_medical) then {
+		if (crowsZA_common_aceModLoaded) then {
+			_itemList append ["ACE_quikclot", "ACE_elasticBandage", "ACE_packingBandage", "ACE_adenosine", "ACE_epinephrine", "ACE_morphine", "ACE_splint", "ACE_salineIV_500", "ACE_tourniquet", "ACE_fieldDressing"];
+		} else {
+			_itemList append ["FirstAidKit"];
+		}
+	};
+
 	// got all mags, now get rid of duplicates 
 	private _ammoList = _ammoList arrayIntersect _ammoList;
+	private _itemList = _itemList arrayIntersect _itemList;
 
 	// add amount
 	private _addAmount = _playerCount * _zeusMultiplier;
@@ -64,9 +95,18 @@ private _onConfirm =
 			// add to container 
 			_container addMagazineCargoGlobal [_x, _addAmount];
 		} forEach _ammoList;
+		// item list
+		{
+			_container addItemCargoGlobal [_x, _addAmount];
+		} forEach _itemList;
 
 		// add container to editable
 		["zen_common_addObjects", [[_container], objNull]] call CBA_fnc_serverEvent;
+
+		// if rearm and ace loaded
+		if (_rearm) then {
+			[_container] remoteExec ["ace_rearm_fnc_makeSource", 2];
+		};
 	} 
 	// if airdrop is set start prepping for airdrop
 	else {
@@ -78,7 +118,7 @@ private _onConfirm =
 			private _airDropPos = ASLToAGL _pos;
 			_airDropPos set [2, _height];
 
-			[_airDropPos, _addAmount, _ammoList] call crowsZA_fnc_spawnSupplyDrop;
+			[_airDropPos, _addAmount, _ammoList, _itemList, _rearm] call crowsZA_fnc_spawnSupplyDrop;
 
 		} else {
 
@@ -137,7 +177,7 @@ private _onConfirm =
 			_waypoint setWaypointCompletionRadius 2; // only complete if within 2m of the waypoint
 
 			// when over drop-point, spawn crate below plane and attach chute 
-			_waypoint setWaypointStatements ["true", format["[this,%1,%2] call crowsZA_fnc_spawnSupplyDrop;", _addAmount, _ammoList]];
+			_waypoint setWaypointStatements ["true", format["[this,%1,%2,%3,%4] call crowsZA_fnc_spawnSupplyDrop;", _addAmount, _ammoList, _itemList, _rearm]];
 
 			// final waypoint 
 			private _waypointEnd = _group addWaypoint [_endPos, 1];
@@ -154,14 +194,32 @@ private _onConfirm =
 		};
 	};
 };
+private _dialogOptions = [crowsZA_common_aceModLoaded] call {
+	params ["_aceLoaded"];
+	private _arr = [];
+	if (_aceLoaded) then {
+		_arr = [
+			["SLIDER","Multiplier (amount per player)",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
+			["CHECKBOX",["Airdrop", "Make it airdrop from 300m"],[true]],
+			["CHECKBOX",["Aircraft", "Make aircraft drop it"],[true]],
+			["SLIDER","Airdrop height [m]",[50,1000,200,0]],
+			["CHECKBOX",["Medical", "Add Medical supplies"],[true]],
+			["CHECKBOX",["ACE Rearm", "Set as ACE Rearm vehicle"],[false]]
+		];
+	} else {
+		_arr = [
+			["SLIDER","Multiplier (amount per player)",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
+			["CHECKBOX",["Airdrop", "Make it airdrop from 300m"],[true]],
+			["CHECKBOX",["Aircraft", "Make aircraft drop it"],[true]],
+			["SLIDER","Airdrop height [m]",[50,1000,200,0]],
+			["CHECKBOX",["Medical", "Add Medical supplies"],[true]]
+		];
+	};
+	_arr;
+};
 [
 	"Set multipler for ammo supply", 
-	[
-		["SLIDER","Multiplier (amount per player)",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
-		["CHECKBOX",["Airdrop", "Make it airdrop from 300m"],[true]],
-		["CHECKBOX",["Aircraft", "Make aircraft drop it"],[true]],
-		["SLIDER","Airdrop height [m]",[50,1000,200,0]]
-	],
+	_dialogOptions,
 	_onConfirm,
 	{},
 	_this
