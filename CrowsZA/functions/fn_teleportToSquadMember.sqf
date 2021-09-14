@@ -8,7 +8,7 @@ Return: none
 Shows dialog with all members in the squad the player belongs and 
 
 *///////////////////////////////////////////////
-params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
+params [["_pos",[0,0,0],[[]]], ["_unit",objNull,[objNull]]];
 
 if (isNull _unit) exitWith { };
 
@@ -22,7 +22,7 @@ private _onConfirm =
 		"_tpTarget"
 	];
 	//Get in params again
-	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
+	_in params [["_pos",[0,0,0],[[]]], ["_unit",objNull,[objNull]]];
 	if (isNull _unit) exitWith { _return; };
 
 	//reset velocity 

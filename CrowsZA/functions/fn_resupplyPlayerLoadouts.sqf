@@ -18,6 +18,7 @@ private _onConfirm =
 		"_zeusMultiplier",
 		"_airdrop",
 		"_useAircraft",
+		"_selectedAircraft",
 		"_height",
 		"_medical",
 		"_rearm"
@@ -125,7 +126,7 @@ private _onConfirm =
 			// get random direction from 0 to 7 index and convert to degrees
 			private _direction = (random 7) * 45;
 			private _distance = 2000;
-			private _aircraftType = "B_T_VTOL_01_vehicle_F";
+			private _aircraftType = _selectedAircraft;
 			private _speed = ["LIMITED", "NORMAL", "FULL"] select 1;
 
 			// convert to AGL
@@ -194,14 +195,25 @@ private _onConfirm =
 		};
 	};
 };
-private _dialogOptions = [crowsZA_common_aceModLoaded] call {
-	params ["_aceLoaded"];
+
+// check if SOG is loaded, then offer the huey as transport
+private _aircraftList = ["B_T_VTOL_01_vehicle_F"];
+private _aircraftDisplayList = ["Blackfish"];
+
+if (crowsZA_common_sogLoaded) then {
+	_aircraftList pushBack "vn_b_air_uh1c_07_07";
+	_aircraftDisplayList pushBack "Huey Slick (SOG)";
+};
+
+private _dialogOptions = [crowsZA_common_aceModLoaded, _sogLoaded, _aircraftList, _aircraftDisplayList] call {
+	params ["_aceLoaded", "_sogLoaded", "_aircraftList", "_aircraftDisplayList"];
 	private _arr = [];
 	if (_aceLoaded) then {
 		_arr = [
 			["SLIDER","Multiplier (amount per player)",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
 			["CHECKBOX",["Airdrop", "Make it airdrop from 300m"],[true]],
 			["CHECKBOX",["Aircraft", "Make aircraft drop it"],[true]],
+			["COMBO",["Choose Aircraft", "What aircraft to drop the supply from"],[_aircraftList, _aircraftDisplayList,0]],
 			["SLIDER","Airdrop height [m]",[50,1000,200,0]],
 			["CHECKBOX",["Medical", "Add Medical supplies"],[true]],
 			["CHECKBOX",["ACE Rearm", "Set as ACE Rearm vehicle"],[false]]
@@ -211,6 +223,7 @@ private _dialogOptions = [crowsZA_common_aceModLoaded] call {
 			["SLIDER","Multiplier (amount per player)",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
 			["CHECKBOX",["Airdrop", "Make it airdrop from 300m"],[true]],
 			["CHECKBOX",["Aircraft", "Make aircraft drop it"],[true]],
+			["COMBO",["Choose Aircraft", "What aircraft to drop the supply from"],[_aircraftList, _aircraftDisplayList,0]],
 			["SLIDER","Airdrop height [m]",[50,1000,200,0]],
 			["CHECKBOX",["Medical", "Add Medical supplies"],[true]]
 		];

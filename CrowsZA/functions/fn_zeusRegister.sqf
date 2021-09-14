@@ -46,6 +46,7 @@ private _wait = [player,_loadedMods] spawn
 	// save ace loaded variable as public var. So context menu check just needs to check var
 	crowsZA_common_aceModLoaded = isClass (configFile >> "CfgPatches" >> "ace_main");
 	crowsZA_common_jshkModLoaded = isClass (configFile >> "CfgPatches" >> "JSHK_contam");
+	crowsZA_common_sogLoaded = isClass (configfile >> "CfgMods" >> "vn");
 
 	// check if tfar is loaded 
 	private _hasTFAR = isClass (configFile >> "CfgPatches" >> "task_force_radio");
@@ -107,13 +108,13 @@ private _wait = [player,_loadedMods] spawn
 		[["camera_center_unit","Camera Center Unit","\CrowsZA\data\camera.paa", {_hoveredEntity call crowsZA_fnc_centerZeusViewUnit}, {!isNull _hoveredEntity}] call zen_context_menu_fnc_createAction,
 		 [], 
 		 0],
-		[["teleport_to_squadmate","Teleport To Squadmate","\CrowsZA\data\tpToSquad.paa", {[[],_hoveredEntity] call crowsZA_fnc_teleportToSquadMember}, {!isNull _hoveredEntity && isPlayer _hoveredEntity && (count units group _hoveredEntity) > 1}] call zen_context_menu_fnc_createAction,
+		[["teleport_to_squadmate","Teleport To Squadmate","\CrowsZA\data\tpToSquad.paa", {[[],_hoveredEntity] call crowsZA_fnc_teleportToSquadMember}, {!isNull _hoveredEntity && [_hoveredEntity] call crowsZA_fnc_isAliveManUnit && (count units group leader _hoveredEntity) > 1}] call zen_context_menu_fnc_createAction,
 		 [], 
 		 6],
 		[["paste_loadout_to_inventory","Paste Loadout","\CrowsZA\data\paste.paa", {_hoveredEntity call crowsZA_fnc_contextPasteLoadout}, {!isNil "zen_context_actions_loadout" && !isNull _hoveredEntity}] call zen_context_menu_fnc_createAction,
 		 ["Inventory"], 
 		 0],
-		[["loadout_viewer","View","\a3\Ui_F_Curator\Data\RscCommon\RscAttributeInventory\filter_0_ca.paa", {_hoveredEntity call crowsZA_fnc_loadoutViewer}, {!isNull _hoveredEntity && alive _hoveredEntity && _hoveredEntity isKindOf "CAManBase"}] call zen_context_menu_fnc_createAction,
+		[["loadout_viewer","View","\a3\Ui_F_Curator\Data\RscCommon\RscAttributeInventory\filter_0_ca.paa", {_hoveredEntity call crowsZA_fnc_loadoutViewer}, {[_hoveredEntity] call crowsZA_fnc_isAliveManUnit}] call zen_context_menu_fnc_createAction,
 		 ["Loadout"], 
 		 0],
 		 [["radius_heal","Radius Heal","\CrowsZA\data\radiusheal.paa", {[_position] call crowsZA_fnc_radiusHeal}, { crowsZA_common_aceModLoaded }, [], {[
@@ -124,7 +125,7 @@ private _wait = [player,_loadedMods] spawn
 		 ]}] call zen_context_menu_fnc_createAction,
 		 ["HealUnits"], 
 		 0],
-		[["jshk_heal","JSHK Heal","\z\ace\addons\medical_gui\ui\cross.paa", {_hoveredEntity call crowsZA_fnc_jshkHeal}, {!isNull _hoveredEntity && alive _hoveredEntity && _hoveredEntity isKindOf "CAManBase" && crowsZA_common_aceModLoaded && crowsZA_common_jshkModLoaded && (_hoveredEntity getVariable ["ACE_isUnconscious", false]) == true}] call zen_context_menu_fnc_createAction,
+		[["jshk_heal","JSHK Heal","\z\ace\addons\medical_gui\ui\cross.paa", {_hoveredEntity call crowsZA_fnc_jshkHeal}, {[_hoveredEntity] call crowsZA_fnc_isAliveManUnit && crowsZA_common_aceModLoaded && crowsZA_common_jshkModLoaded && (_hoveredEntity getVariable ["ACE_isUnconscious", false]) == true}] call zen_context_menu_fnc_createAction,
 		 ["HealUnits"], 
 		 0]//,
 		// [["ace_medical_menu","Medical Menu","\z\ace\addons\medical_gui\ui\cross.paa", {_hoveredEntity call crowsZA_fnc_medicalStatus}, {!isNull _hoveredEntity && alive _hoveredEntity && _hoveredEntity isKindOf "CAManBase" && crowsZA_common_aceModLoaded}] call zen_context_menu_fnc_createAction,

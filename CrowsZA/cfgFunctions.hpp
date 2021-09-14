@@ -72,5 +72,6 @@ class CrowsZA_addon
 
 		// jshk heal for ACE while its broken
 		class jshkHeal {};
+		class isAliveManUnit {};
 	};
 };
