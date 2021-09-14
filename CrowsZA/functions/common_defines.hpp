@@ -37,6 +37,10 @@
 #define IDC_CHECKBOX_DAMAGE 1633
 #define IDC_ICON_GRID_FIRST 1640 //uses incremental from there, should reserve up to 1660 for 20 elements
 	
+//IDC for pingbox
+#define IDC_PINGBOX 1720
+#define IDC_PINGBOX_LIST 1730
+
 //array types
 #define TYPE_WEAPON "weapon"
 #define TYPE_WEAPON_ATTACHMENT "attachment"
