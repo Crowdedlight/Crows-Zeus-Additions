@@ -3,7 +3,7 @@
 //gui include
 #include "ui\loadoutGui.hpp"
 #include "ui\drawbuildGui.hpp"
-#include "ui\pingbox.hpp"
+#include "ui\pingboxGui.hpp"
 
 class CfgPatches
 {

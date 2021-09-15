@@ -76,5 +76,8 @@ class CrowsZA_addon
 
 		// PINGBOX 
 		class enablePingBoxHUD {};
+		class disablePingBoxHUD {};
+		class refreshPingBoxHUD {};
+		class addEntryPingBoxHUD {};
 	};
 };

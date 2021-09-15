@@ -8,24 +8,29 @@ Return: none
 
 Enables and displays the pingbox hud
 
+call crowsZA_fnc_enablePingBoxHUD;
+
 *///////////////////////////////////////////////
+
+// don't show if disabled
+if (!crowsZA_CBA_Setting_pingbox_enabled) exitWith {call crowsZA_fnc_disablePingBoxHUD;};
+
+// don't show in eden or for non-players/non-zeus
+if (is3DEN || !hasInterface || isNull (getAssignedCuratorLogic player)) exitWith {};
+
+// clear list
+crowsZA_pingbox_list = [];
+crowsZA_pingbox_faded = false;
+crowsZA_pingbox_list_update = 0;
+
 //create hud 
-("crowsZA_pingbox_layer" call BIS_fnc_rscLayer) cutRsc ["crowsZA_pingbox_hud","PLAIN"]; // show
-// ("myLayerName" call BIS_fnc_rscLayer) cutText ["","PLAIN"]; // remove
+"crowsZA_pingbox_layer" cutRsc ["crowsZA_pingbox_hud","PLAIN", 0, true]; 
 
-//get display
-private _display = uiNamespace getVariable "crowsZA_pingbox_hud";
+// add zeus ping event handler 
+crowsZA_pingbox_ping_EH = (getAssignedCuratorLogic player) addEventHandler ["CuratorPinged", {
+	params ["_curator", "_player"];
+	[_player] call crowsZA_fnc_addEntryPingBoxHUD;
+}];
 
-//get list 
-private _ctrlList = _display displayCtrl IDC_PINGBOX_LIST;
-lnbClear _ctrlList;
-
-private _name = "tester";
-private _timeSince = "20";
-private _alpha = 1;
-
-private _index = _ctrlList lnbAddRow [_name, _timeSince];
-_ctrlList lnbSetColor   [[_index, 0], [1, 1, 1, _alpha]];
-_ctrlList lnbSetColor   [[_index, 1], [1, 1, 1, _alpha]];
-_ctrlList lnbSetValue   [[_index, 1], _timeSince];
-_ctrlList lnbSetData    [[_index, 0], _name];
+// activate CBA handler
+crowsZA_pingbox_handler = [crowsZA_fnc_refreshPingBoxHUD , 0.5] call CBA_fnc_addPerFrameHandler; 
