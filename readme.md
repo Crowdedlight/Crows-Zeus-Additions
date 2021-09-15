@@ -24,8 +24,8 @@ Features:
 * **Unit Loadout Viewer:** Quickly See Loadout of Unit without going into full arsenal. A right-click menu to see unit loadout without loading a full arsenal.  
 * **Draw Build:** Select the type of object to build, and start building by simply clicking the straight lines you want. Quick way to make hesco or sandbag walls without having to manually place each wall segment.     
 * **Fire Support:** Call in fire support without having to set up vehicles that might run out of ammuntion. Supports 82mm Mortar, 155mm Artillery and 230mm Rockets (Other ammunition also possible via the Custom Type (ex.) field by entering the CfgAmmo name. Each ammo needs individual testing). Sliders for radius, amount of salvos (leave 0 for infinite), seconds between the salvos, delay after placing and amount of "guns" firing. Move object to change center of radius, reapply module to change settings and delete to end prematurly.  
-* **Resupply Player Loadouts:** Goes through all players (not zeus') and check what ammunition they have in their inventory. Then it spawns a crate with multipler times ammunition. Its a quick way to spawn a crate that would include enough supplies for all players to resupply to what the zeus decide, without having to manually add each ammonition. The crate can be spawned on ground, spawned as airdrop at set altitude, or spawn a plane doing a flyby and airdropping it at selected altitude. If using airdrop the crate will output blue smoke and have 4 blue chemlights attached. Smoke and chemlight is guaranteed to be refreshed for 5 min after the drop. 
-
+* **Resupply Player Loadouts:** Goes through all players (not zeus') and check what ammunition they have in their inventory. Then it spawns a crate with multipler times ammunition. Its a quick way to spawn a crate that would include enough supplies for all players to resupply to what the zeus decide, without having to manually add each ammonition. The crate can be spawned on ground, spawned as airdrop at set altitude, or spawn a plane doing a flyby and airdropping it at selected altitude. If using airdrop the crate will output blue smoke and have 4 blue chemlights attached. Smoke and chemlight is guaranteed to be refreshed for 5 min after the drop.   
+* **PingBox:** A little GUI box for zeus which shows the last 3 who pinged zeus and how long since they pinged. To help when spacebar shows you a view of a building with everyone in it and you can't see who pinged. It comes with CBA/Addon settings to enable/disable it, when to auto remove showed pings and if it should fade between receiving pings. (Found under Addon Settings -> Crows Zeus Additions)  
 
 
 Features Requireing ACE:   
@@ -68,6 +68,7 @@ The following has been tested on dedicated server with default settings:
 - [X] Set TFAR vehicle side
 - [X] Fire Support
 - [X] Resupply Player Loadouts
+- [X] PingBox
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the entry.

@@ -25,7 +25,7 @@ class RscTitles
 		{
             class title: RscText
             {
-                idc = 1755;
+                idc = -1;
                 text = "PingBox";
                 style = ST_CENTER;
                 x = 0.139062 * safezoneW + safezoneX;
@@ -48,7 +48,7 @@ class RscTitles
                 colorBackground[] = COLOR_BACKGROUND_SETTING;
             };
             class ListBackground: RscText {
-                idc = 1745;
+                idc = -1;
                 style = ST_CENTER;
                 x = 0.139062 * safezoneW + safezoneX;
                 y = 0.929 * safezoneH + safezoneY;
