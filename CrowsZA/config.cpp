@@ -3,6 +3,7 @@
 //gui include
 #include "ui\loadoutGui.hpp"
 #include "ui\drawbuildGui.hpp"
+#include "ui\pingboxGui.hpp"
 
 class CfgPatches
 {
@@ -16,9 +17,9 @@ class CfgPatches
 		 };
 		author = "Crowdedlight";
 		authorUrl = "https://forums.bohemia.net/profile/1173289-crowdedlight/";
-		version = 1.8.4;
-		versionStr = "1.8.4";
-		versionAr[] = {1,8,4};
+		version = 1.8.5;
+		versionStr = "1.8.5";
+		versionAr[] = {1,8,5};
 	};
 };
 

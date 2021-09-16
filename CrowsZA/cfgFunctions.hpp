@@ -73,5 +73,11 @@ class CrowsZA_addon
 		// jshk heal for ACE while its broken
 		class jshkHeal {};
 		class isAliveManUnit {};
+
+		// PINGBOX 
+		class enablePingBoxHUD {};
+		class disablePingBoxHUD {};
+		class refreshPingBoxHUD {};
+		class addEntryPingBoxHUD {};
 	};
 };
