@@ -1,6 +1,5 @@
-class RscFrame;
-class RscListbox;
 class ctrlListNBox;
+class RscText;
 
 class RscTitles
 {
@@ -23,17 +22,6 @@ class RscTitles
 		onUnLoad = "uinamespace setVariable ['crowsZA_pingbox_hud', nil]";
 		class Controls
 		{
-            class title: RscText
-            {
-                idc = -1;
-                text = "PingBox";
-                style = ST_CENTER;
-                x = 0.139062 * safezoneW + safezoneX;
-                y = 0.907 * safezoneH + safezoneY;
-                w = 0.108281 * safezoneW;
-                h = 0.022 * safezoneH;
-                colorBackground[] = GUI_THEME_COLOR;
-            };
             class list: ctrlListNBox
             {
                 idc = IDC_PINGBOX_LIST;
@@ -46,6 +34,17 @@ class RscTitles
                 tooltipPerColumn = 0;
                 columns[] = {0.00, 0.8};
                 colorBackground[] = COLOR_BACKGROUND_SETTING;
+            };
+            class title: RscText
+            {
+                idc = -1;
+                text = "PingBox";
+                style = ST_CENTER;
+                x = 0.139062 * safezoneW + safezoneX;
+                y = 0.907 * safezoneH + safezoneY;
+                w = 0.108281 * safezoneW;
+                h = 0.022 * safezoneH;
+                colorBackground[] = GUI_THEME_COLOR;
             };
             class ListBackground: RscText {
                 idc = -1;
