@@ -14,7 +14,9 @@ disabled pingbox hud
 [crowsZA_pingbox_handler] call CBA_fnc_removePerFrameHandler;
 
 // remove zeus ping eventhandler
-(getAssignedCuratorLogic player) removeEventHandler ["CuratorPinged", crowsZA_pingbox_ping_EH];
+if (!isNil "crowsZA_pingbox_ping_EH") then {
+	(getAssignedCuratorLogic player) removeEventHandler ["CuratorPinged", crowsZA_pingbox_ping_EH];
+};
 
 // remove layer 
 "crowsZA_pingbox_layer" cutText ["","PLAIN"];
