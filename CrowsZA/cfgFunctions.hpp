@@ -4,8 +4,8 @@ class CrowsZA_addon
 	class CrowsZeusAdditions
 	{
 		file = "\CrowsZA\functions";
+		class registerSettingsCBA { preInit = 1; };
 		class zeusRegister { postInit = 1; };
-		class registerSettingsCBA { preInit = 1;};
 
 		class showHint {};
 
