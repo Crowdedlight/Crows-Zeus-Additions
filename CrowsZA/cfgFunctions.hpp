@@ -5,6 +5,7 @@ class CrowsZA_addon
 	{
 		file = "\CrowsZA\functions";
 		class zeusRegister { postInit = 1; };
+		class registerSettingsCBA { preInit = 1;};
 
 		class showHint {};
 
