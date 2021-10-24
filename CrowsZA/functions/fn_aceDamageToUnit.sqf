@@ -90,7 +90,7 @@ private _onConfirm =
 	"Add ACE Damage to Unit", 
 	[
 		["COMBO","Body Part",[["head", "body", "leg_l", "leg_r", "hand_l", "hand_r"], ["Head", "Body", "Left Leg", "Right Leg", "Left Hand", "Right Hand"],2]],
-		["COMBO","Projectile Type",[["falling", "ropeburn", "vehiclecrash", "collision", "unknown", "explosive", "grenade", "shell", "bullet", "backblast", "bite", "punch", "stab", "drowning"],["Falling", "Ropeburn", "Vehiclecrash", "Collision", "Unknown", "Explosive", "Grenade", "Shell", "Bullet", "Backblast", "Bite", "Punch", "Stab", "Drowning"],0]],
+		["COMBO","Projectile Type",[["falling", "ropeburn", "vehiclecrash", "collision", "unknown", "explosive", "grenade", "shell", "bullet", "backblast", "bite", "punch", "stab", "drowning", "burn"],["Falling", "Ropeburn", "Vehiclecrash", "Collision", "Unknown", "Explosive", "Grenade", "Shell", "Bullet", "Backblast", "Bite", "Punch", "Stab", "Drowning", "Burn"],0]],
 		["SLIDER","Damage",[0,5,0.6,1]] //0 to 5, default 0.6 and showing 1 decimal
 	],
 	_onConfirm,

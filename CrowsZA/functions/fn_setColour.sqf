@@ -18,6 +18,7 @@ private _onConfirm =
 	[
 		"_texture",
 		"_colour",
+		"_applyAll",
 		"_reset"
 	];
 	//Get in params again
@@ -26,7 +27,16 @@ private _onConfirm =
 	//set texture on object
 	if (!_reset) then {
 		private _newColour = format ["#(argb,8,8,3)color(%1,%2,%3,%4)", (_colour select 0), (_colour select 1), (_colour select 2), (_colour select 3)];
-		_unit setObjectTextureGlobal [_texture, _newColour];
+
+		// if we are applying to all textures
+		if (_applyAll) then {
+			// loop all textures
+			{
+				_unit setObjectTextureGlobal [_forEachIndex, _newColour];
+			} forEach (getObjectTextures _unit);
+		} else {
+			_unit setObjectTextureGlobal [_texture, _newColour];
+		};
 	} else {
 		//get default textures
 		private _textureArray = _unit getVariable "crowsZA_setcolour_var_textureArray";
@@ -67,6 +77,7 @@ if (isNil "_textureArray") then {
 	[
 		["COMBO","Texture",[_arraySelection, _textureArray,0]],
 		["COLOR","Colour",+[0,0,0,1]],
+		["CHECKBOX",["Apply to all textures", "Adds the colour to all textures"],[false]], //reset to defaults
 		["CHECKBOX",["RESET", "Resets Texture to default"],[false], true] //reset to defaults
 	],
 	_onConfirm,
