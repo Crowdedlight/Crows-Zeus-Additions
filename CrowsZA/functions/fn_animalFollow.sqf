@@ -90,7 +90,7 @@ for "_x" from 1 to _amount do {
 		if ( _animalType == "Hen" ) then { _animalGoMove = "Hen_Walk"; }; 
 		if ( _animalType == "Snake" ) then { _animalGoMove = "Snakes_Move"; }; 
 
-		_moveDist = 2; 
+		_moveDist = 3; 
 		_animalMoving = false; 
 		// init idle
 		_animal playMove _animalIdleMove;

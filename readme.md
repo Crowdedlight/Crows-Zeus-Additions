@@ -14,7 +14,7 @@ Features:
 * **Center Camera on Unit:** Right click a unit and select this option, and the zeus camera will continously center on the unit even while moving. Is handy for following moving targets while finding the module or setting you need.
 * **Remove trees:** Remove trees/bushes/stones in an distance from position. Works globally and should work for JIP. Removes collision of removed objects.
 * **Restore trees:** Restores trees/bushes/stones previously removed in an distance from the clicked position.
-* **Animal Follower:** Spawns an animal that follows the selected player around. Can be petted with ace-interaction.
+* **Animal Follower:** Spawns an animal that follows the selected player around. Can be petted with ace-interaction. Can be set so it attacks any nearby players, handy for snakes. 
 * **Delete All Spawned Animal Followers:** Deletes all animals spawned with **Animal Follower** module. For easy cleanup.
 * **Set Numberplate:** Can set the numberplate of a vehicle
 * **Delete All Dead:** A cleanup script that removes all dead bodies/wrecks.
@@ -31,7 +31,7 @@ Features:
 Features Requireing ACE:   
 * **Set supply Vehicle:** Set an object or vehicle as an ACE rearm/refuel/repair vehicle
 * **Capture Player:** Easily capture the unit it is used on. It does a full zeus heal on the unit, set them captive, and removes weapons and radio and place it inside a box next to them.
-* **Radius Heal:** Heals all units in a sphere radius around the clicked position. Makes it easy to heal all units if a vehicle is arma'ed or otherwise need to pick all up. 
+* **Radius Heal:** Heals all units in a sphere radius around the clicked position. Makes it easy to heal all units if a vehicle is arma'ed or otherwise need to pick all up. Will also put out units on fire.  
 * **Mass Surrender/Captive:** Can select entire sides or players/groups to toggle surrender or captive. 
 * **Mass Unconscious:** Can select entire sides or players/groups to toggle ACE unconscious on. 
 * **Inflict ACE Medical damage:** with selection of limb, damage-type and damage. (Useful for medic training of specific wounds. Logs dmg and target in RPT log files when used)
