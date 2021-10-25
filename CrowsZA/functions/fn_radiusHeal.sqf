@@ -39,7 +39,7 @@ private _onConfirm =
 	// as this scope doesn't have access to heal func, we need to redo it here
 	_list = (ASLToAGL _position) nearEntities [["Man"], _radiusSelect];
 	{
-		_x setVariable ["ace_fire_intensity", 0];
+		_x setVariable ["ace_fire_intensity", 0, true];
 		["ace_medical_treatment_fullHealLocal", [_x], _x] call CBA_fnc_targetEvent;
 	} forEach _list;
 };
