@@ -34,3 +34,21 @@ crowsZA_pingbox_ping_EH = (getAssignedCuratorLogic player) addEventHandler ["Cur
 
 // activate CBA handler
 crowsZA_pingbox_handler = [crowsZA_fnc_refreshPingBoxHUD , 0.5] call CBA_fnc_addPerFrameHandler; 
+
+// add handler for backspace - to hide display when in screenshot mode
+crowsZA_pingbox_backspace_handler = [DIK_BACK, [false, false, false], {
+	// if faded, no need to change, refresh is disabled in screenshot mode
+	if (crowsZA_pingbox_faded) exitWith {};
+
+	// have to spawn function to wait 0.1, as otherwise we check before the variable for screenshot mode is set...
+	[] spawn {
+		sleep 0.1;
+		// check if in screenshot mode then hide ui, otherwise reshow
+		if (uiNamespace getVariable ["RscDisplayCurator_screenshotMode", false]) then {
+			// hide pingbox
+			"crowsZA_pingbox_layer" cutText ["","PLAIN"];
+		} else {
+			"crowsZA_pingbox_layer" cutRsc ["crowsZA_pingbox_hud","PLAIN", 0, true]; 
+		};
+	};
+}] call CBA_fnc_addKeyHandler;

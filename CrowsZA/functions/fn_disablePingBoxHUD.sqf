@@ -20,3 +20,6 @@ if (!isNil "crowsZA_pingbox_ping_EH") then {
 
 // remove layer 
 "crowsZA_pingbox_layer" cutText ["","PLAIN"];
+
+// remove backspace handler
+crowsZA_pingbox_backspace_handler call CBA_fnc_removeKeyHandler;
