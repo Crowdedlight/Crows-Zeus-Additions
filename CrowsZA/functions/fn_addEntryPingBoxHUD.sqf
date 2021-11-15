@@ -16,7 +16,7 @@ params ["_player"];
 // ARRAY is made so newest entries are first, and oldest pushed at the back
 // [[_playername, timeAtPing], ...]
 
-// check count of global array with entries, if > 3, pop the oldest in array. (FIFO) - SHOULD BE DONE WHERE WE ADD NEW ENTRIES
+// check count of global array with entries, if > 3, pop the oldest in array. (FIFO)
 if (count crowsZA_pingbox_list >= 3) then {
 	crowsZA_pingbox_list deleteAt 2;
 };

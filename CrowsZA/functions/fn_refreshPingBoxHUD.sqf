@@ -14,6 +14,8 @@ call crowsZA_fnc_refreshPingBoxHUD;
 
 // if we are faded, don't bother updating
 if (crowsZA_pingbox_faded) exitWith {};
+// if in screenshot mode, don't bother updating
+if (uiNamespace getVariable ["RscDisplayCurator_screenshotMode", false]) exitWith {};
 
 // if fadeout setting is set and we should fade, fade and exit the call.
 private _fadeDiff = time - crowsZA_pingbox_list_update;

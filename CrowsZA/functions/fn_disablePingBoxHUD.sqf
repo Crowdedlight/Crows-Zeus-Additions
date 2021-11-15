@@ -10,6 +10,9 @@ disabled pingbox hud
 
 *///////////////////////////////////////////////
 
+// if handler is empty its because we have had this disabled from the start and the initial load just does a "disable"
+if (isNil "crowsZA_pingbox_handler") exitWith {};
+
 // remove handler 
 [crowsZA_pingbox_handler] call CBA_fnc_removePerFrameHandler;
 
@@ -20,3 +23,7 @@ if (!isNil "crowsZA_pingbox_ping_EH") then {
 
 // remove layer 
 "crowsZA_pingbox_layer" cutText ["","PLAIN"];
+
+// remove backspace handler
+crowsZA_pingbox_backspace_handler call CBA_fnc_removeKeyHandler;
+crowsZA_pingbox_y_handler call CBA_fnc_removeKeyHandler;
