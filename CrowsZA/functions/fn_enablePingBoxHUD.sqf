@@ -58,8 +58,9 @@ crowsZA_pingbox_backspace_handler = [DIK_BACK, [false, false, false], {
 		};
 	};
 }] call CBA_fnc_addKeyHandler;
+
 // handler for exiting zeus view and reenable pingbox
-crowsZA_pingbox_backspace_handler = [DIK_Y, [false, false, false], {
+crowsZA_pingbox_y_handler = [DIK_Y, [false, false, false], {
 	// if faded, no need to change, refresh is disabled in screenshot mode
 	if (!crowsZA_pingbox_hidden) exitWith {};
 
