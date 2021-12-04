@@ -27,7 +27,7 @@ private _onConfirm =
 	_side = toLower(str(_side));
 
 	// make variable lowercase and set it. variable only works with "west" or "east" anything else will just be "independent", so even if we click civilian it will still be independent.
-	_unit setVariable ["tf_side", _side, false];
+	_unit setVariable ["tf_side", _side, true];
 
 	// post result
 	private _vicSide = _unit call TFAR_fnc_getVehicleSide;
