@@ -32,7 +32,7 @@ private _onConfirm =
 			// if bodies is enabled
 			if (_deleteBodies && (_x iskindof "man")) then {
 				// don't delete crew in vehicles, as that is part of vehicle removal 
-				if (vehicle player == player) then {
+				if (vehicle _x == _x) then {
 					deleteVehicle _x; 
 					sleep 0.01; 
 				};
@@ -40,9 +40,7 @@ private _onConfirm =
 
 			// if wrecks is enabled 
 			if (_deleteWrecks && !(_x iskindof "man")) then {
-				// deleteVehicleCrew _x; //Need game version v2.06 for this alternative syntax to work.... not released yet, we are only on v2.04. 
-				private _vic = _x;
-				{ _vic deleteVehicleCrew _x } forEach crew _vic; // deletes all crew
+				deleteVehicleCrew _x; //Works with game version v2.06. Deletes all crew members
 				deleteVehicle _x;
 				sleep 0.01;
 			};
