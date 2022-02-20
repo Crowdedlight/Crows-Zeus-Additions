@@ -42,7 +42,7 @@ if (_offset != 0) then {
 	_pos = _pos getPos [_offset, _direction];
 };
 
-for "_x" from 1 to _amount do {
+for "_x" from 1 to round _amount do {
 	// spawn animal
 	_animal = createAgent [_animalClassname, _pos, [], 5, "CAN_COLLIDE"]; 
 	_animal setVariable ["BIS_fnc_animalBehaviour_disable", true]; 
