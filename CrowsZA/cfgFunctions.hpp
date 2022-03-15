@@ -80,5 +80,8 @@ class CrowsZA_addon
 		class disablePingBoxHUD {};
 		class refreshPingBoxHUD {};
 		class addEntryPingBoxHUD {};
+
+		// Remove Radio/Bino
+		class removeRadioBino {};
 	};
 };

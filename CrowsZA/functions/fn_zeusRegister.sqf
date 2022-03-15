@@ -73,7 +73,8 @@ private _wait = [player,_loadedMods] spawn
 			["Teleport To Squadmember",{_this call crowsZA_fnc_teleportToSquadMember}, "\CrowsZA\data\tpToSquad.paa"], 
 			["DrawBuild",{_this call crowsZA_fnc_drawBuildZeus}, "\CrowsZA\data\drawbuild.paa"],
 			["Fire Support",{_this call crowsZA_fnc_fireSupport}, "\x\zen\addons\modules\ui\target_ca.paa"],
-			["Resupply Player Loadouts",{_this call crowsZA_fnc_resupplyPlayerLoadouts}, "\CrowsZA\data\resupplyplayerloadout.paa"]
+			["Resupply Player Loadouts",{_this call crowsZA_fnc_resupplyPlayerLoadouts}, "\CrowsZA\data\resupplyplayerloadout.paa"],
+			["Remove Radio/Bino",{_this call crowsZA_fnc_removeRadioBino}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
 		];
 		private _tfarModules = [
 			["Set TFAR Vehicle Radio Side",{_this call crowsZA_fnc_tfarSetVehicleSide}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
