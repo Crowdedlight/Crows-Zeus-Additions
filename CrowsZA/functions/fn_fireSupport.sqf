@@ -253,7 +253,7 @@ if(_isFireSupport) then {
 			["82 mm Mortar", "155 mm Howitzer", "230 mm Rocket", "Flare 40mm White", "Smoke 120mm White"]
 			,_type],_isFireSupport],
 		["EDIT","Custom Type (ex.)",_customType,_isFireSupport],
-		["SLIDER","Radius",[0,5000,_radius,0],_isFireSupport],
+		["SLIDER:RADIUS","Radius",[0,5000,_radius,0, ASLtoAGL _pos, [1, 0, 0, 0.7]],_isFireSupport],
 		["SLIDER","Seconds between Salvos",[0,30,_seconds,1],_isFireSupport],
 		["SLIDER","Start after ... seconds",[0,30,1,1],_isFireSupport],
 		["SLIDER","Stop After Salvos (0 = indef.)",[0,100,_salvos,0],_isFireSupport],
