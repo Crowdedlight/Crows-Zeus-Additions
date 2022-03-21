@@ -38,5 +38,6 @@ private _onConfirm =
 	],
 	_onConfirm,
 	{},
-	_this
+	_this,
+	"crow_restore_tree_id"
 ] call zen_dialog_fnc_create;

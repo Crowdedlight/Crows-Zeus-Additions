@@ -262,5 +262,6 @@ if(_isFireSupport) then {
 	],
 	_onConfirm,
 	{},
-	[_pos, _logic, _isFireSupport]
+	[_pos, _logic, _isFireSupport],
+	"crow_firesupport_id"
 ] call zen_dialog_fnc_create;
