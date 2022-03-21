@@ -54,6 +54,7 @@ class CrowsZA_addon
 		class loadoutRefresh {};
 
 		class radiusHeal {};
+		class radiusHealDialog {};
 
 		class setSupplyVehicle {};
 		

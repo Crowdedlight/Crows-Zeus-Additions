@@ -118,7 +118,7 @@ private _wait = [player,_loadedMods] spawn
 		[["loadout_viewer","View","\a3\Ui_F_Curator\Data\RscCommon\RscAttributeInventory\filter_0_ca.paa", {_hoveredEntity call crowsZA_fnc_loadoutViewer}, {[_hoveredEntity] call crowsZA_fnc_isAliveManUnit}] call zen_context_menu_fnc_createAction,
 		 ["Loadout"], 
 		 0],
-		 [["radius_heal","Radius Heal","\CrowsZA\data\radiusheal.paa", {[_position] call crowsZA_fnc_radiusHeal}, { crowsZA_common_aceModLoaded }, [], {[
+		 [["radius_heal","Radius Heal","\CrowsZA\data\radiusheal.paa", {[_position] call crowsZA_fnc_radiusHealDialog}, {true}, [], {[
 			 [["radius_heal_10","10m","\CrowsZA\data\radiusheal.paa", {[_position, 10] call crowsZA_fnc_radiusHeal}] call zen_context_menu_fnc_createAction, [], 10],
 			 [["radius_heal_50","50m","\CrowsZA\data\radiusheal.paa", {[_position, 50] call crowsZA_fnc_radiusHeal}] call zen_context_menu_fnc_createAction, [], 10],
 			 [["radius_heal_100","100m","\CrowsZA\data\radiusheal.paa", {[_position, 100] call crowsZA_fnc_radiusHeal}] call zen_context_menu_fnc_createAction, [], 10],

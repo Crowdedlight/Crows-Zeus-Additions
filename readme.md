@@ -11,6 +11,7 @@ Features that is not base-features are only available if the mod required is det
 Features:   
 * **Scatter Teleport:** Allows Zeus to select players to teleport to position spread in a pattern. Can include the vic players are inside. Useful for TPing into parachuting while ensuring players are seperated from eachother 
 * **Teleport To Squadmember:** Allows Zeus to select a unit and get a promt of squadmembers to teleport said unit to. Makes it easy to teleport lost players to their squad without finding them first.
+* **Radius Heal:** Heals all units in a sphere radius around the clicked position. Makes it easy to heal all units if a vehicle is arma'ed or otherwise need to pick all up. Will also put out units on fire.
 * **Center Camera on Unit:** Right click a unit and select this option, and the zeus camera will continously center on the unit even while moving. Is handy for following moving targets while finding the module or setting you need.
 * **Remove trees:** Remove trees/bushes/stones in an distance from position. Works globally and should work for JIP. Removes collision of removed objects.
 * **Restore trees:** Restores trees/bushes/stones previously removed in an distance from the clicked position.
@@ -29,11 +30,9 @@ Features:
 * **Remove Radio/Binoculars:** A tool to remove a single unit, its groups, or an entire sides radio and binoculars. Mainly used to quickly remove radios and binoculars from AI when needed. AI mods like lambs have changed behaviour based if radios/binos are present or not. If used on players, the players will get a hint notification that zeus has removed their radio/bino. Place it on a unit to remove from unit/group, place it on the ground and you can select an entire side. 
 
 
-
 Features Requireing ACE:   
 * **Set supply Vehicle:** Set an object or vehicle as an ACE rearm/refuel/repair vehicle
-* **Capture Player:** Easily capture the unit it is used on. It does a full zeus heal on the unit, set them captive, and removes weapons and radio and place it inside a box next to them.
-* **Radius Heal:** Heals all units in a sphere radius around the clicked position. Makes it easy to heal all units if a vehicle is arma'ed or otherwise need to pick all up. Will also put out units on fire.  
+* **Capture Player:** Easily capture the unit it is used on. It does a full zeus heal on the unit, set them captive, and removes weapons and radio and place it inside a box next to them.  
 * **Mass Surrender/Captive:** Can select entire sides or players/groups to toggle surrender or captive. 
 * **Mass Unconscious:** Can select entire sides or players/groups to toggle ACE unconscious on. 
 * **Inflict ACE Medical damage:** with selection of limb, damage-type and damage. (Useful for medic training of specific wounds. Logs dmg and target in RPT log files when used)
