@@ -12,6 +12,7 @@ Is called if ace is loaded, adds the toggle keybind and starts the display EH an
 
 // data array
 crowsZA_medical_status_players = [];
+crowsZA_zeusTextDisplay = false; // Not showing text by default
 
 // register CBA keybinding to toggle zeus-drawn text
 crowsZA_zeusTextDisplayKeybind = [
