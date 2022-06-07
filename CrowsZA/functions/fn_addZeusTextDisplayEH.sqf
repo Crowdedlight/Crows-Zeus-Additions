@@ -12,7 +12,7 @@ Adds the drawEvent handlers to zeus to show the helper text for modules applied 
 // only if zeus, add draw3D handler for zeus-labels
 crowsZA_unit_icon_drawEH = addMissionEventHandler ["Draw3D", {
 	// if zeus display is null, exit. Only drawing when zeus display is open
-	if (isNull(findDisplay 312)) exitWith {};
+	//if (isNull(findDisplay 312)) exitWith {};
 	if (isNull _x) exitWith {};
 	if (!crowsZA_zeusTextDisplay) exitWith {};
 
@@ -27,12 +27,19 @@ crowsZA_unit_icon_drawEH = addMissionEventHandler ["Draw3D", {
 
 		// // if not within 500m, we don't draw it as the text does not scale and disappear with distance
 		// if (_dist > 500) then {continue;};
-		params["_woundNum", "_hr", "_bleedingWounds", "_inCRDC", "_inPain"];
+		_x params["_player", "_color", "_woundNum", "_hr", "_bleedingRate", "_inCRDC", "_inPain"];
 
 		// draw icon on relative pos 
 		private _txt = format["Wounds:%1, HR:%2)", _woundNum, _hr];
-		// offset: z: -0.5
-		private _pos = ASLToAGL getPosASL _unit;
-		drawIcon3D ["", [1,0,0,1], [_pos#0, _pos#1, _pos#2-0.5], 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
+
+		private _txt2 = "";
+
+		if(_inPain == true || _bleedingRate > 0) then { _txt2 = format["In Pain:%1, Bleed Rate:%2", _inPain, _bleedingRate] };
+		
+		
+		// offset: z: +2
+		private _pos = ASLToAGL getPosASL _player;
+		drawIcon3D ["", _color, [_pos#0, _pos#1, _pos#2+2], 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
+		drawIcon3D ["", _color, [_pos#0, _pos#1, _pos#2+3], 0, 0, 0, _txt2, 1, 0.03, "RobotoCondensed", "center", false];
 	} forEach crowsZA_medical_status_players;
 }];

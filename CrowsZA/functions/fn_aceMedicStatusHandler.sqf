@@ -15,17 +15,18 @@ if (!crowsZA_zeusTextDisplay) exitWith {};
 
 private _medicList = [];
 {
-	params["_player"];
-
 	// get ace medical information
-	private _openWounds = count(_x getVariable["ace_medical_openWounds",[]]);
-	private _heartrate = (_x getVariable["ace_medical_heartRate",-1]);
-	private _bleedingWounds = count(_x getVariable["ace_medical_woundBleeding",[]]);
-	private _inCRDC = (_x getVariable ["ace_medical_inCardiacArrest", false]);
-	private _inPain = (_x getVariable ["ace_medical_inPain", false]);
+	private _openWounds = count (_x getVariable["ace_medical_openWounds",[]]);
+	private _heartrate = round (_x getVariable["ace_medical_heartRate",-1]);
+	private _bleedingRate = _x getVariable["ace_medical_woundBleeding",0];
+	private _inCRDC = _x getVariable ["ace_medical_inCardiacArrest", false];
+	private _inPain = _x getVariable ["ace_medical_inPain", false];
+
+	// colour code based on severity? Like red: Cardiac Arrest, Yellow, bleeding, blue: wounds/in-pain, green: pristine
+	private _color = [1,0,0,1];
 
 	// save in list
-	_medicList pushBack [_openWounds, _heartrate, _bleedingWounds, _inCRDC, _inPain];
+	_medicList pushBack [_x, _color, _openWounds, _heartrate, _bleedingRate, _inCRDC, _inPain];
 } forEach allPlayers;
 
 crowsZA_medical_status_players = _medicList;

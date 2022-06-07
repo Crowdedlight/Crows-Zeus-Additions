@@ -28,5 +28,4 @@ crowsZA_zeusTextDisplayKeybind = [
 crowsZA_PFH_aceMedicTextUpdater = [crowsZA_fnc_aceMedicStatusHandler, 1] call CBA_fnc_addPerFrameHandler; 
 
 // add displayEH
-call FUNC(addZeusTextDisplayEH);
-
+call crowsZA_fnc_addZeusTextDisplayEH;
