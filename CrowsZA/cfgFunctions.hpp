@@ -84,5 +84,10 @@ class CrowsZA_addon
 
 		// Remove Radio/Bino
 		class removeRadioBino {};
+
+		// MEDICAL TEXT HELP
+		class aceMedicalStatusHandler {};
+		class activateZeusTextDisplay {};
+		class addZeusTextDisplayEH {};
 	};
 };
