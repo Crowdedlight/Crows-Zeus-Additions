@@ -27,19 +27,12 @@ crowsZA_unit_icon_drawEH = addMissionEventHandler ["Draw3D", {
 
 		// // if not within 500m, we don't draw it as the text does not scale and disappear with distance
 		// if (_dist > 500) then {continue;};
-		_x params["_player", "_color", "_woundNum", "_hr", "_bleedingRate", "_inCRDC", "_inPain"];
+		_x params["_player", "_color", "_color2", "_woundNum", "_hr", "_bleedingRate", "_inCRDC", "_inPain", "_txt", "_txt2"];
 
 		// draw icon on relative pos 
-		private _txt = format["Wounds:%1, HR:%2)", _woundNum, _hr];
-
-		private _txt2 = "";
-
-		if(_inPain == true || _bleedingRate > 0) then { _txt2 = format["In Pain:%1, Bleed Rate:%2", _inPain, _bleedingRate] };
-		
-		
 		// offset: z: +2
 		private _pos = ASLToAGL getPosASL _player;
 		drawIcon3D ["", _color, [_pos#0, _pos#1, _pos#2+2], 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
-		drawIcon3D ["", _color, [_pos#0, _pos#1, _pos#2+3], 0, 0, 0, _txt2, 1, 0.03, "RobotoCondensed", "center", false];
+		drawIcon3D ["", _color2, [_pos#0, _pos#1, _pos#2+1.95], 0, 0, 0, _txt2, 1, 0.03, "RobotoCondensed", "center", false];
 	} forEach crowsZA_medical_status_players;
 }];

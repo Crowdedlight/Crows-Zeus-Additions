@@ -23,10 +23,28 @@ private _medicList = [];
 	private _inPain = _x getVariable ["ace_medical_inPain", false];
 
 	// colour code based on severity? Like red: Cardiac Arrest, Yellow, bleeding, blue: wounds/in-pain, green: pristine
-	private _color = [1,0,0,1];
+	//White [1,1,1,1]
+	//Red [1,0,0,1]
+	//Yellow [1,1,0,1]
+
+	private _color = [1,1,1,1]; 
+	private _color2 = [1,1,1,1];
+
+	if(_openWounds > 0 || _heartrate > 90 || _heartrate < 70) then {_color = [1,1,0,1] }; //yellow
+	if(_openWounds > 2 || _heartrate > 100 || _heartrate < 60) then {_color = [1,0,0,1]}; //red
+
+	if(_bleedingRate > 0.01 ) then {_color2 = [1,1,0,1]}; //yellow
+	if(_bleedingRate > 0.06 ) then {_color2 = [1,0,0,1]}; //red
+	if(_inCRDC ) then {_color2 = [1,0,0,1]}; //red
+
+	private _txt = format["Wounds:%1, HR:%2", _openWounds, _heartrate];
+	private _txt2 = "";
+
+	if(_inPain == true || _bleedingRate > 0) then { _txt2 = format["In Pain:%1, Bleed Rate:%2", _inPain, _bleedingRate] };
+	if(_inCRDC) then { _txt2 = format["In Pain:%1, Bleed Rate:%2, In Cardiac Arrest!", _inPain, _bleedingRate] };
 
 	// save in list
-	_medicList pushBack [_x, _color, _openWounds, _heartrate, _bleedingRate, _inCRDC, _inPain];
+	_medicList pushBack [_x, _color, _color2, _openWounds, _heartrate, _bleedingRate, _inCRDC, _inPain, _txt, _txt2];
 } forEach allPlayers;
 
 crowsZA_medical_status_players = _medicList;
