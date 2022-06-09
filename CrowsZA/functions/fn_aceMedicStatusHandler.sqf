@@ -21,6 +21,7 @@ private _medicList = [];
 	private _bleedingRate = _x getVariable["ace_medical_woundBleeding",0];
 	private _inCRDC = _x getVariable ["ace_medical_inCardiacArrest", false];
 	private _inPain = _x getVariable ["ace_medical_inPain", false];
+	private _medications = _x getVariable["ace_medical_medications",[]];
 
 	// colour code based on severity? Like red: Cardiac Arrest, Yellow, bleeding, blue: wounds/in-pain, green: pristine
 	//White [1,1,1,1]
@@ -30,21 +31,33 @@ private _medicList = [];
 	private _color = [1,1,1,1]; 
 	private _color2 = [1,1,1,1];
 
-	if(_openWounds > 0 || _heartrate > 90 || _heartrate < 70) then {_color = [1,1,0,1] }; //yellow
+	if(_openWounds > 0 || _heartrate > 90 || _heartrate < 70) then {_color = [1,0.3,0,1] }; //yellow
 	if(_openWounds > 2 || _heartrate > 100 || _heartrate < 60) then {_color = [1,0,0,1]}; //red
 
-	if(_bleedingRate > 0.01 ) then {_color2 = [1,1,0,1]}; //yellow
+	if(_bleedingRate > 0.01 ) then {_color2 = [1,0.3,0,1]}; //yellow
 	if(_bleedingRate > 0.06 ) then {_color2 = [1,0,0,1]}; //red
 	if(_inCRDC ) then {_color2 = [1,0,0,1]}; //red
 
 	private _txt = format["Wounds:%1, HR:%2", _openWounds, _heartrate];
 	private _txt2 = "";
+	private _txt3 = "";
 
-	if(_inPain == true || _bleedingRate > 0) then { _txt2 = format["In Pain:%1, Bleed Rate:%2", _inPain, _bleedingRate] };
-	if(_inCRDC) then { _txt2 = format["In Pain:%1, Bleed Rate:%2, In Cardiac Arrest!", _inPain, _bleedingRate] };
+	if(_inPain == true || _bleedingRate > 0) then { _txt2 = format["In Pain, Bleed Rate:%2", _inPain, _bleedingRate] };
+	if(_inCRDC) then { _txt2 = format["Bleed Rate:%2, In Cardiac Arrest!", _inPain, _bleedingRate] };
+
+	if(count _medications > 0) then 
+	{
+		_medications = _medications apply { _x#0 };
+		_txt3 = "Effected by: "; 
+		{
+    		private _comma = [", ", " "] select (_forEachIndex == (count _medications -1));
+
+    		_txt3 = _txt3 + format["%1%2", _x,_comma]; 
+		} forEach _medications;
+	};
 
 	// save in list
-	_medicList pushBack [_x, _color, _color2, _openWounds, _heartrate, _bleedingRate, _inCRDC, _inPain, _txt, _txt2];
+	_medicList pushBack [_x, _color, _color2, _openWounds, _heartrate, _bleedingRate, _inCRDC, _inPain, _txt, _txt2, _txt3];
 } forEach allPlayers;
 
 crowsZA_medical_status_players = _medicList;
