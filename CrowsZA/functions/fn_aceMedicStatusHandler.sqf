@@ -23,6 +23,8 @@ private _medicList = [];
 	private _inPain = _x getVariable ["ace_medical_inPain", false];
 	private _medications = _x getVariable["ace_medical_medications",[]];
 
+	_bleedingRate = [_bleedingRate, 3] call BIS_fnc_cutDecimals;
+
 	// colour code based on severity? Like red: Cardiac Arrest, Yellow, bleeding, blue: wounds/in-pain, green: pristine
 	//White [1,1,1,1]
 	//Red [1,0,0,1]
