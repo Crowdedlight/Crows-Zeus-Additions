@@ -28,7 +28,7 @@ Features:
 * **Resupply Player Loadouts:** Goes through all players (not zeus') and check what ammunition they have in their inventory. Then it spawns a crate with multipler times ammunition. Its a quick way to spawn a crate that would include enough supplies for all players to resupply to what the zeus decide, without having to manually add each ammonition. The crate can be spawned on ground, spawned as airdrop at set altitude, or spawn a plane doing a flyby and airdropping it at selected altitude. If using airdrop the crate will output blue smoke and have 4 blue chemlights attached. Smoke and chemlight is guaranteed to be refreshed for 5 min after the drop.   
 * **PingBox:** A little GUI box for zeus which shows the last 3 who pinged zeus and how long since they pinged. To help when spacebar shows you a view of a building with everyone in it and you can't see who pinged. It comes with CBA/Addon settings to enable/disable it, when to auto remove showed pings and if it should fade between receiving pings. (Found under Addon Settings -> Crows Zeus Additions)  
 * **Remove Radio/Binoculars:** A tool to remove a single unit, its groups, or an entire sides radio and binoculars. Mainly used to quickly remove radios and binoculars from AI when needed. AI mods like lambs have changed behaviour based if radios/binos are present or not. If used on players, the players will get a hint notification that zeus has removed their radio/bino. Place it on a unit to remove from unit/group, place it on the ground and you can select an entire side. 
-
+* **Zeus Medical HUD:** a keybind (default: ctrl+shift+h) to enable a helping text over each player for zeus, to see their current medical status. Showing basic information of Heartrate, open wounds, bleed rate, in pain, effected by drugs or if in cardiac arrest 
 
 Features Requireing ACE:   
 * **Set supply Vehicle:** Set an object or vehicle as an ACE rearm/refuel/repair vehicle
@@ -70,6 +70,7 @@ The following has been tested on dedicated server with default settings:
 - [X] Fire Support
 - [X] Resupply Player Loadouts
 - [X] PingBox
+- [X] Medical Zeus HUD
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the entry.
