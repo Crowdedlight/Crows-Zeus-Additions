@@ -85,6 +85,9 @@ private _wait = [player,_loadedMods] spawn
 		
 		if (_isAceLoaded) then {
 			_combinedArr = _combinedArr + _aceDependentModules;
+
+			// launch custom "handlers" for ace
+			call crowsZA_fnc_activateZeusTextDisplay;
 		};
 		
 		if (_isTFARLoaded) then {
