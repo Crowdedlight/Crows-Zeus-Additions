@@ -25,18 +25,17 @@ private _medicList = [];
 
 	_bleedingRate = [_bleedingRate, 3] call BIS_fnc_cutDecimals;
 
-	// colour code based on severity? Like red: Cardiac Arrest, Yellow, bleeding, blue: wounds/in-pain, green: pristine
 	//White [1,1,1,1]
 	//Red [1,0,0,1]
-	//Yellow [1,1,0,1]
+	//Orange [1,0.3,0,1]
 
 	private _color = [1,1,1,1]; 
 	private _color2 = [1,1,1,1];
 
-	if(_openWounds > 0 || _heartrate > 90 || _heartrate < 70) then {_color = [1,0.3,0,1] }; //yellow
+	if(_openWounds > 0 || _heartrate > 90 || _heartrate < 70) then {_color = [1,0.3,0,1] }; //orange
 	if(_openWounds > 2 || _heartrate > 100 || _heartrate < 60) then {_color = [1,0,0,1]}; //red
 
-	if(_bleedingRate > 0.01 ) then {_color2 = [1,0.3,0,1]}; //yellow
+	if(_bleedingRate > 0.01 ) then {_color2 = [1,0.3,0,1]}; //orange
 	if(_bleedingRate > 0.06 ) then {_color2 = [1,0,0,1]}; //red
 	if(_inCRDC ) then {_color2 = [1,0,0,1]}; //red
 
@@ -59,7 +58,7 @@ private _medicList = [];
 	};
 
 	// save in list
-	_medicList pushBack [_x, _color, _color2, _openWounds, _heartrate, _bleedingRate, _inCRDC, _inPain, _txt, _txt2, _txt3];
+	_medicList pushBack [_x, _color, _color2, _txt, _txt2, _txt3];
 } forEach allPlayers;
 
 crowsZA_medical_status_players = _medicList;
@@ -68,26 +67,6 @@ crowsZA_medical_status_players = _medicList;
 // LIST FROM : https://github.com/acemod/ACE3/blob/master/addons/medical_engine/script_macros_medical.hpp
 //
 // #define VAR_BLOOD_PRESS       QEGVAR(medical,bloodPressure)    ace_medical_bloodPressure
-// #define VAR_BLOOD_VOL         QEGVAR(medical,bloodVolume)
-// #define VAR_WOUND_BLEEDING    QEGVAR(medical,woundBleeding)
-// #define VAR_CRDC_ARRST        QEGVAR(medical,inCardiacArrest)
-// #define VAR_HEART_RATE        QEGVAR(medical,heartRate)
-// #define VAR_PAIN              QEGVAR(medical,pain)
-// #define VAR_PAIN_SUPP         QEGVAR(medical,painSuppress)
-// #define VAR_PERIPH_RES        QEGVAR(medical,peripheralResistance)
-// #define VAR_UNCON             "ACE_isUnconscious"
-// #define VAR_OPEN_WOUNDS       QEGVAR(medical,openWounds)
-// #define VAR_BANDAGED_WOUNDS   QEGVAR(medical,bandagedWounds)
-// #define VAR_STITCHED_WOUNDS   QEGVAR(medical,stitchedWounds)
-// // These variables track gradual adjustments (from medication, etc.)
-// #define VAR_MEDICATIONS       QEGVAR(medical,medications)
-// // These variables track the current state of status values above
-// #define VAR_HEMORRHAGE        QEGVAR(medical,hemorrhage)
-// #define VAR_IN_PAIN           QEGVAR(medical,inPain)
-// #define VAR_TOURNIQUET        QEGVAR(medical,tourniquets)
-// #define VAR_FRACTURES         QEGVAR(medical,fractures)
-
-// #define VAR_BLOOD_PRESS       QEGVAR(medical,bloodPressure)
 // #define VAR_BLOOD_VOL         QEGVAR(medical,bloodVolume)
 // #define VAR_WOUND_BLEEDING    QEGVAR(medical,woundBleeding)
 // #define VAR_CRDC_ARRST        QEGVAR(medical,inCardiacArrest)

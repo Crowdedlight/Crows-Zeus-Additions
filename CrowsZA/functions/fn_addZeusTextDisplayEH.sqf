@@ -21,7 +21,9 @@ crowsZA_unit_icon_drawEH = addMissionEventHandler ["Draw3D", {
 
 	// Medic 
 	{
-		_x params["_player", "_color", "_color2", "_woundNum", "_hr", "_bleedingRate", "_inCRDC", "_inPain", "_txt", "_txt2", "_txt3"];
+		_x params["_player", "_color", "_color2", "_txt", "_txt2", "_txt3"];
+
+		if (!alive _player) then {continue;};
 
 		// calculate distance from zeus camera to unit
 		private _dist = _zeusPos distance _player;
