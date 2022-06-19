@@ -63,6 +63,16 @@ crowsZA_zeusTextDisplayKeybind = [
     nil // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 ] call CBA_fnc_addSetting;
 
+// ZEUS RC HELPER - COLOR
+[
+	"crowsZA_zeus_rc_helper_color", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "COLOR", // setting type
+    ["Icon Color","What color the icon is shown with"], // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+    ["Crows Zeus Additions","Zeus RC"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
+    [1,1,1,1], // data for this setting:
+    nil // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+] call CBA_fnc_addSetting;
+
 // add ace medic update handler
 crowsZA_PFH_aceMedicTextUpdater = [crowsZA_fnc_aceMedicStatusHandler, 1] call CBA_fnc_addPerFrameHandler; 
 
