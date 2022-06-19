@@ -145,6 +145,10 @@ private _wait = [player,_loadedMods] spawn
 		] call zen_context_menu_fnc_addAction;
 	} forEach _contextActionList;
 
+	// register zeus RC eventhandlers
+	private _zeusRcEventStartId = ["zen_remoteControlStarted", crowsZA_fnc_eventZeusStartRC] call CBA_fnc_addEventHandler;
+	private _zeusRcEventStopId = ["zen_remoteControlStopped", crowsZA_fnc_eventZeusStopRC] call CBA_fnc_addEventHandler;
+
 	// sometimes the function gets executed before its registered we are zeus, thus the function exits instead of loading the pingbox, as we are not zeus... So call it again here where we know we are zeus
 	call crowsZA_fnc_enablePingBoxHUD;
 };
