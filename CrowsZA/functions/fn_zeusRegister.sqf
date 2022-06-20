@@ -39,7 +39,7 @@ private _wait = [player,_loadedMods] spawn
 		};
 		sleep 1;
 		_timeout = _timeout + 1;
-		if (count allCurators == 0 || {!isNull (getAssignedCuratorLogic _unit)}) exitWith {true};
+		if (!isNull (getAssignedCuratorLogic _unit)) exitWith {true};
 		false;
 	};
 
