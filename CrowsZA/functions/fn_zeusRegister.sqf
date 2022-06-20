@@ -16,8 +16,8 @@ if !(_hasZen) exitWith
 	diag_log "******CBA and/or ZEN not detected. They are required for Crows Zeus Additions.";
 };
 
-//only load for zeus
-if (!hasInterface) exitWith {};
+//Don't load for HC / Server
+if (!hasInterface || is3DEN) exitWith {};
 
 //private global var
 crowsZA_animalFollowList = [];
@@ -39,9 +39,12 @@ private _wait = [player,_loadedMods] spawn
 		};
 		sleep 1;
 		_timeout = _timeout + 1;
-		if (count allCurators == 0 || {!isNull (getAssignedCuratorLogic _unit)}) exitWith {true};
+		if (!isNull (getAssignedCuratorLogic _unit)) exitWith {true};
 		false;
 	};
+
+	// exit if we are not zeus 
+	if (isNull (getAssignedCuratorLogic _unit)) exitWith {};
 	 
 	// save ace loaded variable as public var. So context menu check just needs to check var
 	crowsZA_common_aceModLoaded = isClass (configFile >> "CfgPatches" >> "ace_main");
@@ -144,6 +147,10 @@ private _wait = [player,_loadedMods] spawn
 			(_x select 0), (_x select 1), (_x select 2)
 		] call zen_context_menu_fnc_addAction;
 	} forEach _contextActionList;
+
+	// register zeus RC eventhandlers
+	private _zeusRcEventStartId = ["zen_remoteControlStarted", crowsZA_fnc_eventZeusStartRC] call CBA_fnc_addEventHandler;
+	private _zeusRcEventStopId = ["zen_remoteControlStopped", crowsZA_fnc_eventZeusStopRC] call CBA_fnc_addEventHandler;
 
 	// sometimes the function gets executed before its registered we are zeus, thus the function exits instead of loading the pingbox, as we are not zeus... So call it again here where we know we are zeus
 	call crowsZA_fnc_enablePingBoxHUD;

@@ -89,5 +89,9 @@ class CrowsZA_addon
 		class aceMedicStatusHandler {};
 		class activateZeusTextDisplay {};
 		class addZeusTextDisplayEH {};
+
+		// ZEUS RC Text HELP
+		class eventZeusStartRC {};
+		class eventZeusStopRC {};
 	};
 };

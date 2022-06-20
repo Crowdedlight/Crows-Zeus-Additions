@@ -29,6 +29,7 @@ Features:
 * **PingBox:** A little GUI box for zeus which shows the last 3 who pinged zeus and how long since they pinged. To help when spacebar shows you a view of a building with everyone in it and you can't see who pinged. It comes with CBA/Addon settings to enable/disable it, when to auto remove showed pings and if it should fade between receiving pings. (Found under Addon Settings -> Crows Zeus Additions)  
 * **Remove Radio/Binoculars:** A tool to remove a single unit, its groups, or an entire sides radio and binoculars. Mainly used to quickly remove radios and binoculars from AI when needed. AI mods like lambs have changed behaviour based if radios/binos are present or not. If used on players, the players will get a hint notification that zeus has removed their radio/bino. Place it on a unit to remove from unit/group, place it on the ground and you can select an entire side. 
 * **Zeus Medical HUD:** a keybind (default: ctrl+shift+h) to enable a helping text over each player for zeus, to see their current medical status. Showing basic information of Heartrate, open wounds, bleed rate, in pain, effected by drugs or if in cardiac arrest 
+* **Zeus Remote Control Indicator:** Will show an icon for all zeus' over the unit a zeus is currently remote controlling. It helps coordination between multiple zeus to not try and control or modify the same unit at the same time. The feature can be disabled in addon settings (Enabled by default), and the color of the icon can be changed aswell. 
 
 Features Requireing ACE:   
 * **Set supply Vehicle:** Set an object or vehicle as an ACE rearm/refuel/repair vehicle
@@ -71,6 +72,7 @@ The following has been tested on dedicated server with default settings:
 - [X] Resupply Player Loadouts
 - [X] PingBox
 - [X] Medical Zeus HUD
+- [X] Zeus Remote Control Indicator
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the entry.

@@ -12,14 +12,14 @@ Is called if ace is loaded, adds the toggle keybind and starts the display EH an
 
 // data array
 crowsZA_medical_status_players = [];
-crowsZA_zeusTextDisplay = false; // Not showing text by default
+crowsZA_zeusTextMedicalDisplay = false; // Not showing text by default
 
 // register CBA keybinding to toggle zeus-drawn text
 crowsZA_zeusTextDisplayKeybind = [
 	["Crows Zeus Additions", "Zeus"],
-	"zeus_text_display", 
+	"zeus_text_medical_display", 
 	["Show medical overlay", "Shows medical info for players in zeus view for units. (medical status)"], 
-	{crowsZA_zeusTextDisplay = !crowsZA_zeusTextDisplay}, 
+	{crowsZA_zeusTextMedicalDisplay = !crowsZA_zeusTextMedicalDisplay}, 
 	"", 
 	[DIK_H, [true, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]] => default: ctrl + shift + h
 	false] call CBA_fnc_addKeybind;
@@ -51,6 +51,26 @@ crowsZA_zeusTextDisplayKeybind = [
     false, // data for this setting: [min, max, default, number of shown trailing decimals]
     nil // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     //FUNC(spectrumEnableSettingChanged) // function that will be executed once on mission start and every time the setting is changed.
+] call CBA_fnc_addSetting;
+
+// ZEUS RC HELPER
+[
+	"crowsZA_zeus_rc_helper", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    ["Show RC Icon","Shows an zeus icon over units currently being RC'ed by any zeus"], // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+    ["Crows Zeus Additions","Zeus RC"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
+    true, // data for this setting: [min, max, default, number of shown trailing decimals]
+    nil // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+] call CBA_fnc_addSetting;
+
+// ZEUS RC HELPER - COLOR
+[
+	"crowsZA_zeus_rc_helper_color", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "COLOR", // setting type
+    ["Icon Colour","What colour the icon is shown with"], // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+    ["Crows Zeus Additions","Zeus RC"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
+    [1,1,1,1], // data for this setting:
+    nil // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 ] call CBA_fnc_addSetting;
 
 // add ace medic update handler
