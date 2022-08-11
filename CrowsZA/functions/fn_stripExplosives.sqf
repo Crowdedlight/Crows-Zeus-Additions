@@ -2,7 +2,13 @@
 Author: Landric
 			   
 File: fn_stripExplosives.sqf
-Parameters: _unit, _smokeGrenades, _grenades, _launchers, _explosives
+Parameters:
+	unit			- (unit)
+	smokeGrenades	- (int) 0: ignore, 1: remove, 2: replace
+	grenades		- (int) 0: ignore, 1: remove, 2: replace
+	launchers		- (int) 0: ignore, 1: remove
+	explosives		- (int) 0: ignore, 1: remove
+
 Return: none
 
 *///////////////////////////////////////////////
@@ -31,6 +37,7 @@ params ["_unit", "_smokeGrenades", "_grenades", "_launchers", "_explosives"];
 } forEach magazines _unit;
 
 if(_launchers > 0) then {
-	// TODO: remove launcher ammo (even if the unit doesn't have a launcher, e.g. AT Assistants)
+	// TODO: remove launcher ammo?
+	// (even if the unit doesn't have a launcher, e.g. AT Assistants)
 	_unit removeWeaponGlobal (secondaryWeapon _unit);
 };
