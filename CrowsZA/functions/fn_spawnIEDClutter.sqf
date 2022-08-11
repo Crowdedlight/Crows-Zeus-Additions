@@ -3,13 +3,13 @@ Author: Landric
 			   
 File: fn_spawnIEDClutter.sqf
 Parameters: 
-	position			- ([int])
-	radius				- (int)
-	density				- (float) modifier for the amount of clutter to spawn
-	maxClutterSize		- (float) affects the size of clutter-type objects spawned
-	iedSize				- (string) valid values are, "small", "medium", "large"
-	iedType				- (string) valid values are, "urban", "dug-in", "random"
-	iedAmount			- (int) number if explosives to create
+	position		- ([int])
+	radius			- (int)
+	density			- (float) modifier for the amount of clutter to spawn
+	maxClutterSize	- (float) affects the size of clutter-type objects spawned
+	iedSize			- (string) valid values are, "small", "medium", "large"
+	iedType			- (string) valid values are, "urban", "dug-in", "random"
+	iedAmount		- (int) number if explosives to create
 
 Return: none
 
