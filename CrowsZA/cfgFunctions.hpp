@@ -48,6 +48,9 @@ class CrowsZA_addon
 
 		class setColour {};
 
+		class stripExplosives {};
+		class stripExplosivesZeus {};
+
 		class contextPasteLoadout {};
 		
 		class loadoutViewer {};

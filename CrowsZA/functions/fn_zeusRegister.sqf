@@ -24,6 +24,27 @@ crowsZA_animalFollowList = [];
 publicVariable "crowsZA_animalFollowList";
 crowsZA_common_selectPositionActive = false;
 
+// Collect a list of various explosives, for use in fn_stripExplosives
+// (so that the list isn't created for every unit)
+
+// NOTE: This includes chemlights
+crowsZA_common_smokeGrenades = (("inheritsFrom _x == (configFile >> 'CfgMagazines' >> 'SmokeShell')" configClasses (configFile >> 'CfgMagazines')) apply { configName _x }) + ['SmokeShell'];
+// NOTE: This includes flares
+crowsZA_common_grenades = ((
+		(
+			("inheritsFrom _x == (configFile >> 'CfgMagazines' >> 'MiniGrenade')" configClasses (configFile >> 'CfgMagazines')) +
+			("inheritsFrom _x == (configFile >> 'CfgMagazines' >> 'HandGrenade')" configClasses (configFile >> 'CfgMagazines'))
+		) apply { configName _x }
+	) - crowsZA_common_smokeGrenades) + ['MiniGrenade', 'HandGrenade'];
+// TODO: ACE_SatchelCharge_Remote_Mag_Throwable should go with "grenades" instead?
+crowsZA_common_explosives =  ((
+		("inheritsFrom _x == (configFile >> 'CfgMagazines' >> 'ATMine_Range_Mag')" configClasses (configFile >> 'CfgMagazines')) +
+		("inheritsFrom _x == (configFile >> 'CfgMagazines' >> 'SatchelCharge_Remote_Mag')" configClasses (configFile >> 'CfgMagazines')) +
+		("inheritsFrom _x == (configFile >> 'CfgMagazines' >> 'ACE_SatchelCharge_Remote_Mag_Throwable')" configClasses (configFile >> 'CfgMagazines')) +
+		("inheritsFrom _x == (configFile >> 'CfgMagazines' >> 'ClaymoreDirectionalMine_Remote_Mag')" configClasses (configFile >> 'CfgMagazines'))
+	) apply { configName _x }) + ['ATMine_Range_Mag', 'SatchelCharge_Remote_Mag', 'ACE_SatchelCharge_Remote_Mag_Throwable', 'ClaymoreDirectionalMine_Remote_Mag'];
+
+
 private _loadedMods = getLoadedModsInfo;
 //spawn script to register zen modules
 private _wait = [player,_loadedMods] spawn
@@ -77,7 +98,8 @@ private _wait = [player,_loadedMods] spawn
 			["DrawBuild",{_this call crowsZA_fnc_drawBuildZeus}, "\CrowsZA\data\drawbuild.paa"],
 			["Fire Support",{_this call crowsZA_fnc_fireSupport}, "\x\zen\addons\modules\ui\target_ca.paa"],
 			["Resupply Player Loadouts",{_this call crowsZA_fnc_resupplyPlayerLoadouts}, "\CrowsZA\data\resupplyplayerloadout.paa"],
-			["Remove Radio/Bino",{_this call crowsZA_fnc_removeRadioBino}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
+			["Remove Radio/Bino",{_this call crowsZA_fnc_removeRadioBino}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
+			["Strip Explosives",{_this call crowsZA_fnc_stripExplosivesZeus}, "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa"]			
 		];
 		private _tfarModules = [
 			["Set TFAR Vehicle Radio Side",{_this call crowsZA_fnc_tfarSetVehicleSide}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
