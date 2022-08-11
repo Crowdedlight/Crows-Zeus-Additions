@@ -15,11 +15,12 @@ private _onSide =
 	_in params [["_pos",[0,0,0],[[]],3], "_unit"];
 
 	//log
-	private _items = "items"; //[];
-	// if(_grenades == 1) then { _items pushBack "smoke grenades"; };
-	// if(_grenades == 2) then { _items pushBack "explosive grenades"; };
-	// if(_grenades == 3) then { _items append ["smoke grenades", "explosive grenades"]; };
-	diag_log format ["crowsZA-stripAIExplosives: Stripping %1 from %2 side", _items, _side];
+	private _items = [];
+	if(_smokeGrenades > 0) then { _items pushBack "smoke grenades"; };
+	if(_grenades > 0) then { _items pushBack "explosive grenades"; };
+	if(_launchers > 0) then { _items pushBack "launchers"; };
+	if(_explosives > 0) then { _items pushBack "explosives"; };
+	diag_log format ["crowsZA-stripExplosives: Stripping %1 from %2 side", _items joinString ", ", _side];
 
 	[_side, _ignorePlayers, _smokeGrenades, _grenades, _launchers, _explosives] spawn {
 		params["_side", "_ignorePlayers", "_smokeGrenades", "_grenades", "_launchers", "_explosives"];
@@ -39,12 +40,16 @@ private _onUnit =
 	_in params [["_pos",[0,0,0],[[]],3], "_unit"];
 
 	//log
-	private _items = "items";
+	private _items = [];
+	if(_smokeGrenades > 0) then { _items pushBack "smoke grenades"; };
+	if(_grenades > 0) then { _items pushBack "explosive grenades"; };
+	if(_launchers > 0) then { _items pushBack "launchers"; };
+	if(_explosives > 0) then { _items pushBack "explosives"; };
 	private _entity = switch(_group) do {
 		case true: { format ["group %1", group _unit] };
 		case false: { format ["unit %1", _unit] };
 	};
-	diag_log format ["crowsZA-stripAIExplosives: Stripping %1 from %2", _items, _entity];
+	diag_log format ["crowsZA-stripExplosives: Stripping %1 from %2", _items, _entity];
 
 	private _units = switch(_group) do {
 		case true: { units (group _unit) };
