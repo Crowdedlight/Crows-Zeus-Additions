@@ -1,9 +1,6 @@
-class ctrlListNBox;
-class RscText;
-
 class RscTitles
 {
-    class Default 
+    class Default
     {
        idd = -1;
        fadein = 0;
