@@ -87,9 +87,9 @@ All logging made to the .RPT file will start with ``CrowsZA-module:`` where the 
 ### Contributors
 Crowdedlight (Main Author)  
 Windwalker  
-MrPepsiMax   
-Radkewolf
-Johnb43
+MrPepsiMax    
+Radkewolf  
+Johnb43   
 
 ### License
 Crows Zeus Additions is licensed under the GPL-3.0 license.
