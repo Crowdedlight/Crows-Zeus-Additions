@@ -1,3 +1,6 @@
+class ctrlListNBox;
+class RscText;
+
 class RscTitles
 {
     class Default

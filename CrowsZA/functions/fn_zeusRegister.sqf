@@ -90,7 +90,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 private _contextActionList = [
     // Action name, Display name, Icon and Icon colour, code, Condition to show, arguments, dynamic children, modifier functions
     [
-        ["camera_center_unit","Camera Center Unit","\CrowsZA\data\camera.paa", {_hoveredEntity call crowsZA_fnc_centerZeusViewUnit}, {!isNull _hoveredEntity}] call zen_context_menu_fnc_createAction,
+        ["camera_center_unit","Camera Center Unit","\CrowsZA\data\camera.paa", {_hoveredEntity call crowsZA_fnc_centerZeusViewUnit}, {!isNull _hoveredEntity && (typeName _hoveredEntity) isNotEqualTo "GROUP"}] call zen_context_menu_fnc_createAction,
         [],
         0
     ],
@@ -123,12 +123,7 @@ private _contextActionList = [
         ["jshk_heal","JSHK Heal","\z\ace\addons\medical_gui\ui\cross.paa", {_hoveredEntity call crowsZA_fnc_jshkHeal}, {[_hoveredEntity] call crowsZA_fnc_isAliveManUnit && crowsZA_common_aceModLoaded && crowsZA_common_jshkModLoaded && (_hoveredEntity getVariable ["ACE_isUnconscious", false]) == true}] call zen_context_menu_fnc_createAction,
         ["HealUnits"],
         0
-    ]/*,
-    [
-        ["ace_medical_menu","Medical Menu","\z\ace\addons\medical_gui\ui\cross.paa", {_hoveredEntity call crowsZA_fnc_medicalStatus}, {!isNull _hoveredEntity && alive _hoveredEntity && _hoveredEntity isKindOf "CAManBase" && crowsZA_common_aceModLoaded}] call zen_context_menu_fnc_createAction,
-        ["HealUnits"],
-        0
-    ]*/
+    ]
 ];
 
 // register context actions
