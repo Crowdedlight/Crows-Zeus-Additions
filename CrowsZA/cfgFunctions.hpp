@@ -28,6 +28,9 @@ class CrowsZA_addon
 		class scatterPatternLine {};
 		class scatterPatternOddPattern {};
 
+		class spawnIEDClutterZeus {};
+		class spawnIEDClutter {};
+
 		class teleportToSquadMember {};
 
 		// class scatterTeleportWithParachute {};

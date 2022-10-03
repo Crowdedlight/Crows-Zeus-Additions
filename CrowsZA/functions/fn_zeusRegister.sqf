@@ -57,7 +57,8 @@ if (crowsZA_common_aceModLoaded) then {
         ["Mass-Unconscious Toggle",{_this call crowsZA_fnc_massUnconscious}, "\z\ace\addons\zeus\UI\Icon_Module_Zeus_Unconscious_ca.paa"],
         ["Capture Player",{_this call crowsZA_fnc_capturePlayer}, "\z\ace\addons\captives\UI\captive_ca.paa"],
         ["Mass-Surrender Toggle",{_this call crowsZA_fnc_massSurrender}, "\z\ace\addons\captives\UI\Surrender_ca.paa"],
-        ["Set Supply Vehicle",{_this call crowsZA_fnc_setSupplyVehicle}, "\CrowsZA\data\rearmvehicle.paa"]
+        ["Set Supply Vehicle",{_this call crowsZA_fnc_setSupplyVehicle}, "\CrowsZA\data\rearmvehicle.paa"],
+        ["Spawn IED Clutter",{_this call crowsZA_fnc_spawnIEDClutterZeus}, "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa"]
     ];
 };
 
