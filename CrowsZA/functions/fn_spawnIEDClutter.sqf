@@ -18,8 +18,6 @@ Spawns item clutter (e.g. garbage piles) and hidden IEDs
 *///////////////////////////////////////////////
 params [["_pos",[0,0,0],[[]],3], ["_radius", 5, [0]], "_density", "_maxClutterSize", "_iedSize", "_iedType", "_iedAmount"];
 
-diag_log format ["CrowsZA-spawnIEDClutter: Spawning a cluster of %1 IEDs at position %2", _iedAmount, _pos];
-
 
 /*/////////////////////////////////////////////////
  Clutter Types
@@ -101,8 +99,8 @@ private _largeClutter = _mediumJunk + _largeWrecks;
 // TODO: Amount may require fine-tuning
 private _clutterAmount = 3.14 * _radius * _radius * _density * 0.1;
 for "_i" from 1 to _clutterAmount do {
-	private _safePos = [_pos, 0, _radius, 0.5, 0] call BIS_fnc_findSafePos;
-	
+	private _safePos = [_pos, 0, _radius, 0.5, 0, 0, 0, [], [[0,0], [0,0]]] call BIS_fnc_findSafePos;
+
 	if(_safePos isEqualTo [0,0]) then {
 		break;
 	};
@@ -117,9 +115,7 @@ for "_i" from 1 to _clutterAmount do {
 	_clutter = _clutter createVehicle _safePos;
 	_clutter setDir (random 360);
 
-	{
-		_x addCuratorEditableObjects [[_clutter], true];
-	} forEach allCurators;
+	["zen_common_addObjects", [[_clutter], objNull]] call CBA_fnc_serverEvent;
 };
 
 
@@ -151,7 +147,7 @@ if(_iedType isEqualTo "dug-in") then {
 
 
 for "_i" from 1 to _iedAmount do {
-	private _safePos = [_pos, 0, _radius, 0.1, 0] call BIS_fnc_findSafePos;
+	private _safePos = [_pos, 0, _radius, 0.1, 0, 0, 0, [], [[0,0], [0,0]]] call BIS_fnc_findSafePos;
 	
 	if(_safePos isEqualTo [0,0]) then {
 		break;
@@ -161,8 +157,6 @@ for "_i" from 1 to _iedAmount do {
 	_ied = _ied createVehicle _safePos;
 	_ied setDir (random 360);
 
-	// TODO: This doesn't work for armed explosives
-	// {
-	// 	_x addCuratorEditableObjects [[_ied], true];
-	// } forEach allCurators;
+	// TODO: This does not work for (armed) explosives
+	//["zen_common_addObjects", [[_ied], objNull]] call CBA_fnc_serverEvent;
 };
