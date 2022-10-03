@@ -54,6 +54,7 @@ crowsZA_unit_icon_drawEH = addMissionEventHandler ["Draw3D", {
 	//if (isNull(findDisplay 312)) exitWith {};
 	if (isNull _x) exitWith {};
 	if (!crowsZA_zeus_rc_helper) exitWith {};
+	if (uiNamespace getVariable ["RscDisplayCurator_screenshotMode", false]) exitWith {};
 
 	// cam position
 	private _zeusPos = positionCameraToWorld [0,0,0];
