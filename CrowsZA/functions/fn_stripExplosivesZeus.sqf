@@ -11,24 +11,38 @@ params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 private _onSide =
 {
 	params ["_dialogResult","_in"];
-	_dialogResult params [["_side", east, [east]], ["_ignorePlayers", true, [true]], ["_signalGrenades", 2, [2]], ["_grenades", 0, [0]], "_launchers", "_explosives"];
+	_dialogResult params [
+		["_side", east, [east]],
+		["_ignorePlayers", true, [true]],
+		["_signalGrenades", 2, [2]],
+		["_grenades", 0, [0]],
+		["_launchers", 0, [0]],
+		["_explosives", 0, [0]]
+	];
 	_in params [["_pos",[0,0,0],[[]],3], "_unit"];
 
 	//log
-	private _items = [];
-	if(_signalGrenades > 0) then { _items pushBack "smoke grenades"; };
-	if(_grenades > 0) then { _items pushBack "explosive grenades"; };
-	if(_launchers > 0) then { _items pushBack "launchers"; };
-	if(_explosives > 0) then { _items pushBack "explosives"; };
-	diag_log format ["crowsZA-stripExplosives: Stripping %1 from %2 side", _items joinString ", ", _side];
+	private _logItems = [];
+	if(_signalGrenades > 0) then { _logItems pushBack "signal grenades"; };
+	if(_grenades > 0) then { _logItems pushBack "explosive grenades"; };
+	if(_launchers > 0) then { _logItems pushBack "launchers"; };
+	if(_explosives > 0) then { _logItems pushBack "explosives"; };
+	private _logPlayers = switch(_ignorePlayers) do {
+		case true: { "(ignoring players)" };
+		case false: { "(INCLUDING players)" };
+	};
+	diag_log format ["crowsZA-stripExplosives: Stripping %1 from %2 side %3", _logItems joinString ", ", _side, _logPlayers];
 
-	[_side, _ignorePlayers, _signalGrenades, _grenades, _launchers, _explosives] spawn {
-		params["_side", "_ignorePlayers", "_signalGrenades", "_grenades", "_launchers", "_explosives"];
+	[_side, _ignorePlayers, _signalGrenades, _grenades, _launchers, _explosives, _logItems] spawn {
+		params["_side", "_ignorePlayers", "_signalGrenades", "_grenades", "_launchers", "_explosives", "_logItems"];
 		{
 			if(side _x == _side && (!(isPlayer _x) || !_ignorePlayers)) then {
 				[_x, _signalGrenades, _grenades, _launchers, _explosives] call crowsZA_fnc_stripExplosives;
+				if (isPlayer _x) then {
+				    (format ["Zeus has removed or altered your %1", _logItems joinString ", "]) remoteExec ["hint", _x];
+				};
+				sleep 0.01;
 			};
-			sleep 0.01;
 		} foreach allUnits;
 	};
 };
@@ -36,31 +50,47 @@ private _onSide =
 private _onUnit =
 {
 	params ["_dialogResult","_in"];
-	_dialogResult params [["_group", true, [true]], ["_signalGrenades", 2, [2]], ["_grenades", 0, [0]], ["_launchers", 0, [0]], ["_explosives", 0, [0]]];
+	_dialogResult params [
+		["_ignorePlayers", true, [true]],
+		["_group", true, [true]],
+		["_signalGrenades", 2, [2]],
+		["_grenades", 0, [0]],
+		["_launchers", 0, [0]],
+		["_explosives", 0, [0]]
+	];
 	_in params [["_pos",[0,0,0],[[]],3], "_unit"];
 
 	//log
-	private _items = [];
-	if(_signalGrenades > 0) then { _items pushBack "smoke grenades"; };
-	if(_grenades > 0) then { _items pushBack "explosive grenades"; };
-	if(_launchers > 0) then { _items pushBack "launchers"; };
-	if(_explosives > 0) then { _items pushBack "explosives"; };
-	private _entity = switch(_group) do {
+	private _logItems = [];
+	if(_signalGrenades > 0) then { _logItems pushBack "signal grenades"; };
+	if(_grenades > 0) then { _logItems pushBack "explosive grenades"; };
+	if(_launchers > 0) then { _logItems pushBack "launchers"; };
+	if(_explosives > 0) then { _logItems pushBack "explosives"; };
+	private _logEntity = switch(_group) do {
 		case true: { format ["group %1", group _unit] };
 		case false: { format ["unit %1", _unit] };
 	};
-	diag_log format ["crowsZA-stripExplosives: Stripping %1 from %2", _items, _entity];
+	private _logPlayers = switch(_ignorePlayers) do {
+		case true: { "(ignoring players)" };
+		case false: { "(INCLUDING players)" };
+	};
+	diag_log format ["crowsZA-stripExplosives: Stripping %1 from %2 %3", _logItems joinString ", ", _logEntity, _logPlayers];
 
 	private _units = switch(_group) do {
 		case true: { units (group _unit) };
 		default { [_unit] };
 	};
 	
-	[_units, _signalGrenades, _grenades, _launchers, _explosives] spawn {
-		params["_units", "_signalGrenades", "_grenades", "_launchers", "_explosives"];
+	[_ignorePlayers, _units, _signalGrenades, _grenades, _launchers, _explosives, _logItems] spawn {
+		params["_ignorePlayers", "_units", "_signalGrenades", "_grenades", "_launchers", "_explosives", "_logItems"];
 		{
-			[_x, _signalGrenades, _grenades, _launchers, _explosives] call crowsZA_fnc_stripExplosives;
-			sleep 0.01;
+			if(!(isPlayer _x) || !_ignorePlayers) then {
+				[_x, _signalGrenades, _grenades, _launchers, _explosives] call crowsZA_fnc_stripExplosives;
+				if (isPlayer _x) then {
+				    (format ["Zeus has removed or altered your %1", _logItems joinString ", "]) remoteExec ["hint", _x];
+				};
+				sleep 0.01;
+			};
 		} foreach _units;
 	};
 };
@@ -82,7 +112,7 @@ if(isNull _unit) then {
 	_onConfirm =_onSide;
 }
 else{
-	_controls deleteRange [0, 2];
+	_controls deleteAt 0;
 	_onConfirm =_onUnit;
 };
 
