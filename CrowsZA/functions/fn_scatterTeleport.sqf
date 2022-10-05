@@ -59,13 +59,15 @@ private _playerEffect = {
 
 // now run through each player and tp
 {
-	// fade to black
-	[[], _playerEffect] remoteExec ["call", _x];
+	// fade to black if target is player
+	if (isPlayer _x) then {
+		[[], _playerEffect] remoteExec ["call", _x];
+	};
 	
-	//reset velocity 
+	// reset velocity 
 	_x setvelocity [0,0,0];
 
-	//set position, use setPos for vics too as setVehiclePosition doesn't allow altitude setting
+	// set position, use setPos for vics too as setVehiclePosition doesn't allow altitude setting
 	_x setPos (_tpArray select _forEachIndex);
 }
 forEach _players;

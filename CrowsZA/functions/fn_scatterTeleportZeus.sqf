@@ -67,7 +67,8 @@ private _onConfirm =
 		_selectArray = _selectArray apply {vehicle _x}; //if in vic, gets the vic instead
 		_selectArray = _selectArray arrayIntersect _selectArray; //removes duplicates
 	} else {
-		_selectArray = _selectArray select { isNull objectParent _x }; //removes units inside vehicles
+		private _selectArrayMounted = _selectArray select { !isNull objectParent _x }; //gets units inside vehicles, so we can move them out first
+		_selectArrayMounted apply {moveOut _x};
 	};
 
 	//Run teleport script
