@@ -42,6 +42,9 @@ if (_offset != 0) then {
 	_pos = _pos getPos [_offset, _direction];
 };
 
+// const array of snake textures
+private _sogSnakes = ["vn\animals_f_vietnam\snake\data\vn_snake_black.paa", "vn\animals_f_vietnam\snake\data\vn_snake_green.paa"];
+
 for "_x" from 1 to round _amount do {
 	// spawn animal
 	_animal = createAgent [_animalClassname, _pos, [], 5, "CAN_COLLIDE"]; 
@@ -65,17 +68,22 @@ for "_x" from 1 to round _amount do {
 
 	// scale it if != 1. first spawn object to attach to
 	if (_scale != 1) then {
-		private _spawnedScaleFunc = [_scale, _animal] spawn {
-			params ["_scale", "_animal"];
+		private _spawnedScaleFunc = [_scale, _animal, _sogSnakes] spawn {
+			params ["_scale", "_animal", "_sogSnakes"];
 
 			private _scaleObj = createVehicle ["Land_Can_V2_F", getPos _animal, [], 5, "CAN_COLLIDE"];
 			_animal attachTo [_scaleObj, [0,0,0]]; 
 			_animal setObjectScale _scale;
 			sleep 0.1;
 			deleteVehicle _scaleObj;
+
+			// if SOG is loaded, use random selection of sog textures
+			if (crowsZA_common_sogLoaded) then {
+				private _skin = selectRandom _sogSnakes;
+				_animal setObjectTextureGlobal [0, _skin];
+			};
 		};
 	};
-
 
 	//log it
 	diag_log format["CrowZA:animalFollow: Zeus has spawned a %1 to follow %2", _animalType, _src];
