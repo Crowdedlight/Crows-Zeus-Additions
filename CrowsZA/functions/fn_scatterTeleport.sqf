@@ -63,6 +63,9 @@ private _playerEffect = {
 	if (isPlayer _x) then {
 		[[], _playerEffect] remoteExec ["call", _x];
 	};
+
+	// if parachute is enabled, handle parachute to player
+	
 	
 	// reset velocity 
 	_x setvelocity [0,0,0];
