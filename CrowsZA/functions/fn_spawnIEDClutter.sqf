@@ -114,7 +114,7 @@ for "_i" from 1 to _clutterAmount do {
 	};
 	_clutter = _clutter createVehicle _safePos;
 	_clutter setDir (random 360);
-	[_clutter, false] remoteExec ["enableSimulationGlobal", 2];
+	_clutter enableSimulationGlobal false;
 	["zen_common_addObjects", [[_clutter], objNull]] call CBA_fnc_serverEvent;
 };
 
