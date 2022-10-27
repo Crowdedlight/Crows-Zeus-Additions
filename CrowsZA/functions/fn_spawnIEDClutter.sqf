@@ -6,9 +6,9 @@ Parameters:
 	position		- ([int])
 	radius			- (int)
 	density			- (float) modifier for the amount of clutter to spawn
-	maxClutterSize	- (float) affects the size of clutter-type objects spawned
-	iedSize			- (string) valid values are: "small", "large", "random"
-	iedType			- (string) valid values are: "urban", "dug-in", "clutter", "random"
+	maxClutterSize	- (int) valid values are: 0 (small), 1 (medium), or 2 (large)
+	iedSize			- (int) valid values are: 0 (small), 1 (large), or 2 (random)
+	iedType			- (int) valid values are: 0 ("urban"), 1 ("dug-in"), 2 ("clutter"), or 3 (random)
 	iedAmount		- (int) number of explosives to create
 
 Return: none
@@ -105,12 +105,26 @@ for "_i" from 1 to _clutterAmount do {
 		break;
 	};
 
-	private _clutterSize = random _maxClutterSize;
-	private _clutter = switch (true) do
-	{
-		case (_clutterSize > 0.95): { selectRandom _largeClutter };
-		case (_clutterSize > 0.75): { selectRandom _mediumClutter };
-		default { selectRandom _smallClutter }; 
+	private _sizeChance = random 1;
+	private _clutter = switch (_maxClutterSize) do {
+
+		// Max size is "small"
+		case 0: { selectRandom _smallClutter };
+		// Max size is "medium"
+		case 1: { 
+			switch (true) do {
+				case (_sizeChance > 0.66): { selectRandom _mediumClutter };
+				default { selectRandom _smallClutter };
+			}
+		};
+		// Max size is "large"
+		case 2: {
+			switch (true) do {
+				case (_sizeChance > 0.95): { selectRandom _largeClutter };
+				case (_sizeChance > 0.66): { selectRandom _mediumClutter };
+				default { selectRandom _smallClutter };
+			}
+		};
 	};
 	_clutter = _clutter createVehicle _safePos;
 	_clutter setDir (random 360);
@@ -130,18 +144,18 @@ private _ieds = [
 	"ACE_IEDUrbanSmall_Range_Ammo"
 ];
 
-if(_iedSize isEqualTo "small") then {
+if(_iedSize == 0) then {
 	_ieds = _ieds - ["ACE_IEDLandBig_Range_Ammo","ACE_IEDUrbanBig_Range_Ammo"];
 };
-if(_iedSize isEqualTo "large") then {
+if(_iedSize == 1) then {
 	_ieds = _ieds - ["ACE_IEDLandSmall_Range_Ammo","ACE_IEDUrbanSmall_Range_Ammo"];
 };
 
 
-if(_iedType isEqualTo "urban") then {
+if(_iedType == 0) then {
 	_ieds = _ieds - ["ACE_IEDLandBig_Range_Ammo","ACE_IEDLandSmall_Range_Ammo"];
 };
-if(_iedType isEqualTo "dug-in") then {
+if(_iedType == 1) then {
 	_ieds = _ieds - ["ACE_IEDUrbanBig_Range_Ammo","ACE_IEDUrbanSmall_Range_Ammo"];
 };
 
@@ -158,7 +172,7 @@ for "_i" from 1 to _iedAmount do {
 	// If ied type is set to clutter (or random, with a 0.33 chance)
 	// place an extra piece of clutter, and hide an invisible ied beneath it;
 	// it should still be able to be detonated and defused as normal
-	if(_iedType isEqualTo "clutter" || (_iedType isEqualTo "random" && (random 1) < 0.33)) then {
+	if(_iedType == 2 || (_iedType == 3 && (random 1) < 0.33)) then {
 		_clutter = (selectRandom _smallClutter) createVehicle _safePos;
 		_clutter setDir (random 360);
 		_clutter enableSimulationGlobal false;
