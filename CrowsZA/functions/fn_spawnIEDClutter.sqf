@@ -7,9 +7,9 @@ Parameters:
 	radius			- (int)
 	density			- (float) modifier for the amount of clutter to spawn
 	maxClutterSize	- (float) affects the size of clutter-type objects spawned
-	iedSize			- (string) valid values are, "small", "medium", "large"
-	iedType			- (string) valid values are, "urban", "dug-in", "random"
-	iedAmount		- (int) number if explosives to create
+	iedSize			- (string) valid values are: "small", "large", "random"
+	iedType			- (string) valid values are: "urban", "dug-in", "random"
+	iedAmount		- (int) number of explosives to create
 
 Return: none
 
