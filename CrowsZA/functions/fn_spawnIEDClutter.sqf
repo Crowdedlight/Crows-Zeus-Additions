@@ -8,7 +8,7 @@ Parameters:
 	density			- (float) modifier for the amount of clutter to spawn
 	maxClutterSize	- (float) affects the size of clutter-type objects spawned
 	iedSize			- (string) valid values are: "small", "large", "random"
-	iedType			- (string) valid values are: "urban", "dug-in", "random"
+	iedType			- (string) valid values are: "urban", "dug-in", "clutter", "random"
 	iedAmount		- (int) number of explosives to create
 
 Return: none
@@ -154,9 +154,23 @@ for "_i" from 1 to _iedAmount do {
 	};
 
 	private _ied = selectRandom _ieds;
-	_ied = _ied createVehicle _safePos;
-	_ied setDir (random 360);
 
-	// TODO: This does not work for (armed) explosives
-	//["zen_common_addObjects", [[_ied], objNull]] call CBA_fnc_serverEvent;
+	// If ied type is set to clutter (or random, with a 0.33 chance)
+	// place an extra piece of clutter, and hide an invisible ied beneath it;
+	// it should still be able to be detonated and defused as normal
+	if(_iedType isEqualTo "clutter" || (_iedType isEqualTo "random" && (random 1) < 0.33)) then {
+		_clutter = (selectRandom _smallClutter) createVehicle _safePos;
+		_clutter setDir (random 360);
+		_clutter enableSimulationGlobal false;
+		["zen_common_addObjects", [[_clutter], objNull]] call CBA_fnc_serverEvent;
+
+		_ied = createVehicle [_ied, _safePos, [], 0, "CAN_COLLIDE"];
+		hideObjectGlobal _ied;
+	} else {
+		_ied = _ied createVehicle _safePos;
+		_ied setDir (random 360);
+	};
+
+	// TODO: This doesn't seem to work for (armed) explosives
+	["zen_common_addObjects", [[_ied], objNull]] call CBA_fnc_serverEvent;
 };

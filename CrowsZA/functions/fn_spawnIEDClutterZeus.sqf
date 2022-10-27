@@ -8,10 +8,10 @@ Return: none
 Spawns item clutter (e.g. garbage piles) and hidden IEDs
 
 *///////////////////////////////////////////////
+
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-// open dialog
-//ZEN
+// ZEN Dialogue
 private _onConfirm =
 {
 	params ["_dialogResult","_in"];
@@ -41,13 +41,11 @@ private _onConfirm =
 		// ["CHECKBOX", "Electronics", [true]],
 		// ["CHECKBOX", "Wrecks", [false]],
 		["COMBO", "IED Size", [["small", "large", "random"], ["Small", "Large", "Random"], 2]],
-		["COMBO", "IED Type", [["urban", "dug-in", "random"],
+		["COMBO", "IED Type", [["urban", "dug-in", "clutter", "random"],
 			[
 				"Urban",
 				"Dug-in",
-				// TODO: Mode to place an invisible IED on the same position as a piece of clutter;
-				// unclear if this would work with minedetectors/defusal
-				//["Clutter (Experimental)", "Transforms a random object of clutter into an IED"],
+				["Clutter", "Transforms a random object of clutter into an IED"],
 				"Random"
 			],
 		0]],
