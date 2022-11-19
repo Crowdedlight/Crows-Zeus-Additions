@@ -6,10 +6,10 @@ Parameters:
 	position		- ([int])
 	radius			- (int)
 	density			- (float) modifier for the amount of clutter to spawn
-	maxClutterSize	- (float) affects the size of clutter-type objects spawned
-	iedSize			- (string) valid values are, "small", "medium", "large"
-	iedType			- (string) valid values are, "urban", "dug-in", "random"
-	iedAmount		- (int) number if explosives to create
+	maxClutterSize	- (int) valid values are: 0 (small), 1 (medium), or 2 (large)
+	iedSize			- (int) valid values are: 0 (small), 1 (large), or 2 (random)
+	iedType			- (int) valid values are: 0 ("urban"), 1 ("dug-in"), 2 ("clutter"), or 3 (random)
+	iedAmount		- (int) number of explosives to create
 
 Return: none
 
@@ -28,7 +28,24 @@ private _smallJunk = [
 	"Land_Garbage_square5_F",
 	"Land_Garbage_line_F",
 	"Land_GarbageBarrel_02_buried_F",
-	"Land_Tyre_F"
+	"Land_Tyre_F",
+	"Land_FlowerPot_01_F",
+	"Land_Bucket_painted_F",
+	"Land_ButaneCanister_F",
+	"Land_Matches_F",
+	"Land_PlasticBucket_01_open_F",
+	"Land_PlasticBucket_01_closed_F",
+	"Land_MoneyBills_01_bunch_F",
+	"Land_MultiMeter_F",
+	"Tire_Van_02_F",
+	"Land_BottlePlastic_V1_F",
+	"Land_Can_Dented_F",
+	"Land_BakedBeans_F",
+	"Land_CerealsBox_F",
+	"Land_GasTank_01_blue_F",
+	"Land_CanisterFuel_White_F",
+	"Land_CanisterFuel_Red_F",
+	"Land_CanisterFuel_F"
 ];
 
 private _mediumJunk = [
@@ -45,6 +62,29 @@ private _mediumJunk = [
 
 private _largeJunk = [
 
+];
+
+private _smallSports = [
+	"Land_Baseball_01_F",
+	"Land_BaseballMitt_01_F",
+	"Land_Basketball_01_F",
+	"Land_Football_01_F",
+	"Land_Rugbyball_01_F",
+	"Land_Volleyball_01_F",
+	"Land_AirHorn_01_F"
+];
+
+
+private _mediumConstruction = [
+	"Land_CinderBlocks_01_F",
+	"Land_Pallets_stack_F",
+	"Land_Pallets_F"
+];
+
+private _largeConstruction = [
+	"Land_IronPipes_F",
+	"Land_TimberPile_05_F",
+	"Land_WoodenPlanks_01_messy_pine_F"
 ];
 
 private _smallElectronics = [
@@ -64,7 +104,9 @@ private _largeWrecks = [
 	"Land_Wreck_T72_hull_F",
 	"Land_Wreck_Car2_F",
 	"Land_Wreck_Offroad2_F",
-	"Land_Wreck_UAZ_F"
+	"Land_Wreck_UAZ_F",
+	"Land_ScrapHeap_2_F",
+	"Land_ScrapHeap_1_F"
 ];
 
 /*/////////////////////////////////////////////////
@@ -87,9 +129,9 @@ private _largeWrecks = [
 // };
 
 // For now, just curate it on their behalf
-private _smallClutter = _smallJunk + _smallElectronics;
-private _mediumClutter = _mediumJunk + _mediumWrecks;
-private _largeClutter = _mediumJunk + _largeWrecks;
+private _smallClutter = _smallJunk + _smallSports + _smallElectronics;
+private _mediumClutter = _mediumJunk + _mediumWrecks + _mediumConstruction;
+private _largeClutter = _mediumJunk + _largeWrecks + _largeConstruction;
 
 
 /*/////////////////////////////////////////////////
@@ -105,16 +147,30 @@ for "_i" from 1 to _clutterAmount do {
 		break;
 	};
 
-	private _clutterSize = random _maxClutterSize;
-	private _clutter = switch (true) do
-	{
-		case (_clutterSize > 0.95): { selectRandom _largeClutter };
-		case (_clutterSize > 0.75): { selectRandom _mediumClutter };
-		default { selectRandom _smallClutter }; 
+	private _sizeChance = random 1;
+	private _clutter = switch (_maxClutterSize) do {
+
+		// Max size is "small"
+		case 0: { selectRandom _smallClutter };
+		// Max size is "medium"
+		case 1: { 
+			switch (true) do {
+				case (_sizeChance > 0.66): { selectRandom _mediumClutter };
+				default { selectRandom _smallClutter };
+			}
+		};
+		// Max size is "large"
+		case 2: {
+			switch (true) do {
+				case (_sizeChance > 0.95): { selectRandom _largeClutter };
+				case (_sizeChance > 0.66): { selectRandom _mediumClutter };
+				default { selectRandom _smallClutter };
+			}
+		};
 	};
 	_clutter = _clutter createVehicle _safePos;
 	_clutter setDir (random 360);
-
+	_clutter enableSimulationGlobal false;
 	["zen_common_addObjects", [[_clutter], objNull]] call CBA_fnc_serverEvent;
 };
 
@@ -130,18 +186,18 @@ private _ieds = [
 	"ACE_IEDUrbanSmall_Range_Ammo"
 ];
 
-if(_iedSize isEqualTo "small") then {
+if(_iedSize == 0) then {
 	_ieds = _ieds - ["ACE_IEDLandBig_Range_Ammo","ACE_IEDUrbanBig_Range_Ammo"];
 };
-if(_iedSize isEqualTo "large") then {
+if(_iedSize == 1) then {
 	_ieds = _ieds - ["ACE_IEDLandSmall_Range_Ammo","ACE_IEDUrbanSmall_Range_Ammo"];
 };
 
 
-if(_iedType isEqualTo "urban") then {
+if(_iedType == 0) then {
 	_ieds = _ieds - ["ACE_IEDLandBig_Range_Ammo","ACE_IEDLandSmall_Range_Ammo"];
 };
-if(_iedType isEqualTo "dug-in") then {
+if(_iedType == 1) then {
 	_ieds = _ieds - ["ACE_IEDUrbanBig_Range_Ammo","ACE_IEDUrbanSmall_Range_Ammo"];
 };
 
@@ -154,9 +210,23 @@ for "_i" from 1 to _iedAmount do {
 	};
 
 	private _ied = selectRandom _ieds;
-	_ied = _ied createVehicle _safePos;
-	_ied setDir (random 360);
 
-	// TODO: This does not work for (armed) explosives
-	//["zen_common_addObjects", [[_ied], objNull]] call CBA_fnc_serverEvent;
+	// If ied type is set to clutter (or random, with a 0.33 chance)
+	// place an extra piece of clutter, and hide an invisible ied beneath it;
+	// it should still be able to be detonated and defused as normal
+	if(_iedType == 2 || (_iedType == 3 && (random 1) < 0.33)) then {
+		_clutter = (selectRandom _smallClutter) createVehicle _safePos;
+		_clutter setDir (random 360);
+		_clutter enableSimulationGlobal false;
+		["zen_common_addObjects", [[_clutter], objNull]] call CBA_fnc_serverEvent;
+
+		_ied = createVehicle [_ied, _safePos, [], 0, "CAN_COLLIDE"];
+		hideObjectGlobal _ied;
+	} else {
+		_ied = _ied createVehicle _safePos;
+		_ied setDir (random 360);
+	};
+
+	// TODO: This doesn't seem to work for (armed) explosives
+	["zen_common_addObjects", [[_ied], objNull]] call CBA_fnc_serverEvent;
 };
