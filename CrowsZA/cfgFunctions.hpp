@@ -32,6 +32,7 @@ class CrowsZA_addon
 		class spawnIEDClutter {};
 
 		class teleportToSquadMember {};
+		class setTeleportToSquadMemberZeus {};
 
 		// class scatterTeleportWithParachute {};
 
