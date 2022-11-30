@@ -175,6 +175,12 @@ for "_i" from 1 to _iterations do {
 	// spawn object - https://community.bistudio.com/wiki/createVehicle
 	_object = createVehicle [_objectName, _nextPos, [], 0, "CAN_COLLIDE"];
 
+	// Align to highest surface (via killzone_kid at https://community.bistudio.com/wiki/Position#PositionAGLS)
+	_nextPos set [2, worldSize];
+	_object setPosASL _nextPos;
+	_nextPos set [2, vectorMagnitude (_nextPos vectorDiff getPosVisual _object)];
+	_object setPosASL _nextPos;
+
 	// disable simulation if selected - Executed on server
 	if (!_enableSim) then {
 		_object enableSimulationGlobal false;
@@ -188,8 +194,11 @@ for "_i" from 1 to _iterations do {
 	// rotate it - https://community.bistudio.com/wiki/setVectorDir 
 	_object setDir _direction + _spawnDirOffset; //is individual offset
 
+	_object setVectorUp surfaceNormal position _object;
+
 	// set same position again to sync rotation across clients (Also snaps it to ground level better after rotation)
-	_object setPos (getPos _object);
+	//_object setPos (getPos _object);
+	_object setPosWorld getPosWorld _object;
 
 	// add to array to make zeus editable. Doing like so to only send one server event and not one per spawned element, more effecient. 	
 	_allObjects pushBack _object;
