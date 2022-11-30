@@ -41,6 +41,13 @@ switch(_objectName) do {
 		_spawnObjectLengthOffset = 0.7;
 		_spawnDirOffset = 90; //90deg offset
 	};
+	// tall sandbags
+	case "Land_SandbagBarricade_01_F":
+	{
+		_spawnObjectLength = 1.7;
+		_spawnObjectLengthOffset = 1.7;
+		_spawnDirOffset = 90; //90deg offset
+	};
 	// trench
 	case "fort_envelopebig": //only exists if grad trenches is on the server
 	{
@@ -125,6 +132,13 @@ switch(_objectName) do {
 		_spawnObjectLengthOffset = 1.2;
 		_spawnDirOffset = 90; //90deg offset
 	};
+	//power cables
+	case "PowerCable_01_StraightLong_F":
+	{
+		_spawnObjectLength = 5.02368;
+		_spawnObjectLengthOffset = 2.49;
+		_spawnDirOffset = 0; //no offset
+	};
 };
 
 // calculate distance between points to know amount of hesco to cover the length - https://community.bistudio.com/wiki/vectorDistance
@@ -146,7 +160,7 @@ private _distMove = _spawnObjectLength;
 // array of spawned objects 
 private _allObjects = [];
 
-// loop over the amount of hesco needed to be placed (distance calculation)
+// loop over the amount of object needed to be placed (distance calculation)
 for "_i" from 1 to _iterations do {
 	// increment distance - https://community.bistudio.com/wiki/getPos
 	// if first position, we only move the offset from clicked position, for the rest we move position and offset.
@@ -155,17 +169,15 @@ for "_i" from 1 to _iterations do {
 	if (_i == 1) then {
 		_nextPos = _tempPos getPos [_spawnObjectLengthOffset, _direction];
 	} else {
-		_nextPos = _tempPos getPos [_distMove, _direction]; 	
+		_nextPos = _tempPos getPos [_distMove, _direction];
 	};
 
-	// diag_log format["nextpos: %1", _nextPos];
-
-	// spawn hesco - https://community.bistudio.com/wiki/createVehicle
+	// spawn object - https://community.bistudio.com/wiki/createVehicle
 	_object = createVehicle [_objectName, _nextPos, [], 0, "CAN_COLLIDE"];
 
 	// disable simulation if selected - Executed on server
 	if (!_enableSim) then {
-		[_object, false] remoteExec ["enableSimulationGlobal", 2];
+		_object enableSimulationGlobal false;
 	};
 
 	// disable damage if chosen - If we see issues with this in future, consider setting owner to server, before disabling damage as the owner shouldn't change short of server crash... and then it doesnt matter
