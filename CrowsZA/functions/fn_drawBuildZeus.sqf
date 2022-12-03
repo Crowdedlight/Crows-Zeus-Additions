@@ -14,6 +14,8 @@ Starts the selection handler to select multiple points for you to draw
 
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
+crowsZA_drawbuild_lastPole = objNull;
+
 //create display 
 if (!createDialog "crowsZA_drawbuild_display") exitWith {["Failed to open drawbuild dialog"] call crowsZA_fnc_showHint};
 
@@ -31,6 +33,7 @@ private _arrOptions = [
 	"Land_HBarrier_3_F",					//hesco default
 	"Land_HBarrier_Big_F",					//big hesco default
 	"Land_BagFence_Short_F",				//sandbag wall - default
+	"Land_SandbagBarricade_01_F",			//tall sandbags
 	"Land_TyreBarrier_01_line_x4_F",		//tire wall
 	"Land_ConcreteWall_01_m_4m_F", 			//concrete wall
 	
@@ -45,7 +48,12 @@ private _arrOptions = [
 	"Land_Hedge_01_s_2m_F",					//grass hedge
 	"Land_NetFence_02_m_4m_F",				//net fence
 	"Land_New_WiredFence_5m_F",				//wire fence
-	"Land_Razorwire_F"						//razor wire
+	"Land_Razorwire_F",						//razor wire
+
+	//misc.
+	"PowerCable_01_StraightLong_F",			//power cable
+	"Land_PowerLine_03_pole_F", 			//concrete overhead line
+	"Land_PowerLine_02_pole_small_F"		//wood overhead line
 ];
 
 // only add grad trenches if that mod is loaded

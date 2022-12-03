@@ -18,6 +18,7 @@ params ["_startPos", "_endPos", "_objectName", "_enableSim", "_enableDmg"];
 private _spawnObjectLength = 0;
 private _spawnObjectLengthOffset = 0;
 private _spawnDirOffset = 0;
+private "_spawnObjectHeight";
 
 switch(_objectName) do {
 	// smaller hesco
@@ -39,6 +40,13 @@ switch(_objectName) do {
 	{
 		_spawnObjectLength = 1.6;
 		_spawnObjectLengthOffset = 0.7;
+		_spawnDirOffset = 90; //90deg offset
+	};
+	// tall sandbags
+	case "Land_SandbagBarricade_01_F":
+	{
+		_spawnObjectLength = 1.7;
+		_spawnObjectLengthOffset = 1.7;
 		_spawnDirOffset = 90; //90deg offset
 	};
 	// trench
@@ -125,6 +133,29 @@ switch(_objectName) do {
 		_spawnObjectLengthOffset = 1.2;
 		_spawnDirOffset = 90; //90deg offset
 	};
+	//power cables
+	case "PowerCable_01_StraightLong_F":
+	{
+		_spawnObjectLength = 5.02368;
+		_spawnObjectLengthOffset = 2.49;
+		_spawnDirOffset = 0; //no offset
+	};
+	//concrete overhead line
+	case "Land_PowerLine_03_pole_F":
+	{
+		_spawnObjectLength = 40;
+		_spawnObjectLengthOffset = 20;
+		_spawnDirOffset = 0; //no offset
+		_spawnObjectHeight = 8.8;
+	};
+	//wood overhead line
+	case "Land_PowerLine_02_pole_small_F":
+	{
+		_spawnObjectLength = 40;
+		_spawnObjectLengthOffset = 20;
+		_spawnDirOffset = 0; //no offset
+		_spawnObjectHeight = 8.9;
+	};
 };
 
 // calculate distance between points to know amount of hesco to cover the length - https://community.bistudio.com/wiki/vectorDistance
@@ -146,7 +177,7 @@ private _distMove = _spawnObjectLength;
 // array of spawned objects 
 private _allObjects = [];
 
-// loop over the amount of hesco needed to be placed (distance calculation)
+// loop over the amount of object needed to be placed (distance calculation)
 for "_i" from 1 to _iterations do {
 	// increment distance - https://community.bistudio.com/wiki/getPos
 	// if first position, we only move the offset from clicked position, for the rest we move position and offset.
@@ -155,17 +186,21 @@ for "_i" from 1 to _iterations do {
 	if (_i == 1) then {
 		_nextPos = _tempPos getPos [_spawnObjectLengthOffset, _direction];
 	} else {
-		_nextPos = _tempPos getPos [_distMove, _direction]; 	
+		_nextPos = _tempPos getPos [_distMove, _direction];
 	};
 
-	// diag_log format["nextpos: %1", _nextPos];
-
-	// spawn hesco - https://community.bistudio.com/wiki/createVehicle
+	// spawn object - https://community.bistudio.com/wiki/createVehicle
 	_object = createVehicle [_objectName, _nextPos, [], 0, "CAN_COLLIDE"];
 
-	// disable simulation if selected - Executed on server
+	// Align to highest surface (via killzone_kid at https://community.bistudio.com/wiki/Position#PositionAGLS)
+	_nextPos set [2, worldSize];
+	_object setPosASL _nextPos;
+	_nextPos set [2, vectorMagnitude (_nextPos vectorDiff getPosVisual _object)];
+	_object setPosASL _nextPos;
+
+	// disable simulation if selected
 	if (!_enableSim) then {
-		[_object, false] remoteExec ["enableSimulationGlobal", 2];
+		_object enableSimulationGlobal false;
 	};
 
 	// disable damage if chosen - If we see issues with this in future, consider setting owner to server, before disabling damage as the owner shouldn't change short of server crash... and then it doesnt matter
@@ -176,10 +211,52 @@ for "_i" from 1 to _iterations do {
 	// rotate it - https://community.bistudio.com/wiki/setVectorDir 
 	_object setDir _direction + _spawnDirOffset; //is individual offset
 
-	// set same position again to sync rotation across clients (Also snaps it to ground level better after rotation)
-	_object setPos (getPos _object);
+	_object setVectorUp surfaceNormal position _object;
 
-	// add to array to make zeus editable. Doing like so to only send one server event and not one per spawned element, more effecient. 	
+	// set same position again to sync rotation across clients (Also snaps it to ground level better after rotation)
+	//_object setPos (getPos _object);
+	_object setPosWorld getPosWorld _object;
+
+
+	// Special code for overhead wires
+	if(_objectName in ["Land_PowerLine_03_pole_F", "Land_PowerLine_02_pole_small_F"]) then {
+
+		_object setVectorUp [0,0,1];
+		// Create an invisible object, that "wires" (ropes) can be attached to
+		_dummy = "PortableHelipadLight_01_blue_F" createVehicle [0,0];
+		_dummy hideObjectGlobal true;
+		_dummy disableCollisionWith _object;
+		_dummy setVehiclePosition [_object, [], 0, "CAN_COLLIDE"];
+		[_dummy, [0,0,0]] call BIS_fnc_setObjectRotation; //Use this rather than setVectorUp - allows objects to collide
+
+		// if (!_enableSim) then {
+		// 	_dummy enableSimulationGlobal false;
+		// }; // Wires don't like attaching to static/simple objects
+		_dummy allowDamage false;
+		
+		// Note: attatchTo would be great, so that moving a pole also moved
+		// the wires; but the wires don't like static/simple objects
+		// (this is especially an issue if the "dummy" object, e.g., rolls down a hill!)
+		// and we can't do it the other way around or the pole wouldn't take damage
+		_allObjects pushBack _dummy;
+
+		// Create the wires between this pole and the previous "pole"
+		if(!isNull crowsZA_drawbuild_lastPole) then {
+			_distance = (_dummy distance crowsZA_drawbuild_lastPole);
+			_rope = ropeCreate [_dummy, [0, 0, _spawnObjectHeight], crowsZA_drawbuild_lastPole, [0, 0, _spawnObjectHeight], _distance];
+			_rope enableSimulationGlobal false;
+			_allObjects pushBack _rope;
+		};
+		crowsZA_drawbuild_lastPole = _dummy;
+
+		_object setVariable ["_dummy", _dummy];
+		_object addEventHandler ["Killed", {
+			params ["_unit", "_killer", "_instigator", "_useEffects"];
+			deleteVehicle (_unit getVariable "_dummy");
+		}];
+	};
+
+	// add to array to make zeus editable. Doing like so to only send one server event and not one per spawned element, more efficient. 	
 	_allObjects pushBack _object;
 
 	// update temp position 

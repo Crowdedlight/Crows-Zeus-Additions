@@ -25,13 +25,14 @@ class crowsZA_drawbuild_display {
         };
         class Content: RscControlsGroupNoScrollbars {
             idc = IDC_CONTENT;
-            h = POS_H(11);
+            h = POS_H(13.5);
             x = POS_X(12);
             w = POS_W(14);
             class controls {
                 class grid1: RscActivePicture {
                     idc = IDC_ICON_GRID_FIRST;
-                    text = "\A3\EditorPreviews_F\Data\CfgVehicles\Land_BagFence_Short_F.jpg";
+                    //text = "\A3\EditorPreviews_F\Data\CfgVehicles\Land_BagFence_Short_F.jpg";
+                    text = ""; // Don't display a preview image if there's no content for the grid
                     color[] = {1,1,1,0.8}; //change from 0.5 alpha to not be too dark but still show when hovered
                     tooltip = "";
                     x = 0;
@@ -99,11 +100,33 @@ class crowsZA_drawbuild_display {
                     idc = IDC_ICON_GRID_FIRST + 14;
                     x = POS_W(12);
                 };
+                // row 4
+                class row4: grid1 {
+                    idc = IDC_ICON_GRID_FIRST + 15;
+                    x = 0;
+                    y = POS_H(8);
+                };
+                class grid17: row4 {
+                    idc = IDC_ICON_GRID_FIRST + 16;
+                    x = POS_W(3);
+                };
+                class grid18: row4 {
+                    idc = IDC_ICON_GRID_FIRST + 17;
+                    x = POS_W(6);
+                };
+                class grid19: row4 {
+                    idc = IDC_ICON_GRID_FIRST + 18;
+                    x = POS_W(9);
+                };
+                class grid20: row4 {
+                    idc = IDC_ICON_GRID_FIRST + 19;
+                    x = POS_W(12);
+                };
                 // bottom rows for toggle enables, simulation
                 class cbSimulation: RscCheckBox {
                     idc = IDC_CHECKBOX_SIMULATION;
                     x = 0;
-                    y = POS_H(8);
+                    y = POS_H(10.5);
                     w = POS_W(1);
                     h = POS_H(1);
                     soundClick[] = {"\a3\ui_f\data\sound\rscbutton\soundclick", 0.09, 1};
@@ -115,7 +138,7 @@ class crowsZA_drawbuild_display {
                 class lblSimulation: RscText {
                     idc = -1;
                     x = POS_W(1);
-                    y = POS_H(8);
+                    y = POS_H(10.5);
                     w = POS_W(10);
                     h = POS_H(1);
                     // colorBackground[] = {0, 0, 0, 0.7};
@@ -124,11 +147,11 @@ class crowsZA_drawbuild_display {
                 // damage
                 class cbDamage: cbSimulation {
                     idc = IDC_CHECKBOX_DAMAGE;
-                    y = POS_H(9.5);
+                    y = POS_H(12);
                     checked = 0; //default to be disabled
                 };
                 class lblDamage: lblSimulation {
-                    y = POS_H(9.5);
+                    y = POS_H(12);
                     text = "Enable Damage";
                 };        
             };
