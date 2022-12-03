@@ -18,6 +18,7 @@ params ["_startPos", "_endPos", "_objectName", "_enableSim", "_enableDmg"];
 private _spawnObjectLength = 0;
 private _spawnObjectLengthOffset = 0;
 private _spawnDirOffset = 0;
+private "_spawnObjectHeight";
 
 switch(_objectName) do {
 	// smaller hesco
@@ -139,6 +140,22 @@ switch(_objectName) do {
 		_spawnObjectLengthOffset = 2.49;
 		_spawnDirOffset = 0; //no offset
 	};
+	//concrete overhead line
+	case "Land_PowerLine_03_pole_F":
+	{
+		_spawnObjectLength = 40;
+		_spawnObjectLengthOffset = 20;
+		_spawnDirOffset = 0; //no offset
+		_spawnObjectHeight = 8.8;
+	};
+	//wood overhead line
+	case "Land_PowerLine_02_pole_small_F":
+	{
+		_spawnObjectLength = 40;
+		_spawnObjectLengthOffset = 20;
+		_spawnDirOffset = 0; //no offset
+		_spawnObjectHeight = 9;
+	};
 };
 
 // calculate distance between points to know amount of hesco to cover the length - https://community.bistudio.com/wiki/vectorDistance
@@ -181,7 +198,7 @@ for "_i" from 1 to _iterations do {
 	_nextPos set [2, vectorMagnitude (_nextPos vectorDiff getPosVisual _object)];
 	_object setPosASL _nextPos;
 
-	// disable simulation if selected - Executed on server
+	// disable simulation if selected
 	if (!_enableSim) then {
 		_object enableSimulationGlobal false;
 	};
@@ -200,7 +217,46 @@ for "_i" from 1 to _iterations do {
 	//_object setPos (getPos _object);
 	_object setPosWorld getPosWorld _object;
 
-	// add to array to make zeus editable. Doing like so to only send one server event and not one per spawned element, more effecient. 	
+
+	// Special code for overhead wires
+	if(_objectName in ["Land_PowerLine_03_pole_F", "Land_PowerLine_02_pole_small_F"]) then {
+
+		_object setVectorUp [0,0,1];
+		// Create an invisible object, that "wires" (ropes) can be attached to
+		_dummy = "PortableHelipadLight_01_blue_F" createVehicle [0,0];
+		_dummy hideObjectGlobal true;
+		_dummy disableCollisionWith _object;
+		_dummy setVehiclePosition [_object, [], 0, "CAN_COLLIDE"];
+		[_dummy, [0,0,0]] call BIS_fnc_setObjectRotation; //Use this rather than setVectorUp - allows objects to collide
+
+		// if (!_enableSim) then {
+		// 	_dummy enableSimulationGlobal false;
+		// }; // Wires don't like attaching to static/simple objects
+		_dummy allowDamage false;
+		
+		// Note: attatchTo would be great, so that moving a pole also moved
+		// the wires; but the wires don't like static/simple objects
+		// (this is especially an issue if the "dummy" object, e.g., rolls down a hill!)
+		// and we can't do it the other way around or the pole wouldn't take damage
+		_allObjects pushBack _dummy;
+
+		// Create the wires between this pole and the previous "pole"
+		if(!isNull crowsZA_drawbuild_lastPole) then {
+			_distance = (_dummy distance crowsZA_drawbuild_lastPole);
+			_rope = ropeCreate [_dummy, [0, 0, _spawnObjectHeight], crowsZA_drawbuild_lastPole, [0, 0, _spawnObjectHeight], _distance];
+			_rope enableSimulationGlobal false;
+			_allObjects pushBack _rope;
+		};
+		crowsZA_drawbuild_lastPole = _dummy;
+
+		_object setVariable ["_dummy", _dummy];
+		_object addEventHandler ["Killed", {
+			params ["_unit", "_killer", "_instigator", "_useEffects"];
+			deleteVehicle (_unit getVariable "_dummy");
+		}];
+	};
+
+	// add to array to make zeus editable. Doing like so to only send one server event and not one per spawned element, more efficient. 	
 	_allObjects pushBack _object;
 
 	// update temp position 
