@@ -154,7 +154,7 @@ switch(_objectName) do {
 		_spawnObjectLength = 40;
 		_spawnObjectLengthOffset = 20;
 		_spawnDirOffset = 0; //no offset
-		_spawnObjectHeight = 9;
+		_spawnObjectHeight = 8.9;
 	};
 };
 
