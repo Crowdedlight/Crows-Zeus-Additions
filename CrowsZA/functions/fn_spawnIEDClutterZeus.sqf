@@ -30,6 +30,15 @@ private _onConfirm =
 	[_pos, _radius, _density, _maxClutterSize, _iedSize, _iedType, _iedAmount] call crowsZA_fnc_spawnIEDClutter;
 		
 };
+
+
+// Non-ace ieds can't have their model hidden, so can't be disguised as clutter
+private _iedTypeToolbox = if(crowsZA_common_aceModLoaded) then {
+	["TOOLBOX", ["IED Type", """Clutter"" transforms a random object of clutter into an IED"], [0, 1, 4, ["Urban", "Dug-in", "Clutter", "Random"]]]
+} else {
+	["TOOLBOX", ["IED Type", """Clutter"" transforms a random object of clutter into an IED"], [0, 1, 3, ["Urban", "Dug-in", "Random"]]]
+};
+
 [
 	"Spawn IED Clutter", 
 	[
@@ -41,7 +50,7 @@ private _onConfirm =
 		// ["CHECKBOX", "Electronics", [true]],
 		// ["CHECKBOX", "Wrecks", [false]],
 		["TOOLBOX", "IED Size", [0, 1, 3, ["Small", "Large", "Random"]]],
-		["TOOLBOX", ["IED Type", """Clutter"" transforms a random object of clutter into an IED"], [0, 1, 4, ["Urban", "Dug-in", "Clutter", "Random"]]],
+		_iedTypeToolbox,
 		["SLIDER", "IED Amount", [0, 10, 1, 0]]
 	],
 	_onConfirm,

@@ -48,6 +48,7 @@ private _moduleList = [
     ["Fire Support",{_this call crowsZA_fnc_fireSupport}, "\x\zen\addons\modules\ui\target_ca.paa"],
     ["Resupply Player Loadouts",{_this call crowsZA_fnc_resupplyPlayerLoadouts}, "\CrowsZA\data\resupplyplayerloadout.paa"],
     ["Remove Radio/Bino",{_this call crowsZA_fnc_removeRadioBino}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
+    ["Spawn IED Clutter",{_this call crowsZA_fnc_spawnIEDClutterZeus}, "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa"],
     ["Strip Explosives",{_this call crowsZA_fnc_stripExplosivesZeus}, "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa"],
     ["Set Teleport to Squadmember",{_this call crowsZA_fnc_setTeleportToSquadMemberZeus}, "\CrowsZA\data\tpToSquad.paa"]
 ];
@@ -59,8 +60,7 @@ if (crowsZA_common_aceModLoaded) then {
         ["Mass-Unconscious Toggle",{_this call crowsZA_fnc_massUnconscious}, "\z\ace\addons\zeus\UI\Icon_Module_Zeus_Unconscious_ca.paa"],
         ["Capture Player",{_this call crowsZA_fnc_capturePlayer}, "\z\ace\addons\captives\UI\captive_ca.paa"],
         ["Mass-Surrender Toggle",{_this call crowsZA_fnc_massSurrender}, "\z\ace\addons\captives\UI\Surrender_ca.paa"],
-        ["Set Supply Vehicle",{_this call crowsZA_fnc_setSupplyVehicle}, "\CrowsZA\data\rearmvehicle.paa"],
-        ["Spawn IED Clutter",{_this call crowsZA_fnc_spawnIEDClutterZeus}, "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa"]
+        ["Set Supply Vehicle",{_this call crowsZA_fnc_setSupplyVehicle}, "\CrowsZA\data\rearmvehicle.paa"]
     ];
 };
 
