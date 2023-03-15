@@ -55,6 +55,8 @@ class CrowsZA_addon
 		class stripExplosives {};
 		class stripExplosivesZeus {};
 
+		class togglePathingZeus {};
+
 		class contextPasteLoadout {};
 		
 		class loadoutViewer {};
