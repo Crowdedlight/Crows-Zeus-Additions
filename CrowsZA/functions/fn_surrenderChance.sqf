@@ -48,7 +48,8 @@ _unit setVariable ["_surrenderChance", _surrenderChance];
 _trigger attachTo [_unit];
 
 
-// TODO: Ensure that the player pointing a weapon is considered HOSTILE to the units side
+// TODO: Optionally ensure that the player pointing a weapon is considered HOSTILE to the units side
+// (don't mandate - could be useful to encourage friendly units, e.g. CIVs, to surrender too)
 
 private _condition = "
 if(!this) exitWith { false };
