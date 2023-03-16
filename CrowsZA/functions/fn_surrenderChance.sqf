@@ -23,11 +23,12 @@ params [
 	["_hesitation", 0, [0]]
 ];
 
-
 if(isNull _unit) exitWith { false };
 
 
-// TODO: Add check if unit has already had this module applied/is already surrendered/etc
+if(_unit getVariable ["crowsza_surrender_chance_applied", false]) exitWith { ["Surrender chance already applied to this unit"] call crowsZA_fnc_showHint; false }
+
+_unit setVariable ["crowsza_surrender_chance_applied", true, true];
 
 
 if(_holdFire) then {
