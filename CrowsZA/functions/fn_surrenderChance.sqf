@@ -74,9 +74,11 @@ private _unit = thisTrigger getVariable ""_unit"";
 private _surrenderChance = _unit getVariable ""_surrenderChance"";
 private _hesitation = _unit getVariable ""_hesitation"";
 
+deletevehicle thisTrigger;
+
 [_unit, _surrenderChance, _hesitation, thisTrigger] spawn {
 
-	params [""_unit"", ""_surrenderChance"", ""_hesitation"", ""_trigger""];
+	params [""_unit"", ""_surrenderChance"", ""_hesitation""];
 
 	sleep ([random (0.5 + _hesitation), 0.5, _hesitation] call BIS_fnc_clamp);
 
@@ -102,9 +104,6 @@ private _hesitation = _unit getVariable ""_hesitation"";
 		_unit setUnitCombatMode ""RED"";
 		_unit setCombatBehaviour ""COMBAT"";
 	};
-
-	deletevehicle _trigger;
-
 };
 ";
 
