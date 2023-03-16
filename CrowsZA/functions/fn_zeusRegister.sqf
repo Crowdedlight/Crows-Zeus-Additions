@@ -130,53 +130,43 @@ private _contextActionList = [
         0
     ],
     [
-        ["toggle_pathing","Toggle Pathing","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", {}, { isNull _hoveredEntity || {(typeName _hoveredEntity) isEqualTo "OBJECT" && {(group _hoveredEntity) isEqualTo grpNull}}}, [], {[
-            [["toggle_pathing_blufor","BLUFOR",["\A3\ui_f\data\map\markers\nato\b_unknown.paa", [0,0.3,0.6,1]], {[units west, 2] call crowsZA_fnc_togglePathing}, {true}, [], {[
-                [["toggle_pathing_b_off","Off",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0.5,0,0,1]], {[units west, 0] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10],
-                [["toggle_pathing_b_on","On","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", {[units west, 1] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10],
-                [["toggle_pathing_b_toggle","Toggle",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0,0.3,0.6,1]], {[units west, 2] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10]
+        ["toggle_pathing","Toggle Pathing","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", {}, {true}, [], {[
+            [["toggle_pathing_radius","Radius","\CrowsZA\data\radiusheal.paa", {}, {true}, [], {[
+                [["toggle_pathing_radius_10","10m","\CrowsZA\data\radiusheal.paa", { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 10]; [_units, 2] call crowsZA_fnc_togglePathing }, {true}, [], {[
+                    [["toggle_pathing_unit_off","Off",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0.5,0,0,1]], { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 10]; [_units, 0] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10],
+                    [["toggle_pathing_unit_on","On","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 10]; [_units, 1] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10],
+                    [["toggle_pathing_unit_toggle","Toggle",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0,0.3,0.6,1]], { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 10]; [_units, 2] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10]
+                ]}] call zen_context_menu_fnc_createAction, [], 10],
+                [["toggle_pathing_radius_50","50m","\CrowsZA\data\radiusheal.paa", { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 50]; [_units, 2] call crowsZA_fnc_togglePathing }, {true}, [], {[
+                    [["toggle_pathing_unit_off","Off",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0.5,0,0,1]], { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 50]; [_units, 0] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10],
+                    [["toggle_pathing_unit_on","On","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 50]; [_units, 1] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10],
+                    [["toggle_pathing_unit_toggle","Toggle",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0,0.3,0.6,1]], { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 50]; [_units, 2] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10]
+                ]}] call zen_context_menu_fnc_createAction, [], 10],
+                [["toggle_pathing_radius_100","100m","\CrowsZA\data\radiusheal.paa", { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 100]; [_units, 2] call crowsZA_fnc_togglePathing}, {true}, [], {[
+                    [["toggle_pathing_unit_off","Off",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0.5,0,0,1]], { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 100]; [_units, 0] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10],
+                    [["toggle_pathing_unit_on","On","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 100]; [_units, 1] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10],
+                    [["toggle_pathing_unit_toggle","Toggle",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0,0.3,0.6,1]], { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 100]; [_units, 2] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10]
+                ]}] call zen_context_menu_fnc_createAction, [], 10],
+                [["toggle_pathing_radius_200","200m","\CrowsZA\data\radiusheal.paa", { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 200]; [_units, 2] call crowsZA_fnc_togglePathing }, {true}, [], {[
+                    [["toggle_pathing_unit_off","Off",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0.5,0,0,1]], { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 200]; [_units, 0] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10],
+                    [["toggle_pathing_unit_on","On","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 200]; [_units, 1] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10],
+                    [["toggle_pathing_unit_toggle","Toggle",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0,0.3,0.6,1]], { private _units = (ASLToAGL _position) nearEntities [["Man", "LandVehicle"], 200]; [_units, 2] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10]
+                ]}] call zen_context_menu_fnc_createAction, [], 10]
             ]}] call zen_context_menu_fnc_createAction, [], 10],
-            [["toggle_pathing_opfor","OPFOR",["\A3\ui_f\data\map\markers\nato\o_unknown.paa", [0.5,0,0,1]], {[units east, 2] call crowsZA_fnc_togglePathing}, {true}, [], {[
-                [["toggle_pathing_o_off","Off",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0.5,0,0,1]], {[units east, 0] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10],
-                [["toggle_pathing_o_on","On","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", {[units east, 1] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10],
-                [["toggle_pathing_o_toggle","Toggle",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0,0.3,0.6,1]], {[units east, 2] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10]
-            ]}] call zen_context_menu_fnc_createAction, [], 10],
-            [["toggle_pathing_indfor","INDFOR",["\A3\ui_f\data\map\markers\nato\n_unknown.paa", [0,0.5,0,1]], {[units independent, 2] call crowsZA_fnc_togglePathing}, {true}, [], {[
-                [["toggle_pathing_i_off","Off",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0.5,0,0,1]], {[units independent, 0] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10],
-                [["toggle_pathing_i_on","On","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", {[units independent, 1] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10],
-                [["toggle_pathing_i_toggle","Toggle",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0,0.3,0.6,1]], {[units independent, 2] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10]
-            ]}] call zen_context_menu_fnc_createAction, [], 10],
-            [["toggle_pathing_civ","CIV",["\A3\ui_f\data\map\markers\nato\c_unknown.paa", [0.4,0,0.5,1]], {[units civilian, 2] call crowsZA_fnc_togglePathing}, {true}, [], {[
-                [["toggle_pathing_c_off","Off",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0.5,0,0,1]], {[units civilian, 0] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10],
-                [["toggle_pathing_c_on","On","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", {[units civilian, 1] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10],
-                [["toggle_pathing_c_toggle","Toggle",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0,0.3,0.6,1]], {[units civilian, 2] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10]
-            ]}] call zen_context_menu_fnc_createAction, [], 10]
-        ]}] call zen_context_menu_fnc_createAction,
-        [],
-        0
-    ],
-    [
-        ["toggle_pathing","Toggle Pathing","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa",
-            {
-                if((typeName _hoveredEntity) isEqualTo "GROUP") then {
-                    [units _hoveredEntity, 2] call crowsZA_fnc_togglePathing;
-                } else {
-                    [[_hoveredEntity], 2] call crowsZA_fnc_togglePathing;
-                };
-            }, { !isNull _hoveredEntity && {(typeName _hoveredEntity) isEqualTo "GROUP" || {(typeName _hoveredEntity) isEqualTo "OBJECT" && {(group _hoveredEntity) isNotEqualTo grpNull}}} }, [], {[
+
             [["toggle_pathing_unit","Unit","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", { [[_hoveredEntity], 2] call crowsZA_fnc_togglePathing }, {((typeName _hoveredEntity) isEqualTo "OBJECT") && {(group _hoveredEntity) isNotEqualTo grpNull}}, [], {[
                 [["toggle_pathing_unit_off","Off",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0.5,0,0,1]], { [[_hoveredEntity], 0] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10],
                 [["toggle_pathing_unit_on","On","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", { [[_hoveredEntity], 1] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10],
                 [["toggle_pathing_unit_toggle","Toggle",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0,0.3,0.6,1]], { [[_hoveredEntity], 2] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10]
             ]}] call zen_context_menu_fnc_createAction, [], 10],
 
-            [["toggle_pathing_unit","Group","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", { [units _hoveredEntity, 2] call crowsZA_fnc_togglePathing }, {true}, [], {[
+            [["toggle_pathing_unit","Group","\A3\ui_f\data\map\markers\nato\o_unknown.paa", { [units _hoveredEntity, 2] call crowsZA_fnc_togglePathing }, {(typeName _hoveredEntity) isEqualTo "GROUP" || {((typeName _hoveredEntity) isEqualTo "OBJECT") && {(group _hoveredEntity) isNotEqualTo grpNull}}}, [], {[
                 [["toggle_pathing_group_off","Off",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0.5,0,0,1]], { [units _hoveredEntity, 0] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10],
                 [["toggle_pathing_group_on","On","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", { [units _hoveredEntity, 1] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10],
                 [["toggle_pathing_group_toggle","Toggle",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0,0.3,0.6,1]], { [units _hoveredEntity, 2] call crowsZA_fnc_togglePathing }] call zen_context_menu_fnc_createAction, [], 10]
             ]}] call zen_context_menu_fnc_createAction, [], 10],
 
-            [["toggle_pathing_side","Side","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", {[units (side _hoveredEntity), 2] call crowsZA_fnc_togglePathing}, {true}, [], {[
+            [["toggle_pathing_side","Side","\A3\ui_f\data\map\markers\nato\b_unknown.paa", {}, {true}, [], {[
                 [["toggle_pathing_blufor","BLUFOR",["\A3\ui_f\data\map\markers\nato\b_unknown.paa", [0,0.3,0.6,1]], {[units west, 2] call crowsZA_fnc_togglePathing}, {true}, [], {[
                     [["toggle_pathing_b_off","Off",["\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", [0.5,0,0,1]], {[units west, 0] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10],
                     [["toggle_pathing_b_on","On","\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\walk_ca.paa", {[units west, 1] call crowsZA_fnc_togglePathing}] call zen_context_menu_fnc_createAction, [], 10],
