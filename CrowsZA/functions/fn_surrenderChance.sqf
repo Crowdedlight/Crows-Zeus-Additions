@@ -118,6 +118,57 @@ _trigger setTriggerStatements [
 	""
 ];
 
+
+private _eh = _unit addEventHandler ["HandleDamage", {
+	[{
+		params ["_unit", "_selection", "_damage", "_source", "_projectile", "_hitIndex", "_instigator", "_hitPoint", "_directHit"];
+
+		private _unitDamage = if (crowsZA_common_aceModLoaded) then {
+			// TODO: alternatively use BIS_fnc_arithmeticMean
+			//((_unit getVariable ["ace_medical_bodyPartDamage", [0,0,0,0,0,0]]) call BIS_fnc_arithmeticMean)
+			private _sum = 0;
+			{ _sum = _sum + _x; } forEach (_unit getVariable ["ace_medical_bodyPartDamage", [0,0,0,0,0,0]]);
+			_sum
+		} else {
+			damage _unit
+		};
+
+		private _surrenderChance = _unit getVariable "_surrenderChance";
+
+		if(_unitDamage > _surrenderChance || {(random 1) < (_surrenderChance*0.2)}) then {
+
+			if(_unitDamage > _surrenderChance) then {
+				_unit setUnitCombatMode "RED";
+				_unit setCombatBehaviour "COMBAT";
+			} else {
+				if (crowsZA_common_aceModLoaded) then {
+					["ace_captives_setSurrendered",[_unit,true]] call CBA_fnc_globalEvent;
+				} else {
+					_unit action ["surrender", _unit];
+				};
+
+				_weapon = currentWeapon _unit;
+				_unit removeWeapon (currentWeapon _unit); 
+				_weaponHolder = "WeaponHolderSimulated" createVehicle [0,0,0]; 
+				_weaponHolder addWeaponCargoGlobal [_weapon,1]; 
+				_weaponHolder setPos (_unit modelToWorld [0,.2,1.2]); 
+				_weaponHolder disableCollisionWith _unit; 
+				_dir = random(360); 
+				_speed = 1; 
+				_weaponHolder setVelocity [_speed * sin(_dir), _speed * cos(_dir),4];
+			};
+
+			deletevehicle (_unit getVariable "_trigger");
+			_unit removeEventHandler ["HandleDamage", _unit getVariable "crowsza_surrChance_ehDamaged"];
+			missionNamespace setVariable [("crowsza_surrender_chance_" + str _unit), nil];
+			_unit setVariable ["crowsza_surrender_chance_applied", nil, true];
+		};
+	}, _this] call CBA_fnc_execNextFrame;
+}];
+_unit setVariable ["crowsza_surrChance_ehDamaged", _eh];
+
+
+
 _unit addEventHandler ["Deleted", {
 	params ["_entity"];
 	deleteVehicle (_entity getVariable "_trigger");
@@ -126,17 +177,9 @@ _unit addEventHandler ["Deleted", {
 _unit addEventHandler ["Killed", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
 	deleteVehicle (_unit getVariable "_trigger");
+	_unit removeEventHandler ["HandleDamage", _unit getVariable "crowsza_surrChance_ehDamaged"];
 }];
 
-
-_unit addEventHandler ["HandleDamage", {
-	params ["_unit", "_selection", "_damage", "_source", "_projectile", "_hitIndex", "_instigator", "_hitPoint", "_directHit"];
-
-	_unit setUnitCombatMode "RED";
-	_unit setCombatBehaviour "COMBAT";
-	deletevehicle (_unit getVariable "_trigger");
-
-}];
 
 
 true
