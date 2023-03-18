@@ -12,45 +12,23 @@ private _onConfirm =
 {
 	params ["_dialogResult","_in"];
 	_in params [["_pos",[0,0,0],[[]],3], "_unit"];
-	private "_units";
 
-	if(isNull _unit) then {
-		_dialogResult params [
-			["_side", east, [east]],
-			["_confrontationRadius", 15, [15]],
-			["_surrenderChance", 0.33, [0.33]],
-			["_holdFire", true, [true]],
-			["_hesitation", 0, [0]]
-		];
-		_units = units _side;
-		[_units, _confrontationRadius, _surrenderChance, _holdFire, _hesitation] spawn {
-			params["_units", "_confrontationRadius", "_surrenderChance", "_holdFire", "_hesitation"];
-			{
-				if(!(isPlayer _x)) then {
-					[_x, _confrontationRadius, _surrenderChance, _holdFire, _hesitation] call crowsZA_fnc_surrenderChance;
-					sleep 0.01;
-				};
-			} foreach _units;
-		};
+	private _units = if(isNull _unit) then {
+		units (_dialogResult deleteAt 0)
 	} else {
-		_dialogResult params [
-			["_group", true, [true]],
-			["_confrontationRadius", 15, [15]],
-			["_surrenderChance", 0.33, [0.33]],
-			["_holdFire", true, [true]],
-			["_hesitation", 0, [0]]
-		];
-		_units = [[_unit], units group _unit] select _group;
-		[_units, _confrontationRadius, _surrenderChance, _holdFire, _hesitation] spawn {
-			params["_units", "_confrontationRadius", "_surrenderChance", "_holdFire", "_hesitation"];
-			{
-				if(!(isPlayer _x)) then {
-					[_x, _confrontationRadius, _surrenderChance, _holdFire, _hesitation] call crowsZA_fnc_surrenderChance;
-					sleep 0.01;
-				};
-			} foreach _units;
-		};
+		[[_unit], units group _unit] select (_dialogResult deleteAt 0)
 	};
+	_dialogResult params [
+		["_confrontationRadius", 15, [15]],
+		["_surrenderChance", 0.33, [0.33]],
+		["_holdFire", true, [true]],
+		["_hesitation", 0, [0]]
+	];
+	{
+		if(!(isPlayer _x)) then {
+			 [crowsZA_fnc_surrenderChance, [_x, _confrontationRadius, _surrenderChance, _holdFire, _hesitation], 0.01] call CBA_fnc_waitAndExecute;
+		};
+	} foreach _units;
 };
 
 private _controls = [

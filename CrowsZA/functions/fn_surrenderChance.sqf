@@ -27,6 +27,8 @@ if(isNull _unit) exitWith { false };
 
 if(_unit getVariable ["crowsza_surrender_chance_applied", false]) exitWith { ["Surrender chance already applied to this unit"] call crowsZA_fnc_showHint; false };
 
+
+// TODO: add to CZA draw handler so zeuses can see which units have had this applied (similar to Remote Control)
 _unit setVariable ["crowsza_surrender_chance_applied", true, true];
 
 
