@@ -33,8 +33,9 @@ _unit setVariable ["crowsza_surrender_chance_applied", true, true];
 
 
 if(_holdFire) then {
-	_unit setUnitCombatMode "BLUE";
-	_unit setCombatBehaviour "CARELESS";
+	// Set the combat mode of the whole group, to avoid the entire group
+	// opening fire when one "snaps"
+	_unit setCombatMode "BLUE";
 };
 
 

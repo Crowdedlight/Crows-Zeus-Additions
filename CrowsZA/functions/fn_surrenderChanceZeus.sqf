@@ -16,7 +16,7 @@ private _onConfirm =
 	private _units = if(isNull _unit) then {
 		units (_dialogResult deleteAt 0)
 	} else {
-		[[_unit], units group _unit] select (_dialogResult deleteAt 0)
+		units group _unit
 	};
 	_dialogResult params [
 		["_confrontationRadius", 15, [15]],
@@ -33,7 +33,6 @@ private _onConfirm =
 
 private _controls = [
 		["SIDES", "Side", east],
-		["CHECKBOX", ["Apply to group", "Apply to the unit's whole group"], [true]],
 		["SLIDER", ["Confrontation Radius", "Radius within which pointing a weapon at the unit will trigger a response"], [5, 50, 15, 0]],
 		["SLIDER:PERCENT", "Surrender Chance", [0, 1, 0.33, 0]],
 		["CHECKBOX", ["Hold Fire", "Units will hold fire until confronted"], [true]],
@@ -42,8 +41,6 @@ private _controls = [
 
 if(!(isNull _unit)) then {
 	_controls deleteAt 0;
-} else {
-	_controls deleteAt 1;
 };
 
 
