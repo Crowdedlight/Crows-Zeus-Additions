@@ -41,7 +41,7 @@ if(_holdFire) then {
 
 private _trigger = createTrigger ["EmptyDetector", getPos _unit, false];
 _trigger setTriggerArea [_confrontationRadius, _confrontationRadius, 0, false];
-_trigger setTriggerActivation ["ANYPLAYER", "PRESENT", true];
+_trigger setTriggerActivation ["ANYPLAYER", "PRESENT", false];
 
 _trigger setVariable ["_unit", _unit];
 _unit setVariable ["_trigger", _trigger];
