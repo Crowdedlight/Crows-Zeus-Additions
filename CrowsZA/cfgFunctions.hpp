@@ -70,6 +70,8 @@ class CrowsZA_addon
 		class resupplyPlayerLoadouts {};
 		class spawnSupplyDrop {};
 
+		class togglePathing {};
+
 		// draw building and helper functions
 		class getPosFromMouse {};
 		class drawBuildSelectPosition {};
