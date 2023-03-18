@@ -9,7 +9,7 @@ Parameters:
 	holdFire				- (bool) will unit hold fire until confronted
 	hesitation				- (float) maximum time unit will stall before acting once confronted
 
-Return: bool        		- True if method ran successfully, false if aborted (i.e. bad params were passed)
+Return: bool        		- True if method ran successfully, false if aborted (e.g. bad params were passed)
 
 // This code inspired by CQB Interactions By Flex7103
 // https://steamcommunity.com/sharedfiles/filedetails/?id=2942202773
@@ -25,8 +25,7 @@ params [
 
 if(isNull _unit) exitWith { false };
 
-
-if(_unit getVariable ["crowsza_surrender_chance_applied", false]) exitWith { ["Surrender chance already applied to this unit"] call crowsZA_fnc_showHint; false }
+if(_unit getVariable ["crowsza_surrender_chance_applied", false]) exitWith { ["Surrender chance already applied to this unit"] call crowsZA_fnc_showHint; false };
 
 _unit setVariable ["crowsza_surrender_chance_applied", true, true];
 
@@ -58,15 +57,15 @@ private _unit = thisTrigger getVariable ""_unit"";
 {
 	[_unit, {
 		missionNamespace setVariable [
-			""LND_unit_callback"",
+			""crowsza_surrender_chance_"" + str _this,
 			(toUpperANSI cameraView == ""GUNNER"") && (cursorObject == _this),
 			remoteExecutedOwner
 		];
 	}] remoteExecCall [""call"", _x];
 
-	if((missionNamespace getVariable ""LND_unit_callback"")) exitWith {true};
+	if((missionNamespace getVariable (""crowsza_surrender_chance_"" + str _unit))) exitWith {true};
 } forEach thisList;
-(missionNamespace getVariable ""LND_unit_callback"")
+(missionNamespace getVariable (""crowsza_surrender_chance_"" + str _unit))
 ";
 
 
@@ -75,6 +74,8 @@ private _unit = thisTrigger getVariable ""_unit"";
 private _surrenderChance = _unit getVariable ""_surrenderChance"";
 private _hesitation = _unit getVariable ""_hesitation"";
 
+missionNamespace setVariable [(""crowsza_surrender_chance_"" + str _unit), nil];
+_unit setVariable [""crowsza_surrender_chance_applied"", nil, true];
 deletevehicle thisTrigger;
 
 [_unit, _surrenderChance, _hesitation, thisTrigger] spawn {
