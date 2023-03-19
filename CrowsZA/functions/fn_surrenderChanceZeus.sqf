@@ -14,7 +14,9 @@ private _onConfirm =
 	_in params [["_pos",[0,0,0],[[]],3], "_unit"];
 
 	private _units = if(isNull _unit) then {
-		units (_dialogResult deleteAt 0)
+		private _u = [];
+		{ _u insert [-1, units _x, true]; } forEach ((ASLToAGL _pos) nearEntities [["Man"], (_dialogResult deleteAt 0)]);
+		_u
 	} else {
 		units group _unit
 	};
@@ -32,7 +34,7 @@ private _onConfirm =
 };
 
 private _controls = [
-		["SIDES", "Side", east],
+		["SLIDER:RADIUS", ["Radius", "Apply this effect to all units in radius"], [1, 100, 30, 0, ASLtoAGL _pos, [1, 0, 0, 0.7]]],
 		["SLIDER", ["Confrontation Radius", "Radius within which pointing a weapon at the unit will trigger a response"], [5, 50, 15, 0]],
 		["SLIDER:PERCENT", "Surrender Chance", [0, 1, 0.33, 0]],
 		["CHECKBOX", ["Hold Fire", "Units will hold fire until confronted"], [true]],
