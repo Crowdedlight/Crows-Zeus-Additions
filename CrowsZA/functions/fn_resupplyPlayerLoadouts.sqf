@@ -12,6 +12,8 @@ params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
 private _onConfirm =
 {
+	scopeName "main"; 
+
 	params ["_dialogResult","_in"];
 	_dialogResult params
 	[
@@ -103,7 +105,7 @@ private _onConfirm =
 		} forEach _itemList;
 
 		// add container to editable
-		["zen_common_addObjects", [[_container], objNull]] call CBA_fnc_serverEvent;
+		["zen_common_updateEditableObjects", [[_container]]] call CBA_fnc_serverEvent;
 
 		// if rearm and ace loaded
 		if (_rearm) then {
@@ -127,7 +129,10 @@ private _onConfirm =
 			if (_customAircraft != "") then {
 				// test if classname exists, then save it in _selectedAircraft
 				private _validAircraft = isClass (configFile >> "CfgVehicles" >> _customAircraft);
-				if (_validAircraft == false) exitWith {hint "Classname provided does not exist!";};
+				if (_validAircraft == false) then {
+					hint "Classname provided does not exist!"; 
+					breakOut "main";
+				};
 				_selectedAircraft = _customAircraft;
 			};
 
@@ -199,7 +204,7 @@ private _onConfirm =
 			_waypointEnd setWaypointStatements ["true", "private _group = group this; private _aircrafts = []; {_aircrafts pushBackUnique vehicle _x; deleteVehicle _x} forEach thisList; {deleteVehicle _x} forEach _aircrafts; deleteGroup _group"];
 
 			// add plane to zeus editable so they can see it coming
-			["zen_common_addObjects", [[_aircraft], objNull]] call CBA_fnc_serverEvent;
+			["zen_common_updateEditableObjects", [[_aircraft]]] call CBA_fnc_serverEvent;
 		};
 	};
 };
@@ -208,17 +213,16 @@ private _onConfirm =
 private _aircraftList = ["B_T_VTOL_01_vehicle_F"];
 private _aircraftDisplayList = ["Blackfish"];
 
+// SOG loaded
 if (crowsZA_common_sogLoaded) then {
 	_aircraftList pushBack "vn_b_air_uh1c_07_07";
 	_aircraftDisplayList pushBack "Huey Slick (SOG)";
 };
 
-// RHS MI-8 Hip //TODO
-
 // RHS loaded 
 if (crowsZA_common_rhsLoaded) then {
-	_aircraftList append ["RHS_C130J_Cargo", "rhsusf_CH53e_USMC_D_cargo", "RHS_CH_47F_cargo"];
-	_aircraftDisplayList append ["C-130 Plane (RHS)", "CH-53 Sea Stallion (RHS)", "CH-47F Chinook (RHS)"];
+	_aircraftList append ["RHS_C130J_Cargo", "rhsusf_CH53e_USMC_D_cargo", "RHS_CH_47F_cargo", "RHS_Mi8t_civilian"];
+	_aircraftDisplayList append ["C-130 Plane (RHS)", "CH-53 Sea Stallion (RHS)", "CH-47F Chinook (RHS)", "MI-8T Civilian Helicopter (RHS)"];
 };
 
 // AMF loaded
