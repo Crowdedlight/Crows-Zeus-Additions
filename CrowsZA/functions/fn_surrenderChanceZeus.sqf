@@ -15,7 +15,7 @@ private _onConfirm =
 
 	private _units = if(isNull _unit) then {
 		private _u = [];
-		{ _u insert [-1, units _x, true]; } forEach ((ASLToAGL _pos) nearEntities [["Man"], (_dialogResult deleteAt 0)]);
+		{ _u insert [-1, units _x, true]; } forEach ((ASLToAGL _pos) nearEntities [["CAManBase"], (_dialogResult deleteAt 0)]);
 		_u
 	} else {
 		units group _unit
