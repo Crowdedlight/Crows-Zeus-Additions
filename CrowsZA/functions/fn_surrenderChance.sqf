@@ -60,7 +60,7 @@ private _unit = thisTrigger getVariable ""_unit"";
 {
 	[_unit, {
 		missionNamespace setVariable [
-			""crowsza_surrender_chance_"" + str _this,
+			""crowsza_surrender_chance_"" + str (_this call BIS_fnc_netId),
 			(toUpperANSI cameraView == ""GUNNER"") && (cursorObject == _this),
 			remoteExecutedOwner
 		];
