@@ -30,6 +30,8 @@ crowsZA_common_selectPositionActive = false;
 // save ace loaded variable as public var. So context menu check just needs to check var
 crowsZA_common_aceModLoaded = isClass (configFile >> "CfgPatches" >> "ace_main");
 crowsZA_common_jshkModLoaded = isClass (configFile >> "CfgPatches" >> "JSHK_contam");
+crowsZA_common_amfHelicoptersLoaded = isClass (configfile >> "CfgPatches" >> "AMF_Heli_Transport_01");
+crowsZA_common_rhsLoaded = isClass (configfile >> "CfgPatches" >> "rhs_main");
 crowsZA_common_sogLoaded = isClass (configfile >> "CfgMods" >> "vn");
 
 // return the modules to load

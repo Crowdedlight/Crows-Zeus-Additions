@@ -12,10 +12,10 @@ class CfgPatches
 		units[] = {};
 		weapons[] = {};
 		requiredAddons[] = {
+			"cba_main",
 			"zen_context_menu",
 			"zen_attributes",
-			"zen_custom_modules",
-			"cba_main"
+			"zen_custom_modules"
 		 };
 		author = "Crowdedlight";
 		authorUrl = "https://forums.bohemia.net/profile/1173289-crowdedlight/";

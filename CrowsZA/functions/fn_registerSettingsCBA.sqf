@@ -5,7 +5,7 @@ File: fn_registerSettingsCBA.sqf
 Parameters: none
 Return: none
 
-Register all settings for CBA - As this is run in preStart
+Register all settings for CBA - As this is run in preInit
 
 *///////////////////////////////////////////////
 
