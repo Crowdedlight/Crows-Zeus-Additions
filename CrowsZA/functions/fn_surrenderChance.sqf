@@ -11,8 +11,8 @@ Parameters:
 
 Return: bool        		- True if method ran successfully, false if aborted (e.g. bad params were passed)
 
-// This code inspired by CQB Interactions By Flex7103
-// https://steamcommunity.com/sharedfiles/filedetails/?id=2942202773
+This code inspired by CQB Interactions By Flex7103
+https://steamcommunity.com/sharedfiles/filedetails/?id=2942202773
 
 *///////////////////////////////////////////////
 params [
@@ -89,22 +89,7 @@ deletevehicle thisTrigger;
 
 
 	if(random 1 < _surrenderChance) then {
-
-		if (crowsZA_common_aceModLoaded) then {
-			[""ace_captives_setSurrendered"",[_unit,true]] call CBA_fnc_globalEvent;
-		} else {
-			_unit action [""surrender"", _unit];
-		};
-		
-		_weapon = currentWeapon _unit;
-		_unit removeWeapon (currentWeapon _unit); 
-		_weaponHolder = ""WeaponHolderSimulated"" createVehicle [0,0,0]; 
-		_weaponHolder addWeaponCargoGlobal [_weapon,1]; 
-		_weaponHolder setPos (_unit modelToWorld [0,.2,1.2]); 
-		_weaponHolder disableCollisionWith _unit; 
-		_dir = random(360); 
-		_speed = 1; 
-		_weaponHolder setVelocity [_speed * sin(_dir), _speed * cos(_dir),4];
+		[_unit] call crowsZA_fnc_surrender;
 	} else {
 		_unit setUnitCombatMode ""RED"";
 		_unit setCombatBehaviour ""COMBAT"";
@@ -141,21 +126,7 @@ private _eh = _unit addEventHandler ["HandleDamage", {
 				_unit setUnitCombatMode "RED";
 				_unit setCombatBehaviour "COMBAT";
 			} else {
-				if (crowsZA_common_aceModLoaded) then {
-					["ace_captives_setSurrendered",[_unit,true]] call CBA_fnc_globalEvent;
-				} else {
-					_unit action ["surrender", _unit];
-				};
-
-				_weapon = currentWeapon _unit;
-				_unit removeWeapon (currentWeapon _unit); 
-				_weaponHolder = "WeaponHolderSimulated" createVehicle [0,0,0]; 
-				_weaponHolder addWeaponCargoGlobal [_weapon,1]; 
-				_weaponHolder setPos (_unit modelToWorld [0,.2,1.2]); 
-				_weaponHolder disableCollisionWith _unit; 
-				_dir = random(360); 
-				_speed = 1; 
-				_weaponHolder setVelocity [_speed * sin(_dir), _speed * cos(_dir),4];
+				[_unit] call crowsZA_fnc_surrender;
 			};
 
 			deletevehicle (_unit getVariable "_trigger");
