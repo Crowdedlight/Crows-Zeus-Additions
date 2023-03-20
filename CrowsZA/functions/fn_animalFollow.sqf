@@ -59,7 +59,7 @@ for "_x" from 1 to round _amount do {
 	crowsZA_animalFollowList pushback _animal;
 
 	//make animal curator editable 
-	["zen_common_addObjects", [[_animal], objNull]] call CBA_fnc_serverEvent;
+	["zen_common_updateEditableObjects", [[_animal]]] call CBA_fnc_serverEvent;
 
 	//add ace interaction option to pet the animal, if ace is loaded 
 	if (crowsZA_common_aceModLoaded) then {

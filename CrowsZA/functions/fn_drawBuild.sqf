@@ -264,7 +264,7 @@ for "_i" from 1 to _iterations do {
 };
 
 // add all spawned objects to zeus editable objects	
-["zen_common_addObjects", [_allObjects, objNull]] call CBA_fnc_serverEvent;
+["zen_common_updateEditableObjects", [_allObjects]] call CBA_fnc_serverEvent;
 
 
 // find length of objects for spacing

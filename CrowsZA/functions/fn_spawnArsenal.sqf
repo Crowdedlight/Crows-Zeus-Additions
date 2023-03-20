@@ -16,7 +16,7 @@ private _posAGL = ASLToAGL _pos;
 private _crate = "B_supplyCrate_F" createVehicle _posAGL;
 
 //ZEN event that registers the object as editable by zeus. Remember the function wants array not single object
-["zen_common_addObjects", [[_crate], objNull]] call CBA_fnc_serverEvent;
+["zen_common_updateEditableObjects", [[_crate]]] call CBA_fnc_serverEvent;
 
 //set item as ACE Arsenal - Removing any arsenal from it first, for safety
 if (crowsZA_common_aceModLoaded) then {

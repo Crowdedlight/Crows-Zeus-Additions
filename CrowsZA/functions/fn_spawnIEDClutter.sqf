@@ -171,7 +171,7 @@ for "_i" from 1 to _clutterAmount do {
 	_clutter = _clutter createVehicle _safePos;
 	_clutter setDir (random 360);
 	_clutter enableSimulationGlobal false;
-	["zen_common_addObjects", [[_clutter], objNull]] call CBA_fnc_serverEvent;
+	["zen_common_updateEditableObjects", [[_clutter]]] call CBA_fnc_serverEvent;
 };
 
 
@@ -229,7 +229,7 @@ for "_i" from 1 to _iedAmount do {
 		_clutter = (selectRandom _smallClutter) createVehicle _safePos;
 		_clutter setDir (random 360);
 		_clutter enableSimulationGlobal false;
-		["zen_common_addObjects", [[_clutter], objNull]] call CBA_fnc_serverEvent;
+		["zen_common_updateEditableObjects", [[_clutter]]] call CBA_fnc_serverEvent;
 
 		_ied = createVehicle [_ied, _safePos, [], 0, "CAN_COLLIDE"];
 		hideObjectGlobal _ied;
@@ -273,5 +273,5 @@ for "_i" from 1 to _iedAmount do {
 	};
 
 	// TODO: This doesn't seem to work for (armed) explosives
-	["zen_common_addObjects", [[_ied], objNull]] call CBA_fnc_serverEvent;
+	["zen_common_updateEditableObjects", [[_ied]]] call CBA_fnc_serverEvent;
 };
