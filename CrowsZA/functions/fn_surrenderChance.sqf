@@ -66,9 +66,9 @@ private _unit = thisTrigger getVariable ""_unit"";
 		];
 	}] remoteExecCall [""call"", _x];
 
-	if((missionNamespace getVariable (""crowsza_surrender_chance_"" + str _unit))) exitWith {true};
+	if((missionNamespace getVariable (""crowsza_surrender_chance_"" + str (_this call BIS_fnc_netId)))) exitWith {true};
 } forEach thisList;
-(missionNamespace getVariable (""crowsza_surrender_chance_"" + str _unit))
+(missionNamespace getVariable (""crowsza_surrender_chance_"" + str (_this call BIS_fnc_netId)))
 ";
 
 
