@@ -52,6 +52,7 @@ private _moduleList = [
     ["Remove Radio/Bino",{_this call crowsZA_fnc_removeRadioBino}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
     ["Spawn IED Clutter",{_this call crowsZA_fnc_spawnIEDClutterZeus}, "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa"],
     ["Strip Explosives",{_this call crowsZA_fnc_stripExplosivesZeus}, "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa"],
+    ["Surrender Chance",{_this call crowsZA_fnc_surrenderChanceZeus}, "\a3\ui_f\data\igui\cfg\holdactions\holdAction_secure_ca.paa"],
     ["Set Teleport to Squadmember",{_this call crowsZA_fnc_setTeleportToSquadMemberZeus}, "\CrowsZA\data\tpToSquad.paa"]
 ];
 

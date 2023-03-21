@@ -71,6 +71,26 @@ if (!hasInterface) exitWith {};
     [1,1,1,1]
 ] call CBA_fnc_addSetting;
 
+
+// ZEUS SURRENDER HELPER
+[
+	"crowsZA_zeus_surrender_helper",
+    "CHECKBOX",
+    ["Show Surrender Icon","Shows an icon over units with a chance to surrender"],
+    ["Crows Zeus Additions","Surrender Chance"],
+    true
+] call CBA_fnc_addSetting;
+
+// ZEUS SURRENDER HELPER - COLOR
+[
+	"crowsZA_zeus_surrender_helper_color",
+    "COLOR",
+    ["Icon Colour","What colour the icon is shown with"],
+    ["Crows Zeus Additions","Surrender Chance"],
+    [1,1,1,1]
+] call CBA_fnc_addSetting;
+
+
 // custom CBA setting to disable pingbox
 [
 	"crowsZA_CBA_Setting_pingbox_enabled",
