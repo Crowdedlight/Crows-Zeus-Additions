@@ -27,9 +27,15 @@ if(isNull _unit) exitWith { false };
 
 if(_unit getVariable ["crowsza_surrender_chance_applied", false]) exitWith { ["Surrender chance already applied to this unit"] call crowsZA_fnc_showHint; false };
 
-
-// TODO: add to CZA draw handler so zeuses can see which units have had this applied (similar to Remote Control)
+// Tag this unit so that this function isn't applied twice
 _unit setVariable ["crowsza_surrender_chance_applied", true, true];
+
+
+// Add this unit to the list of units with this module applied, for drawing icons
+private _surrenderUnits = missionNamespace getVariable["crowsZA_surrenderUnits", []];
+_surrenderUnits pushBack _unit;
+_surrenderUnits = _surrenderUnits arrayIntersect _surrenderUnits;
+missionNamespace setVariable["crowsZA_surrenderUnits", _surrenderUnits, true];
 
 
 if(_holdFire) then {
@@ -87,7 +93,6 @@ deletevehicle thisTrigger;
 
 	sleep ([random (0.5 + _hesitation), 0.5, _hesitation] call BIS_fnc_clamp);
 
-
 	if(random 1 < _surrenderChance) then {
 		[_unit] call crowsZA_fnc_surrender;
 	} else {
@@ -143,12 +148,24 @@ _unit setVariable ["crowsza_surrChance_ehDamaged", _eh];
 _unit addEventHandler ["Deleted", {
 	params ["_entity"];
 	deleteVehicle (_entity getVariable "_trigger");
+
+	// Remove unit from list of units with the module applied
+	private _surrenderUnits = missionNamespace getVariable["crowsZA_surrenderUnits", []];
+	_surrenderUnits = _surrenderUnits - [_entity];
+	_surrenderUnits = _surrenderUnits arrayIntersect _surrenderUnits;
+	missionNamespace setVariable["crowsZA_surrenderUnits", _surrenderUnits, true];
 }];
 
 _unit addEventHandler ["Killed", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
 	deleteVehicle (_unit getVariable "_trigger");
 	_unit removeEventHandler ["HandleDamage", _unit getVariable "crowsza_surrChance_ehDamaged"];
+	
+	// Remove unit from list of units with the module applied
+	private _surrenderUnits = missionNamespace getVariable["crowsZA_surrenderUnits", []];
+	_surrenderUnits = _surrenderUnits - [_unit];
+	_surrenderUnits = _surrenderUnits arrayIntersect _surrenderUnits;
+	missionNamespace setVariable["crowsZA_surrenderUnits", _surrenderUnits, true];
 }];
 
 
