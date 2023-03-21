@@ -23,6 +23,20 @@ params [
 	["_hesitation", 0, [0]]
 ];
 
+// Remove unit from list of units with the module applied, and associated variables
+crowsZA_fnc_clearSurrender = {
+	params ["_unit"];
+	deletevehicle (_unit getVariable "_trigger");
+	_unit removeEventHandler ["HandleDamage", _unit getVariable "crowsza_surrChance_ehDamaged"];
+	missionNamespace setVariable [("crowsza_surrender_chance_" + str (_unit call BIS_fnc_netId)), nil];
+	_unit setVariable ["crowsza_surrender_chance_applied", nil, true];
+	private _surrenderUnits = missionNamespace getVariable["crowsZA_surrenderUnits", []];
+	_surrenderUnits = _surrenderUnits - [_unit];
+	_surrenderUnits = _surrenderUnits arrayIntersect _surrenderUnits;
+	missionNamespace setVariable["crowsZA_surrenderUnits", _surrenderUnits, true];
+};
+
+
 if(isNull _unit) exitWith { false };
 
 if(_unit getVariable ["crowsza_surrender_chance_applied", false]) exitWith { ["Surrender chance already applied to this unit"] call crowsZA_fnc_showHint; false };
@@ -83,9 +97,7 @@ private _unit = thisTrigger getVariable ""_unit"";
 private _surrenderChance = _unit getVariable ""_surrenderChance"";
 private _hesitation = _unit getVariable ""_hesitation"";
 
-missionNamespace setVariable [(""crowsza_surrender_chance_"" + str _unit), nil];
-_unit setVariable [""crowsza_surrender_chance_applied"", nil, true];
-deletevehicle thisTrigger;
+[_unit] call crowsZA_fnc_clearSurrender;
 
 [_unit, _surrenderChance, _hesitation, thisTrigger] spawn {
 
@@ -134,10 +146,7 @@ private _eh = _unit addEventHandler ["HandleDamage", {
 				[_unit] call crowsZA_fnc_surrender;
 			};
 
-			deletevehicle (_unit getVariable "_trigger");
-			_unit removeEventHandler ["HandleDamage", _unit getVariable "crowsza_surrChance_ehDamaged"];
-			missionNamespace setVariable [("crowsza_surrender_chance_" + str _unit), nil];
-			_unit setVariable ["crowsza_surrender_chance_applied", nil, true];
+			[_unit] call crowsZA_fnc_clearSurrender;
 		};
 	}, _this] call CBA_fnc_execNextFrame;
 }];
@@ -147,25 +156,12 @@ _unit setVariable ["crowsza_surrChance_ehDamaged", _eh];
 
 _unit addEventHandler ["Deleted", {
 	params ["_entity"];
-	deleteVehicle (_entity getVariable "_trigger");
-
-	// Remove unit from list of units with the module applied
-	private _surrenderUnits = missionNamespace getVariable["crowsZA_surrenderUnits", []];
-	_surrenderUnits = _surrenderUnits - [_entity];
-	_surrenderUnits = _surrenderUnits arrayIntersect _surrenderUnits;
-	missionNamespace setVariable["crowsZA_surrenderUnits", _surrenderUnits, true];
+	[_entity] call crowsZA_fnc_clearSurrender;
 }];
 
 _unit addEventHandler ["Killed", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
-	deleteVehicle (_unit getVariable "_trigger");
-	_unit removeEventHandler ["HandleDamage", _unit getVariable "crowsza_surrChance_ehDamaged"];
-	
-	// Remove unit from list of units with the module applied
-	private _surrenderUnits = missionNamespace getVariable["crowsZA_surrenderUnits", []];
-	_surrenderUnits = _surrenderUnits - [_unit];
-	_surrenderUnits = _surrenderUnits arrayIntersect _surrenderUnits;
-	missionNamespace setVariable["crowsZA_surrenderUnits", _surrenderUnits, true];
+	[_unit] call crowsZA_fnc_clearSurrender;
 }];
 
 
