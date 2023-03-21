@@ -23,6 +23,7 @@ if (crowsZA_common_aceModLoaded) then {
 };
 
 _weapon = currentWeapon _unit;
+if(_weapon isEqualTo "") exitWith { false };
 _unit removeWeapon (currentWeapon _unit); 
 _weaponHolder = "WeaponHolderSimulated" createVehicle [0,0,0]; 
 _weaponHolder addWeaponCargoGlobal [_weapon,1]; 
