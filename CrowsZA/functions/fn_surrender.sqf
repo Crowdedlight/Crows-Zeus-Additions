@@ -13,7 +13,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2942202773
 *///////////////////////////////////////////////
 
 if (crowsZA_common_aceModLoaded) then {
-	["ace_captives_setSurrendered",[_unit,true]] call CBA_fnc_globalEvent;
+	["ace_captives_setSurrendered",[_unit,true], _unit] call CBA_fnc_targetEvent;
 } else {
 	_unit action ["surrender", _unit];
 };
