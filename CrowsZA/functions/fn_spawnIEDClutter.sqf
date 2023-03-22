@@ -171,7 +171,7 @@ for "_i" from 1 to _clutterAmount do {
 	_clutter = _clutter createVehicle _safePos;
 	_clutter setDir (random 360);
 	_clutter enableSimulationGlobal false;
-	["zen_common_addObjects", [[_clutter], objNull]] call CBA_fnc_serverEvent;
+	["zen_common_updateEditableObjects", [[_clutter]]] call CBA_fnc_serverEvent;
 };
 
 
@@ -179,26 +179,36 @@ for "_i" from 1 to _clutterAmount do {
  Place IED(s)
 /*/////////////////////////////////////////////////
 
-private _ieds = [
-	"ACE_IEDLandBig_Range_Ammo",
-	"ACE_IEDUrbanBig_Range_Ammo",
-	"ACE_IEDLandSmall_Range_Ammo",
-	"ACE_IEDUrbanSmall_Range_Ammo"
-];
+private _ieds = if(crowsZA_common_aceModLoaded) then { 
+	[
+		"ACE_IEDLandBig_Range_Ammo",
+		"ACE_IEDUrbanBig_Range_Ammo",
+		"ACE_IEDLandSmall_Range_Ammo",
+		"ACE_IEDUrbanSmall_Range_Ammo"
+	]
+} else {
+	[
+		"ModuleExplosive_IEDLandBig_F",
+		"ModuleExplosive_IEDUrbanBig_F",
+		"ModuleExplosive_IEDLandSmall_F",
+		"ModuleExplosive_IEDUrbanSmall_F"
+	]
+};
+
 
 if(_iedSize == 0) then {
-	_ieds = _ieds - ["ACE_IEDLandBig_Range_Ammo","ACE_IEDUrbanBig_Range_Ammo"];
+	_ieds = _ieds - ["ACE_IEDLandBig_Range_Ammo","ACE_IEDUrbanBig_Range_Ammo", "ModuleExplosive_IEDLandBig_F", "ModuleExplosive_IEDUrbanBig_F"];
 };
 if(_iedSize == 1) then {
-	_ieds = _ieds - ["ACE_IEDLandSmall_Range_Ammo","ACE_IEDUrbanSmall_Range_Ammo"];
+	_ieds = _ieds - ["ACE_IEDLandSmall_Range_Ammo","ACE_IEDUrbanSmall_Range_Ammo","ModuleExplosive_IEDLandSmall_F","ModuleExplosive_IEDUrbanSmall_F"];
 };
 
 
 if(_iedType == 0) then {
-	_ieds = _ieds - ["ACE_IEDLandBig_Range_Ammo","ACE_IEDLandSmall_Range_Ammo"];
+	_ieds = _ieds - ["ACE_IEDLandBig_Range_Ammo","ACE_IEDLandSmall_Range_Ammo", "ModuleExplosive_IEDLandBig_F","ModuleExplosive_IEDLandSmall_F"];
 };
 if(_iedType == 1) then {
-	_ieds = _ieds - ["ACE_IEDUrbanBig_Range_Ammo","ACE_IEDUrbanSmall_Range_Ammo"];
+	_ieds = _ieds - ["ACE_IEDUrbanBig_Range_Ammo","ACE_IEDUrbanSmall_Range_Ammo","ModuleExplosive_IEDUrbanBig_F","ModuleExplosive_IEDUrbanSmall_F"];
 };
 
 
@@ -214,11 +224,12 @@ for "_i" from 1 to _iedAmount do {
 	// If ied type is set to clutter (or random, with a 0.33 chance)
 	// place an extra piece of clutter, and hide an invisible ied beneath it;
 	// it should still be able to be detonated and defused as normal
-	if(_iedType == 2 || (_iedType == 3 && (random 1) < 0.33)) then {
+	// (Non-ace ieds can't have their model hidden, so can't be disguised as clutter)
+	if(crowsZA_common_aceModLoaded && (_iedType == 2 || (_iedType == 3 && (random 1) < 0.33))) then {
 		_clutter = (selectRandom _smallClutter) createVehicle _safePos;
 		_clutter setDir (random 360);
 		_clutter enableSimulationGlobal false;
-		["zen_common_addObjects", [[_clutter], objNull]] call CBA_fnc_serverEvent;
+		["zen_common_updateEditableObjects", [[_clutter]]] call CBA_fnc_serverEvent;
 
 		_ied = createVehicle [_ied, _safePos, [], 0, "CAN_COLLIDE"];
 		hideObjectGlobal _ied;
@@ -227,6 +238,40 @@ for "_i" from 1 to _iedAmount do {
 		_ied setDir (random 360);
 	};
 
+	// If ace isn't loaded, mimic an ace pressure-plate ied
+	if(!crowsZA_common_aceModLoaded) then {
+		private _trigger = createTrigger ["EmptyDetector", getPos _ied, false];
+		private _radius = 2;
+		_trigger setTriggerArea [_radius, _radius, 0, false];
+		_trigger setTriggerActivation ["ANY", "PRESENT", true];
+
+		_trigger setVariable ["_ied", _ied];
+		_ied setVariable ["_trigger", _trigger];
+
+		private _condition = "this && (thisList findIf { !((stance _x) == ""PRONE"" || (stance _x) == """") } > -1);";
+
+		private _activation = "
+		(thisTrigger getVariable ""_ied"") setDamage 1;
+		deletevehicle thisTrigger;
+		";
+
+		_trigger setTriggerStatements [
+			_condition,
+			_activation,
+			""
+		];
+
+		_ied addEventHandler ["Deleted", {
+			params ["_entity"];
+			deleteVehicle (_entity getVariable "_trigger");
+		}];
+
+		_ied addEventHandler ["Killed", {
+			params ["_unit", "_killer", "_instigator", "_useEffects"];
+			deleteVehicle (_unit getVariable "_trigger");
+		}];
+	};
+
 	// TODO: This doesn't seem to work for (armed) explosives
-	["zen_common_addObjects", [[_ied], objNull]] call CBA_fnc_serverEvent;
+	["zen_common_updateEditableObjects", [[_ied]]] call CBA_fnc_serverEvent;
 };

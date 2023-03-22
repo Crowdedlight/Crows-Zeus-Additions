@@ -55,6 +55,10 @@ class CrowsZA_addon
 		class stripExplosives {};
 		class stripExplosivesZeus {};
 
+		class surrender {};
+		class surrenderChance {};
+		class surrenderChanceZeus {};
+
 		class contextPasteLoadout {};
 		
 		class loadoutViewer {};
@@ -69,6 +73,8 @@ class CrowsZA_addon
 
 		class resupplyPlayerLoadouts {};
 		class spawnSupplyDrop {};
+
+		class togglePathing {};
 
 		// draw building and helper functions
 		class getPosFromMouse {};

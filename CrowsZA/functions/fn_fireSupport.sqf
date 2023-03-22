@@ -70,7 +70,7 @@ private _onConfirm =
 		_logicGroup = createGroup _logicCenter;
 		_logic = _logicGroup createUnit ["Logic", _pos, [], 0, "NONE"];
 		_logic setVariable ["crowsZA_module", "firesupport"];
-		["zen_common_addObjects", [[_logic], objNull]] call CBA_fnc_serverEvent;
+		["zen_common_updateEditableObjects", [[_logic]]] call CBA_fnc_serverEvent;
 	};
 	
 	// check if display variable has changed or is new module

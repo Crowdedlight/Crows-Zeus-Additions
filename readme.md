@@ -32,6 +32,7 @@ Features:
 * **Zeus Remote Control Indicator:** Will show an icon for all zeus' over the unit a zeus is currently remote controlling. It helps coordination between multiple zeus to not try and control or modify the same unit at the same time. The feature can be disabled in addon settings (Enabled by default), and the color of the icon can be changed aswell.   
 * **Remove Explosives/Grenades:** A tool to remove explosives or grenades from a side, group or individual unit. If used on players, the player will be notified that Zeus have removed stuff from him. 
 * **IED Clutter:** Spawns clutter with embedded IEDs in an area. Can be used to quickly make IED threats hidden in other clutter  
+* **Surrender Chance:** When put on a unit it has a zeus-decided chance to surrender when an player aims at it with a weapon. Useful for HVT capture scenarios. Shows icon for Zeus to see what units have it applied   
 
 Features Requireing ACE:   
 * **Set supply Vehicle:** Set an object or vehicle as an ACE rearm/refuel/repair vehicle
@@ -78,6 +79,7 @@ The following has been tested on dedicated server with default settings:
 - [X] Remove Binos/Radio
 - [X] Remove Explosives/Grenades
 - [X] IED Clutter
+- [X] Surrender Chance
 
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the entry.

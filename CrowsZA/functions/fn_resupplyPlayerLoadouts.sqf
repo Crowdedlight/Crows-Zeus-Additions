@@ -12,6 +12,8 @@ params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
 private _onConfirm =
 {
+	scopeName "main"; 
+
 	params ["_dialogResult","_in"];
 	_dialogResult params
 	[
@@ -19,6 +21,7 @@ private _onConfirm =
 		"_airdrop",
 		"_useAircraft",
 		"_selectedAircraft",
+		"_customAircraft",
 		"_height",
 		"_medical",
 		"_rearm"
@@ -102,7 +105,7 @@ private _onConfirm =
 		} forEach _itemList;
 
 		// add container to editable
-		["zen_common_addObjects", [[_container], objNull]] call CBA_fnc_serverEvent;
+		["zen_common_updateEditableObjects", [[_container]]] call CBA_fnc_serverEvent;
 
 		// if rearm and ace loaded
 		if (_rearm) then {
@@ -122,6 +125,16 @@ private _onConfirm =
 			[_airDropPos, _addAmount, _ammoList, _itemList, _rearm] call crowsZA_fnc_spawnSupplyDrop;
 
 		} else {
+			// test if custom aircraft is given
+			if (_customAircraft != "") then {
+				// test if classname exists, then save it in _selectedAircraft
+				private _validAircraft = isClass (configFile >> "CfgVehicles" >> _customAircraft);
+				if (_validAircraft == false) then {
+					hint "Classname provided does not exist!"; 
+					breakOut "main";
+				};
+				_selectedAircraft = _customAircraft;
+			};
 
 			// get random direction from 0 to 7 index and convert to degrees
 			private _direction = (random 7) * 45;
@@ -191,7 +204,7 @@ private _onConfirm =
 			_waypointEnd setWaypointStatements ["true", "private _group = group this; private _aircrafts = []; {_aircrafts pushBackUnique vehicle _x; deleteVehicle _x} forEach thisList; {deleteVehicle _x} forEach _aircrafts; deleteGroup _group"];
 
 			// add plane to zeus editable so they can see it coming
-			["zen_common_addObjects", [[_aircraft], objNull]] call CBA_fnc_serverEvent;
+			["zen_common_updateEditableObjects", [[_aircraft]]] call CBA_fnc_serverEvent;
 		};
 	};
 };
@@ -200,33 +213,41 @@ private _onConfirm =
 private _aircraftList = ["B_T_VTOL_01_vehicle_F"];
 private _aircraftDisplayList = ["Blackfish"];
 
+// SOG loaded
 if (crowsZA_common_sogLoaded) then {
 	_aircraftList pushBack "vn_b_air_uh1c_07_07";
 	_aircraftDisplayList pushBack "Huey Slick (SOG)";
 };
 
-private _dialogOptions = [crowsZA_common_aceModLoaded, _sogLoaded, _aircraftList, _aircraftDisplayList] call {
-	params ["_aceLoaded", "_sogLoaded", "_aircraftList", "_aircraftDisplayList"];
+// RHS loaded 
+if (crowsZA_common_rhsLoaded) then {
+	_aircraftList append ["RHS_C130J_Cargo", "rhsusf_CH53e_USMC_D_cargo", "RHS_CH_47F_cargo", "RHS_Mi8t_civilian"];
+	_aircraftDisplayList append ["C-130 Plane (RHS)", "CH-53 Sea Stallion (RHS)", "CH-47F Chinook (RHS)", "MI-8T Civilian Helicopter (RHS)"];
+};
+
+// AMF loaded
+if (crowsZA_common_amfHelicoptersLoaded) then {
+	_aircraftList append ["amf_nh90_tth_cargo", "B_AMF_PLANE_TRANSPORT_01_F"];
+	_aircraftDisplayList append ["NH-90 Helicopter (AMF)", "CASA CN-235 Plane (AMF)"];
+};
+
+private _dialogOptions = [crowsZA_common_aceModLoaded, _aircraftList, _aircraftDisplayList] call {
+	params ["_aceLoaded", "_aircraftList", "_aircraftDisplayList"];
 	private _arr = [];
+
+	_arr = [
+		["SLIDER","Multiplier (amount per player)",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
+		["CHECKBOX",["Airdrop", "Make it airdrop from 300m"],[true]],
+		["CHECKBOX",["Aircraft", "Make aircraft drop it"],[true]],
+		["COMBO",["Choose Aircraft", "What aircraft to drop the supply from"],[_aircraftList, _aircraftDisplayList,0]],
+		["EDIT",["Custom Type (Optional)", "Provide classname to aircraft you want to use, instead of using dropdown list"], "", false],
+		["SLIDER","Airdrop height [m]",[50,1000,200,0]],
+		["CHECKBOX",["Medical", "Add Medical supplies"],[true]]
+	];
+
+	// add options for ace rearm vehicle if ace is used
 	if (_aceLoaded) then {
-		_arr = [
-			["SLIDER","Multiplier (amount per player)",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
-			["CHECKBOX",["Airdrop", "Make it airdrop from 300m"],[true]],
-			["CHECKBOX",["Aircraft", "Make aircraft drop it"],[true]],
-			["COMBO",["Choose Aircraft", "What aircraft to drop the supply from"],[_aircraftList, _aircraftDisplayList,0]],
-			["SLIDER","Airdrop height [m]",[50,1000,200,0]],
-			["CHECKBOX",["Medical", "Add Medical supplies"],[true]],
-			["CHECKBOX",["ACE Rearm", "Set as ACE Rearm vehicle"],[false]]
-		];
-	} else {
-		_arr = [
-			["SLIDER","Multiplier (amount per player)",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
-			["CHECKBOX",["Airdrop", "Make it airdrop from 300m"],[true]],
-			["CHECKBOX",["Aircraft", "Make aircraft drop it"],[true]],
-			["COMBO",["Choose Aircraft", "What aircraft to drop the supply from"],[_aircraftList, _aircraftDisplayList,0]],
-			["SLIDER","Airdrop height [m]",[50,1000,200,0]],
-			["CHECKBOX",["Medical", "Add Medical supplies"],[true]]
-		];
+		_arr pushBack ["CHECKBOX",["ACE Rearm", "Set as ACE Rearm vehicle"],[false]];
 	};
 	_arr;
 };

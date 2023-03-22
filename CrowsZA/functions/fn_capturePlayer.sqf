@@ -28,7 +28,7 @@ diag_log format ["CrowsZA-capturePlayer: Zeus is capturing unit %1. They have be
 private _crate = "VirtualReammoBox_small_F" createVehicle (position _unit);
 
 //make zeus editable
-["zen_common_addObjects", [[_crate], objNull]] call CBA_fnc_serverEvent;
+["zen_common_updateEditableObjects", [[_crate]]] call CBA_fnc_serverEvent;
 
 //remove weapons - We do not use "removeAllWeapons" as that also removes magazines, and we just want to remove the main guns
 private _loadoutArr = getUnitLoadout _unit;

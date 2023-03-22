@@ -13,6 +13,7 @@ params ["_groupLeader", "_addAmount", "_ammoList", "_itemList", "_rearm"];
 scopeName "main"; 
 
 private _airdropPos = [];
+private _velocitySet = [0,0,0];
 // if array we got a pos, otherwise we got aircraft
 if (typeName _groupLeader == "ARRAY") then {
 	_airdropPos = _groupLeader;
@@ -25,14 +26,21 @@ if (typeName _groupLeader == "ARRAY") then {
 	private _aircraft = vehicle _groupLeader; 
 	private _pos = ASLToAGL (getPosASL _aircraft);
 
-	// as we should be over drop-position, we spawn crate 0.5m behind us. 
-	_airdropPos = _pos getPos [0.2, (getDir _aircraft) - 180];
+	//get bounding box, to know how far back we should spawn the create
+	private _model_len = abs(((2 boundingBox _aircraft) select 0) select 0);
+
+	// as we should be over drop-position, we spawn crate 0.8x the distance form pos to end of geometry. 
+	_airdropPos = _pos getPos [_model_len*0.8, (getDir _aircraft) - 180];
 	_airdropPos set [2, _pos select 2];
+
+	// if in plane we try to match part of current plane velocity
+	_velocitySet = velocity _aircraft;
+	_velocitySet = [(_velocitySet#0) * 0.2, (_velocitySet#1) * 0.2, (_velocitySet#2) * 0.2];
 };
 
 // spawn container 
 private _container = createVehicle ["C_IDAP_supplyCrate_F", _airdropPos,[],0,"CAN_COLLIDE"];
-_container setVelocity [0,0,0];
+_container setVelocity _velocitySet;
 
 clearWeaponCargoGlobal _container;
 clearMagazineCargoGlobal _container;
@@ -50,8 +58,8 @@ clearBackpackCargoGlobal _container;
 	_container addItemCargoGlobal [_x, _addAmount];
 } forEach _itemList;
 
-// use BIS function for parachute
-[objNull, _container] call BIS_fnc_curatorObjectEdited;
+// use BIS function for parachute, delay it to next frame to ensure its spawned
+[{[objNull, _this#0] call BIS_fnc_curatorObjectEdited}, [_container]] call CBA_fnc_execNextFrame;
 
 // attach smoke/chemlight grenade to crate and make it smoke. Spawning function to ensure it keeps smoking and lighting up until at least 5min have passed
 private _indicatorSpawn = [_container, 300] spawn {
@@ -109,7 +117,7 @@ private _indicatorSpawn = [_container, 300] spawn {
 };
 
 // add container to editable
-["zen_common_addObjects", [[_container], objNull]] call CBA_fnc_serverEvent;
+["zen_common_updateEditableObjects", [[_container]]] call CBA_fnc_serverEvent;
 
 // if rearm, set as ace rearm vehicle 
 if (_rearm) then {

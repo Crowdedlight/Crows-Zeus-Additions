@@ -49,6 +49,34 @@ crowsZA_unit_medical_drawEH = addMissionEventHandler ["Draw3D", {
 	} forEach crowsZA_medical_status_players;
 }];
 
+
+crowsza_fnc_drawIcon = {
+    params ["_zeusPos", "_unit", "_icon", "_color"];
+
+    // calculate distance from zeus camera to unit
+	private _dist = _zeusPos distance _unit;
+	private _scale = _dist * 0.01;
+	private _offset = 0.0;
+
+	// clamp max scale
+	if (_scale > 0.26) then {_scale = 0.26};
+
+	// // if not within 500m, we don't draw it as the text does not scale and disappear with distance
+	if (_dist > 500) then {continue;};
+
+	// //offset for longer distance
+	if (_dist > 60) then {
+		_offset = ((_dist - 60) * 0.03);
+	};
+
+	// draw icon on relative pos 
+	// offset: z: +2.15
+	private _pos = ASLToAGL getPosASLVisual _unit;
+	_pos = _pos vectorAdd [0, 0, 2.15 + _offset];
+
+	drawIcon3D [_icon, _color, _pos, 1 + _scale, 1 + _scale, 0];
+};
+
 crowsZA_unit_icon_drawEH = addMissionEventHandler ["Draw3D", {
 	// if zeus display is null, exit. Only drawing when zeus display is open
 	//if (isNull(findDisplay 312)) exitWith {};
@@ -65,30 +93,25 @@ crowsZA_unit_icon_drawEH = addMissionEventHandler ["Draw3D", {
 	// RC ICON
 	{
 		_x params["_unit"];
-
-		// calculate distance from zeus camera to unit
-		private _dist = _zeusPos distance _unit;
-		private _scale = _dist * 0.01;
-		private _offset = 0.0;
-
-		// clamp max scale
-		if (_scale > 0.26) then {_scale = 0.26};
-
-		// // if not within 500m, we don't draw it as the text does not scale and disappear with distance
-		if (_dist > 500) then {continue;};
-
-		// //offset for longer distance
-		if (_dist > 60) then {
-			_offset = ((_dist - 60) * 0.03);
-		};
-
-		// draw icon on relative pos 
-		// offset: z: +2.15
-		private _pos = ASLToAGL getPosASLVisual _unit;
-		_pos = _pos vectorAdd [0, 0, 2.15 + _offset];
-
-		drawIcon3D ["\a3\ui_f_curator\data\logos\arma3_curator_eye_512_ca.paa", crowsZA_zeus_rc_helper_color, _pos, 1 + _scale, 1 + _scale, 0];
-		// drawIcon3D ["\a3\ui_f_curator\data\logos\arma3_curator_eye_512_ca.paa", [1,1,1,1], [_pos#0, _pos#1, _pos#2 + 2.10 + (_dist * 2 ) + _offset], 0, 0, 0];
+		[_zeusPos, _unit, "\a3\ui_f_curator\data\logos\arma3_curator_eye_512_ca.paa", crowsZA_zeus_rc_helper_color] call crowsza_fnc_drawIcon;
 	} forEach _rcUnits;
+}];
+
+
+crowsZA_unit_surrender_drawEH = addMissionEventHandler ["Draw3D", {
+	// if zeus display is null, exit. Only drawing when zeus display is open
+	//if (isNull(findDisplay 312)) exitWith {};
+	if (isNull _x) exitWith {};
+	if (!crowsZA_zeus_surrender_helper) exitWith {};
+	if (uiNamespace getVariable ["RscDisplayCurator_screenshotMode", false]) exitWith {};
+
+	// cam position
+	private _zeusPos = positionCameraToWorld [0,0,0];
+
+	// SURRENDER ICON
+	{
+		_x params["_unit"];
+		[_zeusPos, _unit, "\a3\ui_f\data\igui\cfg\holdactions\holdAction_secure_ca.paa", crowsZA_zeus_surrender_helper_color] call crowsza_fnc_drawIcon;
+	} forEach (missionNamespace getVariable["crowsZA_surrenderUnits", []]);
 }];
 
