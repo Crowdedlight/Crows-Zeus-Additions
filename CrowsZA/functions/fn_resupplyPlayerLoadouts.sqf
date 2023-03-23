@@ -22,6 +22,7 @@ private _onConfirm =
 		"_useAircraft",
 		"_selectedAircraft",
 		"_customAircraft",
+		"_flyfrom",
 		"_height",
 		"_medical",
 		"_rearm"
@@ -136,8 +137,25 @@ private _onConfirm =
 				_selectedAircraft = _customAircraft;
 			};
 
-			// get random direction from 0 to 7 index and convert to degrees
-			private _direction = (random 7) * 45;
+			// Sets what direction the aircraft will fly towards
+			private _direction = switch (_flyfrom) do {
+				//Fly from is North
+				case 0: {180};
+				//Fly from is North East
+				case 1: {225};
+				//Fly from is East
+				case 2: {270};
+				//Fly from is South East
+				case 3: {315};
+				//Fly from is South
+				case 4: {0};
+				//Fly from is South West
+				case 5: {45};
+				//Fly from is West
+				case 6: {90};
+				//Fly from is North West
+				case 7: {135};
+			};
 			private _distance = 2000;
 			private _aircraftType = _selectedAircraft;
 			private _speed = ["LIMITED", "NORMAL", "FULL"] select 1;
@@ -241,6 +259,7 @@ private _dialogOptions = [crowsZA_common_aceModLoaded, _aircraftList, _aircraftD
 		["CHECKBOX",["Aircraft", "Make aircraft drop it"],[true]],
 		["COMBO",["Choose Aircraft", "What aircraft to drop the supply from"],[_aircraftList, _aircraftDisplayList,0]],
 		["EDIT",["Custom Type (Optional)", "Provide classname to aircraft you want to use, instead of using dropdown list"], "", false],
+		["TOOLBOX", "Fly From", [0, 1, 8, ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]]],
 		["SLIDER","Airdrop height [m]",[50,1000,200,0]],
 		["CHECKBOX",["Medical", "Add Medical supplies"],[true]]
 	];
