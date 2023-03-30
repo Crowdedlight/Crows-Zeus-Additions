@@ -3,33 +3,34 @@ Author: Landric
 			   
 File: fn_stripExplosives.sqf
 Parameters:
-	unit					- (unit)
-	signal grenades			- (int) 0: ignore, 1: remove, 2: replace
-	grenades				- (int) 0: ignore, 1: remove, 2: replace
-	launchers				- (int) 0: ignore, 1: remove
-	explosives				- (int) 0: ignore, 1: remove
-	underbarrel grenades	- (int) 0: ignore, 1: remove
+	unit		- (unit)
+	itemType	- (int) 0: signal grenades; 1: explosive grenades; 2: explosives; 3: UGL grenades; 4: launchers
+	replaceWith	- (int) 0: nothing; other: context specific
+	leave		- (int) amount of itemType to leave untouched
 
-Return: bool        		- True if method ran successfully, false if aborted (i.e. bad params were passed)
+Return: bool    - True if method ran successfully, false if aborted (i.e. bad params were passed)
 
 *///////////////////////////////////////////////
+
 params [
 	["_unit", objNull, [objNull]],
-	["_signalGrenades", 0, [0]],
-	["_grenades", 0, [0]],
-	["_launchers", 0, [0]],
-	["_explosives", 0, [0]],
-	["_ugl", 0, [0]]
+	["_itemType", 1, [0]],
+	["_replace", 0, [0]],
+	["_leave", 0, [0]]
 ];
 
-if(isNull _unit || (_signalGrenades + _grenades + _launchers + _explosives + _ugl) == 0) exitWith { False };
+// TODO: account for edge cases; e.g. rhs grenades ("rhs_mag_rdg2_white"), historical Pz.Gr HEAT, Pz.Gr FRAG, etc.
+
+
+if(isNull _unit || _itemType < 0 || _itemType > 4) exitWith { false };
+
 
 {
 	private _item = _x;
-	private _itemParents = [ configFile >> "CfgMagazines" >> _item, true ] call BIS_fnc_returnParents;
+	private _itemParents = [configFile >> "CfgMagazines" >> _item, true] call BIS_fnc_returnParents;
 
 	// NOTE: This includes chemlights, IR strobes, and UGL smokes
-	if(_signalGrenades > 0 && (
+	if(_itemType == 0 && {
 		("SmokeShell" in _itemParents) ||
 		("1Rnd_Smoke_Grenade_shell" in _itemParents) ||
 		("3Rnd_Smoke_Grenade_shell" in _itemParents) ||
@@ -37,75 +38,170 @@ if(isNull _unit || (_signalGrenades + _grenades + _launchers + _explosives + _ug
 		("O_IR_Grenade" in _itemParents) ||
 		("I_IR_Grenade" in _itemParents) ||
 		("I_E_IR_Grenade" in _itemParents) ||
-		("O_R_IR_Grenade" in _itemParents))
+		("O_R_IR_Grenade" in _itemParents)}
 	) then {
-		_unit removeMagazineGlobal _x;
-		if(_signalGrenades == 2) then {
-			_unit addMagazineGlobal "SmokeShell";
+		if(_leave <= 0) then {
+			_unit removeMagazineGlobal _x;
+			switch(_replace) do {
+				case 1 : { _unit addMagazineGlobal "SmokeShell"; };
+				case 2 : { _unit addMagazineGlobal "SmokeShellBlue"; };
+				case 3 : { _unit addMagazineGlobal "SmokeShellGreen"; };
+				case 4 : { _unit addMagazineGlobal "SmokeShellRed"; };
+			};
+		} else{
+			_leave = _leave - 1;
 		};
 	};
 
-	if(_grenades > 0 && ( ("MiniGrenade" in _itemParents) || ("HandGrenade" in _itemParents) )) then {
-		_unit removeMagazineGlobal _x;
-		if(_grenades == 2) then {
-			_unit addMagazineGlobal "MiniGrenade";
+	if(_itemType == 1 && {!("SmokeShell" in _itemParents)} && {
+		("MiniGrenade" in _itemParents) ||
+		("HandGrenade" in _itemParents)}
+	) then {
+		if(_leave <= 0) then {
+			_unit removeMagazineGlobal _x;
+
+			switch (_replace) do {
+				case 1 : { _unit addMagazineGlobal "MiniGrenade"; };
+				case 2 : {
+					if(isClass (configFile >> "CfgMagazines" >> "ACE_M84")) then {
+						_unit addMagazineGlobal "ACE_M84";
+					} else {
+						if(isClass (configFile >> "CfgMagazines" >> "rhs_mag_m69" )) then {
+							_unit addMagazineGlobal "rhs_mag_m69";
+						} else{
+							if(isClass (configFile >> "CfgMagazines" >> "BAF_HandGrenade_Blank" )) then {
+								_unit addMagazineGlobal "BAF_HandGrenade_Blank";
+							};
+						};
+					};
+				};
+				case 3 : {
+					if(isClass (configFile >> "CfgMagazines" >> "rhs_mag_m69" )) then {
+						_unit addMagazineGlobal "rhs_mag_m69";
+					} else{
+						if(isClass (configFile >> "CfgMagazines" >> "BAF_HandGrenade_Blank" )) then {
+							_unit addMagazineGlobal "BAF_HandGrenade_Blank";
+						};
+					};
+				};
+			};
+		} else{
+			_leave = _leave - 1;
 		};
+		
 	};
 
-	// This will also remove launcher ammo from assistants etc.
-	if(_launchers > 0 && "CA_LauncherMagazine" in _itemParents) then {
-		_unit removeMagazineGlobal _x;
-	};
-
-	if(_explosives > 0 && (
+	if(_itemType == 2 && {
 		("ATMine_Range_Mag" in _itemParents) ||
 		("SatchelCharge_Remote_Mag" in _itemParents) ||
 		("ACE_SatchelCharge_Remote_Mag_Throwable" in _itemParents) ||
-		("ClaymoreDirectionalMine_Remote_Mag" in _itemParents))
+		("ClaymoreDirectionalMine_Remote_Mag" in _itemParents)}
 	) then {
-		_unit removeMagazineGlobal _x;
+		if(_leave <= 0) then {
+			_unit removeMagazineGlobal _x;
+			switch(_replace) do {
+				case 1 : { _unit addMagazineGlobal "DemoCharge_Remote_Mag"; };
+			};
+		} else{
+			_leave = _leave - 1;
+		};
 	};
 
-	// NOTE: This will also remove smoke shells for UGLs, even if _signalGrenades == 0
-	if(_ugl > 0 && (
+
+	if(_itemType == 3 && {!("SmokeShell" in _itemParents)} &&  {
 		("1Rnd_HE_Grenade_shell" in _itemParents) ||
-		("3Rnd_HE_Grenade_shell" in _itemParents))
+		("3Rnd_HE_Grenade_shell" in _itemParents)}
 	) then {
+		if(_leave <= 0) then {
+			_unit removeMagazineGlobal _x;
+
+			private _compatible = (compatibleMagazines (primaryWeapon _unit)) + (compatibleMagazines (handgunWeapon _unit));
+			switch(_replace) do {
+				case 1 : {
+					if("1Rnd_Smoke_Grenade_shell" in _compatible) then {
+						_unit addMagazineGlobal "1Rnd_Smoke_Grenade_shell";
+					} else {
+						if("rhs_GRD40_white" in _compatible) then {
+							_unit addMagazineGlobal "rhs_GRD40_white";
+						};
+					};
+				};
+				case 2 : {
+					if("1Rnd_HE_Grenade_shell" in _compatible) then {
+						_unit addMagazineGlobal "1Rnd_HE_Grenade_shell";
+					} else {
+						if("rhs_VOG25" in _compatible) then {
+							_unit addMagazineGlobal "rhs_VOG25";
+						};
+					};
+				};
+				case 3 : {
+					if("rhs_mag_m4009" in _compatible) then {
+						_unit addMagazineGlobal "rhs_mag_m4009";
+					} else {
+						if("rhs_VG40SZ" in _compatible) then {
+							_unit addMagazineGlobal "rhs_VG40SZ";
+						};
+					};
+				};
+				case 4 : {
+					if("rhs_mag_M781_Practice" in _compatible) then {
+						_unit addMagazineGlobal "rhs_mag_M781_Practice";
+					} else {
+						if("rhs_VG40MD" in _compatible) then {
+							_unit addMagazineGlobal "rhs_VG40MD";
+						};
+					};
+				};
+			};
+		} else{
+			_leave = _leave - 1;
+		};
+	};
+
+
+	// This will also remove launcher ammo from assistants etc.
+	if(_itemType == 4 && {"CA_LauncherMagazine" in _itemParents}) then {
 		_unit removeMagazineGlobal _x;
 	};
 } forEach magazines _unit;
 
-if(_launchers > 0) then {
+
+
+if(_itemType == 3) then {
+
+	// Unload any UGL rounds from equipped weapons
+	private "_magParents";
+	{
+		_magParents = [ configFile >> "CfgMagazines" >> _x, true ] call BIS_fnc_returnParents;
+		if(_leave <= 0 && {"1Rnd_HE_Grenade_shell" in _magParents || "3Rnd_HE_Grenade_shell" in _magParents} && {!("SmokeShell" in _magParents)}) then {
+			_unit removePrimaryWeaponItem _x;
+
+			switch(_replace) do {
+				case 1 : { if(!(_unit addPrimaryWeaponItem "1Rnd_Smoke_Grenade_shell")) then {_unit addPrimaryWeaponItem "rhs_GRD40_white"}; };
+				case 2 : { if(!(_unit addPrimaryWeaponItem "1Rnd_HE_Grenade_shell")) then {_unit addPrimaryWeaponItem "rhs_VOG25"}; };
+				case 3 : { if(!(_unit addPrimaryWeaponItem "rhs_mag_m4009")) then {_unit addPrimaryWeaponItem "rhs_VG40SZ"}; };
+				case 4 : { if(!(_unit addPrimaryWeaponItem "rhs_mag_M781_Practice")) then {_unit addPrimaryWeaponItem "rhs_VG40MD"}; };
+			};
+		} else {
+			_leave = _leave - 1;
+		};
+	} forEach primaryWeaponMagazine _unit;
+
+	{
+		_magParents = [ configFile >> "CfgMagazines" >> _x, true ] call BIS_fnc_returnParents;
+		if(_leave <= 0 && {"1Rnd_HE_Grenade_shell" in _magParents || "3Rnd_HE_Grenade_shell" in _magParents} && {!("SmokeShell" in _magParents)}) then {
+			_unit removeHandgunItem _x;
+			// TODO: set up replace for any common (modded) handgun-slot GL's
+		} else {
+			_leave = _leave - 1;
+		};
+	} forEach handgunMagazine _unit;
+};
+
+
+if(_itemType == 4) then {
 	_unit removeWeaponGlobal (secondaryWeapon _unit);
 };
 
-
-if(_ugl > 0) then {
-
-	// Attempt to unload any UGL rounds from equipped weapons
-	private "_state";
-	private "_mag";
-	private "_magParents";
-	{
-		_state = _unit weaponState _x;
-		_mag = _state select 3;
-		_magParents = [ configFile >> "CfgMagazines" >> _mag, true ] call BIS_fnc_returnParents;
-		if("1Rnd_HE_Grenade_shell" in _magParents || "3Rnd_HE_Grenade_shell" in _magParents) then {
-			_unit setAmmo [_x, 0];
-		};
-	} forEach getArray (configFile >> "cfgWeapons" >> primaryWeapon _unit >> "muzzles");
-
-	{
-		_state = _unit weaponState _x;
-		_mag = _state select 3;
-		_magParents = [ configFile >> "CfgMagazines" >> _mag, true ] call BIS_fnc_returnParents;
-		if("1Rnd_HE_Grenade_shell" in _magParents || "3Rnd_HE_Grenade_shell" in _magParents) then {
-			_unit setAmmo [_x, 0];
-		};
-	} forEach getArray (configFile >> "cfgWeapons" >> handgunWeapon _unit >> "muzzles");
-
-	// This will technically leave a grenade that cannot be fired in the weapon which is not ideal,
-	// but it works for these purposes. Players may find it odd, if used on them.
-};
-
-True
+true
