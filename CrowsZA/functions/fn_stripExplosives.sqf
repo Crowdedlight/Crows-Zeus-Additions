@@ -19,10 +19,11 @@ params [
 	["_leave", 0, [0]]
 ];
 
-// TODO: account for edge cases; e.g. rhs grenades ("rhs_mag_rdg2_white"), historical Pz.Gr HEAT, Pz.Gr FRAG, etc.
-
-
 if(isNull _unit || _itemType < 0 || _itemType > 4) exitWith { false };
+
+// We hardcode some exceptions for modded items that don't follow the expected inheritance:
+private _grenadeNotSmoke = ["ACE_M14"];
+private _smokeNotGrenade = ["rhs_mag_rdg2_white", "rhs_mag_an_m8hc", "rhs_mag_nspd", "rhs_mag_nspn_yellow", "rhs_mag_m18_smoke_base", "rhssaf_mag_brd_m83_yellow", "rhssaf_mag_brd_m83_white", "rhssaf_mag_brd_m83_red", "rhssaf_mag_brd_m83_orange", "rhssaf_mag_brd_m83_green", "rhssaf_mag_brd_m83_blue", "fow_e_nb39b", "fow_e_no77"];
 
 
 {
@@ -30,16 +31,20 @@ if(isNull _unit || _itemType < 0 || _itemType > 4) exitWith { false };
 	private _itemParents = [configFile >> "CfgMagazines" >> _item, true] call BIS_fnc_returnParents;
 
 	// NOTE: This includes chemlights, IR strobes, and UGL smokes
-	if(_itemType == 0 && {
-		("SmokeShell" in _itemParents) ||
-		("1Rnd_Smoke_Grenade_shell" in _itemParents) ||
-		("3Rnd_Smoke_Grenade_shell" in _itemParents) ||
-		("B_IR_Grenade" in _itemParents) ||
-		("O_IR_Grenade" in _itemParents) ||
-		("I_IR_Grenade" in _itemParents) ||
-		("I_E_IR_Grenade" in _itemParents) ||
-		("O_R_IR_Grenade" in _itemParents)}
-	) then {
+	if(_itemType == 0 && { !(_item in _grenadeNotSmoke) && count (_itemParents arrayIntersect _grenadeNotSmoke) == 0 } && {
+		_item in _smokeNotGrenade || count (_itemParents arrayIntersect _smokeNotGrenade) > 0 ||
+		count ([
+			"SmokeShell",
+			"1Rnd_Smoke_Grenade_shell",
+			"3Rnd_Smoke_Grenade_shell",
+			"B_IR_Grenade",
+			"O_IR_Grenade",
+			"I_IR_Grenade",
+			"I_E_IR_Grenade",
+			"O_R_IR_Grenade"
+		] arrayIntersect _itemParents) > 0
+	})
+	then {
 		if(_leave <= 0) then {
 			_unit removeMagazineGlobal _x;
 			switch(_replace) do {
@@ -53,10 +58,14 @@ if(isNull _unit || _itemType < 0 || _itemType > 4) exitWith { false };
 		};
 	};
 
-	if(_itemType == 1 && {!("SmokeShell" in _itemParents)} && {
+
+	if(_itemType == 1 && { !(_item in _smokeNotGrenade) && count (_itemParents arrayIntersect _smokeNotGrenade) == 0 } &&
+		{!("SmokeShell" in _itemParents) || _item in _grenadeNotSmoke || count (_itemParents arrayIntersect _grenadeNotSmoke) > 0 } && {
+		_item in _grenadeNotSmoke ||
+		count (_itemParents arrayIntersect _grenadeNotSmoke) > 0 ||
 		("MiniGrenade" in _itemParents) ||
-		("HandGrenade" in _itemParents)}
-	) then {
+		("HandGrenade" in _itemParents)
+	}) then {
 		if(_leave <= 0) then {
 			_unit removeMagazineGlobal _x;
 
@@ -95,8 +104,8 @@ if(isNull _unit || _itemType < 0 || _itemType > 4) exitWith { false };
 		("ATMine_Range_Mag" in _itemParents) ||
 		("SatchelCharge_Remote_Mag" in _itemParents) ||
 		("ACE_SatchelCharge_Remote_Mag_Throwable" in _itemParents) ||
-		("ClaymoreDirectionalMine_Remote_Mag" in _itemParents)}
-	) then {
+		("ClaymoreDirectionalMine_Remote_Mag" in _itemParents)
+	}) then {
 		if(_leave <= 0) then {
 			_unit removeMagazineGlobal _x;
 			switch(_replace) do {
@@ -108,10 +117,11 @@ if(isNull _unit || _itemType < 0 || _itemType > 4) exitWith { false };
 	};
 
 
-	if(_itemType == 3 && {!("SmokeShell" in _itemParents)} &&  {
+	if(_itemType == 3 && {!("SmokeShell" in _itemParents)} && {
 		("1Rnd_HE_Grenade_shell" in _itemParents) ||
-		("3Rnd_HE_Grenade_shell" in _itemParents)}
-	) then {
+		("3Rnd_HE_Grenade_shell" in _itemParents) ||
+		("LIB_BaseRifleGrenade" in _itemParents)
+	}) then {
 		if(_leave <= 0) then {
 			_unit removeMagazineGlobal _x;
 
@@ -154,7 +164,7 @@ if(isNull _unit || _itemType < 0 || _itemType > 4) exitWith { false };
 					};
 				};
 			};
-		} else{
+		} else {
 			_leave = _leave - 1;
 		};
 	};
@@ -174,7 +184,7 @@ if(_itemType == 3) then {
 	private "_magParents";
 	{
 		_magParents = [ configFile >> "CfgMagazines" >> _x, true ] call BIS_fnc_returnParents;
-		if(_leave <= 0 && {"1Rnd_HE_Grenade_shell" in _magParents || "3Rnd_HE_Grenade_shell" in _magParents} && {!("SmokeShell" in _magParents)}) then {
+		if(_leave <= 0 && {"1Rnd_HE_Grenade_shell" in _magParents || "3Rnd_HE_Grenade_shell" in _magParents || "LIB_BaseRifleGrenade" in _magParents} && {!("SmokeShell" in _magParents)}) then {
 			_unit removePrimaryWeaponItem _x;
 
 			switch(_replace) do {
@@ -190,7 +200,7 @@ if(_itemType == 3) then {
 
 	{
 		_magParents = [ configFile >> "CfgMagazines" >> _x, true ] call BIS_fnc_returnParents;
-		if(_leave <= 0 && {"1Rnd_HE_Grenade_shell" in _magParents || "3Rnd_HE_Grenade_shell" in _magParents} && {!("SmokeShell" in _magParents)}) then {
+		if(_leave <= 0 && {"1Rnd_HE_Grenade_shell" in _magParents || "3Rnd_HE_Grenade_shell" in _magParents || "LIB_BaseRifleGrenade" in _magParents} && {!("SmokeShell" in _magParents)}) then {
 			_unit removeHandgunItem _x;
 			// TODO: set up replace for any common (modded) handgun-slot GL's
 		} else {
