@@ -20,18 +20,7 @@ if(count _units == 0 || _action < 0 || _action > 2) exitWith { false };
 
 {
 	if(isPlayer _x) then { continue };
-
-	switch(_action) do {
-		case 0: { _x disableAI "PATH"; };
-		case 1: { _x enableAI "PATH"; };
-		default {
-			if(_x checkAIFeature "PATH") then {
-				_x disableAI "PATH";
-			} else {
-				_x enableAI "PATH";
-			}
-		};
-	};	
+	[_x, _action] remoteExec ["crowsZA_fnc_toggleUnitPathing", _x];
 } forEach _units;
 
 
