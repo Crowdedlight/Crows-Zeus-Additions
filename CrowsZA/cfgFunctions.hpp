@@ -75,7 +75,6 @@ class CrowsZA_addon
 		class spawnSupplyDrop {};
 
 		class togglePathing {};
-		class toggleUnitPathing {};
 
 		// draw building and helper functions
 		class getPosFromMouse {};
