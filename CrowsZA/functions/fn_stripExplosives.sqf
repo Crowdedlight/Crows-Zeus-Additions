@@ -103,6 +103,7 @@ _grenades append _grenadeNotSmoke;
 		// Check that the item is of the specified type (or inherits from something that is)
 		{ count (_grenades arrayIntersect _itemAndParents) > 0 } &&
 		// Check there are no exceptions for this item (and that it doesn't inherit from something with an exception)
+		{!("SmokeShell" in _itemAndParents)} &&
 		{ count ( _smokeNotGrenade arrayIntersect _itemAndParents) == 0 }
 	) then {
 		if(_leave <= 0) then {
