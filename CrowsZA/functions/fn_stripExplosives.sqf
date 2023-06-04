@@ -54,8 +54,8 @@ private _explosives = [
 	"SatchelCharge_Remote_Mag",
 	"ACE_SatchelCharge_Remote_Mag_Throwable",
 	"ClaymoreDirectionalMine_Remote_Mag",
-	"MineBase",
-	"MineGeneric"
+	"rhsusf_m112_mag",
+	"rhssaf_tm100_mag"
 ];
 
 
