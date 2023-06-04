@@ -3,12 +3,13 @@ Author: Landric
 			   
 File: fn_stripExplosives.sqf
 Parameters:
-	unit		- (unit)
-	itemType	- (int) 0: signal grenades; 1: explosive grenades; 2: explosives; 3: UGL grenades; 4: launchers
-	replaceWith	- (int) 0: nothing; other: context specific
-	leave		- (int) amount of itemType to leave untouched
+	unit				- (unit)
+	itemType			- (int) 0: signal grenades; 1: explosive grenades; 2: explosives; 3: UGL grenades; 4: launchers
+	replaceWith			- (int) 0: nothing; other: context specific
+	replaceWithCustom	- (string) A custom magazine type to replace with (ignored if blank, errors if invalid)
+	leave				- (int) amount of itemType to leave untouched
 
-Return: bool    - True if method ran successfully, false if aborted (i.e. bad params were passed)
+Return: bool    		- True if method ran successfully, false if aborted (i.e. bad params were passed)
 
 *///////////////////////////////////////////////
 
@@ -16,10 +17,20 @@ params [
 	["_unit", objNull, [objNull]],
 	["_itemType", 1, [0]],
 	["_replace", 0, [0]],
+	["_replaceCustom", "", [""]],
 	["_leave", 0, [0]]
 ];
 
+// If an incorrect argument is passed, fail
+// TODO: log as an error?
 if(isNull _unit || _itemType < 0 || _itemType > 4) exitWith { false };
+
+// If an unrecognised custom class is provided, simply fail and notify zeus
+// TODO: alternatively, default to "normal" behaviour
+if(_replaceCustom isNotEqualTo "" && { !isclass(configFile >> "CfgMagazines" >> _replaceCustom) }) exitWith {
+	hint format ["Unrecognised custom replacement: %1", _replaceCustom];
+	false
+};
 
 
 private _smokes = [
@@ -71,11 +82,16 @@ _grenades append _grenadeNotSmoke;
 	then {
 		if(_leave <= 0) then {
 			_unit removeMagazineGlobal _item;
-			switch(_replace) do {
-				case 1 : { _unit addMagazineGlobal "SmokeShell"; };
-				case 2 : { _unit addMagazineGlobal "SmokeShellBlue"; };
-				case 3 : { _unit addMagazineGlobal "SmokeShellGreen"; };
-				case 4 : { _unit addMagazineGlobal "SmokeShellRed"; };
+
+			if(_replaceCustom isNotEqualTo "") then {
+				_unit addMagazineGlobal _replaceCustom;
+			} else {
+				switch(_replace) do {
+					case 1 : { _unit addMagazineGlobal "SmokeShell"; };
+					case 2 : { _unit addMagazineGlobal "SmokeShellBlue"; };
+					case 3 : { _unit addMagazineGlobal "SmokeShellGreen"; };
+					case 4 : { _unit addMagazineGlobal "SmokeShellRed"; };
+				};
 			};
 		} else{
 			_leave = _leave - 1;
@@ -92,27 +108,31 @@ _grenades append _grenadeNotSmoke;
 		if(_leave <= 0) then {
 			_unit removeMagazineGlobal _item;
 
-			switch (_replace) do {
-				case 1 : { _unit addMagazineGlobal "MiniGrenade"; };
-				case 2 : {
-					if(isClass (configFile >> "CfgMagazines" >> "ACE_M84")) then {
-						_unit addMagazineGlobal "ACE_M84";
-					} else {
+			if(_replaceCustom isNotEqualTo "") then {
+				_unit addMagazineGlobal _replaceCustom;
+			} else {
+				switch (_replace) do {
+					case 1 : { _unit addMagazineGlobal "MiniGrenade"; };
+					case 2 : {
+						if(isClass (configFile >> "CfgMagazines" >> "ACE_M84")) then {
+							_unit addMagazineGlobal "ACE_M84";
+						} else {
+							if(isClass (configFile >> "CfgMagazines" >> "rhs_mag_m69" )) then {
+								_unit addMagazineGlobal "rhs_mag_m69";
+							} else{
+								if(isClass (configFile >> "CfgMagazines" >> "BAF_HandGrenade_Blank" )) then {
+									_unit addMagazineGlobal "BAF_HandGrenade_Blank";
+								};
+							};
+						};
+					};
+					case 3 : {
 						if(isClass (configFile >> "CfgMagazines" >> "rhs_mag_m69" )) then {
 							_unit addMagazineGlobal "rhs_mag_m69";
 						} else{
 							if(isClass (configFile >> "CfgMagazines" >> "BAF_HandGrenade_Blank" )) then {
 								_unit addMagazineGlobal "BAF_HandGrenade_Blank";
 							};
-						};
-					};
-				};
-				case 3 : {
-					if(isClass (configFile >> "CfgMagazines" >> "rhs_mag_m69" )) then {
-						_unit addMagazineGlobal "rhs_mag_m69";
-					} else{
-						if(isClass (configFile >> "CfgMagazines" >> "BAF_HandGrenade_Blank" )) then {
-							_unit addMagazineGlobal "BAF_HandGrenade_Blank";
 						};
 					};
 				};
@@ -126,8 +146,12 @@ _grenades append _grenadeNotSmoke;
 	if(_itemType == 2 && { count (_explosives arrayIntersect _itemAndParents) > 0 }) then {
 		if(_leave <= 0) then {
 			_unit removeMagazineGlobal _item;
-			switch(_replace) do {
-				case 1 : { _unit addMagazineGlobal "DemoCharge_Remote_Mag"; };
+			if(_replaceCustom isNotEqualTo "") then {
+				_unit addMagazineGlobal _replaceCustom;
+			} else {
+				switch(_replace) do {
+					case 1 : { _unit addMagazineGlobal "DemoCharge_Remote_Mag"; };
+				};
 			};
 		} else{
 			_leave = _leave - 1;
@@ -143,41 +167,45 @@ _grenades append _grenadeNotSmoke;
 		if(_leave <= 0) then {
 			_unit removeMagazineGlobal _item;
 
-			private _compatible = (compatibleMagazines (primaryWeapon _unit)) + (compatibleMagazines (handgunWeapon _unit));
-			switch(_replace) do {
-				case 1 : {
-					if("1Rnd_Smoke_Grenade_shell" in _compatible) then {
-						_unit addMagazineGlobal "1Rnd_Smoke_Grenade_shell";
-					} else {
-						if("rhs_GRD40_white" in _compatible) then {
-							_unit addMagazineGlobal "rhs_GRD40_white";
+			if(_replaceCustom isNotEqualTo "") then {
+				_unit addMagazineGlobal _replaceCustom;
+			} else {
+				private _compatible = (compatibleMagazines (primaryWeapon _unit)) + (compatibleMagazines (handgunWeapon _unit));
+				switch(_replace) do {
+					case 1 : {
+						if("1Rnd_Smoke_Grenade_shell" in _compatible) then {
+							_unit addMagazineGlobal "1Rnd_Smoke_Grenade_shell";
+						} else {
+							if("rhs_GRD40_white" in _compatible) then {
+								_unit addMagazineGlobal "rhs_GRD40_white";
+							};
 						};
 					};
-				};
-				case 2 : {
-					if("1Rnd_HE_Grenade_shell" in _compatible) then {
-						_unit addMagazineGlobal "1Rnd_HE_Grenade_shell";
-					} else {
-						if("rhs_VOG25" in _compatible) then {
-							_unit addMagazineGlobal "rhs_VOG25";
+					case 2 : {
+						if("1Rnd_HE_Grenade_shell" in _compatible) then {
+							_unit addMagazineGlobal "1Rnd_HE_Grenade_shell";
+						} else {
+							if("rhs_VOG25" in _compatible) then {
+								_unit addMagazineGlobal "rhs_VOG25";
+							};
 						};
 					};
-				};
-				case 3 : {
-					if("rhs_mag_m4009" in _compatible) then {
-						_unit addMagazineGlobal "rhs_mag_m4009";
-					} else {
-						if("rhs_VG40SZ" in _compatible) then {
-							_unit addMagazineGlobal "rhs_VG40SZ";
+					case 3 : {
+						if("rhs_mag_m4009" in _compatible) then {
+							_unit addMagazineGlobal "rhs_mag_m4009";
+						} else {
+							if("rhs_VG40SZ" in _compatible) then {
+								_unit addMagazineGlobal "rhs_VG40SZ";
+							};
 						};
 					};
-				};
-				case 4 : {
-					if("rhs_mag_M781_Practice" in _compatible) then {
-						_unit addMagazineGlobal "rhs_mag_M781_Practice";
-					} else {
-						if("rhs_VG40MD" in _compatible) then {
-							_unit addMagazineGlobal "rhs_VG40MD";
+					case 4 : {
+						if("rhs_mag_M781_Practice" in _compatible) then {
+							_unit addMagazineGlobal "rhs_mag_M781_Practice";
+						} else {
+							if("rhs_VG40MD" in _compatible) then {
+								_unit addMagazineGlobal "rhs_VG40MD";
+							};
 						};
 					};
 				};
@@ -206,11 +234,15 @@ if(_itemType == 3) then {
 		if(_leave <= 0 && {"1Rnd_HE_Grenade_shell" in _magParents || "3Rnd_HE_Grenade_shell" in _magParents || "LIB_BaseRifleGrenade" in _magParents} && {!("SmokeShell" in _magParents)}) then {
 			_unit removePrimaryWeaponItem _magazine;
 
-			switch(_replace) do {
-				case 1 : { if(!(_unit addPrimaryWeaponItem "1Rnd_Smoke_Grenade_shell")) then {_unit addPrimaryWeaponItem "rhs_GRD40_white"}; };
-				case 2 : { if(!(_unit addPrimaryWeaponItem "1Rnd_HE_Grenade_shell")) then {_unit addPrimaryWeaponItem "rhs_VOG25"}; };
-				case 3 : { if(!(_unit addPrimaryWeaponItem "rhs_mag_m4009")) then {_unit addPrimaryWeaponItem "rhs_VG40SZ"}; };
-				case 4 : { if(!(_unit addPrimaryWeaponItem "rhs_mag_M781_Practice")) then {_unit addPrimaryWeaponItem "rhs_VG40MD"}; };
+			if(_replaceCustom isNotEqualTo "") then {
+				_unit addMagazineGlobal _replaceCustom;
+			} else {
+				switch(_replace) do {
+					case 1 : { if(!(_unit addPrimaryWeaponItem "1Rnd_Smoke_Grenade_shell")) then {_unit addPrimaryWeaponItem "rhs_GRD40_white"}; };
+					case 2 : { if(!(_unit addPrimaryWeaponItem "1Rnd_HE_Grenade_shell")) then {_unit addPrimaryWeaponItem "rhs_VOG25"}; };
+					case 3 : { if(!(_unit addPrimaryWeaponItem "rhs_mag_m4009")) then {_unit addPrimaryWeaponItem "rhs_VG40SZ"}; };
+					case 4 : { if(!(_unit addPrimaryWeaponItem "rhs_mag_M781_Practice")) then {_unit addPrimaryWeaponItem "rhs_VG40MD"}; };
+				};
 			};
 		} else {
 			_leave = _leave - 1;

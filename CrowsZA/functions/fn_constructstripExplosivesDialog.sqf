@@ -22,6 +22,7 @@ private _onConfirm = {
 		["_ignorePlayers", true, [true]],
 		["_itemType", 1, [0]],
 		["_replace", 0, [0]],
+		["_replaceCustom", "", [""]],
 		["_leave", 0, [0]]
 	];
 	_in params ["_unit"];
@@ -62,11 +63,11 @@ private _onConfirm = {
 	diag_log format ["crowsZA-stripExplosives: Stripping %1 from %2 %3", _logItem, _logSide, _logPlayers];
 
 
-	[_units, _ignorePlayers, _itemType, _replace, _leave, _logItem] spawn {
-		params["_units", "_ignorePlayers", "_itemType", "_replace", "_leave", "_logItem"];
+	[_units, _ignorePlayers, _itemType, _replace, _replaceCustom, _leave, _logItem] spawn {
+		params["_units", "_ignorePlayers", "_itemType", "_replace",  "_replaceCustom", "_leave", "_logItem"];
 		{
 			if(!(isPlayer _x) || {!_ignorePlayers}) then {
-				[_x, _itemType, _replace, _leave] call crowsZA_fnc_stripExplosives;
+				[_x, _itemType, _replace, _replaceCustom, _leave] call crowsZA_fnc_stripExplosives;
 				if (isPlayer _x) then {
 					private _removed = if(_replace == 0) then { "removed" } else { "replaced" };
 				    (format ["Zeus has %1 your %2", _removed, _logItem]) remoteExec ["hint", _x];
@@ -133,7 +134,10 @@ switch (_controlValues select 2) do {
 if((_controlValues select 2) < 4) then {
 	_controls pushBack ["TOOLBOX", "Replace with", [_controlValues select 3, 1, count _replace, _replace], _default];
 
-	private _leave = if(count _controlValues >= 5) then { _controlValues select 4 } else { 0 };
+	private _replaceCustom = if(count _controlValues >= 6) then { _controlValues select 4 } else { "" }; // TODO: could store the previous value as a (global) variable rather than clearing if not set
+	_controls pushBack ["EDIT", "Replace with (custom)", [_replaceCustom], _default];
+
+	private _leave = if(count _controlValues >= 6) then { _controlValues select 5 } else { 0 };
 	_controls pushBack ["SLIDER", ["Leave untouched", "Amount of unit's inventory to leave unchanged. Does not guarantee which type is preserved if the unit has, e.g. multiple colours of smoke."], [0, 10, _leave, 0], _default];
 };
 
