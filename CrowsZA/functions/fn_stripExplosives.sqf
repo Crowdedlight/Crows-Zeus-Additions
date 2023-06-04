@@ -42,7 +42,9 @@ private _explosives = [
 	"ATMine_Range_Mag",
 	"SatchelCharge_Remote_Mag",
 	"ACE_SatchelCharge_Remote_Mag_Throwable",
-	"ClaymoreDirectionalMine_Remote_Mag"
+	"ClaymoreDirectionalMine_Remote_Mag",
+	"MineBase",
+	"MineGeneric"
 ];
 
 
