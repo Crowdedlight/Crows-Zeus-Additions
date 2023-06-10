@@ -88,7 +88,7 @@ else {
 	_controls pushBack ["CHECKBOX", ["Whole Group", "Remove items from this unit's group"], _controlValues select 0, _default];
 };
 _controls pushBack ["CHECKBOX", "Ignore players", _controlValues select 1, _default];
-_controls pushBack ["TOOLBOX", "Item Type", [_controlValues select 2, 1, 5, ["Signal Grenades", "Grenades", "Explosives", "UGL Grenades", "Launchers"]], _default];
+_controls pushBack ["TOOLBOX", ["Item Type", """Signals"" includes smoke grenades, chemlights, IR strobes, and UGL smokes."+endl+"""UGL"" includes explosive ammo for under-barrel & dedicated grenade launchers"], [_controlValues select 2, 1, 5, ["Signals", "Grenades", "Explosives", "UGL", "Launchers"]], _default];
 private _replace = ["Nothing"];
 
 
@@ -135,10 +135,10 @@ if((_controlValues select 2) < 4) then {
 	_controls pushBack ["TOOLBOX", "Replace with", [_controlValues select 3, 1, count _replace, _replace], _default];
 
 	private _replaceCustom = if(count _controlValues >= 6) then { _controlValues select 4 } else { "" }; // TODO: could store the previous value as a (global) variable rather than clearing if not set
-	_controls pushBack ["EDIT", "Replace with (custom)", [_replaceCustom], _default];
+	_controls pushBack ["EDIT", ["Replace with (custom)", "A custom magazine or item to replace with"+endl+"(Must be in ""CfgMagazines"" or inherit from ""ItemCore"")"], [_replaceCustom], _default];
 
 	private _leave = if(count _controlValues >= 6) then { _controlValues select 5 } else { 0 };
-	_controls pushBack ["SLIDER", ["Leave untouched", "Amount of unit's inventory to leave unchanged. Does not guarantee which type is preserved if the unit has, e.g. multiple colours of smoke."], [0, 10, _leave, 0], _default];
+	_controls pushBack ["SLIDER", ["Leave untouched", "Amount of unit's inventory to leave unchanged."+endl+"Does not guarantee which type is preserved if the unit has, e.g. multiple colours of smoke."], [0, 10, _leave, 0], _default];
 };
 
 crowsza_strip_explosives_previousValues = _controlValues;
