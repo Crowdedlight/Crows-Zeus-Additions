@@ -14,6 +14,9 @@ Return: bool        		- True if method ran successfully, false if aborted (e.g. 
 This code inspired by CQB Interactions By Flex7103
 https://steamcommunity.com/sharedfiles/filedetails/?id=2942202773
 
+Additional input from Blueduckraider50 on Github
+https://github.com/Crowdedlight/Crows-Zeus-Additions/issues/88
+
 *///////////////////////////////////////////////
 params [
 	["_unit", objNull, [objNull]],
@@ -77,18 +80,17 @@ _trigger attachTo [_unit];
 private _condition = "
 if(!this) exitWith { false };
 private _unit = thisTrigger getVariable ""_unit"";
-{
-	[_unit, {
-		missionNamespace setVariable [
-			""crowsza_surrender_chance_"" + str (_this call BIS_fnc_netId),
-			(toUpperANSI cameraView == ""GUNNER"") && (cursorObject == _this),
-			remoteExecutedOwner
-		];
-	}] remoteExecCall [""call"", _x];
+_weaponsOnTarget = {
+   if(!isPlayer _x || {weaponLowered _x}) exitWith { 0 };
+   	_player = _x;
+   _weaponDir = _player weaponDirection (currentWeapon _player);
+   _lineStart = eyePos _player;
+   _lineEnd = _lineStart vectorAdd (_player weaponDirection currentWeapon _player vectorMultiply (100));
+   _units = lineIntersectsSurfaces [_lineStart, _lineEnd, _player];
+   (count _units > 0 && {(_units select 0) select 2 == _unit || (_units select 0) select 3 == _unit})
+} count thisList;
 
-	if((missionNamespace getVariable (""crowsza_surrender_chance_"" + str (_unit call BIS_fnc_netId)))) exitWith {true};
-} forEach thisList;
-(missionNamespace getVariable (""crowsza_surrender_chance_"" + str (_unit call BIS_fnc_netId)))
+_weaponsOnTarget > 0
 ";
 
 
