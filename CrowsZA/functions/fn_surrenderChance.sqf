@@ -80,13 +80,13 @@ private _condition = "
 if(!this) exitWith { false };
 private _unit = thisTrigger getVariable ""_unit"";
 _weaponsOnTarget = {
-   if(!isPlayer _x || {weaponLowered _x}) exitWith { 0 };
-   	_player = _x;
-   _weaponDir = _player weaponDirection (currentWeapon _player);
-   _lineStart = eyePos _player;
-   _lineEnd = _lineStart vectorAdd (_player weaponDirection currentWeapon _player vectorMultiply (100));
-   _units = lineIntersectsSurfaces [_lineStart, _lineEnd, _player];
-   (count _units > 0 && {(_units select 0) select 2 == _unit || (_units select 0) select 3 == _unit})
+	if(!isPlayer _x || {weaponLowered _x}) exitWith { 0 };
+	_player = _x;
+	_weaponDir = _player weaponDirection (currentWeapon _player);
+	_lineStart = eyePos _player;
+	_lineEnd = _lineStart vectorAdd (_player weaponDirection currentWeapon _player vectorMultiply (100));
+	_units = lineIntersectsSurfaces [_lineStart, _lineEnd, _player];
+	(count _units > 0 && {(_units select 0) select 2 == _unit || (_units select 0) select 3 == _unit})
 } count thisList;
 
 _weaponsOnTarget > 0
