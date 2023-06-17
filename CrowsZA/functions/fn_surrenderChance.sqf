@@ -31,7 +31,6 @@ crowsZA_fnc_clearSurrender = {
 	params ["_unit"];
 	deletevehicle (_unit getVariable "_trigger");
 	_unit removeEventHandler ["HandleDamage", _unit getVariable "crowsza_surrChance_ehDamaged"];
-	missionNamespace setVariable [("crowsza_surrender_chance_" + str (_unit call BIS_fnc_netId)), nil];
 	_unit setVariable ["crowsza_surrender_chance_applied", nil, true];
 	private _surrenderUnits = missionNamespace getVariable["crowsZA_surrenderUnits", []];
 	_surrenderUnits = _surrenderUnits - [_unit];
