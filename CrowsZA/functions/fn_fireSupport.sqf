@@ -96,6 +96,7 @@ private _onConfirm =
 		params ["_logic", "_code"];
 
 		while {!isNull _logic} do {
+			scopeName "main_while";
 			// read values from logic object
 			private _pos = getPos _logic;
 			private _type = _logic getVariable ["crowsZA_firesupport_type", ""];
@@ -124,6 +125,7 @@ private _onConfirm =
 				case (_salvos == 1): {
 					// delete if all salvos are done
 					deleteVehicle _logic;
+					breakOut "main_while";
 				};
 				// case more than 1 salvo left
 				case (_salvos > 1): {

@@ -20,18 +20,17 @@ if(count _units == 0 || _action < 0 || _action > 2) exitWith { false };
 
 {
 	if(isPlayer _x) then { continue };
-
 	switch(_action) do {
-		case 0: { _x disableAI "PATH"; };
-		case 1: { _x enableAI "PATH"; };
+		case 0: { [_x, "PATH"] remoteExec ["disableAI", _x]; };
+		case 1: { [_x, "PATH"] remoteExec ["enableAI", _x]; };
 		default {
 			if(_x checkAIFeature "PATH") then {
-				_x disableAI "PATH";
+				[_x, "PATH"] remoteExec ["disableAI", _x];
 			} else {
-				_x enableAI "PATH";
+				[_x, "PATH"] remoteExec ["enableAI", _x];
 			}
 		};
-	};	
+	};
 } forEach _units;
 
 

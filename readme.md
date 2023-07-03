@@ -98,6 +98,7 @@ MrPepsiMax
 Radkewolf  
 Johnb43   
 Landric
+HarryGWA
 
 ### License
 Crows Zeus Additions is licensed under the GPL-3.0 license.
