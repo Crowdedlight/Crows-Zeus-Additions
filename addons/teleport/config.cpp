@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"crowsEW_main"};
+        requiredAddons[] = {"crowsza_main"};
         author = "Crowdedlight";
         VERSION_CONFIG;
     };

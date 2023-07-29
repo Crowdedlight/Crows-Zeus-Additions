@@ -1,5 +1,5 @@
-#define COMPONENT zeus
-#include "\z\crowsEW\addons\main\script_mod.hpp"
+#define COMPONENT tfar
+#include "\z\crowsza\addons\main\script_mod.hpp"
 
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
 
@@ -13,4 +13,4 @@
     #define DEBUG_SETTINGS DEBUG_SETTINGS_MAIN
 #endif
 
-#include "\z\crowsEW\addons\main\script_macros.hpp"
+#include "\z\crowsza\addons\main\script_macros.hpp"

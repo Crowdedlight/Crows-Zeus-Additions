@@ -3,31 +3,33 @@
 // if not a player we don't do anything
 if (!hasInterface) exitWith {}; 
 
-// check if TFAR is loaded and set variable
-GVAR(hasTFAR) = isClass (configFile >> "CfgPatches" >> "task_force_radio");
-GVAR(hasAce) = isClass (configFile >> "CfgPatches" >> "ace_main");
-GVAR(hasItcLandSystems) = isClass (configFile >> "CfgPatches" >> "itc_land_common");
+// zeus modules
+private _moduleList = [
+    ["Scatter Teleport",{_this call FUNC(scatterTeleportZeus)}, QPATHTOF(data\tp.paa)],
+    ["Teleport To Squadmember",{_this call FUNC(teleportToSquadMember)}, QPATHTOF(data\tpToSquad.paa)],
+    ["Set Teleport to Squadmember",{_this call FUNC(setTeleportToSquadMemberZeus)}, QPATHTOF(data\tpToSquad.paa)]
+];
 
-// register zeus modules
-call FUNC(zeusRegister);
+{
+    [
+        "Crows Zeus Modules", 
+		(_x select 0), 
+		(_x select 1), 
+		(_x select 2)
+    ] call zen_custom_modules_fnc_register;
+} forEach _moduleList;
 
-// register hint to zeus callback
-[QGVAR(showHintZeus), FUNC(showHintZeus)] call CBA_fnc_addEventHandler;
-
-// register CBA keybinding to toggle zeus-drawn text
-GVAR(zeusTextDisplayKeybind) = [
-	["Crows Electronic Warfare", "Zeus"],
-	"zeus_text_display", 
-	["Show help display text", "Shows text in zeus view for units with applied modules"], 
-	{GVAR(zeusTextDisplay) = !GVAR(zeusTextDisplay)}, 
-	"", 
-	[DIK_I, [true, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]] => default: ctrl + shift + i
-	false] call CBA_fnc_addKeybind;
-
-// spawn function as we need to check if zeus, and we cannot do that at mission time 0 due to race-condition
-// set eventhandler that waits for player to go into zeus interface, then registeres the textDisplayEHs.... A way to handle the race-condition of not being set as zeus as postinit is run, while being zeus. 
-["zen_curatorDisplayLoaded", {
-    // remove event immediately
-    [_thisType, _thisId] call CBA_fnc_removeEventHandler;
-    call FUNC(addZeusTextDisplayEH);
-}] call CBA_fnc_addEventHandlerArgs;
+// register context actions
+private _contextActionList = [
+    // Action name, Display name, Icon and Icon colour, code, Condition to show, arguments, dynamic children, modifier functions
+    ["teleport_to_squadmate","Teleport To Squadmate",QPATHTOF(data\tpToSquad.paa), {[[],_hoveredEntity] call FUNC(teleportToSquadMember)}, {!isNull _hoveredEntity && [_hoveredEntity] call EFUNC(main,isAliveManUnit) && (count units group leader _hoveredEntity) > 1}] call zen_context_menu_fnc_createAction,
+        [],
+        6
+    ],
+];
+{
+    [
+        // action, parent path, priority
+        (_x select 0), (_x select 1), (_x select 2)
+    ] call zen_context_menu_fnc_addAction;
+} forEach _contextActionList;

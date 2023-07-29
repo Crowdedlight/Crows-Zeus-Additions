@@ -3,31 +3,19 @@
 // if not a player we don't do anything
 if (!hasInterface) exitWith {}; 
 
-// check if TFAR is loaded and set variable
-GVAR(hasTFAR) = isClass (configFile >> "CfgPatches" >> "task_force_radio");
-GVAR(hasAce) = isClass (configFile >> "CfgPatches" >> "ace_main");
-GVAR(hasItcLandSystems) = isClass (configFile >> "CfgPatches" >> "itc_land_common");
+// only load if ACE is loaded!
+if (!EGVAR(main,tfarLoaded)) exitWith {};
 
-// register zeus modules
-call FUNC(zeusRegister);
+// zeus modules
+private _moduleList = [
+	["Set TFAR Vehicle Radio Side",{_this call FUNC(tfarSetVehicleSide)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
+];
 
-// register hint to zeus callback
-[QGVAR(showHintZeus), FUNC(showHintZeus)] call CBA_fnc_addEventHandler;
-
-// register CBA keybinding to toggle zeus-drawn text
-GVAR(zeusTextDisplayKeybind) = [
-	["Crows Electronic Warfare", "Zeus"],
-	"zeus_text_display", 
-	["Show help display text", "Shows text in zeus view for units with applied modules"], 
-	{GVAR(zeusTextDisplay) = !GVAR(zeusTextDisplay)}, 
-	"", 
-	[DIK_I, [true, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]] => default: ctrl + shift + i
-	false] call CBA_fnc_addKeybind;
-
-// spawn function as we need to check if zeus, and we cannot do that at mission time 0 due to race-condition
-// set eventhandler that waits for player to go into zeus interface, then registeres the textDisplayEHs.... A way to handle the race-condition of not being set as zeus as postinit is run, while being zeus. 
-["zen_curatorDisplayLoaded", {
-    // remove event immediately
-    [_thisType, _thisId] call CBA_fnc_removeEventHandler;
-    call FUNC(addZeusTextDisplayEH);
-}] call CBA_fnc_addEventHandlerArgs;
+{
+    [
+        "Crows Zeus Modules", 
+		(_x select 0), 
+		(_x select 1), 
+		(_x select 2)
+    ] call zen_custom_modules_fnc_register;
+} forEach _moduleList;

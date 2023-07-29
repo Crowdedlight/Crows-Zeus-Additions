@@ -3,3 +3,4 @@
 
 ADDON = true;
 
+GVAR(selectPositionActive) = false;

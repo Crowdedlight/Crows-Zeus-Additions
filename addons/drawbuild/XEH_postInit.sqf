@@ -1,5 +1,8 @@
 #include "script_component.hpp"
 
+// don't load for HC or server
+if (!hasInterface) exitWith {};
+
 // register zeus module
 private _moduleList = [
         ["DrawBuild",{_this call FUNC(drawBuildZeus)}, QPATHTOF(data\drawbuild.paa)]

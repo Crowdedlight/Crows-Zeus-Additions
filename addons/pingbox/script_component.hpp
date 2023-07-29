@@ -1,4 +1,4 @@
-#define COMPONENT zeus
+#define COMPONENT pingbox
 #include "\z\crowsza\addons\main\script_mod.hpp"
 
 #include "\z\crowsza\addons\main\gui_defines.hpp"

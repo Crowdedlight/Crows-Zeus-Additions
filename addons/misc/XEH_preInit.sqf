@@ -3,5 +3,4 @@
 
 ADDON = true;
 
-// initial value for vars. Text display is by default enabled
-GVAR(zeusTextDisplay) = true;
+GVAR(animalFollowList) = [];

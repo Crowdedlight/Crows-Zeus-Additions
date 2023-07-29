@@ -1,11 +1,12 @@
 #include "script_component.hpp"
 
-class zeusRegister { postInit = 1; };
-// check how we did in ewar and adopt similar?
+// don't load for HC or server
+if (!hasInterface) exitWith {};
 
-
-crowsZA_common_aceModLoaded = isClass (configFile >> "CfgPatches" >> "ace_main");
-crowsZA_common_jshkModLoaded = isClass (configFile >> "CfgPatches" >> "JSHK_contam");
-crowsZA_common_amfHelicoptersLoaded = isClass (configfile >> "CfgPatches" >> "AMF_Heli_Transport_01");
-crowsZA_common_rhsLoaded = isClass (configfile >> "CfgPatches" >> "rhs_main");
-crowsZA_common_sogLoaded = isClass (configfile >> "CfgMods" >> "vn");
+// globals to use if certain mods are loaded
+GVAR(aceLoaded) = isClass (configFile >> "CfgPatches" >> "ace_main");
+GVAR(tfarLoaded) = isClass (configFile >> "CfgPatches" >> "task_force_radio";
+GVAR(jshkLoaded) = isClass (configFile >> "CfgPatches" >> "JSHK_contam");
+GVAR(amfHelicoptersLoaded) = isClass (configfile >> "CfgPatches" >> "AMF_Heli_Transport_01");
+GVAR(rhsLoaded) = isClass (configfile >> "CfgPatches" >> "rhs_main");
+GVAR(sogLoaded) = isClass (configfile >> "CfgMods" >> "vn");
