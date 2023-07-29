@@ -84,13 +84,6 @@ The following has been tested on dedicated server with default settings:
 ### Debugging
 All logging made to the .RPT file will start with ``CrowsZA-module:`` where the module is whatever zeus module is writing the entry.
 
-### On todo-list
-- [X] color texture changer synced on JIP - Can make cars in fancy colours
-- [X] mass surrender - surrender all on a faction or a group with easy selection
-- [X] spawn arsenal - spawns our default boxes, and make it into an ACE arsenal automatically
-- [ ] unit follow view - A further development on the unit-center function but always keep the camera relative to the unit while moving with the default options of rotating when holding right-click and zoom with scroll-wheel.
-- [X] Move instructions info from readme to wiki
-
 ### Contributors
 Crowdedlight (Main Author)  
 Windwalker  
