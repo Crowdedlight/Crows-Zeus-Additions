@@ -25,7 +25,7 @@ GVAR(ping_list_update) = 0;
 GVAR(hidden) = false;
 
 //create hud 
-QGVAR(layer) cutRsc ["crowsZA_pingbox_hud","PLAIN", 0, true]; 
+QGVAR(layer) cutRsc ["crowsza_pingbox_hud","PLAIN", 0, true]; 
 
 // add zeus ping event handler 
 GVAR(ping_EH) = (getAssignedCuratorLogic player) addEventHandler ["CuratorPinged", {
@@ -52,7 +52,7 @@ GVAR(backspace_handler) = [DIK_BACK, [false, false, false], {
 		} else {
 			if (GVAR(hidden)) then {
 				// failsafe to not remake it if not hidden
-				QGVAR(layer) cutRsc ["crowsZA_pingbox_hud","PLAIN", 0, true]; 
+				QGVAR(layer) cutRsc ["crowsza_pingbox_hud","PLAIN", 0, true]; 
 				GVAR(hidden) = false;
 			};
 		};
@@ -70,7 +70,7 @@ GVAR(y_handler) = [DIK_Y, [false, false, false], {
 		// check if in screenshot mode then hide ui, otherwise reshow
 		if (GVAR(hidden) && isNull(findDisplay 312)) then {
 			// reshow pingbox
-			QGVAR(layer) cutRsc ["crowsZA_pingbox_hud","PLAIN", 0, true]; 
+			QGVAR(layer) cutRsc ["crowsza_pingbox_hud","PLAIN", 0, true]; 
 			GVAR(hidden) = false;
 		};
 	};

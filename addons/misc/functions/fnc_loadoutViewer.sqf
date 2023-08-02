@@ -12,13 +12,13 @@ shows the loadout of the unit in an quick view
 params ["_entity"];
 
 //create display 
-if (!createDialog "crowsZA_loadout_display") exitWith {};
+if (!createDialog "crowsza_loadout_display") exitWith {};
 
 //get display
-private _display = uiNamespace getVariable "crowsZA_loadout_display";
+private _display = uiNamespace getVariable "crowsza_loadout_display";
 
 // save object that is selected 
-_display setVariable ["crowsZA_loadout_viewer_unit", _entity];
+_display setVariable ["crowsza_loadout_viewer_unit", _entity];
 
 //use ZENs method to init display posisions. I can use it as I should have same base setup as ZEN uses in their gui
 [_display] call zen_common_fnc_initDisplayPositioning;

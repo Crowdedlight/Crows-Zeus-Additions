@@ -240,7 +240,7 @@ for "_i" from 1 to _iedAmount do {
 	};
 
 	// If ace isn't loaded, mimic an ace pressure-plate ied
-	if(!EGVAR(aceLoaded)) then {
+	if(!EGVAR(main,aceLoaded)) then {
 		private _trigger = createTrigger ["EmptyDetector", getPos _ied, false];
 		private _radius = 2;
 		_trigger setTriggerArea [_radius, _radius, 0, false];

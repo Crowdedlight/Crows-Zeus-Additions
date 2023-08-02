@@ -32,6 +32,6 @@ GVAR(ping_list_update) = time;
 
 // if display is faded, enable it.
  if (GVAR(faded)) then {
-	 QGVAR(layer) cutRsc ["crowsZA_pingbox_hud","PLAIN", 0, true];
+	 QGVAR(layer) cutRsc ["crowsza_pingbox_hud","PLAIN", 0, true];
 	 GVAR(faded) = false;
  };

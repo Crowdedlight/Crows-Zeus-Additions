@@ -31,7 +31,7 @@ if (GVAR(CBA_Setting_fade_enabled) && _fadeDiff > GVAR(CBA_Setting_fade_duration
 if (count GVAR(ping_list) == 0) exitWith {};
 
 //get display
-private _display = uiNamespace getVariable "crowsZA_pingbox_hud";
+private _display = uiNamespace getVariable "crowsza_pingbox_hud";
 
 //get list 
 private _ctrlList = _display displayCtrl IDC_PINGBOX_LIST;
