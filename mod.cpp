@@ -1,10 +1,10 @@
 name = "Crows Zeus Additions";
 dir = "@crowsza";
 author = "Crowdedlight";
-picture = "crow_icon.paa";
+picture = "\z\crowsza\addons\main\data\crow_icon.paa";
 description = "Crows Zeus Additions";
-logo = "logo_crow.paa";
-logoOver = "crow_icon.paa";
+logo = "\z\crowsza\addons\main\data\logo_crow.paa";
+logoOver = "\z\crowsza\addons\main\data\crow_icon.paa";
 tooltip = "Crows Zeus Additions";
 overview = "Crows Zeus Additions, is an Arma 3 mod that adds extra modules and QoL to Zeus.";
-overviewPicture = "crow_icon.paa";
+overviewPicture = "\z\crowsza\addons\main\data\crow_icon.paa";

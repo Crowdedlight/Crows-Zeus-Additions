@@ -15,4 +15,4 @@ class CfgPatches {
 #include "CfgEventhandlers.hpp"
 
 //gui include
-#include "ui\pingboxGui.hpp"
+#include "\z\crowsza\addons\pingbox\ui\pingboxGui.hpp"

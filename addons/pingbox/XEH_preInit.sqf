@@ -41,7 +41,7 @@ GVAR(hidden) = false;
 	{
 		params ["_value"];
 		// if we are faded and disable fading, we should redraw
-		if (!_value && GVAR(faded)) then {GVAR(faded) = false; QGVAR(layer) cutRsc ["crowsZA_pingbox_hud", "PLAIN", 0, true];};
+		if (!_value && GVAR(faded)) then {GVAR(faded) = false; QGVAR(layer) cutRsc ["crowsza_pingbox_hud", "PLAIN", 0, true];};
 	}
 ] call CBA_fnc_addSetting;
 

@@ -22,10 +22,13 @@ private _moduleList = [
 // register context actions
 private _contextActionList = [
     // Action name, Display name, Icon and Icon colour, code, Condition to show, arguments, dynamic children, modifier functions
-    ["teleport_to_squadmate","Teleport To Squadmate",QPATHTOF(data\tpToSquad.paa), {[[],_hoveredEntity] call FUNC(teleportToSquadMember)}, {!isNull _hoveredEntity && [_hoveredEntity] call EFUNC(main,isAliveManUnit) && (count units group leader _hoveredEntity) > 1}] call zen_context_menu_fnc_createAction,
+    [
+        ["teleport_to_squadmate","Teleport To Squadmate",QPATHTOF(data\tpToSquad.paa),
+        {[[],_hoveredEntity] call FUNC(teleportToSquadMember)}, 
+        {!isNull _hoveredEntity && [_hoveredEntity] call EFUNC(main,isAliveManUnit) && (count units group leader _hoveredEntity) > 1}] call zen_context_menu_fnc_createAction,
         [],
         6
-    ],
+    ]
 ];
 {
     [

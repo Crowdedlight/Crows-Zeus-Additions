@@ -33,7 +33,7 @@ private _contextActionList = [
 		{[_hoveredEntity] call EFUNC(main,isAliveManUnit) && EGVAR(main,aceLoaded) && EGVAR(main,jshkLoaded) && (_hoveredEntity getVariable ["ACE_isUnconscious", false]) == true}] call zen_context_menu_fnc_createAction,
         ["HealUnits"],
         0
-    ],
+    ]
 ];
 {
     [

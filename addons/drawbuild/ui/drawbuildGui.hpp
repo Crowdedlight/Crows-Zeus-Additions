@@ -1,11 +1,16 @@
 class RscActivePicture;
 class RscCheckBox;
+class RscText;
+class RscControlsGroupNoScrollbars;
 
 //main display class
-class crowsZA_drawbuild_display {
+class crowsza_drawbuild_display {
     idd = -1;
     movingEnable = 1;
-    onLoad = "uiNamespace setVariable ['crowsZA_drawbuild_display',_this select 0];";
+    fadein = 0.05;
+    fadeout = 0;
+    duration = 9999999;
+    onLoad = "uiNamespace setVariable ['crowsza_drawbuild_display',_this select 0];";
     class controls {
         class Title: RscText {
             idc = IDC_TITLE;

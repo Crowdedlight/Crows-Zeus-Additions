@@ -61,7 +61,7 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 	private _zeusPos = positionCameraToWorld [0,0,0];
 
 	// get variable
-	private _rcUnits = missionNamespace getVariable["crowsZA_rcUnits", []];
+	private _rcUnits = missionNamespace getVariable[QGVAR(rcUnits), []];
 
 	// RC ICON
 	{

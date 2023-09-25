@@ -8,7 +8,7 @@ Return: none
 
 Enables and displays the pingbox hud
 
-[player] call crowsZA_fnc_addEntryPingBoxHUD;
+[player] call crowsza_fnc_addEntryPingBoxHUD;
 
 *///////////////////////////////////////////////
 params ["_player"];

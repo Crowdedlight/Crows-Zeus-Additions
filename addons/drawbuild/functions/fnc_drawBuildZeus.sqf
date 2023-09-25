@@ -17,16 +17,16 @@ params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 GVAR(lastPole) = objNull;
 
 //create display 
-if (!createDialog "crowsZA_drawbuild_display") exitWith {["Failed to open drawbuild dialog"] call EFUNC(main,showHint)};
+if (!createDialog "crowsza_drawbuild_display") exitWith {["Failed to open drawbuild dialog"] call EFUNC(main,showHint)};
 
 //get display
-private _display = uiNamespace getVariable "crowsZA_drawbuild_display";
+private _display = uiNamespace getVariable "crowsza_drawbuild_display";
 
 //use ZENs method to init display posisions. I can use it as I should have same base setup as ZEN uses in their gui
 [_display] call zen_common_fnc_initDisplayPositioning;
 
 // save position that is selected 
-// _display setVariable ["crowsZA_drawbuild_pos", _pos];
+// _display setVariable ["crowsza_drawbuild_pos", _pos];
 
 // array of "options" to build with
 private _arrOptions = [

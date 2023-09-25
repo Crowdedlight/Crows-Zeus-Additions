@@ -35,7 +35,7 @@ if (EGVAR(main,aceLoaded)) then {
 
 
 // // get array of TP positions, split into own file for future support of different "shapes"/patterns
-// private _tpArray = [_targetPos, count _units, _offset, _targetAltitude] call crowsZA_fnc_scatterPatternOutwardSpiral;
+// private _tpArray = [_targetPos, count _units, _offset, _targetAltitude] call crowsza_fnc_scatterPatternOutwardSpiral;
 
 // // now run through each unit and tp
 // {

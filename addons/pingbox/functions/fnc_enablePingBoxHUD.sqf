@@ -8,7 +8,7 @@ Return: none
 
 Enables and displays the pingbox hud
 
-call crowsZA_fnc_enablePingBoxHUD;
+call crowsza_fnc_enablePingBoxHUD;
 
 *///////////////////////////////////////////////
 

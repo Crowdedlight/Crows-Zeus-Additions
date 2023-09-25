@@ -8,7 +8,7 @@ Return: none
 
 heals all players in a radius around the spot clicked
 
-call: [getPosASL player, 20] call crowsZA_fnc_radiusHeal;
+call: [getPosASL player, 20] call crowsza_fnc_radiusHeal;
 
 *///////////////////////////////////////////////
 params ["_position", "_radius"];

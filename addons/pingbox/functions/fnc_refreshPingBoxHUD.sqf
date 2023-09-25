@@ -8,7 +8,7 @@ Return: none
 
 refreshes hud based on array. Should be called every 0.8s for proper second update
 
-call crowsZA_fnc_refreshPingBoxHUD;
+call crowsza_fnc_refreshPingBoxHUD;
 
 *///////////////////////////////////////////////
 
