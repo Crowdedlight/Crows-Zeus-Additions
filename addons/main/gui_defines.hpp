@@ -1,5 +1,6 @@
 #include "\a3\ui_f\hpp\defineCommonGrids.inc"
 #include "\a3\ui_f\hpp\defineResinclDesign.inc"
+#include "\a3\ui_f_curator\ui\defineResinclDesign.inc"
 
 //gui defines - Using same approach as ZEN for gui styling
 #define POS_X(N) ((N) * GUI_GRID_W + GUI_GRID_CENTER_X)
