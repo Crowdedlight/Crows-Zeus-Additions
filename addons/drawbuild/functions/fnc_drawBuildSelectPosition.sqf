@@ -16,8 +16,6 @@ params ["_object", "_enableSim", "_enableDmg"];
 // exit if instance is already running
 if (GVAR(selectPositionActive)) exitWith {};
 
-diag_log "running select position";
-
 // set as active 
 GVAR(selectPositionActive) = true;
 
@@ -34,8 +32,6 @@ private _textStart = "Start Position";
 // display vars 
 private _display = findDisplay IDD_RSCDISPLAYCURATOR;
 private _visuals = [_text, _icon, _angle, _colour, _textStart];
-
-diag_log _display;
 
 // mouse eventhandler to get clicks/positions
 private _mouseEH = [_display, "MouseButtonDown", {

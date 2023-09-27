@@ -17,7 +17,7 @@ private _ctrlList = _display displayCtrl IDC_LIST;
 lnbClear _ctrlList;
 
 //get unit selected
-private _unit = _display getVariable GVAR(loadout_viewer_unit);
+private _unit = _display getVariable QGVAR(loadout_viewer_unit);
 private _loadoutArr = getUnitLoadout _unit;
 
 // Update weight number

@@ -18,9 +18,9 @@ if (!createDialog "crowsza_loadout_display") exitWith {};
 private _display = uiNamespace getVariable "crowsza_loadout_display";
 
 // save object that is selected 
-_display setVariable ["crowsza_loadout_viewer_unit", _entity];
+_display setVariable [QGVAR(loadout_viewer_unit), _entity];
 
-//use ZENs method to init display posisions. I can use it as I should have same base setup as ZEN uses in their gui
+//use ZENs method to init display positions. I can use it as I should have same base setup as ZEN uses in their gui
 [_display] call zen_common_fnc_initDisplayPositioning;
 
 //get common info, weight, name etc.
