@@ -1,0 +1,2 @@
+PREP(isAliveManUnit);
+PREP(showHint);
