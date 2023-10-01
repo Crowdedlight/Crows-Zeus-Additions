@@ -15,8 +15,8 @@ if !(isClass (configFile >> "CfgPatches" >> "cba_main")) exitWith
 	diag_log "[Crows Zeus Additions]: CBA not detected.";
 };
 
-// only load for players
-if (!hasInterface) exitWith {};
+// only load for players and dedicated server (for save settings)
+if (!hasInterface && !isDedicated) exitWith {};
 
 // register CBA keybinding to toggle zeus-drawn text
 [
