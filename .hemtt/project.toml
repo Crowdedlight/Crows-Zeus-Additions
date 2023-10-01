@@ -21,12 +21,8 @@ exclude = [
   "*.tga"
 ]
 
-key_name = "{{prefix}}_{{version}}"
-authority = "{{prefix}}_{{version}}-{{git \"id 8\"}}"
-  
-releasebuild = [
-  "@zip @crowsza_{{version}}"
-]
+[version]
+git_hash = 0 # Disabled
   
 [properties]
 author = "Crowdedlight"
