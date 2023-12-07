@@ -49,7 +49,8 @@ private _arrOptions = [
 	"Land_Razorwire_F",						//razor wire
 
 	//misc.
-	"PowerCable_01_StraightLong_F"			//power cable
+	"PowerCable_01_StraightLong_F",			//power cable
+	"BloodTrail_01_New_F" 					//blood trail
 ];
 
 // only add grad trenches if that mod is loaded
