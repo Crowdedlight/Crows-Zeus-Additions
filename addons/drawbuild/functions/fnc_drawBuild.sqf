@@ -138,6 +138,13 @@ switch(_objectName) do {
 		_spawnObjectLengthOffset = 2.49;
 		_spawnDirOffset = 0; //no offset
 	};
+	// blood trail
+	case "BloodTrail_01_New_F":
+	{
+		_spawnObjectLength = 12;
+		_spawnObjectLengthOffset = 6;
+		_spawnDirOffset = 0; //no offset
+	};
 };
 
 // calculate distance between points to know amount of hesco to cover the length - https://community.bistudio.com/wiki/vectorDistance
@@ -171,7 +178,11 @@ for "_i" from 1 to _iterations do {
 		_nextPos = _tempPos getPos [_distMove, _direction];
 	};
 
-	// spawn object - https://community.bistudio.com/wiki/createVehicle
+	// add some randomness to blood trails
+	if(_objectName in ["BloodTrail_01_New_F","BloodSplatter_01_Small_New_F","BloodSplatter_01_Medium_New_F","BloodPool_01_Medium_New_F"]) then {
+		_objectName = selectRandom ["BloodTrail_01_New_F","BloodSplatter_01_Small_New_F","BloodSplatter_01_Medium_New_F","BloodPool_01_Medium_New_F"];
+	};
+
 	_object = createVehicle [_objectName, _nextPos, [], 0, "CAN_COLLIDE"];
 
 	// Align to highest surface (via killzone_kid at https://community.bistudio.com/wiki/Position#PositionAGLS)
