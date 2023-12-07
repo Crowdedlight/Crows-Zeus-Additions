@@ -14,8 +14,6 @@ Starts the selection handler to select multiple points for you to draw
 
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-GVAR(lastPole) = objNull;
-
 //create display 
 if (!createDialog "crowsza_drawbuild_display") exitWith {["STR_CROWSZA_Drawbuild_error"] call EFUNC(main,showHint)};
 
@@ -51,9 +49,7 @@ private _arrOptions = [
 	"Land_Razorwire_F",						//razor wire
 
 	//misc.
-	"PowerCable_01_StraightLong_F",			//power cable
-	"Land_PowerLine_03_pole_F", 			//concrete overhead line
-	"Land_PowerLine_02_pole_small_F"		//wood overhead line
+	"PowerCable_01_StraightLong_F"			//power cable
 ];
 
 // only add grad trenches if that mod is loaded
