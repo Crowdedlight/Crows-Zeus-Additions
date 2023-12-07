@@ -2,150 +2,53 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: drawBuild.sqf
-Parameters: positions, (FUTURE: what object to use for building)
+File: fnc_drawBuild.sqf
+Parameters: startPos - Array: position (ASL) to draw from
+			endPos - Array: position (ASL) to draw to
+			objectName - String: classname of the object(s) to create
+			enableSim - Boolean: whether the created objects should be simulation-enabled
+			enableDmg - Boolean: whether the created objects should be damage-enabled
+
 Return: none
 
-builds objects along the drawn line 
+Builds objects along the drawn line 
 
 *///////////////////////////////////////////////
-// both pos comes as ASL
-params ["_startPos", "_endPos", "_objectName", "_enableSim", "_enableDmg"];
+
+params ["_startPos", "_endPos", "_objectName", "_customOffset", "_enableSim", "_enableDmg"];
 
 // get placement and direction offset (We want to place it from edge to edge)
-private _spawnObjectLength = 0;
-private _spawnObjectLengthOffset = 0;
-private _spawnDirOffset = 0;
-private "_spawnObjectHeight";
+private "_spawnObjectLength";
+private "_spawnObjectLengthOffset";
+private "_spawnDirOffset";
 
-switch(_objectName) do {
-	// smaller hesco
-	case "Land_HBarrier_3_F":
-	{
-		_spawnObjectLength = 3.45376;
-		_spawnObjectLengthOffset = 1.7;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// large hesco
-	case "Land_HBarrier_Big_F":
-	{
-		_spawnObjectLength = 8.5;
-		_spawnObjectLengthOffset = 4.25;
-		_spawnDirOffset = 90; //90deg offset
-	};		
-	// sandbags
-	case "Land_BagFence_Short_F":
-	{
-		_spawnObjectLength = 1.6;
-		_spawnObjectLengthOffset = 0.7;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// tall sandbags
-	case "Land_SandbagBarricade_01_F":
-	{
-		_spawnObjectLength = 1.7;
-		_spawnObjectLengthOffset = 1.7;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// trench
-	case "fort_envelopebig": //only exists if grad trenches is on the server
-	{
-		_spawnObjectLength = 6;
-		_spawnObjectLengthOffset = 3;
-		_spawnDirOffset = 270;
-	};
-	// concrete wall
-	case "Land_ConcreteWall_01_m_4m_F":
-	{
-		_spawnObjectLength = 4;
-		_spawnObjectLengthOffset = 2;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// smaller hesco - green
-	case "Land_HBarrier_01_line_3_green_F":
-	{
-		_spawnObjectLength = 3.45376;
-		_spawnObjectLengthOffset = 1.7;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// big hesco - green 
-	case "Land_HBarrier_01_big_4_green_F":
-	{
-		_spawnObjectLength = 8.5;
-		_spawnObjectLengthOffset = 4.25;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// sandbag wall - green
-	case "Land_BagFence_01_short_green_F":
-	{
-		_spawnObjectLength = 1.6;
-		_spawnObjectLengthOffset = 0.7;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// military wall big
-	case "Land_Mil_WallBig_4m_F":
-	{
-		_spawnObjectLength = 4;
-		_spawnObjectLengthOffset = 2;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// land fortress wall 5m
-	case "Land_Fortress_01_5m_F":
-	{
-		_spawnObjectLength = 10;
-		_spawnObjectLengthOffset = 5;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// grass hedge
-	case "Land_Hedge_01_s_2m_F":
-	{
-		_spawnObjectLength = 2;
-		_spawnObjectLengthOffset = 0.5;
+private _objectParams = GVAR(drawBuildPresets) getOrDefault [_objectName, objNull];
+if(_objectParams isEqualTo objNull) then {
+	private _obj = createVehicle [_objectName, [0,0,0]];
+	(boundingBoxReal _obj) params ["_min", "_max"];
+	private _width = abs(_max#0-_min#0);
+	private _length = abs(_max#1-_min#1);
+	if(_width > _length) then {
+		_length = _width;
+		_spawnDirOffset = 90;
+	} else {
 		_spawnDirOffset = 0;
 	};
-	// net fence
-	case "Land_NetFence_02_m_4m_F":
-	{
-		_spawnObjectLength = 4;
-		_spawnObjectLengthOffset = 2;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// wired fence
-	case "Land_New_WiredFence_5m_F":
-	{
-		_spawnObjectLength = 5.20;
-		_spawnObjectLengthOffset = 2.6;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// razorwire
-	case "Land_Razorwire_F":
-	{
-		_spawnObjectLength = 8.46;
-		_spawnObjectLengthOffset = 4.20;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// tire barrier
-	case "Land_TyreBarrier_01_line_x4_F":
-	{
-		_spawnObjectLength = 2.6;
-		_spawnObjectLengthOffset = 1.2;
-		_spawnDirOffset = 90; //90deg offset
-	};
-	// power cables
-	case "PowerCable_01_StraightLong_F":
-	{
-		_spawnObjectLength = 5.02368;
-		_spawnObjectLengthOffset = 2.49;
-		_spawnDirOffset = 0; //no offset
-	};
-	// blood trail
-	case "BloodTrail_01_New_F":
-	{
-		_spawnObjectLength = 12;
-		_spawnObjectLengthOffset = 6;
-		_spawnDirOffset = 0; //no offset
-	};
+	_spawnObjectLength = _length;
+	_spawnObjectLengthOffset = _spawnObjectLength/2;
+	deleteVehicle _obj;
+} else {
+	_spawnObjectLength = _objectParams#0;
+	_spawnObjectLengthOffset = _objectParams#1;
+	_spawnDirOffset = _objectParams#2;
 };
+
+private _parsedOffset = [_customOffset] call BIS_fnc_parseNumber;
+if(_parsedOffset isNotEqualTo -1) then {
+	_spawnObjectLength = _parsedOffset;
+	_spawnObjectLengthOffset = _spawnObjectLength/2;
+};
+
 
 // calculate distance between points to know amount of hesco to cover the length - https://community.bistudio.com/wiki/vectorDistance
 private _euclideanDist = _startPos vectorDistance _endPos;
@@ -178,14 +81,28 @@ for "_i" from 1 to _iterations do {
 		_nextPos = _tempPos getPos [_distMove, _direction];
 	};
 
+
+	if("Module" in _objectName) then {
+		private _moduleGroup = createGroup sideLogic;
+		_object = _objectName createUnit [
+			_nextPos,
+			_moduleGroup,
+			"this setVariable ['BIS_fnc_initModules_disableAutoActivation', false, true];"
+		];
+		_tempPos = _nextPos;
+		continue;
+	};
+
 	// add some randomness to blood trails
-	if(_objectName in ["BloodTrail_01_New_F","BloodSplatter_01_Small_New_F","BloodSplatter_01_Medium_New_F","BloodPool_01_Medium_New_F"]) then {
-		_objectName = selectRandom ["BloodTrail_01_New_F","BloodSplatter_01_Small_New_F","BloodSplatter_01_Medium_New_F","BloodPool_01_Medium_New_F"];
+	private _blood = ["BloodTrail_01_New_F","BloodSplatter_01_Small_New_F","BloodSplatter_01_Medium_New_F","BloodPool_01_Medium_New_F"];
+	if(_objectName in _blood) then {
+		_objectName = selectRandom _blood;
 	};
 
 	_object = createVehicle [_objectName, _nextPos, [], 0, "CAN_COLLIDE"];
 
 	// Align to highest surface (via killzone_kid at https://community.bistudio.com/wiki/Position#PositionAGLS)
+	// Mainly used to enable laying of sandbags on top of a building - easiest to do when looking directly down
 	_nextPos set [2, worldSize];
 	_object setPosASL _nextPos;
 	_nextPos set [2, vectorMagnitude (_nextPos vectorDiff getPosVisual _object)];

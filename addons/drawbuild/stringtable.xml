@@ -4,17 +4,29 @@
             <Key ID="STR_CROWSZA_Drawbuild_module_name">
                   <English>DrawBuild</English>
             </Key>
-            <Key ID="STR_CROWSZA_Drawbuild_error">
-                  <English>Failed to open drawbuild dialog</English>
-            </Key>
             <Key ID="STR_CROWSZA_Drawbuild_build_to_here">
                   <English>Build to here</English>
             </Key>
             <Key ID="STR_CROWSZA_Drawbuild_start_pos">
                   <English>Start Position</English>
             </Key>
+            <Key ID="STR_CROWSZA_Drawbuild_filter">
+                  <English>Filter</English>
+            </Key>
             <Key ID="STR_CROWSZA_Drawbuild_objects_to_build">
                   <English>Select Object To Build</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Drawbuild_custom_object">
+                  <English>Custom Object</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Drawbuild_custom_object_tooltip">
+                  <English>classname of an object to be used&lt;br/&gt;The smaller the object, the more will be created&lt;br/&gt;Warning: behaviour is experimental and not guaranteed!</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Drawbuild_custom_offset">
+                  <English>Offset</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Drawbuild_custom_offset_tooltip">
+                  <English>Distance to offset each object by&lt;br/&gt;Smaller distance results in overlapping objects; larger distance results in spacing between objects&lt;br/&gt;Leave empty for default offset</English>
             </Key>
             <Key ID="STR_CROWSZA_Drawbuild_enable_simulation">
                   <English>Enable Simulation</English>
