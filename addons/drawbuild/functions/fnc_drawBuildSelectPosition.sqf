@@ -11,7 +11,8 @@ handles selection of multiple points to draw lines between them
 Inspired by how ZEN handles selection with teleport player
 
 *///////////////////////////////////////////////
-params ["_object", "_enableSim", "_enableDmg"];
+params ["_dialogResult","_in"];
+_dialogResult params ["_object", "_enableSim", "_enableDmg"];
 
 // exit if instance is already running
 if (GVAR(selectPositionActive)) exitWith {};

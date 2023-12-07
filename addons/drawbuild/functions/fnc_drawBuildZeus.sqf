@@ -14,17 +14,6 @@ Starts the selection handler to select multiple points for you to draw
 
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-//create display 
-if (!createDialog "crowsza_drawbuild_display") exitWith {["Failed to open drawbuild dialog"] call EFUNC(main,showHint)};
-
-//get display
-private _display = uiNamespace getVariable "crowsza_drawbuild_display";
-
-//use ZENs method to init display posisions. I can use it as I should have same base setup as ZEN uses in their gui
-[_display] call zen_common_fnc_initDisplayPositioning;
-
-// save position that is selected 
-// _display setVariable ["crowsza_drawbuild_pos", _pos];
 
 // array of "options" to build with
 private _arrOptions = [
@@ -56,47 +45,29 @@ private _arrOptions = [
 // only add grad trenches if that mod is loaded
 private _hasGradTrench = isClass (configFile >> "CfgPatches" >> "grad_trenches_main");
 if (_hasGradTrench) then {
-	_arrOptions = _arrOptions + ["fort_envelopebig"]
+	_arrOptions pushBack "fort_envelopebig";
 };
 
-//display all items
+
+private _objects = [];
+private _prettyNames = [];
 {
-    private _mainItem = _x;
+    private _displayName = getText(configfile >> "CfgVehicles" >> _x >> "displayName");
+    private _picture = getText(configfile >> "CfgVehicles" >> _x >> "editorPreview");
 
-	// picture and name
-    private _picture = getText(configfile >> "CfgVehicles" >> _mainItem >> "editorPreview");
-    private _name = getText(configfile >> "CfgVehicles" >> _mainItem >> "displayName");
-
-    private _tooltip = format ["%1", _name];
-    // private _tooltip = format ["%1\n%2", _name, _mainItem];
-
-	// put in object
-	private _spot = IDC_ICON_GRID_FIRST + _forEachIndex;
-	// get spot
-	private _ctrlSpot = _display displayCtrl _spot;
-
-	// set picture and tooltip
-	_ctrlSpot ctrlSetText _picture;
-	_ctrlSpot ctrlSetTooltip _tooltip;
-
-	// handler for click on icon
-	[_ctrlSpot, "ButtonClick", {
-            params ["_ctrlSpot"];
-            _thisArgs params ["_object", "_display"];
-
-			// close dialog
-			closeDialog 1;
-
-			// get options for simulation and damage 
-			private _ctrlSimCheckbox = _display displayCtrl IDC_CHECKBOX_SIMULATION;
-			private _ctrlDmgCheckbox = _display displayCtrl IDC_CHECKBOX_DAMAGE;
-
-			private _enableSim = cbChecked _ctrlSimCheckbox;
-			private _enableDmg = cbChecked _ctrlDmgCheckbox;
-
-			// start draw building
-			[_object, _enableSim, _enableDmg] call FUNC(drawBuildSelectPosition);
-			
-    }, [_mainItem, _display]] call CBA_fnc_addBISEventHandler;
+    _objects pushBack _x;
+    _prettyNames pushBack [_displayName, "", _picture];
 
 } forEach _arrOptions;
+
+[
+	"Draw Build", 
+	[
+		["LIST","Object",[_objects, _prettyNames, 0, 15]],
+		["CHECKBOX","Enable simulation",true],
+		["CHECKBOX","Enable damage",true]
+	],
+	FUNC(drawBuildSelectPosition),
+	{},
+	_this
+] call zen_dialog_fnc_create;
