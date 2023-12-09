@@ -3,13 +3,18 @@
 Author: Crowdedlight
 			   
 File: drawBuild.sqf
-Parameters: positions, (FUTURE: what object to use for building)
+Parameters: startPos - Array: position (ASL) to draw from
+			endPos - Array: position (ASL) to draw to
+			objectName - String: classname of the object(s) to create
+			enableSim - Boolean: whether the created objects should be simulation-enabled
+			enableDmg - Boolean: whether the created objects should be damage-enabled
+
 Return: none
 
-builds objects along the drawn line 
+Builds objects along the drawn line 
 
 *///////////////////////////////////////////////
-// both pos comes as ASL
+
 params ["_startPos", "_endPos", "_objectName", "_enableSim", "_enableDmg"];
 
 // get placement and direction offset (We want to place it from edge to edge)
