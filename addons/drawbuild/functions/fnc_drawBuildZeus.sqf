@@ -48,6 +48,8 @@ if (_hasGradTrench) then {
 	_arrOptions pushBack "fort_envelopebig";
 };
 
+// TODO: sort by display name? Or by category?
+_arrOptions = [_arrOptions, [], { getText(configfile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy;
 
 private _objects = [];
 private _prettyNames = [];
