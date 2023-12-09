@@ -2,7 +2,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: drawBuild.sqf
+File: fnc_drawBuild.sqf
 Parameters: startPos - Array: position (ASL) to draw from
 			endPos - Array: position (ASL) to draw to
 			objectName - String: classname of the object(s) to create

@@ -2,7 +2,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: drawBuildSelectPosition.sqf
+File: fnc_drawBuildSelectPosition.sqf
 Parameters:
 Return: none
 
@@ -56,7 +56,7 @@ private _mouseEH = [_display, "MouseButtonDown", {
     if ((count GVAR(startPos)) != 0) then {
         // get extra options
         _thisArgs params ["_object", "_enableSim", "_enableDmg"];
-        
+
         // call build function 
         [GVAR(startPos), _position, _object, _enableSim, _enableDmg] call FUNC(drawBuild);   
     };

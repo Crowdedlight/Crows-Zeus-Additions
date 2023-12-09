@@ -2,7 +2,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fn_drawBuildZeus.sqf
+File: fnc_drawBuildZeus.sqf
 Parameters:
 Return: none
 
