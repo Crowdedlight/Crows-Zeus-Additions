@@ -16,7 +16,6 @@ params ["_startPos", "_endPos", "_objectName", "_enableSim", "_enableDmg"];
 private _spawnObjectLength = 0;
 private _spawnObjectLengthOffset = 0;
 private _spawnDirOffset = 0;
-private "_spawnObjectHeight";
 
 switch(_objectName) do {
 	// smaller hesco
@@ -179,13 +178,15 @@ for "_i" from 1 to _iterations do {
 	};
 
 	// add some randomness to blood trails
-	if(_objectName in ["BloodTrail_01_New_F","BloodSplatter_01_Small_New_F","BloodSplatter_01_Medium_New_F","BloodPool_01_Medium_New_F"]) then {
-		_objectName = selectRandom ["BloodTrail_01_New_F","BloodSplatter_01_Small_New_F","BloodSplatter_01_Medium_New_F","BloodPool_01_Medium_New_F"];
+	private _blood = ["BloodTrail_01_New_F","BloodSplatter_01_Small_New_F","BloodSplatter_01_Medium_New_F","BloodPool_01_Medium_New_F"];
+	if(_objectName in _blood) then {
+		_objectName = selectRandom _blood;
 	};
 
 	_object = createVehicle [_objectName, _nextPos, [], 0, "CAN_COLLIDE"];
 
 	// Align to highest surface (via killzone_kid at https://community.bistudio.com/wiki/Position#PositionAGLS)
+	// Mainly used to enable laying of sandbags on top of a building - easiest to do when looking directly down
 	_nextPos set [2, worldSize];
 	_object setPosASL _nextPos;
 	_nextPos set [2, vectorMagnitude (_nextPos vectorDiff getPosVisual _object)];
