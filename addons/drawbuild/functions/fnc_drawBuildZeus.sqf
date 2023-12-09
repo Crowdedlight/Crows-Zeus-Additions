@@ -66,6 +66,7 @@ private _prettyNames = [];
 	"Draw Build", 
 	[
 		["LIST","Object",[_objects, _prettyNames, 0, 15]],
+		["EDIT",["Custom Object", "classname of an object to be used"+endl+"The smaller the object, the more will be created"+endl+"Warning: behaviour is experimental and not guaranteed!"],["", {}]],
 		["CHECKBOX","Enable simulation",true],
 		["CHECKBOX","Enable damage",true]
 	],

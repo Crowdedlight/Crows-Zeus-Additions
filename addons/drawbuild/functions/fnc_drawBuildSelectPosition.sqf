@@ -12,10 +12,18 @@ Inspired by how ZEN handles selection with teleport player
 
 *///////////////////////////////////////////////
 params ["_dialogResult","_in"];
-_dialogResult params ["_object", "_enableSim", "_enableDmg"];
+_dialogResult params ["_object", "_customObject", "_enableSim", "_enableDmg"];
 
 // exit if instance is already running
 if (GVAR(selectPositionActive)) exitWith {};
+
+// exit if custom class isn't recognised
+if(_customObject isNotEqualTo "") then { _object = _customObject; };
+
+if(! isClass (configFile >> "CfgVehicles" >> _object)) exitWith {
+    hint parseText format ["Object not recognised:<br/>%1", _object];
+};
+
 
 // set as active 
 GVAR(selectPositionActive) = true;

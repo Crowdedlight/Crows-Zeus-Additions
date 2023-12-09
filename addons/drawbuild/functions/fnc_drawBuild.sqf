@@ -144,6 +144,20 @@ switch(_objectName) do {
 		_spawnObjectLengthOffset = 6;
 		_spawnDirOffset = 0; //no offset
 	};
+	default
+	{
+		private _obj = createVehicle [_objectName, [0,0,0]];
+		(boundingBoxReal _obj) params ["_min", "_max"];
+		private _width = abs(_max#0-_min#0);
+		private _length = abs(_max#1-_min#1);
+		if(_width > _length) then {
+			_length = _width;
+			_spawnDirOffset = 90;
+		};
+		_spawnObjectLength = _length;
+		_spawnObjectLengthOffset = _spawnObjectLength/2;
+		deleteVehicle _obj;
+	};
 };
 
 // calculate distance between points to know amount of hesco to cover the length - https://community.bistudio.com/wiki/vectorDistance
