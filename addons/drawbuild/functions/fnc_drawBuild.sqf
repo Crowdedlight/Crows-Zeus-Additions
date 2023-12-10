@@ -22,7 +22,7 @@ private "_spawnObjectLength";
 private "_spawnObjectLengthOffset";
 private "_spawnDirOffset";
 
-private _objectParams = [_objectName] call FUNC(getDrawBuildPresets);
+private _objectParams = GVAR(drawBuildPresets) getOrDefault [_objectName, objNull];
 if(_objectParams isEqualTo objNull) then {
 	private _obj = createVehicle [_objectName, [0,0,0]];
 	(boundingBoxReal _obj) params ["_min", "_max"];
