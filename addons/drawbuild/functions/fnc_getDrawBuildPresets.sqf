@@ -104,6 +104,11 @@ private _return = switch(_classname) do {
 	{
 		[12, 6, 0]
 	};
+	//minefield sign
+	case "Land_Sign_MinesDanger_Greek_F":
+	{
+		[50, 25, 90]
+	};
 	default
 	{
 		objNull

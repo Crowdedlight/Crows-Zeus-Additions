@@ -39,7 +39,8 @@ private _arrOptions = [
 
 	//misc.
 	"PowerCable_01_StraightLong_F",			//power cable
-	"BloodTrail_01_New_F" 					//blood trail
+	"BloodTrail_01_New_F", 					//blood trail
+	"Land_Sign_MinesDanger_Greek_F"			//minefield sign
 ];
 
 // only add grad trenches if that mod is loaded
