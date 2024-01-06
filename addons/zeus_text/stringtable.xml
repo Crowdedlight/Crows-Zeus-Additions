@@ -55,6 +55,21 @@
             <Key ID="STR_CROWSZA_zeustext_surrender_icon_colour_tooltip">
                   <English>What colour the icon is shown with</English>
             </Key>
+            <Key ID="STR_CROWSZA_zeustext_onkilled_icon">
+                  <English>Show "Activate On Death" Icon</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_onkilled_icon_tooltip">
+                  <English>Shows an icon over units with custom "Activate On Death" actions applied by zeus</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_onkilled_icon_colour">
+                  <English>Icon Colour</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_onkilled_icon_colour_tooltip">
+                  <English>What colour the icon is shown with</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_onkilled">
+                  <English>Activate On Death</English>
+            </Key>
             <Key ID="STR_CROWSZA_zeustext_wounds">
                   <English>Wounds</English>
             </Key>

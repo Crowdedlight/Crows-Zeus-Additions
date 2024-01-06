@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Crows Zeus Additions">
       <Package name="misc">
+            <Key ID="STR_CROWSZA_Misc_activate_on_death">
+                  <English>Activate On Death</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_activate_on_death">
+                  <English>Remove Activate On Death</English>
+            </Key>
             <Key ID="STR_CROWSZA_Misc_remove_trees">
                   <English>Remove Trees</English>
             </Key>
@@ -102,6 +108,99 @@
             </Key>
             <Key ID="STR_CROWSZA_Misc_civ">
                   <English>CIV</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled">
+                  <English>Activate On Death</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_error_hint">
+                  <English>Something has gone wrong!</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_error_log">
+                  <English>CrowsZA-onDeathZeus: unit became invalid after selection</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_error_null">
+                  <English>Nothing set - no action taken!</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_killer">
+                  <English>Hint (Killer)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_killer_tooltip">
+                  <English>Display a hint to the player that killed the unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_all">
+                  <English>Hint (All)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_all_tooltip">
+                  <English>Display a hint to all players</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_zeus">
+                  <English>Hint (Zeus)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_zeus_tooltip">
+                  <English>Display a hint to (all) Zeus players</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_delete_remains">
+                  <English>Delete Remains</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_delete_remains_tooltip">
+                  <English>Delete the 'dead' object or unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_explosion">
+                  <English>Explosion</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_explosion_tooltip">
+                  <English>Detonate an explosive on the position of the killed unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_explosion_none">
+                  <English>None</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_explosion_small">
+                  <English>Small</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_explosion_large">
+                  <English>Large</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_explosion_nuclear">
+                  <English>Nuclear</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_emp">
+                  <English>EMP</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_emp_tooltip">
+                  <English>Detonate an EMP that affects lights, radios, unprotected vehicles,&lt;br/&gt;and other electronic equipment within 500m</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_sound_killer">
+                  <English>Sound (Killer)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_sound_killer_tooltip">
+                  <English>Play a sound to the player that killed the unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_sound_all">
+                  <English>Sound (All)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_sound_all_tooltip">
+                  <English>Play a sound to all players</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_customcode">
+                  <English>Custom Code</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_customcode_tooltip">
+                  <English>Custom code to execute on unit's death&lt;br/&gt;Arguments: _unit, _killer, _instigator, _useEffects&lt;br/&gt;Written at your own risk - if unsure, leave blank!</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_codetarget">
+                  <English>Code Target</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_tooltip">
+                  <English>Which machine(s) to run the custom code on</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_client">
+                  <English>Clients</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_server">
+                  <English>Server</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_clientserver">
+                  <English>Clients + Server</English>
             </Key>
             <Key ID="STR_CROWSZA_Misc_surrender_chance_name">
                   <English>Surrender Chance</English>
