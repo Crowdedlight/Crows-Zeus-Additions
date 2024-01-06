@@ -106,7 +106,7 @@ private _onConfirm =
 				(_codeTarget == 1 and isServer) || {
 				(_codeTarget == 2)}}
 			) then {
-				[_unit] call (compile _customCode);
+				[_unit, _killer, _instigator, _useEffects] call (compile _customCode);
 			};
 		};
 
@@ -169,7 +169,7 @@ if (isClass(configFile >> "CfgPatches" >> "crowsEW_main")) then {
 };
 
 _options append [
-	["EDIT:CODE",["Custom Code", "Custom code to execute on unit's death"+endl+"Passed the unit as an argument in _this"+endl+"Written at your own risk - if unsure, leave blank!"],["", {}, 5]],
+	["EDIT:CODE",["Custom Code", "Custom code to execute on unit's death"+endl+"Arguments: _unit, _killer, _instigator, _useEffects"+endl+"Written at your own risk - if unsure, leave blank!"],["", {}, 5]],
 	["TOOLBOX",["Code Target", "Which machine to run the custom code on"],[0, 1, 3, ["Clients", "Server", "Clients + Server"]]]
 ];
 
