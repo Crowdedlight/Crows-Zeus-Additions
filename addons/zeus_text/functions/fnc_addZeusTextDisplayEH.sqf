@@ -88,3 +88,24 @@ GVAR(unit_surrender_drawEH) = addMissionEventHandler ["Draw3D", {
 	} forEach (missionNamespace getVariable["crowsZA_surrenderUnits", []]);
 }];
 
+GVAR(unit_onKilled_drawEH) = addMissionEventHandler ["Draw3D", {
+	// if zeus display is null, exit. Only drawing when zeus display is open
+	//if (isNull(findDisplay 312)) exitWith {};
+	if (isNull _x ||
+		{!GVAR(CBA_Setting_OnKilled_helper) ||
+		{uiNamespace getVariable ["RscDisplayCurator_screenshotMode", false]}}
+	) exitWith {};
+
+	// cam position
+	private _zeusPos = positionCameraToWorld [0,0,0];
+
+	// systemChat str (missionNamespace getVariable["crowza_onKilledEHUnits", []]);
+
+	// OnKilled ICON
+	{
+		_x params ["_unit"];
+		[_zeusPos, _unit, "\a3\ui_f_curator\data\cfgmarkers\kia_ca.paa", GVAR(CBA_Setting_OnKilled_helper_color)] call FUNC(drawIcon);
+	} forEach (missionNamespace getVariable["crowza_onKilledEHUnits", []]);
+}];
+
+// TODO: account for multiple icons being displayed at once
