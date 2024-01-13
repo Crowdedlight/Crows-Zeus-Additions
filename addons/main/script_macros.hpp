@@ -11,6 +11,13 @@
 #define SETMVAR(var1,var2) missionNamespace SETPVAR_SYS(var1,var2)
 #define GETMVAR(var1,var2) (missionNamespace GETVAR_SYS(var1,var2))
 
+#define QUADS(var1,var2,var3,var4) var1##_##var2##_##var3##_##var4
+
+//Macros for accessing GVARs or FUNCs in an external mod
+#define EMGVAR(var1,var2,var3) TRIPLES(var1,var2,var3)
+#define EMFUNC(var1,var2,var3) QUADS(var1,var2,fnc,var3)
+
+
 #ifdef DISABLE_COMPILE_CACHE
     #undef PREP
     #define PREP(fncName) DFUNC(fncName) = compile preprocessFileLineNumbers QPATHTOF(functions\DOUBLES(fnc,fncName).sqf)

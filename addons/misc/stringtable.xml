@@ -469,6 +469,84 @@
             <Key ID="STR_CROWSZA_Misc_strip_explosives_dialog">
                   <English>Remove Explosives</English>
             </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke">
+                  <English>Suitcase Device</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_edit">
+                  <English>Edit Suitcase Device</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_error_zeusPlacement">
+                  <English>Must be place on an existing Device, or nothing</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_error_ewarMismatch">
+                  <English>Must be place on an existing Device, or nothing</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuse">
+                  <English>Defuse Device</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_none">
+                  <English>Nothing</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_explosion_small">
+                  <English>Explosion (Small)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_explosion_large">
+                  <English>Explosion (Large)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_explosion_nuclear">
+                  <English>Explosion (Nuclear)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_smoke_red">
+                  <English>Smoke (Red)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_smoke_yellow">
+                  <English>Smoke (Yellow)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_emp">
+                  <English>EMP</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_timer">
+                  <English>Timer</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_timer_tooltip">
+                  <English>How long until the device activates in MM:SS</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect">
+                  <English>Effect</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_tooltip">
+                  <English>What happens when the device activates</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable">
+                  <English>Defusable</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_tooltip">
+                  <English>Who can attempt to defuse the device</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_noone">
+                  <English>No-one</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_specialist">
+                  <English>Explosive Specialists</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_engineer">
+                  <English>Engineers</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_any">
+                  <English>Anyone</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defusetimer">
+                  <English>Defuse Time</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defusetimer_tooltip">
+                  <English>How long does it take to defuse the device in MM:SS</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_armed">
+                  <English>Armed</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_armed_tooltip">
+                  <English>Whether the device can be detonated&lt;br/&gt;If not armed, countdown is paused</English>
+            </Key>
             <Key ID="STR_CROWSZA_Misc_follow_animal">
                   <English>Select Animal Type</English>
             </Key>
