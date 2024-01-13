@@ -25,6 +25,7 @@ PREP(spawnIEDClutterZeus);
 PREP(spawnSupplyDrop);
 PREP(stripExplosives);
 PREP(stripExplosivesZeus);
+PREP(suitcaseNukeZeus);
 PREP(surrenderChance);
 PREP(surrenderChanceZeus);
 PREP(surrender);
