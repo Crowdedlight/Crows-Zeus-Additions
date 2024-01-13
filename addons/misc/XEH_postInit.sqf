@@ -22,14 +22,6 @@ private _moduleList = [
     ["Strip Explosives",{_this call FUNC(stripExplosivesZeus)}, "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa"],
     ["Suitcase Device",{_this call FUNC(suitcaseNukeZeus)}, "\x\zen\addons\modules\ui\nuke_ca.paa"],
     ["Surrender Chance",{_this call FUNC(surrenderChanceZeus)}, "\a3\ui_f\data\igui\cfg\holdactions\holdAction_secure_ca.paa"]
-
-
-
-
-
-
-
-
 ];
 
 {

@@ -184,6 +184,7 @@ private _onConfirm =
 };
 
 private _controls = [
+    // TODO: size of slider makes it very difficult to be precise - replace with (parsed) text?
     ["SLIDER", ["Timer", "How long until the device activates in MM:SS"], [1, 30*60, 5*60, {[_this, "MM:SS"] call BIS_fnc_secondsToString}]],
     ["COMBO", ["Effect", "What happens when the device activates"], [
         ["nothing", "explosive_small", "explosive_large", "explosive_nuke", "smoke_yellow"],
