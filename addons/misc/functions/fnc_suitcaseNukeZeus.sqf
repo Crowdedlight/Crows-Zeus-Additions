@@ -132,17 +132,17 @@ private _onConfirm =
             };
         };
 
-        private _customCode = _device getVariable [QGVAR(suitcaseNuke_code), ""];
-        if(_customCode isNotEqualTo "") then {
-            private _codeTarget = _unit getVariable [QGVAR(suitcaseNuke_codeTarget), 0];
+        // private _customCode = _device getVariable [QGVAR(suitcaseNuke_code), ""];
+        // if(_customCode isNotEqualTo "") then {
+        //     private _codeTarget = _unit getVariable [QGVAR(suitcaseNuke_codeTarget), 0];
 
-            if((_codeTarget == 0 and hasInterface) || {
-                (_codeTarget == 1 and isServer) || {
-                (_codeTarget == 2)}}
-            ) then {
-                [_unit, _killer, _instigator, _useEffects] call (compile _customCode);
-            };
-        };
+        //     if((_codeTarget == 0 and hasInterface) || {
+        //         (_codeTarget == 1 and isServer) || {
+        //         (_codeTarget == 2)}}
+        //     ) then {
+        //         [_device] call (compile _customCode);
+        //     };
+        // };
     }];
 
 
@@ -192,11 +192,11 @@ private _controls = [
         3
     ]],
     ["TOOLBOX",["Defusable", "Who can attempt to defuse the device"],[3, 1, 4, ["No-one", "Explosive Specialist", "Engineer", "Anyone"]]],
-    ["SLIDER", ["Defuse Time", "How long does it take to defuse the device in MM:SS"], [1, 60, 10, {[_this, "MM:SS"] call BIS_fnc_secondsToString}]],
+    ["SLIDER", ["Defuse Time", "How long does it take to defuse the device in MM:SS"], [1, 60, 10, {[_this, "MM:SS"] call BIS_fnc_secondsToString}]]
 
     // TODO: could remove the below and rely on a combination of this module + the OnDeath module
-    ["EDIT:CODE",["Custom Code", "Custom code to execute on unit's death"+endl+"Written at your own risk - if unsure, leave blank!"],["", {}, 5]],
-    ["TOOLBOX",["Code Target", "Which machine to run the custom code on"],[0, 1, 3, ["Clients", "Server", "Clients + Server"]]]
+    // ["EDIT:CODE",["Custom Code", "Custom code to execute on unit's death"+endl+"Written at your own risk - if unsure, leave blank!"],["", {}, 5]],
+    // ["TOOLBOX",["Code Target", "Which machine to run the custom code on"],[0, 1, 3, ["Clients", "Server", "Clients + Server"]]]
 ];
 
 
