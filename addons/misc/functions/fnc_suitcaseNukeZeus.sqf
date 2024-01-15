@@ -24,7 +24,7 @@ private _onConfirm =
 
     private _device = "Land_MultiScreenComputer_01_black_F" createVehicle _pos;
     ["zen_common_updateEditableObjects", [[_device]]] call CBA_fnc_serverEvent;
-    _device setVariable [QGVAR(isArmed), true, true];
+    _device setVariable [QGVAR(suitcaseNuke_isArmed), true, true];
 
 
     // Timer code
@@ -62,7 +62,7 @@ private _onConfirm =
             };
             if(_countdownRemaining < 0) then { _countdownRemaining = 0; };
 
-            _isArmed = _device getVariable [QGVAR(isArmed), false];
+            _isArmed = _device getVariable [QGVAR(suitcaseNuke_isArmed), false];
 
             sleep 0.3; 
         };
@@ -165,12 +165,12 @@ private _onConfirm =
             "Defuse Device",
             "\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\repair_ca.paa",
             "\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\repair_ca.paa",
-            format ["(_this distance _target < 3)%1", _condition],
-            "_caller distance _target < 3",
+            format ["(_this distance _target < 3) and _target getVariable [""crowsza_misc_suitcaseNuke_isArmed"", false]%1", _condition],
+            "_caller distance _target < 3 and _target getVariable [""crowsza_misc_suitcaseNuke_isArmed"", false]",
             {},
             {},
             {
-                _target setVariable [QGVAR(isArmed), false, true];
+                _target setVariable [QGVAR(suitcaseNuke_isArmed), false, true];
                 if (isClass(configFile >> "CfgPatches" >> "crowsEW_sounds")) then {
                     [getPos _target, 200, "device_disarmed", 2] call crowsEW_sounds_fnc_playSoundPos;
                     [getPos _target, 200, "futuristic_machine_turn_off", 2] call crowsEW_sounds_fnc_playSoundPos;
