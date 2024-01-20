@@ -165,8 +165,8 @@ private _onConfirm =
             "Defuse Device",
             "\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\repair_ca.paa",
             "\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\repair_ca.paa",
-            format ["(_this distance _target < 3) and _target getVariable [""crowsza_misc_suitcaseNuke_isArmed"", false]%1", _condition],
-            "_caller distance _target < 3 and _target getVariable [""crowsza_misc_suitcaseNuke_isArmed"", false]",
+            format ["(_this distance _target < 3) and (alive _target) and _target getVariable [""crowsza_misc_suitcaseNuke_isArmed"", false]%1", _condition],
+            "_caller distance _target < 3 and (alive _target) and _target getVariable [""crowsza_misc_suitcaseNuke_isArmed"", false]",
             {},
             {},
             {
@@ -179,7 +179,7 @@ private _onConfirm =
             {},
             [],
             _defuseTime
-        ] remoteExec ["BIS_fnc_holdActionAdd", [0, -2] select isDedicated, true];
+        ] remoteExec ["BIS_fnc_holdActionAdd", [0, -2] select isDedicated, _device];
     };
 };
 
