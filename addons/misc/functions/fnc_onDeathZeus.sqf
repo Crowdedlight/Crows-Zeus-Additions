@@ -117,8 +117,8 @@ private _onConfirm =
 			missionNamespace setVariable["crowza_onKilledEHUnits", _unitList-[_unit], true];
 
 			switch(_unit getVariable [QGVAR(onDeath_explosion), 0]) do {
-				case 1: { private _ied = createVehicle ["ModuleExplosive_IEDUrbanSmall_F", getPosATL _unit, [], 0, "CAN_COLLIDE"]; _ied setDamage 1; };
-				case 2: { private _ied = createVehicle ["ModuleExplosive_IEDUrbanBig_F", getPosATL _unit, [], 0, "CAN_COLLIDE"]; _ied setDamage 1; };
+				case 1: { private _ied = createVehicle ["DemoCharge_Remote_Ammo_Scripted", getPosATL _unit, [], 0, "CAN_COLLIDE"]; _ied setDamage 1; };
+				case 2: { private _ied = createVehicle ["Bo_GBU12_LGB", getPosATL _unit, [], 0, "CAN_COLLIDE"]; _ied setDamage 1; };
 				case 3: { ["zen_modules_moduleNuke", [ASLToAGL(getPosASL _unit), 200, 300, false]] call CBA_fnc_globalEvent; };
 				default {};
 			};
