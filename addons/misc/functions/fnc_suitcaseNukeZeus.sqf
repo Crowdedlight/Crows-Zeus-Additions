@@ -9,8 +9,7 @@ Return: none
 *///////////////////////////////////////////////
 params [["_pos",[0,0,0],[[]],3]];
 
-private _onConfirm =
-{
+private _onConfirm = {
     params ["_dialogResult","_in"];
     _in params [["_pos",[0,0,0],[[]],3]];
     _dialogResult params [
@@ -115,7 +114,7 @@ private _onConfirm =
                     deleteVehicle _device;
                 };
                 case "explosive_nuke": {
-                    ["zen_modules_moduleNuke", [ASLToAGL(getPosASL _unit), 200, 300, false]] call CBA_fnc_globalEvent;
+                    ["zen_modules_moduleNuke", [ASLToAGL(getPosASL _device), 200, 300, false]] call CBA_fnc_globalEvent;
                     deleteVehicle _device;
                 };
                 case "smoke_yellow": {
@@ -131,18 +130,6 @@ private _onConfirm =
                 default {};
             };
         };
-
-        // private _customCode = _device getVariable [QGVAR(suitcaseNuke_code), ""];
-        // if(_customCode isNotEqualTo "") then {
-        //     private _codeTarget = _unit getVariable [QGVAR(suitcaseNuke_codeTarget), 0];
-
-        //     if((_codeTarget == 0 and hasInterface) || {
-        //         (_codeTarget == 1 and isServer) || {
-        //         (_codeTarget == 2)}}
-        //     ) then {
-        //         [_device] call (compile _customCode);
-        //     };
-        // };
     }];
 
 
@@ -150,13 +137,13 @@ private _onConfirm =
     if(_defuser > 0) then {
 
         // TODO: with ace, also (optionally) require DefusalKit item
-        private _ace = (isClass(configFile >> "CfgPatches" >> "ace_main"));
-        private _condition = switch(true) do {
-            case (_defuser == 1 and _ace) : { " and ([player] call ace_common_fnc_isEOD)" }; // EOD
-            case (_defuser == 1 and !_ace) : { " and (player getUnitTrait ""ExplosiveSpecialist"")" }; // EOD
-            case (_defuser == 2 and _ace) : { " and (([player] call ace_common_fnc_isEngineer) or ([player] call ace_common_fnc_isEOD)" }; // Engineer
-            case (_defuser == 2 and !_ace) : { " and ((player getUnitTrait ""Engineer"") or (player getUnitTrait ""ExplosiveSpecialist""))" }; // Engineer
-            default { "" }; // Anyone
+        private _ace = EGVAR(main,aceLoaded);
+        private _defuserCondition = switch(true) do {
+            case (_defuser == 1 and _ace) : { QUOTE( ([player] call EMFUNC(ace,common,isEOD))) }; // EOD
+            case (_defuser == 1 and !_ace) : { QUOTE( (player getUnitTrait QQUOTE(ExplosiveSpecialist))) }; // EOD
+            case (_defuser == 2 and _ace) : { QUOTE( (([player] call EMFUNC(ace,common,isEngineer)) or ([player] call EMFUNC(ace,common,isEOD)))) }; // Engineer
+            case (_defuser == 2 and !_ace) : { QUOTE( ((player getUnitTrait QQUOTE(Engineer)) or (player getUnitTrait QQUOTE(ExplosiveSpecialist)))) }; // Engineer
+            default { QUOTE(true) }; // Anyone
         };
 
 
@@ -165,15 +152,15 @@ private _onConfirm =
             "Defuse Device",
             "\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\repair_ca.paa",
             "\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\repair_ca.paa",
-            format ["(_this distance _target < 3) and (alive _target) and _target getVariable [""crowsza_misc_suitcaseNuke_isArmed"", false]%1", _condition],
-            "_caller distance _target < 3 and (alive _target) and _target getVariable [""crowsza_misc_suitcaseNuke_isArmed"", false]",
+            format ["%1 and %2", QUOTE((_this distance _target < 3) and (alive _target) and (_target getVariable [QQGVAR(suitcaseNuke_isArmed) COMMA false])), _defuserCondition],
+            QUOTE(_caller distance _target < 3 and (alive _target) and (_target getVariable [QQGVAR(suitcaseNuke_isArmed) COMMA false])),
             {},
             {},
             {
                 _target setVariable [QGVAR(suitcaseNuke_isArmed), false, true];
-                if (isClass(configFile >> "CfgPatches" >> "crowsEW_sounds")) then {
-                    [getPos _target, 200, "device_disarmed", 2] call crowsEW_sounds_fnc_playSoundPos;
-                    [getPos _target, 200, "futuristic_machine_turn_off", 2] call crowsEW_sounds_fnc_playSoundPos;
+                if (EGVAR(main,crowsEWLoaded)) then {
+                    [getPosASL _target, 200, "device_disarmed", 2] call EMFUNC(crowsEW,sounds,playSoundPos);
+                    [getPosASL _target, 200, "futuristic_machine_turn_off", 2] call EMFUNC(crowsEW,sounds,playSoundPos);
                 };
             },
             {},
@@ -193,12 +180,8 @@ private _controls = [
         ["Nothing", "Explosion (small)", "Explosion (large)", "Explosion (Nuclear)", "Smoke (Yellow)"],
         3
     ]],
-    ["TOOLBOX",["Defusable", "Who can attempt to defuse the device"],[3, 1, 4, ["No-one", "Explosive Specialist", "Engineer", "Anyone"]]],
+    ["TOOLBOX",["Defusable", "Who can attempt to defuse the device"],[3, 1, 4, ["No-one", "Explosive Specialists", "Engineers", "Anyone"]]],
     ["SLIDER", ["Defuse Time", "How long does it take to defuse the device in MM:SS"], [1, 60, 10, {[_this, "MM:SS"] call BIS_fnc_secondsToString}]]
-
-    // TODO: could remove the below and rely on a combination of this module + the OnDeath module
-    // ["EDIT:CODE",["Custom Code", "Custom code to execute on unit's death"+endl+"Written at your own risk - if unsure, leave blank!"],["", {}, 5]],
-    // ["TOOLBOX",["Code Target", "Which machine to run the custom code on"],[0, 1, 3, ["Clients", "Server", "Clients + Server"]]]
 ];
 
 
