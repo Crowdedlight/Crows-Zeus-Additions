@@ -45,7 +45,7 @@ GVAR(medical_status_players) = [];
 	QGVAR(CBA_Setting_rc_helper),
     "CHECKBOX",
     ["Show RC Icon","Shows an zeus icon over units currently being RC'ed by any zeus"],
-    ["Crows Zeus Additions","Zeus RC"],
+    ["Crows Zeus Additions","Helper Icons - Zeus RC"],
     true
 ] call CBA_fnc_addSetting;
 
@@ -54,25 +54,43 @@ GVAR(medical_status_players) = [];
 	QGVAR(CBA_Setting_rc_helper_color),
     "COLOR",
     ["Icon Colour","What colour the icon is shown with"],
-    ["Crows Zeus Additions","Zeus RC"],
+    ["Crows Zeus Additions","Helper Icons - Zeus RC"],
     [1,1,1,1]
 ] call CBA_fnc_addSetting;
 
 
 // ZEUS SURRENDER HELPER
 [
-	QGVAR(CBA_Setting_surrender_helper),
+    QGVAR(CBA_Setting_surrender_helper),
     "CHECKBOX",
     ["Show Surrender Icon","Shows an icon over units with a chance to surrender"],
-    ["Crows Zeus Additions","Surrender Chance"],
+    ["Crows Zeus Additions","Helper Icons - Surrender Chance"],
     true
 ] call CBA_fnc_addSetting;
 
 // ZEUS SURRENDER HELPER - COLOR
 [
-	QGVAR(CBA_Setting_surrender_helper_color),
+    QGVAR(CBA_Setting_surrender_helper_color),
     "COLOR",
     ["Icon Colour","What colour the icon is shown with"],
-    ["Crows Zeus Additions","Surrender Chance"],
+    ["Crows Zeus Additions","Helper Icons - Surrender Chance"],
+    [1,1,1,1]
+] call CBA_fnc_addSetting;
+
+// ZEUS KILLED EH HELPER
+[
+    QGVAR(CBA_Setting_OnKilledModule_helper),
+    "CHECKBOX",
+    ["Show OnKilled Icon","Shows an icon over units with custom OnKilled actions applied by zeus"],
+    ["Crows Zeus Additions","Helper Icons - Activate On Death"],
+    true
+] call CBA_fnc_addSetting;
+
+// ZEUS KILLED EH HELPER - COLOR
+[
+    QGVAR(CBA_Setting_OnKilledModule_helper_color),
+    "COLOR",
+    ["Icon Colour","What colour the icon is shown with"],
+    ["Crows Zeus Additions","Helper Icons - Activate On Death"],
     [1,1,1,1]
 ] call CBA_fnc_addSetting;
