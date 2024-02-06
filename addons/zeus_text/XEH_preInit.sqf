@@ -79,7 +79,7 @@ GVAR(medical_status_players) = [];
 
 // ZEUS KILLED EH HELPER
 [
-    QGVAR(CBA_Setting_OnKilled_helper),
+    QGVAR(CBA_Setting_OnKilledModule_helper),
     "CHECKBOX",
     ["Show OnKilled Icon","Shows an icon over units with custom OnKilled actions applied by zeus"],
     ["Crows Zeus Additions","Helper Icons - Activate On Death"],
@@ -88,7 +88,7 @@ GVAR(medical_status_players) = [];
 
 // ZEUS KILLED EH HELPER - COLOR
 [
-    QGVAR(CBA_Setting_OnKilled_helper_color),
+    QGVAR(CBA_Setting_OnKilledModule_helper_color),
     "COLOR",
     ["Icon Colour","What colour the icon is shown with"],
     ["Crows Zeus Additions","Helper Icons - Activate On Death"],

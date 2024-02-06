@@ -88,24 +88,23 @@ GVAR(unit_surrender_drawEH) = addMissionEventHandler ["Draw3D", {
 	} forEach (missionNamespace getVariable["crowsZA_surrenderUnits", []]);
 }];
 
-GVAR(unit_onKilled_drawEH) = addMissionEventHandler ["Draw3D", {
+GVAR(unit_onKilledModule_drawEH) = addMissionEventHandler ["Draw3D", {
 	// if zeus display is null, exit. Only drawing when zeus display is open
 	//if (isNull(findDisplay 312)) exitWith {};
 	if (isNull _x ||
-		{!GVAR(CBA_Setting_OnKilled_helper) ||
+		{!GVAR(CBA_Setting_OnKilledModule_helper) ||
 		{uiNamespace getVariable ["RscDisplayCurator_screenshotMode", false]}}
 	) exitWith {};
 
 	// cam position
 	private _zeusPos = positionCameraToWorld [0,0,0];
 
-	// systemChat str (missionNamespace getVariable["crowza_onKilledEHUnits", []]);
-
 	// OnKilled ICON
 	{
 		_x params ["_unit"];
-		[_zeusPos, _unit, "\a3\ui_f_curator\data\cfgmarkers\kia_ca.paa", GVAR(CBA_Setting_OnKilled_helper_color)] call FUNC(drawIcon);
-	} forEach (missionNamespace getVariable["crowza_onKilledEHUnits", []]);
+		[_zeusPos, _unit, "\a3\ui_f_curator\data\cfgmarkers\kia_ca.paa", GVAR(CBA_Setting_OnKilledModule_helper_color)] call FUNC(drawIcon);
+	} forEach GETMVAR(EGVAR(misc,OnKilledModuleUnits),[]);
 }];
 
-// TODO: account for multiple icons being displayed at once
+// TODO: account for multiple icons being displayed at once. E.g. surrender *AND* onDeath
+// Should draw all icons in one event and then arrange icons based on total number present, e.g. either vertically or horizontally
