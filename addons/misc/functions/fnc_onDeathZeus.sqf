@@ -91,8 +91,6 @@ private _onConfirm =
 			hint _hint_zeus;
 		};
 
-		// TODO: worth investigating what happens if crowsEW is present ONLY on this client
-		// (It shouldn't be - but not everyone uses a mod whitelist afterall)
 		if (EGVAR(main,crowsEWLoaded)) then {
 			private _sound = (_unit getVariable [QGVAR(onDeath_soundKiller), ""]);
 			if(_sound isNotEqualTo "" and player isEqualTo _killer) then {
