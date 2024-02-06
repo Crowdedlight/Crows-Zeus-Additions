@@ -103,6 +103,13 @@ private _onConfirm = {
         params ["_device"];
         if(isServer) then {
             switch(_device getVariable QGVAR(suitcaseNuke_activate)) do {
+                case "emp": {
+                    if (EGVAR(main,crowsEWLoaded)) then {
+                        [getPos _device, _device, 500, false, 1, 1] call EMFUNC(crowsEW,emp,fireEMP);
+                    } else {
+                        diag_log "CrowsZA-suitcaseNuke: zeus has crowsEW installed but the server does not";
+                    };
+                };
                 case "explosive_small": {
                     private _explosive = createVehicle ["DemoCharge_Remote_Ammo_Scripted", getPosATL _device, [], 0, "CAN_COLLIDE"];
                     _explosive setDamage 1;
@@ -116,6 +123,16 @@ private _onConfirm = {
                 case "explosive_nuke": {
                     ["zen_modules_moduleNuke", [ASLToAGL(getPosASL _device), 200, 300, false]] call CBA_fnc_globalEvent;
                     deleteVehicle _device;
+                };
+                case "smoke_red": {
+                    private _smoke = createVehicle ["SmokeShellRed_Infinite", getPosATL _device, [], 0, "CAN_COLLIDE"];
+                    hideObjectGlobal _smoke;
+                    _device setVariable [QGVAR(suitcaseNuke_smoke), _smoke];
+                    _smoke attachTo [_device];
+                    _device addEventHandler ["Deleted", {
+                        params ["_device"];
+                        deleteVehicle (_device getVariable [QGVAR(suitcaseNuke_smoke), objNull]);
+                    }];
                 };
                 case "smoke_yellow": {
                     private _smoke = createVehicle ["SmokeShellYellow_Infinite", getPosATL _device, [], 0, "CAN_COLLIDE"];
@@ -139,9 +156,9 @@ private _onConfirm = {
         // TODO: with ace, also (optionally) require DefusalKit item
         private _ace = EGVAR(main,aceLoaded);
         private _defuserCondition = switch(true) do {
-            case (_defuser == 1 and _ace) : { QUOTE( ([player] call EMFUNC(ace,common,isEOD))) }; // EOD
+            case (_defuser == 1 and _ace) : { QUOTE( ([player] call EMFUNC(ace,common,isEOD))) }; // ace EOD
             case (_defuser == 1 and !_ace) : { QUOTE( (player getUnitTrait QQUOTE(ExplosiveSpecialist))) }; // EOD
-            case (_defuser == 2 and _ace) : { QUOTE( (([player] call EMFUNC(ace,common,isEngineer)) or ([player] call EMFUNC(ace,common,isEOD)))) }; // Engineer
+            case (_defuser == 2 and _ace) : { QUOTE( (([player] call EMFUNC(ace,common,isEngineer)) or ([player] call EMFUNC(ace,common,isEOD)))) }; // ace Engineer
             case (_defuser == 2 and !_ace) : { QUOTE( ((player getUnitTrait QQUOTE(Engineer)) or (player getUnitTrait QQUOTE(ExplosiveSpecialist)))) }; // Engineer
             default { QUOTE(true) }; // Anyone
         };
@@ -170,16 +187,22 @@ private _onConfirm = {
     };
 };
 
+
+private _effects = [
+    ["nothing", "explosive_small", "explosive_large", "explosive_nuke", "smoke_red", "smoke_yellow"],
+    ["Nothing", "Explosion (Small)", "Explosion (Large)", "Explosion (Nuclear)", "Smoke (Red)", "Smoke (Yellow)"],
+    3
+];
+
+if (EGVAR(main,crowsEWLoaded)) then {
+    _effects#0 insert [1, ["emp"]];
+    _effects#1 insert [1, ["EMP"]];
+};
+
 private _controls = [
     // TODO: size of slider makes it very difficult to be precise - replace with (parsed) text?
     ["SLIDER", ["Timer", "How long until the device activates in MM:SS"], [1, 30*60, 5*60, {[_this, "MM:SS"] call BIS_fnc_secondsToString}]],
-    
-    // TODO: add EMP if crowsEW is enabled
-    ["COMBO", ["Effect", "What happens when the device activates"], [
-        ["nothing", "explosive_small", "explosive_large", "explosive_nuke", "smoke_yellow"],
-        ["Nothing", "Explosion (small)", "Explosion (large)", "Explosion (Nuclear)", "Smoke (Yellow)"],
-        3
-    ]],
+    ["COMBO", ["Effect", "What happens when the device activates"], _effects],
     ["TOOLBOX",["Defusable", "Who can attempt to defuse the device"],[3, 1, 4, ["No-one", "Explosive Specialists", "Engineers", "Anyone"]]],
     ["SLIDER", ["Defuse Time", "How long does it take to defuse the device in MM:SS"], [1, 60, 10, {[_this, "MM:SS"] call BIS_fnc_secondsToString}]]
 ];
