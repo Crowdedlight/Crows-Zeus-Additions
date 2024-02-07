@@ -20,6 +20,7 @@ private _onConfirm = {
         ["_code", "", [""]],
         ["_target", 0, [0]]
     ];
+    _countdownLength = round(_countdownLength) * 10;
 
     private _device = "Land_MultiScreenComputer_01_black_F" createVehicle _pos;
     ["zen_common_updateEditableObjects", [[_device]]] call CBA_fnc_serverEvent;
@@ -188,7 +189,7 @@ if (EGVAR(main,crowsEWLoaded)) then {
 
 private _controls = [
     // TODO: size of slider makes it very difficult to be precise - replace with (parsed) text?
-    ["SLIDER", ["Timer", "How long until the device activates in MM:SS"], [1, 30*60, 5*60, {[_this, "MM:SS"] call BIS_fnc_secondsToString}]],
+    ["SLIDER", ["Timer", "How long until the device activates in MM:SS"], [1, (30*60)/10, (5*60)/10, {[round(_this)*10, "MM:SS"] call BIS_fnc_secondsToString}]],
     ["COMBO", ["Effect", "What happens when the device activates"], _effects],
     ["TOOLBOX",["Defusable", "Who can attempt to defuse the device"],[3, 1, 4, ["No-one", "Explosive Specialists", "Engineers", "Anyone"]]],
     ["SLIDER", ["Defuse Time", "How long does it take to defuse the device in MM:SS"], [1, 60, 10, {[_this, "MM:SS"] call BIS_fnc_secondsToString}]]
