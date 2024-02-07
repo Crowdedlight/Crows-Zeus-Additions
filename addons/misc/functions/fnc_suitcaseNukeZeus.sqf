@@ -23,77 +23,64 @@ private _onConfirm = {
 
     private _device = "Land_MultiScreenComputer_01_black_F" createVehicle _pos;
     ["zen_common_updateEditableObjects", [[_device]]] call CBA_fnc_serverEvent;
-    _device setVariable [QGVAR(suitcaseNuke_isArmed), true, true];
+    _device setVariable [QGVAR(suitcaseNuke_isArmed), true];
 
 
-    // Timer code
-    // TODO: move to server to avoid problems if zeus crashes?
-    [_device, _countdownLength] spawn { 
+    // Countdown code
+    [{
+        params ["_args", "_handle"];
+        _args params ["_device", "_activateTime"];
 
-        params ["_device","_countdownLength"]; 
+        private _isArmed = _device getVariable [QGVAR(suitcaseNuke_isArmed), false];
 
-        private "_activateTime";
-        private "_countdownRemaining";
-        // Not strictly needed, but makes it possible to test in SP!
-        if(isMultiplayer) then {
-            _activateTime = serverTime + _countdownLength;
-            _countdownRemaining = _activateTime - serverTime;
-        } else {
-            _activateTime = time + _countdownLength;
-            _countdownRemaining = _activateTime - time;
-        };
+        // If the device is active - i.e. armed and not triggered yet,
+        // manage the countdown timer
+        if(alive _device and _isArmed) then {
 
-        private "_countdownRemainingText";
-        private _isArmed = true;
-        while {alive _device and {_isArmed and {_countdownRemaining > 0}}} do { 
-            
-            _countdownRemainingText = [_countdownRemaining, "MM:SS"] call BIS_fnc_secondsToString; 
-            { 
-                _device setObjectTextureGlobal[_x, 
-                    format ['#(rgb,512,512,3)text(0,1,"LCD14",0.3,"#171717","#eb4034","\n%1")', _countdownRemainingText]
-                ]; 
-            } forEach [1,2,3];
-
-            if(isMultiplayer) then {
-                _countdownRemaining = _activateTime - serverTime;
-            } else {
-                _countdownRemaining = _activateTime - time;
-            };
+            // If this code is 'locked' to the zeus's client, serverTime isn't needed
+            private _countdownRemaining = _activateTime - time;
             if(_countdownRemaining < 0) then { _countdownRemaining = 0; };
 
-            _isArmed = _device getVariable [QGVAR(suitcaseNuke_isArmed), false];
+            // Store the countdown clock so we can continue to display it if disarmed
+            if(_countdownRemaining >= (60*60)) then {
+                _device setVariable [QGVAR(suitcaseNuke_timer), ([_countdownRemaining, "HH:MM:SS"] call BIS_fnc_secondsToString)];
+            } else {
+                _device setVariable [QGVAR(suitcaseNuke_timer), ([_countdownRemaining, "MM:SS"] call BIS_fnc_secondsToString)];
+            };
 
-            sleep 0.3; 
+            // If the timer hits 0, trigger the device
+            if(_countdownRemaining <= 0) then {
+                _device setDamage 1;
+            };
         };
 
-        if(_isArmed) then {
-            _device setDamage 1;
+        // Add a flipflop to add some syncopation to the flashing message
+        private _flipFlop = (_device getVariable [QGVAR(suitcaseNuke_timerFlipFlop), 0]);
+        private _deviceText = "";
+        if(_flipFlop < 3) then {
+            _deviceText = _device getVariable QGVAR(suitcaseNuke_timer)
         };
 
-        while {not isNull _device} do {
-            // if(_countdownRemaining > 0) then {
-                { 
-                    _device setObjectTextureGlobal[_x, 
-                        format ['#(rgb,512,512,3)text(0,1,"LCD14",0.3,"#171717","#eb4034","\n%1")', _countdownRemainingText]
-                    ]; 
-                } forEach [1,2,3];
-            // } else {
-            //     // TODO: make this customisable, or remove
-            //     { 
-            //         _device setObjectTextureGlobal[_x, 
-            //             format ['#(rgb,512,512,3)text(0,1,"LucidaConsoleB",0.1,"#171717","#eb4034","\n\n\nGoodbye!!!")']
-            //         ]; 
-            //     } forEach [1,2,3];
-            // };
-            sleep 0.8;
-            { 
-                _device setObjectTextureGlobal[_x, 
-                    '#(rgb,512,512,3)text(0,1,"LCD14",0.3,"#171717","#eb4034","")'
-                ]; 
-            } forEach [1,2,3];
-            sleep 0.4;
+        // Set texture of each screen
+        { 
+            _device setObjectTextureGlobal[_x, 
+                format ['#(rgb,512,512,3)text(0,1,"LCD14",0.3,"#171717","#eb4034","\n%1")', _deviceText]
+            ]; 
+        } forEach [1,2,3];
+        
+        // If the device has been disarmed (or triggered), flash the countdown on and off
+        if(!alive _device || !_isArmed) then {
+            _device setVariable [QGVAR(suitcaseNuke_timerFlipFlop), (_flipFlop+1)%4];
         };
-    };
+        
+
+        // If the device is deleted, remove this EH
+        if(isNull _device) then {
+            _handle call CBA_fnc_removePerFrameHandler;
+        };
+
+    }, 0.3, [_device, time + _countdownLength]] call CBA_fnc_addPerFrameHandler;
+
 
     // Activation Code
     _device setVariable [QGVAR(suitcaseNuke_activate), _effect];
