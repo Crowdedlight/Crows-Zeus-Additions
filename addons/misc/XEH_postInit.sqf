@@ -20,6 +20,7 @@ private _moduleList = [
     ["Remove Radio/Bino",{_this call FUNC(removeRadioBino)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
     ["Spawn IED Clutter",{_this call FUNC(spawnIEDClutterZeus)}, "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa"],
     ["Strip Explosives",{_this call FUNC(stripExplosivesZeus)}, "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa"],
+    ["Suitcase Device",{_this call FUNC(suitcaseNukeZeus)}, "\x\zen\addons\modules\ui\nuke_ca.paa"],
     ["Surrender Chance",{_this call FUNC(surrenderChanceZeus)}, "\a3\ui_f\data\igui\cfg\holdactions\holdAction_secure_ca.paa"]
 ];
 
