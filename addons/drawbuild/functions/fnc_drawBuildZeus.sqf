@@ -12,6 +12,24 @@ Starts the selection handler to select multiple points for you to draw
 
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
+FUNC(updateDrawBuildUI) = {
+    // Get the third editbox
+    private _edit = (allControls (uiNamespace getVariable "zen_common_display")) select { ctrlType _x == 2} select 2;
+
+    // Get the ZEN-stored values
+    ((uiNamespace getVariable "zen_common_display") getVariable "zen_dialog_params") params ["_controls", "_onConfirm", "_onCancel", "_args", "_saveID"];
+    private _values = _controls apply {
+        _x params ["_controlsGroup", "_settings"];
+        [_controlsGroup, _settings] call (_controlsGroup getVariable "zen_dialog_fnc_value")
+    };
+
+    // Update the editbox with the new value
+    private _object = _values#1;    
+    private _offset = (GVAR(drawBuildPresets) get _object)#0;
+    if(isNil "_offset") then { _offset = ""; };
+    _edit ctrlSetText str _offset;
+};
+
 private _drawPresets = [keys GVAR(drawBuildPresets), [], { getText(configfile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy;
 
 private _objects = [];
@@ -46,27 +64,15 @@ private _initialOffset = str((GVAR(drawBuildPresets) get _firstObject)#0);
 			private _index = 0;
 			{
 				_listbox lbAdd getText(configfile >> "CfgVehicles" >> _x >> "displayName");
-			    _listbox lbSetPicture [_index, getText(configfile >> "CfgVehicles" >> _x >> "editorPreview")];
+                private _picture = getText (configFile >> "CfgVehicles" >> _x >> "editorPreview");
+                if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "icon") };
+                if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "picture") };
+			    _listbox lbSetPicture [_index, _picture];
 			    _listbox setVariable [str _index, _x];
 			    _index = _index+1;
 			} forEach _filteredObjects;
 
-
-			// TODO: this duplicates the code below - move to a function?
-			// There's got to be a better way than this
-			private _edit = (allControls (uiNamespace getVariable "zen_common_display")) select { ctrlType _x == 2} select 2;
-
-			// Surely a better way to do this too
-			((uiNamespace getVariable "zen_common_display") getVariable "zen_dialog_params") params ["_controls", "_onConfirm", "_onCancel", "_args", "_saveID"];
-			private _values = _controls apply {
-			    _x params ["_controlsGroup", "_settings"];
-			    [_controlsGroup, _settings] call (_controlsGroup getVariable "zen_dialog_fnc_value")
-			};
-
-			private _object = _values#1;	
-			private _offset = (GVAR(drawBuildPresets) get _object)#0;
-			if(isNil "_offset") then { _offset = "ERROR"; }; // This should never be nil if we've setup the presets correctly, but just in case...
-			_edit ctrlSetText format ["%1", _offset];
+			call FUNC(updateDrawBuildUI);
 
 			_this
 		}], true],
@@ -84,21 +90,4 @@ private _initialOffset = str((GVAR(drawBuildPresets) get _firstObject)#0);
 
 private _allControls = allControls (uiNamespace getVariable "zen_common_display");
 private _listbox = _allControls select { ctrlType _x == 5} select 0;
-_listbox ctrlAddEventHandler ["LBSelChanged", {
-	params ["_control", "_lbCurSel", "_lbSelection"];
-
-	// There's got to be a better way than this
-	private _edit = (allControls (uiNamespace getVariable "zen_common_display")) select { ctrlType _x == 2} select 2;
-
-	// Surely a better way to do this too
-	((uiNamespace getVariable "zen_common_display") getVariable "zen_dialog_params") params ["_controls", "_onConfirm", "_onCancel", "_args", "_saveID"];
-	private _values = _controls apply {
-	    _x params ["_controlsGroup", "_settings"];
-	    [_controlsGroup, _settings] call (_controlsGroup getVariable "zen_dialog_fnc_value")
-	};
-
-	private _object = _values#1;	
-	private _offset = (GVAR(drawBuildPresets) get _object)#0;
-	if(isNil "_offset") then { _offset = ""; }; // This should never be nil if we've setup the presets correctly, but just in case...
-	_edit ctrlSetText format ["%1", _offset]; 
-}];
+_listbox ctrlAddEventHandler ["LBSelChanged", FUNC(updateDrawBuildUI)];
