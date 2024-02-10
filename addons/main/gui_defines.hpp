@@ -30,12 +30,6 @@
 #define IDC_BTN_SEARCH 		1546
 #define IDC_SEARCH_BAR 		1547
 #define IDC_WEIGHT	   		1548
-
-//IDC for drawbuild
-#define IDC_CONTROL_GROUP 		1630
-#define IDC_CHECKBOX_SIMULATION 	1632
-#define IDC_CHECKBOX_DAMAGE 		1633
-#define IDC_ICON_GRID_FIRST 		1640 //uses incremental from there, should reserve up to 1680 for 40 elements
 	
 //IDC for pingbox
 #define IDC_PINGBOX 			1720
