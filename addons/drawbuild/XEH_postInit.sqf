@@ -41,6 +41,13 @@ GVAR(drawBuildPresets) = createHashMapFromArray [
     ["Land_Sign_MinesDanger_Greek_F", [50, 25, 90]]             // minefield sign
 ];
 
+if(isClass (configFile >> "CfgPatches" >> "UK3CB_BAF_Weapons")) then {
+    GVAR(drawBuildPresets) set ["UK3CB_ModuleWPSmokeWhite81_F", [40, 20, 0]];
+} else {
+    GVAR(drawBuildPresets) set ["ModuleSmokeWhite_F", [15, 7.5, 0]];
+};
+
+
 if(isClass (configFile >> "CfgPatches" >> "grad_trenches_main")) then {
     GVAR(drawBuildPresets) set ["fort_envelopebig", [6, 3, 270]], // trench
 };

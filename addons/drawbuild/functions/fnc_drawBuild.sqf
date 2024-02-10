@@ -81,6 +81,18 @@ for "_i" from 1 to _iterations do {
 		_nextPos = _tempPos getPos [_distMove, _direction];
 	};
 
+
+	if("Module" in _objectName) then {
+		private _moduleGroup = createGroup sideLogic;
+		_object = _objectName createUnit [
+			_nextPos,
+			_moduleGroup,
+			"this setVariable ['BIS_fnc_initModules_disableAutoActivation', false, true];"
+		];
+		_tempPos = _nextPos;
+		continue;
+	};
+
 	// add some randomness to blood trails
 	private _blood = ["BloodTrail_01_New_F","BloodSplatter_01_Small_New_F","BloodSplatter_01_Medium_New_F","BloodPool_01_Medium_New_F"];
 	if(_objectName in _blood) then {

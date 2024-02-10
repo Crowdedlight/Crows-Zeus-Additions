@@ -9,24 +9,28 @@ Return: none
 Starts the selection handler to select multiple points for you to draw
 
 *///////////////////////////////////////////////
-#define SCALE_NORMAL   1
-#define SCALE_SELECTED 1.2
 
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-// TODO: sort by display name? Or by category?
 private _drawPresets = [keys GVAR(drawBuildPresets), [], { getText(configfile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy;
 
 private _objects = [];
 private _prettyNames = [];
 {
-    private _displayName = getText(configfile >> "CfgVehicles" >> _x >> "displayName");
-    private _picture = getText(configfile >> "CfgVehicles" >> _x >> "editorPreview");
+    private _displayName = getText (configfile >> "CfgVehicles" >> _x >> "displayName");
+    private _picture = getText (configFile >> "CfgVehicles" >> _x >> "editorPreview");
+    if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "icon") };
+    if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "picture") };
 
     _objects pushBack _x;
     _prettyNames pushBack [_displayName, "", _picture];
 
 } forEach _drawPresets;
+
+
+// Get the offset of the first (alphabetical) object, to populate the default for the appropriate field
+private _firstObject = ([keys GVAR(drawBuildPresets), [], { getText(configfile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy)#0;
+private _initialOffset = str((GVAR(drawBuildPresets) get _firstObject)#0);
 
 [
 	"Draw Build", 
@@ -64,12 +68,11 @@ private _prettyNames = [];
 			if(isNil "_offset") then { _offset = "ERROR"; }; // This should never be nil if we've setup the presets correctly, but just in case...
 			_edit ctrlSetText format ["%1", _offset];
 
-
 			_this
 		}], true],
 		["LIST","Object",[_objects, _prettyNames, 0, 15]],
 		["EDIT",["Custom Object", "classname of an object to be used"+endl+"The smaller the object, the more will be created"+endl+"Warning: behaviour is experimental and not guaranteed!"],["", {}]],
-		["EDIT",["Offset", "Distance to offset each object by"+endl+"Smaller distance results in overlapping objects; larger distance results in spacing between objects"+endl+"Leave empty for default offset"],["1.7", {}]],
+		["EDIT",["Offset", "Distance to offset each object by"+endl+"Smaller distance results in overlapping objects; larger distance results in spacing between objects"+endl+"Leave empty for default offset"],[_initialOffset, {}]],
 		["CHECKBOX","Enable simulation",true],
 		["CHECKBOX","Enable damage",true]
 	],
