@@ -88,11 +88,11 @@ private _onConfirm =
 	[_unit, _dmg, _bodyPart, _dmgType, _unit, _damageSelectionArray] remoteExec ["ace_medical_fnc_addDamageToUnit", _unit];
 };
 [
-	"Add ACE Damage to Unit", 
+	localize "STR_CROWSZA_ACE_adddamage_name", 
 	[
-		["COMBO","Body Part",[["head", "body", "leg_l", "leg_r", "hand_l", "hand_r"], ["Head", "Body", "Left Leg", "Right Leg", "Left Hand", "Right Hand"],2]],
-		["COMBO","Projectile Type",[["falling", "ropeburn", "vehiclecrash", "collision", "unknown", "explosive", "grenade", "shell", "bullet", "backblast", "bite", "punch", "stab", "drowning", "burn"],["Falling", "Ropeburn", "Vehiclecrash", "Collision", "Unknown", "Explosive", "Grenade", "Shell", "Bullet", "Backblast", "Bite", "Punch", "Stab", "Drowning", "Burn"],0]],
-		["SLIDER","Damage",[0,5,0.6,1]] //0 to 5, default 0.6 and showing 1 decimal
+		["COMBO",localize "STR_CROWSZA_ACE_adddamage_bodypart",[["head", "body", "leg_l", "leg_r", "hand_l", "hand_r"], [localize "STR_CROWSZA_ACE_adddamage_bodypart_head", localize "STR_CROWSZA_ACE_adddamage_bodypart_body", localize "STR_CROWSZA_ACE_adddamage_bodypart_leg_l", localize "STR_CROWSZA_ACE_adddamage_bodypart_leg_r", localize "STR_CROWSZA_ACE_adddamage_bodypart_hand_l", localize "STR_CROWSZA_ACE_adddamage_bodypart_hand_r"],2]],
+		["COMBO","Projectile Type",[["falling", "ropeburn", "vehiclecrash", "collision", "unknown", "explosive", "grenade", "shell", "bullet", "backblast", "bite", "punch", "stab", "drowning", "burn"],[localize "STR_CROWSZA_ACE_adddamage_falling", localize "STR_CROWSZA_ACE_adddamage_ropeburn", localize "STR_CROWSZA_ACE_adddamage_vehiclecrash", localize "STR_CROWSZA_ACE_adddamage_collision", localize "STR_CROWSZA_ACE_adddamage_unknown", localize "STR_CROWSZA_ACE_adddamage_explosive", localize "STR_CROWSZA_ACE_adddamage_grenade", localize "STR_CROWSZA_ACE_adddamage_shell", localize "STR_CROWSZA_ACE_adddamage_bullet", localize "STR_CROWSZA_ACE_adddamage_backblast", localize "STR_CROWSZA_ACE_adddamage_bite", localize "STR_CROWSZA_ACE_adddamage_punch", localize "STR_CROWSZA_ACE_adddamage_stab", localize "STR_CROWSZA_ACE_adddamage_drowning", localize "STR_CROWSZA_ACE_adddamage_burn"],0]],
+		["SLIDER",localize "STR_CROWSZA_ACE_adddamage_damage",[0,5,0.6,1]] //0 to 5, default 0.6 and showing 1 decimal
 	],
 	_onConfirm,
 	{},
