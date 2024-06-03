@@ -5,7 +5,7 @@ if (!hasInterface) exitWith {};
 
 // register zeus module
 private _moduleList = [
-        ["DrawBuild",{_this call FUNC(drawBuildZeus)}, QPATHTOF(data\drawbuild.paa)]
+        [localize "STR_CROWSZA_Drawbuild_module_name",{_this call FUNC(drawBuildZeus)}, QPATHTOF(data\drawbuild.paa)]
 ];
 
 {

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Crows Zeus Additions">
+      <Package name="drawbuild">
+            <Key ID="STR_CROWSZA_Drawbuild_module_name">
+                  <English>DrawBuild</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Drawbuild_error">
+                  <English>Failed to open drawbuild dialog</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Drawbuild_build_to_here">
+                  <English>Build to here</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Drawbuild_start_pos">
+                  <English>Start Position</English>
+            </Key>
+      </Package>
+</Project>
