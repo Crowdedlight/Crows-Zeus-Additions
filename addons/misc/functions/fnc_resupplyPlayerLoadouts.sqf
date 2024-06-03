@@ -228,29 +228,7 @@ private _onConfirm =
 	};
 };
 
-// check if SOG is loaded, then offer the huey as transport
-private _aircraftList = ["B_T_VTOL_01_vehicle_F"];
-private _aircraftDisplayList = ["Blackfish"];
-
-// SOG loaded
-if (EGVAR(main,sogLoaded)) then {
-	_aircraftList pushBack "vn_b_air_uh1c_07_07";
-	_aircraftDisplayList pushBack "Huey Slick (SOG)";
-};
-
-// RHS loaded 
-if (EGVAR(main,rhsLoaded)) then {
-	_aircraftList append ["RHS_C130J_Cargo", "rhsusf_CH53e_USMC_D_cargo", "RHS_CH_47F_cargo", "RHS_Mi8t_civilian"];
-	_aircraftDisplayList append ["C-130 Plane (RHS)", "CH-53 Sea Stallion (RHS)", "CH-47F Chinook (RHS)", "MI-8T Civilian Helicopter (RHS)"];
-};
-
-// AMF loaded
-if (EGVAR(main,amfHelicoptersLoaded)) then {
-	_aircraftList append ["amf_nh90_tth_cargo", "B_AMF_PLANE_TRANSPORT_01_F"];
-	_aircraftDisplayList append ["NH-90 Helicopter (AMF)", "CASA CN-235 Plane (AMF)"];
-};
-
-private _dialogOptions = [EGVAR(main,aceLoaded), _aircraftList, _aircraftDisplayList] call {
+private _dialogOptions = [EGVAR(main,aceLoaded), GVAR(resupply_aircraftList), GVAR(resupply_aircraftDisplayList)] call {
 	params ["_aceLoaded", "_aircraftList", "_aircraftDisplayList"];
 	private _arr = [];
 
