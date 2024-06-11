@@ -30,14 +30,14 @@ private _groupLeader = leader group _entity;
 
 // Set the display's title to the object name
 private _ctrlTitle = _display displayCtrl IDC_TITLE;
-_ctrlTitle ctrlSetText toUpper format ["Loadout - %1", _displayName];
+_ctrlTitle ctrlSetText toUpper format ["%2 - %1", _displayName, localize "STR_CROWSZA_Misc_loadout"];
 
 //fill out group and groupleader info
 private _ctrlTitleGroup = _display displayCtrl IDC_TITLE_GROUP;
-_ctrlTitleGroup ctrlSetText format ["Group: %1", _groupName];
+_ctrlTitleGroup ctrlSetText format ["%2: %1", _groupName, localize "STR_CROWSZA_Misc_group"];
 
 private _ctrlTitleGroupLeader = _display displayCtrl IDC_TITLE_GROUP_LEADER;
-_ctrlTitleGroupLeader ctrlSetText format ["SL: %1", _groupLeader];
+_ctrlTitleGroupLeader ctrlSetText format ["%2: %1", _groupLeader, localize "STR_CROWSZA_Misc_SL"];
 
 // Initially populate the list with items
 [_display] call FUNC(loadoutRefresh);

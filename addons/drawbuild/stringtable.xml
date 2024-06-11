@@ -13,5 +13,14 @@
             <Key ID="STR_CROWSZA_Drawbuild_start_pos">
                   <English>Start Position</English>
             </Key>
+            <Key ID="STR_CROWSZA_Drawbuild_objects_to_build">
+                  <English>Select Object To Build</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Drawbuild_enable_simulation">
+                  <English>Enable Simulation</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Drawbuild_enable_damage">
+                  <English>Enable Damage</English>
+            </Key>
       </Package>
 </Project>

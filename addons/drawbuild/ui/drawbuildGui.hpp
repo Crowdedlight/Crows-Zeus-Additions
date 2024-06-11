@@ -19,7 +19,7 @@ class crowsza_drawbuild_display {
             h = QUOTE(POS_H(1));
             colorBackground[] = GUI_THEME_COLOR;
             moving = 1;
-            text = QUOTE(Select Object To Build);
+            text = QUOTE($STR_CROWSZA_Drawbuild_objects_to_build);
         };
         class Background: RscText {
             idc = IDC_BACKGROUND;
@@ -138,7 +138,7 @@ class crowsza_drawbuild_display {
                     soundEnter[] = {QUOTE(\a3\ui_f\data\sound\rscbutton\soundenter), 0.09, 1};
                     soundEscape[] = {QUOTE(\a3\ui_f\data\sound\rscbutton\soundescape), 0.09, 1};
                     soundPush[] = {QUOTE(\a3\ui_f\data\sound\rscbutton\soundpush), 0.09, 1};
-                    checked = 1; //default to be enabled
+                    checked = 0; //default to be enabled
                 };
                 class lblSimulation: RscText {
                     idc = -1;
@@ -147,7 +147,7 @@ class crowsza_drawbuild_display {
                     w = QUOTE(POS_W(10));
                     h = QUOTE(POS_H(1));
                     // colorBackground[] = {0, 0, 0, 0.7};
-                    text = QUOTE(Enable Simulation);
+                    text = QUOTE($STR_CROWSZA_Drawbuild_enable_simulation);
                 };
                 // damage
                 class cbDamage: cbSimulation {
@@ -157,7 +157,7 @@ class crowsza_drawbuild_display {
                 };
                 class lblDamage: lblSimulation {
                     y = QUOTE(POS_H(12));
-                    text = QUOTE(Enable Damage);
+                    text = QUOTE($STR_CROWSZA_Drawbuild_enable_damage);
                 };        
             };
         };

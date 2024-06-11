@@ -29,7 +29,7 @@ if(isNull _unit || _itemType < 0 || _itemType > 4) exitWith { false };
 // If an unrecognised custom class is provided, simply fail and notify zeus
 // TODO: alternatively, default to "normal" behaviour
 if(_replaceCustom isNotEqualTo "" && { !isclass(configFile >> "CfgMagazines" >> _replaceCustom) && !isclass(configFile >> "CfgWeapons" >> _replaceCustom) && { "ItemCore" in ([configFile >> "CfgWeapons" >> _replaceCustom, true] call BIS_fnc_returnParents) } }) exitWith {
-	hint format ["Unrecognised custom replacement: %1", _replaceCustom];
+	hint format ["%2: %1", _replaceCustom, localize "STR_CROWSZA_Misc_strip_explosives_error"];
 	false
 };
 
