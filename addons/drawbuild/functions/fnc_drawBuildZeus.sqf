@@ -17,7 +17,7 @@ params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 GVAR(lastPole) = objNull;
 
 //create display 
-if (!createDialog "crowsza_drawbuild_display") exitWith {["Failed to open drawbuild dialog"] call EFUNC(main,showHint)};
+if (!createDialog "crowsza_drawbuild_display") exitWith {["STR_CROWSZA_Drawbuild_error"] call EFUNC(main,showHint)};
 
 //get display
 private _display = uiNamespace getVariable "crowsza_drawbuild_display";

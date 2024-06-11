@@ -132,7 +132,7 @@ private _onConfirm =
 				// test if classname exists, then save it in _selectedAircraft
 				private _validAircraft = isClass (configFile >> "CfgVehicles" >> _customAircraft);
 				if (_validAircraft == false) then {
-					hint "Classname provided does not exist!"; 
+					hint localize "STR_CROWSZA_Misc_resupply_loadouts_error"; 
 					breakOut "main";
 				};
 				_selectedAircraft = _customAircraft;
@@ -233,24 +233,24 @@ private _dialogOptions = [EGVAR(main,aceLoaded), GVAR(resupply_aircraftList), GV
 	private _arr = [];
 
 	_arr = [
-		["SLIDER","Multiplier (amount per player)",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
-		["CHECKBOX",["Airdrop", "Make it airdrop from 300m"],[true]],
-		["CHECKBOX",["Aircraft", "Make aircraft drop it"],[true]],
-		["COMBO",["Choose Aircraft", "What aircraft to drop the supply from"],[_aircraftList, _aircraftDisplayList,0]],
-		["EDIT",["Custom Type (Optional)", "Provide classname to aircraft you want to use, instead of using dropdown list"], "", false],
-		["TOOLBOX", "Fly From", [0, 1, 8, ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]]],
-		["SLIDER","Airdrop height [m]",[50,1000,200,0]],
-		["CHECKBOX",["Medical", "Add Medical supplies"],[true]]
+		["SLIDER", localize "STR_CROWSZA_Misc_resupply_loadouts_multiplier_dialog",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_resupply_loadouts_airdrop", localize "STR_CROWSZA_Misc_resupply_loadouts_airdrop_tooltip"],[true]],
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_resupply_loadouts_aircraft", localize "STR_CROWSZA_Misc_resupply_loadouts_aircraft_tooltip"],[true]],
+		["COMBO",[localize "STR_CROWSZA_Misc_resupply_loadouts_choose_aircraft", localize "STR_CROWSZA_Misc_resupply_loadouts_choose_aircraft_tooltip"],[_aircraftList, _aircraftDisplayList,0]],
+		["EDIT",[localize "STR_CROWSZA_Misc_resupply_loadouts_custom_type", localize "STR_CROWSZA_Misc_resupply_loadouts_custom_type_tooltip"], "", false],
+		["TOOLBOX", localize "STR_CROWSZA_Misc_resupply_loadouts_flyfrom", [0, 1, 8, [localize "STR_CROWSZA_Misc_N", localize "STR_CROWSZA_Misc_NE", localize "STR_CROWSZA_Misc_E", localize "STR_CROWSZA_Misc_SE", localize "STR_CROWSZA_Misc_S", localize "STR_CROWSZA_Misc_SW", localize "STR_CROWSZA_Misc_W", localize "STR_CROWSZA_Misc_NW"]]],
+		["SLIDER",localize "STR_CROWSZA_Misc_resupply_loadouts_airdrop_height",[50,1000,200,0]],
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_resupply_loadouts_medical", localize "STR_CROWSZA_Misc_resupply_loadouts_medical_tooltip"],[true]]
 	];
 
 	// add options for ace rearm vehicle if ace is used
 	if (_aceLoaded) then {
-		_arr pushBack ["CHECKBOX",["ACE Rearm", "Set as ACE Rearm vehicle"],[false]];
+		_arr pushBack ["CHECKBOX",[localize "STR_CROWSZA_Misc_resupply_loadouts_ace_rearm", localize "STR_CROWSZA_Misc_resupply_loadouts_ace_rearm_tooltip"],[false]];
 	};
 	_arr;
 };
 [
-	"Set multipler for ammo supply", 
+	localize "STR_CROWSZA_Misc_resupply_loadouts_multiplier", 
 	_dialogOptions,
 	_onConfirm,
 	{},

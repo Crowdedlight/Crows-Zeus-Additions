@@ -66,9 +66,9 @@ private _onConfirm =
 	} forEach _selectArray;
 };
 [
-	"Mass Unconscious", 
+	localize "STR_CROWSZA_ACE_massunconscious_name", 
 	[
-		["OWNERS","Units",[[],[],[],0], true] //no preselected defaults, and default tab open side. Forcing defaults to deselect.
+		["OWNERS",localize "STR_CROWSZA_ACE_massunconscious_units",[[],[],[],0], true] //no preselected defaults, and default tab open side. Forcing defaults to deselect.
 	],
 	_onConfirm,
 	{},

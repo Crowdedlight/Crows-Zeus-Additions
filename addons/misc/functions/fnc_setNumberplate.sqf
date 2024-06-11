@@ -44,9 +44,9 @@ private _onConfirm =
 	[_numberplate, _unit] remoteExec [QGVAR(setNumPlate), 0, true]; //2 = server, 0 == for all players and server, With JIP
 };
 [
-	"Set Numberplate", 
+	localize "STR_CROWSZA_Misc_numberplate_name", 
 	[
-		["EDIT","Text"] //all defaults, no sanitizing function as we shouldn't need it
+		["EDIT", localize "STR_CROWSZA_Misc_numberplate_text"] //all defaults, no sanitizing function as we shouldn't need it
 	],
 	_onConfirm,
 	{},

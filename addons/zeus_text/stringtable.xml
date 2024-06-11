@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Crows Zeus Additions">
+      <Package name="zeus_text">
+            <Key ID="STR_CROWSZA_zeustext_setting_medical_overlay">
+                  <English>Show medical overlay</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_setting_medical_overlay_tooltip">
+                  <English>Shows medical info for players in zeus view for units. (medical status)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_num_wounds">
+                  <English>Show No. of wounds and HR.</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_num_wounds_tooltip">
+                  <English>Show line with number of wounds and heart rate.</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_medical_hud">
+                  <English>Medical HUD (default:  Ctrl + Shift + H)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_show_pain">
+                  <English>Show pain and bleeding rate</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_show_pain_tooltip">
+                  <English>Show if player is in pain and bleeding rate</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_show_medications">
+                  <English>Show medications</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_show_medications_tooltip">
+                  <English>Show what medications is effecting the player</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_show_rc_icon">
+                  <English>Show RC Icon</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_show_rc_icon_tooltip">
+                  <English>Shows an zeus icon over units currently being RC'ed by any zeus</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_icon_colour">
+                  <English>Icon Colour</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_icon_colour_tooltip">
+                  <English>What colour the icon is shown with</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_surrender_icon">
+                  <English>Show Surrender Icon</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_surrender_icon_tooltip">
+                  <English>Shows an icon over units with a chance to surrender</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_surrender_chance">
+                  <English>Surrender Chance</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_surrender_icon_colour">
+                  <English>Icon Colour</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_surrender_icon_colour_tooltip">
+                  <English>What colour the icon is shown with</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_wounds">
+                  <English>Wounds</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_hr">
+                  <English>HR</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_in_pain">
+                  <English>In Pain, Bleed Rate</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_bleed_rate">
+                  <English>Bleed Rate:%2, In Cardiac Arrest!</English>
+            </Key>
+            <Key ID="STR_CROWSZA_zeustext_effected_by">
+                  <English>Effected by</English>
+            </Key>
+      </Package>
+</Project>

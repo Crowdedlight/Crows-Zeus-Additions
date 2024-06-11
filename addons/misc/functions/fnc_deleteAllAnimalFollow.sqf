@@ -23,7 +23,7 @@ private _onConfirm =
 	publicVariable QGVAR(animalFollowList);
 };
 [
-	"Are you sure you will delete all animals following people?", 
+	localize "STR_CROWSZA_Misc_delete_animal_followers", 
 	[
 	],
 	_onConfirm,

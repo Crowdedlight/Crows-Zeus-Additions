@@ -9,7 +9,7 @@ GVAR(medical_status_players) = [];
 [
 	["Crows Zeus Additions", "Zeus"],
 	QGVAR(medicalDisplay),
-	["Show medical overlay", "Shows medical info for players in zeus view for units. (medical status)"],
+	[localize "STR_CROWSZA_zeustext_setting_medical_overlay", localize "STR_CROWSZA_zeustext_setting_medical_overlay_tooltip"],
 	{GVAR(medicalDisplay) = !GVAR(medicalDisplay)},
 	"",
 	[DIK_H, [true, true, false]] // [DIK code, [Shift?, Ctrl?, Alt?]] => default: ctrl + shift + h
@@ -19,24 +19,24 @@ GVAR(medical_status_players) = [];
 [
 	QGVAR(CBA_Setting_zeusTextLine1), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
-    ["Show No. of wounds and HR.","Show line with number of wounds and heart rate."], // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    ["Crows Zeus Additions","Medical HUD (default:  Ctrl + Shift + H)"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
+    [localize "STR_CROWSZA_zeustext_num_wounds", localize "STR_CROWSZA_zeustext_num_wounds_tooltip"], // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+    ["Crows Zeus Additions", localize "STR_CROWSZA_zeustext_medical_hud"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
     true // data for this setting
 ] call CBA_fnc_addSetting;
 
 [
 	QGVAR(CBA_Setting_zeusTextLine2),
     "CHECKBOX",
-    ["Show pain and bleeding rate", "Show if player is in pain and bleeding rate"],
-    ["Crows Zeus Additions","Medical HUD (default:  Ctrl + Shift + H)"],
+    [localize "STR_CROWSZA_zeustext_show_pain", localize "STR_CROWSZA_zeustext_show_pain_tooltip"],
+    ["Crows Zeus Additions", localize "STR_CROWSZA_zeustext_medical_hud"],
     true
 ] call CBA_fnc_addSetting;
 
 [
 	QGVAR(CBA_Setting_zeusTextLine3),
     "CHECKBOX",
-    ["Show medications","Show what medications is effecting the player"],
-    ["Crows Zeus Additions","Medical HUD (default:  Ctrl + Shift + H)"],
+    [localize "STR_CROWSZA_zeustext_show_medications", localize "STR_CROWSZA_zeustext_show_medications_tooltip"],
+    ["Crows Zeus Additions", localize "STR_CROWSZA_zeustext_medical_hud"],
     false
 ] call CBA_fnc_addSetting;
 
@@ -44,7 +44,7 @@ GVAR(medical_status_players) = [];
 [
 	QGVAR(CBA_Setting_rc_helper),
     "CHECKBOX",
-    ["Show RC Icon","Shows an zeus icon over units currently being RC'ed by any zeus"],
+    [localize "STR_CROWSZA_zeustext_show_rc_icon", localize "STR_CROWSZA_zeustext_show_rc_icon_tooltip"],
     ["Crows Zeus Additions","Zeus RC"],
     true
 ] call CBA_fnc_addSetting;
@@ -53,7 +53,7 @@ GVAR(medical_status_players) = [];
 [
 	QGVAR(CBA_Setting_rc_helper_color),
     "COLOR",
-    ["Icon Colour","What colour the icon is shown with"],
+    [localize "STR_CROWSZA_zeustext_icon_colour", localize "STR_CROWSZA_zeustext_icon_colour_tooltip"],
     ["Crows Zeus Additions","Zeus RC"],
     [1,1,1,1]
 ] call CBA_fnc_addSetting;
@@ -63,8 +63,8 @@ GVAR(medical_status_players) = [];
 [
 	QGVAR(CBA_Setting_surrender_helper),
     "CHECKBOX",
-    ["Show Surrender Icon","Shows an icon over units with a chance to surrender"],
-    ["Crows Zeus Additions","Surrender Chance"],
+    [localize "STR_CROWSZA_zeustext_surrender_icon", localize "STR_CROWSZA_zeustext_surrender_icon_tooltip"],
+    ["Crows Zeus Additions", localize "STR_CROWSZA_zeustext_surrender_chance"],
     true
 ] call CBA_fnc_addSetting;
 
@@ -72,7 +72,7 @@ GVAR(medical_status_players) = [];
 [
 	QGVAR(CBA_Setting_surrender_helper_color),
     "COLOR",
-    ["Icon Colour","What colour the icon is shown with"],
-    ["Crows Zeus Additions","Surrender Chance"],
+    [localize "STR_CROWSZA_zeustext_surrender_icon_colour", localize "STR_CROWSZA_zeustext_surrender_icon_colour_tooltip"],
+    ["Crows Zeus Additions", localize "STR_CROWSZA_zeustext_surrender_chance"],
     [1,1,1,1]
 ] call CBA_fnc_addSetting;

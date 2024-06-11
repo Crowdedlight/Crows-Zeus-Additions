@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Crows Zeus Additions">
+      <Package name="teleport">
+            <Key ID="STR_CROWSZA_Teleport_scatter_teleport">
+                  <English>Scatter Teleport</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_teleport_to_squadmate">
+                  <English>Teleport To Squadmember</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_set_teleport_to_squadmate">
+                  <English>Set Teleport to Squadmember</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_select_member_to_teleport_to">
+                  <English>Select SquadMember to teleport to</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_squadleader">
+                  <English>SquadLeader</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_in_vehicle">
+                  <English>[In Vehicle]</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_squad_members">
+                  <English>Squad Members</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_action_teleport_to_squadmate">
+                  <English>&lt;t color="#FFFF00"&gt;Teleport To Squadmate</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_action_error">
+                  <English>You must select an object</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter">
+                  <English>Scatter Teleport Players</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_units_to_tp">
+                  <English>Units to TP</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_distance_between">
+                  <English>Distance Between Players [m]</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_altitude">
+                  <English>Altitude Above Ground [m]</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_include_vehicle">
+                  <English>Include Vehicles</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_include_vehicle_tooltip">
+                  <English>Teleports vehicles if selected player is crew</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_pattern">
+                  <English>TP Pattern</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_pattern_tooltip">
+                  <English>What pattern the units should be teleported as</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_pattern_spiral">
+                  <English>Outward Spiral</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_pattern_line">
+                  <English>Line</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_pattern_p">
+                  <English>P Pattern</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_direction">
+                  <English>Direction (If LinePattern)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_direction_tooltip">
+                  <English>The direction the line grows</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_n">
+                  <English>North</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_ne">
+                  <English>North East</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_nw">
+                  <English>North West</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_e">
+                  <English>East</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_s">
+                  <English>South</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_se">
+                  <English>South East</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_sw">
+                  <English>South West</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Teleport_scatter_w">
+                  <English>West</English>
+            </Key>
+      </Package>
+</Project>

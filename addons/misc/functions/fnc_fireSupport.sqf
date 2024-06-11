@@ -249,19 +249,19 @@ if(_isFireSupport) then {
 
 // display dialog
 [
-	"Select Firesupport Type and Area", 
+	localize "STR_CROWSZA_Misc_fire_support_dialog", 
 	[
-		["COMBO","Type",[
+		["COMBO", localize "STR_CROWSZA_Misc_fire_support_type",[
 			["Sh_82mm_AMOS", "Sh_155mm_AMOS", "Cluster_155mm_AMOS", "F_40mm_White", "Smoke_120mm_AMOS_White"], 
-			["82 mm Mortar", "155 mm Howitzer", "230 mm Rocket", "Flare 40mm White", "Smoke 120mm White"]
+			[localize "STR_CROWSZA_Misc_fire_support_mortar", localize "STR_CROWSZA_Misc_fire_support_howitzer", localize "STR_CROWSZA_Misc_fire_support_rocket", localize "STR_CROWSZA_Misc_fire_support_flare_white", localize "STR_CROWSZA_Misc_fire_support_smoke_white"]
 			,_type],_isFireSupport],
-		["EDIT","Custom Type (ex.)",_customType,_isFireSupport],
-		["SLIDER:RADIUS","Radius",[0,5000,_radius,0, ASLtoAGL _pos, [1, 0, 0, 0.7]],_isFireSupport],
-		["SLIDER","Seconds between Salvos",[0,30,_seconds,1],_isFireSupport],
-		["SLIDER","Start after ... seconds",[0,30,1,1],_isFireSupport],
-		["SLIDER","Stop After Salvos (0 = indef.)",[0,100,_salvos,0],_isFireSupport],
-		["SLIDER","Guns",[1,30,_guns,0],_isFireSupport],
-		["CHECKBOX","Display Radius (only <=200m)",_display,_isFireSupport]
+		["EDIT", localize "STR_CROWSZA_Misc_fire_support_custom_type",_customType,_isFireSupport],
+		["SLIDER:RADIUS", localize "STR_CROWSZA_Misc_surrender_chance_radius",[0,5000,_radius,0, ASLtoAGL _pos, [1, 0, 0, 0.7]],_isFireSupport],
+		["SLIDER",localize "STR_CROWSZA_Misc_fire_support_seconds_salvo",[0,30,_seconds,1],_isFireSupport],
+		["SLIDER",localize "STR_CROWSZA_Misc_fire_support_start_after",[0,30,1,1],_isFireSupport],
+		["SLIDER",localize "STR_CROWSZA_Misc_fire_support_stop_after",[0,100,_salvos,0],_isFireSupport],
+		["SLIDER",localize "STR_CROWSZA_Misc_fire_support_guns",[1,30,_guns,0],_isFireSupport],
+		["CHECKBOX",localize "STR_CROWSZA_Misc_fire_support_display_radius",_display,_isFireSupport]
 	],
 	_onConfirm,
 	{},

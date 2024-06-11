@@ -28,7 +28,8 @@ git_hash = 0 # Disabled
 author = "Crowdedlight"
 url = "https://github.com/Crowdedlight/Crows-Zeus-Additions"
 
-[hemtt.launch.nodebug]
+# Launched with `hemtt launch`
+[hemtt.launch.default]
 workshop = [
     "450814997",  # CBA_A3's Workshop ID
     "894678801",  # TFAR Beta
@@ -38,4 +39,7 @@ workshop = [
     "463939057",  # ACE
     #"1645973522", # Intercept Minimal Dev
     #"1585582292", # Arma Debug Engine
+]
+mission = "dev_mini.Enoch" # Launch into existing Editor Mission
+parameters = [
 ]

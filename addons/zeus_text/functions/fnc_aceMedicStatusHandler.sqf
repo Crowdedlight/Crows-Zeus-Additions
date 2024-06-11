@@ -40,17 +40,17 @@ private _medicList = [];
 	if(_bleedingRate > 0.06 ) then {_color2 = [1,0,0,1]}; //red
 	if(_inCRDC ) then {_color2 = [1,0,0,1]}; //red
 
-	private _txt = format["Wounds:%1, HR:%2", _openWounds, _heartrate];
+	private _txt = format["%3:%1, %4:%2", _openWounds, _heartrate, localize "STR_CROWSZA_zeustext_wounds", localize "STR_CROWSZA_zeustext_hr"];
 	private _txt2 = "";
 	private _txt3 = "";
 
-	if(_inPain == true || _bleedingRate > 0) then { _txt2 = format["In Pain, Bleed Rate:%2", _inPain, _bleedingRate] };
-	if(_inCRDC) then { _txt2 = format["Bleed Rate:%2, In Cardiac Arrest!", _inPain, _bleedingRate] };
+	if(_inPain == true || _bleedingRate > 0) then { _txt2 = format["%3:%2", _inPain, _bleedingRate, localize "STR_CROWSZA_zeustext_in_pain"] };
+	if(_inCRDC) then { _txt2 = format[localize "STR_CROWSZA_zeustext_bleed_rate", _inPain, _bleedingRate] };
 
 	if(count _medications > 0) then 
 	{
 		_medications = _medications apply { _x#0 };
-		_txt3 = "Effected by: "; 
+		_txt3 = localize "STR_CROWSZA_zeustext_effected_by" + ": "; 
 		{
     		private _comma = [", ", " "] select (_forEachIndex == (count _medications -1));
 

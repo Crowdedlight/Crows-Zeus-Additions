@@ -30,12 +30,12 @@ private _onConfirm =
 		
 };
 [
-	"Restore Trees and bushes in radius", 
+	localize "STR_CROWSZA_Misc_restore_trees_dialog", 
 	[
-		["SLIDER:RADIUS","Radius",[0,500,10,0,ASLtoAGL _pos, [1, 0, 0, 0.7]]], //0 to 500, default 10 and showing 0 decimal
-		["CHECKBOX",["Trees", "Enable removal of trees"],[true]],
-		["CHECKBOX",["Bushes", "Enable removal of bushes"],[false]],
-		["CHECKBOX",["Stones", "Enable removal of stones"],[false]]
+		["SLIDER:RADIUS", localize "STR_CROWSZA_Misc_restore_trees_radius",[0,500,10,0,ASLtoAGL _pos, [1, 0, 0, 0.7]]], //0 to 500, default 10 and showing 0 decimal
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_restore_trees_trees", localize "STR_CROWSZA_Misc_restore_trees_trees_tooltip"],[true]],
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_restore_trees_bushes", localize "STR_CROWSZA_Misc_restore_trees_bushes_tooltip"],[false]],
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_restore_trees_stones", localize "STR_CROWSZA_Misc_restore_trees_stones_tooltip"],[false]]
 	],
 	_onConfirm,
 	{},

@@ -59,7 +59,7 @@ private _onConfirm =
 
 		// if player, notify player with hint
 		if (isPlayer _x) then {
-			"Zeus has removed your radio and/or binoculars" remoteExec ["hint", _x];
+			localize "STR_CROWSZA_Misc_remove_radio_bino_error" remoteExec ["hint", _x];
 		};
 	} forEach _units;
 
@@ -69,20 +69,20 @@ private _options = [];
 // if unit is null, give side selection, otherwise unit selection
 if (isNull _unit) then {
 	_options = [
-		["SIDES","Side", east],
-		["TOOLBOX:YESNO", ["Remove Radio", "Removes radios from units radio slot"], true],
-		["TOOLBOX:YESNO", ["Remove Binoculars", "Removes binoculars from units binocular slot"], true]
+		["SIDES", localize "STR_CROWSZA_Misc_remove_radio_bino_side", east],
+		["TOOLBOX:YESNO", [localize "STR_CROWSZA_Misc_remove_radio_bino_remove_radio", localize "STR_CROWSZA_Misc_remove_radio_bino_remove_radio_tooltip"], true],
+		["TOOLBOX:YESNO", [localize "STR_CROWSZA_Misc_remove_radio_bino_remove_bino", localize "STR_CROWSZA_Misc_remove_radio_bino_remove_bino_tooltip"], true]
 	];
 } else {
 	_options = [
-		["TOOLBOX:YESNO", ["Entire Group", "Applies to entire group, or only unit selected"], true],
-		["TOOLBOX:YESNO", ["Remove Radio", "Removes radios from units radio slot"], true],
-		["TOOLBOX:YESNO", ["Remove Binoculars", "Removes binoculars from units binocular slot"], true]
+		["TOOLBOX:YESNO", [localize "STR_CROWSZA_Misc_remove_radio_bino_group", localize "STR_CROWSZA_Misc_remove_radio_bino_group_tooltip"], true],
+		["TOOLBOX:YESNO", [localize "STR_CROWSZA_Misc_remove_radio_bino_remove_radio", localize "STR_CROWSZA_Misc_remove_radio_bino_remove_radio_tooltip"], true],
+		["TOOLBOX:YESNO", [localize "STR_CROWSZA_Misc_remove_radio_bino_remove_bino", localize "STR_CROWSZA_Misc_remove_radio_bino_remove_bino_tooltip"], true]
 	];
 };
 
 [
-	"Remove Equipment", 
+	localize "STR_CROWSZA_Misc_remove_radio_bino", 
 	_options,
 	_onConfirm,
 	{},

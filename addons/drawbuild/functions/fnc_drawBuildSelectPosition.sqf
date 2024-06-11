@@ -26,8 +26,8 @@ GVAR(startPos) = [];
 private _angle = 45;
 private _colour = [0.28, 0.78, 0.96, 1]; //xcom blue
 private _icon = "\a3\ui_f\data\igui\cfg\cursors\select_target_ca.paa";
-private _text = "Build to here";
-private _textStart = "Start Position";
+private _text = localize "STR_CROWSZA_Drawbuild_build_to_here";
+private _textStart = localize "STR_CROWSZA_Drawbuild_start_pos";
 
 // display vars 
 private _display = findDisplay IDD_RSCDISPLAYCURATOR;

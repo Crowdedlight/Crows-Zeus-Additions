@@ -76,16 +76,18 @@ private _onConfirm =
 	[_targetPos, _selectArray, _offset, _altitude, _tpPattern, _tpDirection] call FUNC(scatterTeleport);
 };
 [
-	"Scatter Teleport Players", 
+	localize "STR_CROWSZA_Teleport_scatter", 
 	[
-		["OWNERS","Units to TP",[[],[],[],1], true], //no preselected defaults, and default tab open is groups. Forcing defaults to deselect tp selection.
-		["SLIDER","Distance Between Players [m]",[5,500,15,0]], //5 to 500, default 15 and showing 0 decimal. (Don't allow teleport with 0 seperation, use normal TP for that...)
-		["SLIDER","Altitude Above Ground [m]",[0,10000,1000,0]], //0 to 10km, default 1km and showing 0 decimal
-		["TOOLBOX:YESNO", ["Include Vehicles", "Teleports vehicles if selected player is crew"], false],
-		["COMBO",["TP Pattern", "What pattern the units should be teleported as"],[["outward_spiral", "line", "odd"], ["Outward Spiral", "Line", "P Pattern"],0]],
-		["COMBO",["Direction (If LinePattern)", "The direction the line grows"],[["north", "north_east", "north_west", "east", "south", "south_east", "south_west", "west"], ["North", "North East", "North West", "East", "South", "South East", "South West", "West"],0]]
+		["OWNERS",localize "STR_CROWSZA_Teleport_scatter_units_to_tp",[[],[],[],1], true], //no preselected defaults, and default tab open is groups. Forcing defaults to deselect tp selection.
+		["SLIDER",localize "STR_CROWSZA_Teleport_scatter_distance_between",[5,500,15,0]], //5 to 500, default 15 and showing 0 decimal. (Don't allow teleport with 0 seperation, use normal TP for that...)
+		["SLIDER",localize "STR_CROWSZA_Teleport_scatter_altitude",[0,10000,1000,0]], //0 to 10km, default 1km and showing 0 decimal
+		["TOOLBOX:YESNO", [localize "STR_CROWSZA_Teleport_scatter_include_vehicle", localize "STR_CROWSZA_Teleport_scatter_include_vehicle_tooltip"], false],
+		["COMBO",[localize "STR_CROWSZA_Teleport_scatter_pattern", localize "STR_CROWSZA_Teleport_scatter_pattern_tooltip"],[["outward_spiral", "line", "odd"], [localize "STR_CROWSZA_Teleport_scatter_pattern_spiral", localize "STR_CROWSZA_Teleport_scatter_pattern_line", localize "STR_CROWSZA_Teleport_scatter_pattern_p"],0]],
+		["COMBO",[localize "STR_CROWSZA_Teleport_scatter_direction", localize "STR_CROWSZA_Teleport_scatter_direction_tooltip"],[["north", "north_east", "north_west", "east", "south", "south_east", "south_west", "west"], [localize "STR_CROWSZA_Teleport_scatter_n", localize "STR_CROWSZA_Teleport_scatter_ne", localize "STR_CROWSZA_Teleport_scatter_nw", localize "STR_CROWSZA_Teleport_scatter_e", localize "STR_CROWSZA_Teleport_scatter_s", localize "STR_CROWSZA_Teleport_scatter_se", localize "STR_CROWSZA_Teleport_scatter_sw", localize "STR_CROWSZA_Teleport_scatter_w"],0]]
 	],
 	_onConfirm,
 	{},
 	_this
 ] call zen_dialog_fnc_create;
+
+

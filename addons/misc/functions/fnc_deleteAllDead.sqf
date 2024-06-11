@@ -49,10 +49,10 @@ private _onConfirm =
 	}
 };
 [
-	"Are you sure you want to delete ALL dead?", 
+	localize "STR_CROWSZA_Misc_delete_dead", 
 	[
-		["TOOLBOX:YESNO", ["Delete Bodies", "Deletes all dead bodies not inside vehicles"], true],
-		["TOOLBOX:YESNO", ["Delete Wrecks", "Deletes all wrecks and any crew inside"], false]
+		["TOOLBOX:YESNO", [localize "STR_CROWSZA_Misc_delete_bodies", localize "STR_CROWSZA_Misc_delete_bodies_tooltip"], true],
+		["TOOLBOX:YESNO", [localize "STR_CROWSZA_Misc_delete_wrecks", localize "STR_CROWSZA_Misc_delete_wrecks_tooltip"], false]
 	],
 	_onConfirm,
 	{},

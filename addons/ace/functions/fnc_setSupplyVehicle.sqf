@@ -46,12 +46,12 @@ private _onConfirm =
 	};
 };
 [
-	"Set vehicle as...", 
+	localize "STR_CROWSZA_ACE_supplyvic_name", 
 	[
-		["CHECKBOX",["Rearm", "Set vehicle as rearm vehicle"],[false]],
-		["CHECKBOX",["Repair", "Set vehicle as repair vehicle"],[false]],
-		["CHECKBOX",["Refuel", "Set vehicle as refuel vehicle"],[false]],
-		["SLIDER","Refuel Amount [liters]",[0,10000,2000,0]]
+		["CHECKBOX",[localize "STR_CROWSZA_ACE_supplyvic_rearm", localize "STR_CROWSZA_ACE_supplyvic_rearm_tooltip"],[false]],
+		["CHECKBOX",[localize "STR_CROWSZA_ACE_supplyvic_repair", localize "STR_CROWSZA_ACE_supplyvic_repair_tooltip"],[false]],
+		["CHECKBOX",[localize "STR_CROWSZA_ACE_supplyvic_refuel", localize "STR_CROWSZA_ACE_supplyvic_refuel_tooltip"],[false]],
+		["SLIDER",localize "STR_CROWSZA_ACE_supplyvic_refuel_amount",[0,10000,2000,0]]
 	],
 	_onConfirm,
 	{},

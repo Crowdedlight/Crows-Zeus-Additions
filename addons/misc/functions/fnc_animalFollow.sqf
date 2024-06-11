@@ -13,17 +13,17 @@ params ["_animalType", "_src", "_amount", "_invincible", "_offset", "_scale", "_
 private["_animalClassname", "_animalResponse", "_animalAceOffset"]; 
 
 // set correct class names
-if ( _animalType == "Dog" ) then { _animalClassname = "Fin_random_F"; _animalResponse = "WOOF"; _animalAceOffset = [0,0,0.5]; }; 
-if ( _animalType == "Sheep" ) then { _animalClassname = "Sheep_random_F"; _animalResponse = "MÆÆÆÆÆHH"; _animalAceOffset = [0,0.5,0.8];}; 
-if ( _animalType == "Goat" ) then { _animalClassname = "Goat_random_F"; _animalResponse = "MAAAAA..Mariner..AAAA"; _animalAceOffset = [0,0.4,0.7];}; 
-if ( _animalType == "Rabbit" ) then { _animalClassname = "Rabbit_F"; _animalResponse = "PUUUUUUURRRRR"; _animalAceOffset = [0,0.2,0.2];}; 
-if ( _animalType == "Hen" ) then { _animalClassname = "Hen_random_F"; _animalResponse = "CLUCK-CLUCK"; _animalAceOffset = [0,0.2,0.3];}; 
-if ( _animalType == "Snake" ) then { _animalClassname = "Snake_random_F"; _animalResponse = "HISSSSS, No Step On Snek!"; _animalAceOffset = [0,0,0];}; 
+if ( _animalType == "Dog" ) then { _animalClassname = "Fin_random_F"; _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dog"; _animalAceOffset = [0,0,0.5]; }; 
+if ( _animalType == "Sheep" ) then { _animalClassname = "Sheep_random_F"; _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_sheep"; _animalAceOffset = [0,0.5,0.8];}; 
+if ( _animalType == "Goat" ) then { _animalClassname = "Goat_random_F"; _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_goat"; _animalAceOffset = [0,0.4,0.7];}; 
+if ( _animalType == "Rabbit" ) then { _animalClassname = "Rabbit_F"; _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_rabbit"; _animalAceOffset = [0,0.2,0.2];}; 
+if ( _animalType == "Hen" ) then { _animalClassname = "Hen_random_F"; _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_hen"; _animalAceOffset = [0,0.2,0.3];}; 
+if ( _animalType == "Snake" ) then { _animalClassname = "Snake_random_F"; _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_snake"; _animalAceOffset = [0,0,0];}; 
 
 GVAR(addAceActionPetDog) = 
 {
 	params["_animal", "_animalType", "_response", "_animalAceOffset"];
-	private _action = ["crowszaPetAnimal",format ["Pet %1",_animalType],"",
+	private _action = ["crowszaPetAnimal",format ["%2 %1",_animalType, localize "STR_CROWSZA_Misc_animal_pet_animal"],"",
 	{		
 		params ["_target", "_player", "_actionParams"];
 		_player playActionNow "gesturePoint";

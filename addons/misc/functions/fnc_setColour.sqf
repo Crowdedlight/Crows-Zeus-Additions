@@ -74,12 +74,12 @@ if (isNil "_textureArray") then {
 };
 
 [
-	"Set Colour", 
+	localize "STR_CROWSZA_Misc_set_colour", 
 	[
-		["COMBO","Texture",[_arraySelection, _textureArray,0]],
-		["COLOR","Colour",+[0,0,0,1]],
-		["CHECKBOX",["Apply to all textures", "Adds the colour to all textures"],[false]], //reset to defaults
-		["CHECKBOX",["RESET", "Resets Texture to default"],[false], true] //reset to defaults
+		["COMBO", localize "STR_CROWSZA_Misc_set_colour_texture",[_arraySelection, _textureArray,0]],
+		["COLOR", localize "STR_CROWSZA_Misc_set_colour_colour",+[0,0,0,1]],
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_set_colour_apply_textures", localize "STR_CROWSZA_Misc_set_colour_apply_textures_tooltip"],[false]], //reset to defaults
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_set_colour_reset", localize "STR_CROWSZA_Misc_set_colour_reset_tooltip"],[false], true] //reset to defaults
 	],
 	_onConfirm,
 	{},
