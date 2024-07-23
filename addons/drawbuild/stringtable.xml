@@ -13,6 +13,9 @@
             <Key ID="STR_CROWSZA_Drawbuild_filter">
                   <English>Filter</English>
             </Key>
+            <Key ID="STR_CROWSZA_Drawbuild_error_unknown_object">
+                  <English>"Object not recognised:&lt;br/&gt;%1"</English>
+            </Key>
             <Key ID="STR_CROWSZA_Drawbuild_objects_to_build">
                   <English>Select Object To Build</English>
             </Key>

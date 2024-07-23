@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
-			   
+               
 File: fnc_drawBuildZeus.sqf
 Parameters:
 Return: none
@@ -51,40 +51,40 @@ private _firstObject = ([keys GVAR(drawBuildPresets), [], { getText(configfile >
 private _initialOffset = str((GVAR(drawBuildPresets) get _firstObject)#0);
 
 [
-	localize "STR_CROWSZA_Drawbuild_module_name", 
-	[
-		["EDIT",localize "STR_CROWSZA_Drawbuild_filter",["", {
-			private _filter = _this;
-			private _filteredObjects = (keys GVAR(drawBuildPresets) select { ([_filter, getText(configfile >> "CfgVehicles" >> _x >> "displayName")] call BIS_fnc_inString) });
-			_filteredObjects = [_filteredObjects, [], { getText(configfile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy;
+    localize "STR_CROWSZA_Drawbuild_module_name", 
+    [
+        ["EDIT",localize "STR_CROWSZA_Drawbuild_filter",["", {
+            private _filter = _this;
+            private _filteredObjects = (keys GVAR(drawBuildPresets) select { ([_filter, getText(configfile >> "CfgVehicles" >> _x >> "displayName")] call BIS_fnc_inString) });
+            _filteredObjects = [_filteredObjects, [], { getText(configfile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy;
 
-			private _listbox = (allControls (uiNamespace getVariable "zen_common_display")) select { ctrlType _x == 5} select 0;
-			lbClear _listbox;
-			private _index = 0;
-			{
-				_listbox lbAdd getText(configfile >> "CfgVehicles" >> _x >> "displayName");
+            private _listbox = (allControls (uiNamespace getVariable "zen_common_display")) select { ctrlType _x == 5} select 0;
+            lbClear _listbox;
+            private _index = 0;
+            {
+                _listbox lbAdd getText(configfile >> "CfgVehicles" >> _x >> "displayName");
                 private _picture = getText (configFile >> "CfgVehicles" >> _x >> "editorPreview");
                 if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "icon") };
                 if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "picture") };
-			    _listbox lbSetPicture [_index, _picture];
-			    _listbox setVariable [str _index, _x];
-			    _index = _index+1;
-			} forEach _filteredObjects;
+                _listbox lbSetPicture [_index, _picture];
+                _listbox setVariable [str _index, _x];
+                _index = _index+1;
+            } forEach _filteredObjects;
 
-			call FUNC(updateDrawBuildUI);
+            call FUNC(updateDrawBuildUI);
 
-			_this
-		}], true],
-		["LIST",localize "STR_CROWSZA_Drawbuild_objects_to_build",[_objects, _prettyNames, 0, 15]],
-		["EDIT",[localize "STR_CROWSZA_Drawbuild_custom_object",(localize "STR_CROWSZA_Drawbuild_custom_object_tooltip") regexReplace ["<br/>",endl]],["", {}]],
-		["EDIT",[localize "STR_CROWSZA_Drawbuild_custom_offset",(localize "STR_CROWSZA_Drawbuild_custom_offset_tooltip") regexReplace ["<br/>",endl]],[_initialOffset, {}]],
-		// TODO: also add a "Custom Rotation" editbox, for custom objects with odd rotations
-		["CHECKBOX",localize "STR_CROWSZA_Drawbuild_enable_simulation",true],
-		["CHECKBOX",localize "STR_CROWSZA_Drawbuild_enable_damage",true]
-	],
-	FUNC(drawBuildSelectPosition),
-	{},
-	_this
+            _this
+        }], true],
+        ["LIST",localize "STR_CROWSZA_Drawbuild_objects_to_build",[_objects, _prettyNames, 0, 15]],
+        ["EDIT",[localize "STR_CROWSZA_Drawbuild_custom_object",(localize "STR_CROWSZA_Drawbuild_custom_object_tooltip") regexReplace ["<br/>",endl]],["", {}]],
+        ["EDIT",[localize "STR_CROWSZA_Drawbuild_custom_offset",(localize "STR_CROWSZA_Drawbuild_custom_offset_tooltip") regexReplace ["<br/>",endl]],[_initialOffset, {}]],
+        // TODO: also add a "Custom Rotation" editbox, for custom objects with unusual rotations
+        ["CHECKBOX",localize "STR_CROWSZA_Drawbuild_enable_simulation",false],
+        ["CHECKBOX",localize "STR_CROWSZA_Drawbuild_enable_damage",false]
+    ],
+    FUNC(drawBuildSelectPosition),
+    {},
+    _this
 ] call zen_dialog_fnc_create;
 
 

@@ -21,7 +21,7 @@ if (GVAR(selectPositionActive)) exitWith {};
 if(_customObject isNotEqualTo "") then { _object = _customObject; };
 
 if(! isClass (configFile >> "CfgVehicles" >> _object)) exitWith {
-    hint parseText format ["Object not recognised:<br/>%1", _object];
+    hint parseText format [localize "STR_CROWSZA_Drawbuild_error_unknown_object", _object];
 };
 
 

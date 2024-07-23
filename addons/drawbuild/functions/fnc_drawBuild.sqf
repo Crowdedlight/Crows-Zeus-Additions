@@ -87,7 +87,7 @@ for "_i" from 1 to _iterations do {
 		_object = _objectName createUnit [
 			_nextPos,
 			_moduleGroup,
-			"this setVariable ['BIS_fnc_initModules_disableAutoActivation', false, true];"
+			QUOTE(this setVariable [ARR_3('BIS_fnc_initModules_disableAutoActivation',false,true)];)
 		];
 		_tempPos = _nextPos;
 		continue;
