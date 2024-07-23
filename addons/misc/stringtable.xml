@@ -112,14 +112,17 @@
             <Key ID="STR_CROWSZA_Misc_onkilled">
                   <English>Activate On Death</English>
             </Key>
-            <Key ID="STR_CROWSZA_Misc_onkilled_error_hint">
-                  <English>Something has gone wrong!</English>
+            <Key ID="STR_CROWSZA_Misc_onkilled_error_unit">
+                  <English>Must be placed on a unit or object</English>
             </Key>
-            <Key ID="STR_CROWSZA_Misc_onkilled_error_log">
-                  <English>CrowsZA-onDeathZeus: unit became invalid after selection</English>
+            <Key ID="STR_CROWSZA_Misc_onkilled_error_hint">
+                  <English>Something has gone wrong (no unit)!</English>
             </Key>
             <Key ID="STR_CROWSZA_Misc_onkilled_error_null">
                   <English>Nothing set - no action taken!</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_error_empty">
+                  <English>No on-killed-module events to remove!</English>
             </Key>
             <Key ID="STR_CROWSZA_Misc_onkilled_hint_killer">
                   <English>Hint (Killer)</English>

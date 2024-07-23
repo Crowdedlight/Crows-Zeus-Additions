@@ -12,11 +12,11 @@ Removes Zeus-applied 'Killed' EHs from the passed unit (or object)
 
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-if(isNull _unit) exitWith { hint "Must be placed on a unit or object"; };
+if(isNull _unit) exitWith { hint (localize "STR_CROWSZA_Misc_onkilled_error_unit"); };
 
 private _ehIndex = _unit getVariable [QGVAR(OnKilledModuleEHIndex), nil];
 
-if(isNil "_ehIndex") exitWith { hint "No on-killed-module events to remove!"};
+if(isNil "_ehIndex") exitWith { hint (localize "STR_CROWSZA_Misc_onkilled_error_empty"); };
 
 _unit removeMPEventHandler ["MPKilled", _ehIndex];
 

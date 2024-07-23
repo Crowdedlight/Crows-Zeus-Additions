@@ -14,7 +14,7 @@ Activates one or more configurable effects when the passed unit (or object) dies
 
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-if(isNull _unit) exitWith { hint "Must be placed on a unit or object"; };
+if(isNull _unit) exitWith { hint (localize "STR_CROWSZA_Misc_onkilled_error_unit"); };
 
 private _onConfirm =
 {
@@ -39,7 +39,7 @@ private _onConfirm =
 
     if(isNull _unit) exitWith {
         hint (localize "STR_CROWSZA_Misc_onkilled_error_hint");
-        diag_log "STR_CROWSZA_Misc_onkilled_error_log";
+        diag_log "CrowsZA-onDeathZeus: unit became null after selection somehow";
     };
 
     if(
