@@ -11,3 +11,4 @@ GVAR(amfHelicoptersLoaded) = isClass (configfile >> "CfgPatches" >> "AMF_Heli_Tr
 GVAR(rhsLoaded) = isClass (configfile >> "CfgPatches" >> "rhs_main");
 GVAR(sogLoaded) = isClass (configfile >> "CfgMods" >> "vn");
 GVAR(optreLoaded) = isClass (configfile >> "CfgMods" >> "OPTRE_Core");
+GVAR(crowsEWLoaded) = isClass (configFile >> "CfgPatches" >> "crowsEW_main");

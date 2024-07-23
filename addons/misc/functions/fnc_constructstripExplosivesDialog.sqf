@@ -70,8 +70,8 @@ private _onConfirm = {
 			if(!(isPlayer _x) || {!_ignorePlayers}) then {
 				[_x, _itemType, _replace, _replaceCustom, _leave] call FUNC(stripExplosives);
 				if (isPlayer _x) then {
-					private _removed = if(_replace == 0) then { localize "STR_CROWSZA_Misc_strip_explosives_removed" } else { localize "STR_CROWSZA_Misc_strip_explosives_replaced" };
-				    (format [localize "STR_CROWSZA_Misc_strip_explosives_zeus_has_removed", _removed, _logItem]) remoteExec ["hint", _x];
+					private _logAction = ["removed", "replaced"] select (_replace);
+				    (format [localize "STR_CROWSZA_Misc_strip_explosives_zeus_has_removed", _logAction, _logItem]) remoteExec ["hint", _x];
 				};
 				sleep 0.01;
 			};

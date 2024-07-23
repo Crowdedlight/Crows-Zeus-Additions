@@ -61,7 +61,7 @@ GVAR(medical_status_players) = [];
 
 // ZEUS SURRENDER HELPER
 [
-	QGVAR(CBA_Setting_surrender_helper),
+    QGVAR(CBA_Setting_surrender_helper),
     "CHECKBOX",
     [localize "STR_CROWSZA_zeustext_surrender_icon", localize "STR_CROWSZA_zeustext_surrender_icon_tooltip"],
     ["Crows Zeus Additions", localize "STR_CROWSZA_zeustext_surrender_chance"],
@@ -70,9 +70,27 @@ GVAR(medical_status_players) = [];
 
 // ZEUS SURRENDER HELPER - COLOR
 [
-	QGVAR(CBA_Setting_surrender_helper_color),
+    QGVAR(CBA_Setting_surrender_helper_color),
     "COLOR",
     [localize "STR_CROWSZA_zeustext_surrender_icon_colour", localize "STR_CROWSZA_zeustext_surrender_icon_colour_tooltip"],
     ["Crows Zeus Additions", localize "STR_CROWSZA_zeustext_surrender_chance"],
+    [1,1,1,1]
+] call CBA_fnc_addSetting;
+
+// ZEUS KILLED EH HELPER
+[
+    QGVAR(CBA_Setting_OnKilledModule_helper),
+    "CHECKBOX",
+    [localize "STR_CROWSZA_zeustext_onkilled_icon", localize "STR_CROWSZA_zeustext_onkilled_icon_tooltip"],
+    ["Crows Zeus Additions", localize "STR_CROWSZA_zeustext_onkilled"],
+    true
+] call CBA_fnc_addSetting;
+
+// ZEUS KILLED EH HELPER - COLOR
+[
+    QGVAR(CBA_Setting_OnKilledModule_helper_color),
+    "COLOR",
+    [localize "STR_CROWSZA_zeustext_onkilled_icon_colour", localize "STR_CROWSZA_zeustext_onkilled_icon_colour_tooltip"],
+    ["Crows Zeus Additions", localize "STR_CROWSZA_zeustext_onkilled"],
     [1,1,1,1]
 ] call CBA_fnc_addSetting;
