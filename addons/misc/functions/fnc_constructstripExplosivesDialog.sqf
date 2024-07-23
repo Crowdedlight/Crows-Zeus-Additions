@@ -89,7 +89,7 @@ else {
 	_controls pushBack ["CHECKBOX", [localize "STR_CROWSZA_Misc_strip_explosives_whole_group", localize "STR_CROWSZA_Misc_strip_explosives_whole_group_tooltip"], _controlValues select 0, _default];
 };
 _controls pushBack ["CHECKBOX", localize "STR_CROWSZA_Misc_strip_explosives_ignore_players", _controlValues select 1, _default];
-_controls pushBack ["TOOLBOX", [localize "STR_CROWSZA_Misc_strip_explosives_item_type", parseText localize "STR_CROWSZA_Misc_strip_explosives_item_type_tooltip"], [_controlValues select 2, 1, 5, [localize "STR_CROWSZA_Misc_strip_explosives_signals", localize "STR_CROWSZA_Misc_strip_explosives_grenades", localize "STR_CROWSZA_Misc_strip_explosives_explosives", localize "STR_CROWSZA_Misc_strip_explosives_ugl", localize "STR_CROWSZA_Misc_strip_explosives_launchers"]], _default];
+_controls pushBack ["TOOLBOX", [localize "STR_CROWSZA_Misc_strip_explosives_item_type", (localize "STR_CROWSZA_Misc_strip_explosives_item_type_tooltip") regexReplace ["<br/>",endl]], [_controlValues select 2, 1, 5, [localize "STR_CROWSZA_Misc_strip_explosives_signals", localize "STR_CROWSZA_Misc_strip_explosives_grenades", localize "STR_CROWSZA_Misc_strip_explosives_explosives", localize "STR_CROWSZA_Misc_strip_explosives_ugl", localize "STR_CROWSZA_Misc_strip_explosives_launchers"]], _default];
 private _replace = ["Nothing"];
 
 
@@ -136,10 +136,10 @@ if((_controlValues select 2) < 4) then {
 	_controls pushBack ["TOOLBOX", localize "STR_CROWSZA_Misc_strip_explosives_replace_with", [_controlValues select 3, 1, count _replace, _replace], _default];
 
 	private _replaceCustom = if(count _controlValues >= 6) then { _controlValues select 4 } else { "" }; // TODO: could store the previous value as a (global) variable rather than clearing if not set
-	_controls pushBack ["EDIT", [localize "STR_CROWSZA_Misc_strip_explosives_replace_with_custom", parseText localize "STR_CROWSZA_Misc_strip_explosives_replace_with_custom_tooltip"], [_replaceCustom], _default];
+	_controls pushBack ["EDIT", [localize "STR_CROWSZA_Misc_strip_explosives_replace_with_custom", (localize "STR_CROWSZA_Misc_strip_explosives_replace_with_custom_tooltip") regexReplace ["<br/>",endl]], [_replaceCustom], _default];
 
 	private _leave = if(count _controlValues >= 6) then { _controlValues select 5 } else { 0 };
-	_controls pushBack ["SLIDER", [localize "STR_CROWSZA_Misc_strip_explosives_leave_untouched", parseText localize "STR_CROWSZA_Misc_strip_explosives_leave_untouched_tooltip"], [0, 10, _leave, 0], _default];
+	_controls pushBack ["SLIDER", [localize "STR_CROWSZA_Misc_strip_explosives_leave_untouched", (localize "STR_CROWSZA_Misc_strip_explosives_leave_untouched_tooltip") regexReplace ["<br/>",endl]], [0, 10, _leave, 0], _default];
 };
 
 GVAR(strip_explosives_previousValues) = _controlValues;

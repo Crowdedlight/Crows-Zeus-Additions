@@ -1,105 +1,93 @@
 #include "script_component.hpp"
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
-			   
-File: fn_drawBuildZeus.sqf
+               
+File: fnc_drawBuildZeus.sqf
 Parameters:
 Return: none
 
 Starts the selection handler to select multiple points for you to draw
 
 *///////////////////////////////////////////////
-#define SCALE_NORMAL   1
-#define SCALE_SELECTED 1.2
 
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-GVAR(lastPole) = objNull;
+FUNC(updateDrawBuildUI) = {
+    // Get the third editbox
+    private _edit = (allControls (uiNamespace getVariable "zen_common_display")) select { ctrlType _x == 2} select 2;
 
-//create display 
-if (!createDialog "crowsza_drawbuild_display") exitWith {["STR_CROWSZA_Drawbuild_error"] call EFUNC(main,showHint)};
+    // Get the ZEN-stored values
+    ((uiNamespace getVariable "zen_common_display") getVariable "zen_dialog_params") params ["_controls", "_onConfirm", "_onCancel", "_args", "_saveID"];
+    private _values = _controls apply {
+        _x params ["_controlsGroup", "_settings"];
+        [_controlsGroup, _settings] call (_controlsGroup getVariable "zen_dialog_fnc_value")
+    };
 
-//get display
-private _display = uiNamespace getVariable "crowsza_drawbuild_display";
-
-//use ZENs method to init display posisions. I can use it as I should have same base setup as ZEN uses in their gui
-[_display] call zen_common_fnc_initDisplayPositioning;
-
-// save position that is selected 
-// _display setVariable ["crowsza_drawbuild_pos", _pos];
-
-// array of "options" to build with
-private _arrOptions = [
-	"Land_HBarrier_3_F",					//hesco default
-	"Land_HBarrier_Big_F",					//big hesco default
-	"Land_BagFence_Short_F",				//sandbag wall - default
-	"Land_SandbagBarricade_01_F",			//tall sandbags
-	"Land_TyreBarrier_01_line_x4_F",		//tire wall
-	"Land_ConcreteWall_01_m_4m_F", 			//concrete wall
-	
-	//tanoa sandbags
-	"Land_HBarrier_01_line_3_green_F",		//tanoa hesco (green)
-	"Land_HBarrier_01_big_4_green_F",		//big tanoa hesco 
-	"Land_BagFence_01_short_green_F",		//tanoa sandbag wall
-	"Land_Mil_WallBig_4m_F",				//military wall
-	"Land_Fortress_01_5m_F",				//land fortress wall 5m
-
-	//fences
-	"Land_Hedge_01_s_2m_F",					//grass hedge
-	"Land_NetFence_02_m_4m_F",				//net fence
-	"Land_New_WiredFence_5m_F",				//wire fence
-	"Land_Razorwire_F",						//razor wire
-
-	//misc.
-	"PowerCable_01_StraightLong_F",			//power cable
-	"Land_PowerLine_03_pole_F", 			//concrete overhead line
-	"Land_PowerLine_02_pole_small_F"		//wood overhead line
-];
-
-// only add grad trenches if that mod is loaded
-private _hasGradTrench = isClass (configFile >> "CfgPatches" >> "grad_trenches_main");
-if (_hasGradTrench) then {
-	_arrOptions = _arrOptions + ["fort_envelopebig"]
+    // Update the editbox with the new value
+    private _object = _values#1;    
+    private _offset = (GVAR(drawBuildPresets) get _object)#0;
+    if(isNil "_offset") then { _offset = ""; };
+    _edit ctrlSetText str _offset;
 };
 
-//display all items
+private _drawPresets = [keys GVAR(drawBuildPresets), [], { getText(configfile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy;
+
+private _objects = [];
+private _prettyNames = [];
 {
-    private _mainItem = _x;
+    private _displayName = getText (configfile >> "CfgVehicles" >> _x >> "displayName");
+    private _picture = getText (configFile >> "CfgVehicles" >> _x >> "editorPreview");
+    if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "icon") };
+    if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "picture") };
 
-	// picture and name
-    private _picture = getText(configfile >> "CfgVehicles" >> _mainItem >> "editorPreview");
-    private _name = getText(configfile >> "CfgVehicles" >> _mainItem >> "displayName");
+    _objects pushBack _x;
+    _prettyNames pushBack [_displayName, "", _picture];
 
-    private _tooltip = format ["%1", _name];
-    // private _tooltip = format ["%1\n%2", _name, _mainItem];
+} forEach _drawPresets;
 
-	// put in object
-	private _spot = IDC_ICON_GRID_FIRST + _forEachIndex;
-	// get spot
-	private _ctrlSpot = _display displayCtrl _spot;
 
-	// set picture and tooltip
-	_ctrlSpot ctrlSetText _picture;
-	_ctrlSpot ctrlSetTooltip _tooltip;
+// Get the offset of the first (alphabetical) object, to populate the default for the appropriate field
+private _firstObject = ([keys GVAR(drawBuildPresets), [], { getText(configfile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy)#0;
+private _initialOffset = str((GVAR(drawBuildPresets) get _firstObject)#0);
 
-	// handler for click on icon
-	[_ctrlSpot, "ButtonClick", {
-            params ["_ctrlSpot"];
-            _thisArgs params ["_object", "_display"];
+[
+    localize "STR_CROWSZA_Drawbuild_module_name", 
+    [
+        ["EDIT",localize "STR_CROWSZA_Drawbuild_filter",["", {
+            private _filter = _this;
+            private _filteredObjects = (keys GVAR(drawBuildPresets) select { ([_filter, getText(configfile >> "CfgVehicles" >> _x >> "displayName")] call BIS_fnc_inString) });
+            _filteredObjects = [_filteredObjects, [], { getText(configfile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy;
 
-			// close dialog
-			closeDialog 1;
+            private _listbox = (allControls (uiNamespace getVariable "zen_common_display")) select { ctrlType _x == 5} select 0;
+            lbClear _listbox;
+            private _index = 0;
+            {
+                _listbox lbAdd getText(configfile >> "CfgVehicles" >> _x >> "displayName");
+                private _picture = getText (configFile >> "CfgVehicles" >> _x >> "editorPreview");
+                if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "icon") };
+                if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "picture") };
+                _listbox lbSetPicture [_index, _picture];
+                _listbox setVariable [str _index, _x];
+                _index = _index+1;
+            } forEach _filteredObjects;
 
-			// get options for simulation and damage 
-			private _ctrlSimCheckbox = _display displayCtrl IDC_CHECKBOX_SIMULATION;
-			private _ctrlDmgCheckbox = _display displayCtrl IDC_CHECKBOX_DAMAGE;
+            call FUNC(updateDrawBuildUI);
 
-			private _enableSim = cbChecked _ctrlSimCheckbox;
-			private _enableDmg = cbChecked _ctrlDmgCheckbox;
+            _this
+        }], true],
+        ["LIST",localize "STR_CROWSZA_Drawbuild_objects_to_build",[_objects, _prettyNames, 0, 15]],
+        ["EDIT",[localize "STR_CROWSZA_Drawbuild_custom_object",(localize "STR_CROWSZA_Drawbuild_custom_object_tooltip") regexReplace ["<br/>",endl]],["", {}]],
+        ["EDIT",[localize "STR_CROWSZA_Drawbuild_custom_offset",(localize "STR_CROWSZA_Drawbuild_custom_offset_tooltip") regexReplace ["<br/>",endl]],[_initialOffset, {}]],
+        // TODO: also add a "Custom Rotation" editbox, for custom objects with unusual rotations
+        ["CHECKBOX",localize "STR_CROWSZA_Drawbuild_enable_simulation",false],
+        ["CHECKBOX",localize "STR_CROWSZA_Drawbuild_enable_damage",false]
+    ],
+    FUNC(drawBuildSelectPosition),
+    {},
+    _this
+] call zen_dialog_fnc_create;
 
-			// start draw building
-			[_object, _enableSim, _enableDmg] call FUNC(drawBuildSelectPosition);
-			
-    }, [_mainItem, _display]] call CBA_fnc_addBISEventHandler;
 
-} forEach _arrOptions;
+private _allControls = allControls (uiNamespace getVariable "zen_common_display");
+private _listbox = _allControls select { ctrlType _x == 5} select 0;
+_listbox ctrlAddEventHandler ["LBSelChanged", FUNC(updateDrawBuildUI)];
