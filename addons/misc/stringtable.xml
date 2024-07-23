@@ -478,9 +478,6 @@
             <Key ID="STR_CROWSZA_Misc_suitcaseNuke_error_zeusPlacement">
                   <English>Must be place on an existing Device, or nothing</English>
             </Key>
-            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_error_ewarMismatch">
-                  <English>Must be place on an existing Device, or nothing</English>
-            </Key>
             <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuse">
                   <English>Defuse Device</English>
             </Key>

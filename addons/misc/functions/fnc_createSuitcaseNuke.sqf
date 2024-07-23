@@ -115,7 +115,7 @@ private _onConfirm = {
                     if (isClass (configFile >> "CfgPatches" >> "crowsEW_main")) then {
                         [getPos _device, _device, 500, false, 1, 1] call EMFUNC(crowsEW,emp,fireEMP);
                     } else {
-                        diag_log localize "STR_CROWSZA_Misc_suitcaseNuke_error_ewarMismatch";
+                        diag_log "CrowsZA-suitcaseNuke: Zeus has CrowsEW loaded, but the server does not!";
                     };
                 };
                 case "explosive_small": {
