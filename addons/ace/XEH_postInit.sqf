@@ -8,11 +8,11 @@ if (!EGVAR(main,aceLoaded)) exitWith {};
 
 // zeus modules
 private _moduleList = [
-        ["ACE Add Damage to Unit",{_this call FUNC(aceDamageToUnit)}, QPATHTOF(data\sword.paa)],
-        ["Mass-Unconscious Toggle",{_this call FUNC(massUnconscious)}, "\z\ace\addons\zeus\UI\Icon_Module_Zeus_Unconscious_ca.paa"],
-        ["Capture Player",{_this call FUNC(capturePlayer)}, "\z\ace\addons\captives\UI\captive_ca.paa"],
-        ["Mass-Surrender Toggle",{_this call FUNC(massSurrender)}, "\z\ace\addons\captives\UI\Surrender_ca.paa"],
-        ["Set Supply Vehicle",{_this call FUNC(setSupplyVehicle)}, QPATHTOF(data\rearmvehicle.paa)]
+        [localize "STR_CROWSZA_ACE_module_add_damage",{_this call FUNC(aceDamageToUnit)}, QPATHTOF(data\sword.paa)],
+        [localize "STR_CROWSZA_ACE_module_unconscious_toggle",{_this call FUNC(massUnconscious)}, "\z\ace\addons\zeus\UI\Icon_Module_Zeus_Unconscious_ca.paa"],
+        [localize "STR_CROWSZA_ACE_module_capture_player",{_this call FUNC(capturePlayer)}, "\z\ace\addons\captives\UI\captive_ca.paa"],
+        [localize "STR_CROWSZA_ACE_module_mass_surrender",{_this call FUNC(massSurrender)}, "\z\ace\addons\captives\UI\Surrender_ca.paa"],
+        [localize "STR_CROWSZA_ACE_module_supply_vic",{_this call FUNC(setSupplyVehicle)}, QPATHTOF(data\rearmvehicle.paa)]
 ];
 
 {
@@ -28,7 +28,7 @@ private _moduleList = [
 private _contextActionList = [
     // Action name, Display name, Icon and Icon colour, code, Condition to show, arguments, dynamic children, modifier functions
     [
-        ["jshk_heal","JSHK Heal","\z\ace\addons\medical_gui\ui\cross.paa", 
+        ["jshk_heal",localize "STR_CROWSZA_ACE_module_jshk","\z\ace\addons\medical_gui\ui\cross.paa", 
 		{_hoveredEntity call FUNC(jshkHeal)}, 
 		{[_hoveredEntity] call EFUNC(main,isAliveManUnit) && EGVAR(main,aceLoaded) && EGVAR(main,jshkLoaded) && (_hoveredEntity getVariable ["ACE_isUnconscious", false]) == true}] call zen_context_menu_fnc_createAction,
         ["HealUnits"],

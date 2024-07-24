@@ -25,7 +25,7 @@ private _weightABS = (loadAbs _unit) * 0.1;
 private _weightKG = (round (_weightABS * (1/2.2046) * 100)) / 100;
 
 private _ctrlWeight = _display displayCtrl IDC_WEIGHT;
-_ctrlWeight ctrlSetText format ["Weight: %1kg", _weightKG];
+_ctrlWeight ctrlSetText format ["%2: %1kg", _weightKG, localize "STR_CROWSZA_Misc_weight"];
 
 //make array for loadout list in format [[type, item, amount, [attachments if weapon]], [type, item, amount, [attachments if weapon]]...]
 private _list = [];

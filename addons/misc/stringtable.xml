@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Crows Zeus Additions">
+      <Package name="misc">
+            <Key ID="STR_CROWSZA_Misc_activate_on_death">
+                  <English>Activate On Death</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_activate_on_death">
+                  <English>Remove Activate On Death</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_trees">
+                  <English>Remove Trees</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_restore_trees">
+                  <English>Restore Trees</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_follow_unit_animals">
+                  <English>Follow Unit With Animal</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_delete_follow_unit_animals">
+                  <English>Delete All Follow Animals</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_spawn_arsenal">
+                  <English>Spawn Arsenal</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_set_numberplate">
+                  <English>Set Numberplate</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_delete_all_dead">
+                  <English>Delete ALL dead</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_set_colour">
+                  <English>Set Colour</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support">
+                  <English>Fire Support</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_player_loadouts">
+                  <English>Resupply Player Loadouts</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_bino_radio">
+                  <English>Remove Radio/Bino</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_spawn_ied_clutter">
+                  <English>Spawn IED Clutter</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives">
+                  <English>Strip Explosives</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_surrender_chance">
+                  <English>Surrender Chance</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_camera_center_unit">
+                  <English>Camera Center Unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_paste_loadout">
+                  <English>Paste Loadout</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_view">
+                  <English>View</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_radius_heal">
+                  <English>Radius Heal</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_10m">
+                  <English>10m</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_50m">
+                  <English>50m</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_100m">
+                  <English>100m</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_150m">
+                  <English>150m</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_200m">
+                  <English>200m</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_toggle_pathing">
+                  <English>Toggle Pathing</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_on">
+                  <English>On</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_off">
+                  <English>Off</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_toggle">
+                  <English>Toggle</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_unit">
+                  <English>Unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_group">
+                  <English>Group</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_side">
+                  <English>Side</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_blufor">
+                  <English>BLUFOR</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_opfor">
+                  <English>OPFOR</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_indfor">
+                  <English>INDFOR</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_civ">
+                  <English>CIV</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled">
+                  <English>Activate On Death</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_error_unit">
+                  <English>Must be placed on a unit or object</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_error_hint">
+                  <English>Something has gone wrong (no unit)!</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_error_null">
+                  <English>Nothing set - no action taken!</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_error_empty">
+                  <English>No on-killed-module events to remove!</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_killer">
+                  <English>Hint (Killer)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_killer_tooltip">
+                  <English>Display a hint to the player that killed the unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_all">
+                  <English>Hint (All)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_all_tooltip">
+                  <English>Display a hint to all players</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_zeus">
+                  <English>Hint (Zeus)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_zeus_tooltip">
+                  <English>Display a hint to (all) Zeus players</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_delete_remains">
+                  <English>Delete Remains</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_delete_remains_tooltip">
+                  <English>Delete the 'dead' object or unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_explosion">
+                  <English>Explosion</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_hint_explosion_tooltip">
+                  <English>Detonate an explosive on the position of the killed unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_explosion_none">
+                  <English>None</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_explosion_small">
+                  <English>Small</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_explosion_large">
+                  <English>Large</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_explosion_nuclear">
+                  <English>Nuclear</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_emp">
+                  <English>EMP</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_emp_tooltip">
+                  <English>Detonate an EMP that affects lights, radios, unprotected vehicles,&lt;br/&gt;and other electronic equipment within 500m</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_sound_killer">
+                  <English>Sound (Killer)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_sound_killer_tooltip">
+                  <English>Play a sound to the player that killed the unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_sound_all">
+                  <English>Sound (All)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_sound_all_tooltip">
+                  <English>Play a sound to all players</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_customcode">
+                  <English>Custom Code</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_customcode_tooltip">
+                  <English>Custom code to execute on unit's death&lt;br/&gt;Arguments: _unit, _killer, _instigator, _useEffects&lt;br/&gt;Written at your own risk - if unsure, leave blank!</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_codetarget">
+                  <English>Code Target</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_tooltip">
+                  <English>Which machine(s) to run the custom code on</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_client">
+                  <English>Clients</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_server">
+                  <English>Server</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_clientserver">
+                  <English>Clients + Server</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_surrender_chance_name">
+                  <English>Surrender Chance</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_surrender_chance_hesitation">
+                  <English>Hesitation</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_surrender_chance_hesitation_tooltip">
+                  <English>Maximum time (in seconds) that the unit will hesitate for after being confronted</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_surrender_chance_hold_fire">
+                  <English>Hold Fire</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_surrender_chance_hold_fire_tooltip">
+                  <English>Units will hold fire until confronted</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_surrender_chance_confrontation_radius">
+                  <English>Confrontation Radius</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_surrender_chance_confrontation_radius_tooltip">
+                  <English>Radius within which pointing a weapon at the unit will trigger a response</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_surrender_chance_radius">
+                  <English>Radius</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_surrender_chance_radius_tooltip">
+                  <English>Apply this effect to all units in radius</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_surrender_chance_error">
+                  <English>Surrender chance already applied to this unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_error">
+                  <English>Unrecognised custom replacement</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_ied_amount">
+                  <English>IED Amount</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_ied_size">
+                  <English>IED Size</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_small">
+                  <English>Small</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_medium">
+                  <English>Medium</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_large">
+                  <English>Large</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_random">
+                  <English>Random</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_max_clutter_size">
+                  <English>Max Clutter Size</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_density">
+                  <English>Density</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_radius">
+                  <English>Radius</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_name">
+                  <English>Spawn IED Clutter</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_ied_type">
+                  <English>IED Type</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_ied_type_tooltip">
+                  <English>"Clutter" transforms a random object of clutter into an IED</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_urban">
+                  <English>Urban</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_clutter">
+                  <English>Clutter</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_ied_clutter_dug_in">
+                  <English>Dug-in</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_numberplate_name">
+                  <English>Set Numberplate</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_numberplate_text">
+                  <English>Text</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_set_colour_reset">
+                  <English>RESET</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_set_colour_reset_tooltip">
+                  <English>Resets Texture to default</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_set_colour_apply_textures">
+                  <English>Apply to all textures</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_set_colour_apply_textures_tooltip">
+                  <English>Adds the colour to all textures</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_set_colour_colour">
+                  <English>Colour</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_set_colour_texture">
+                  <English>Texture</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_error">
+                  <English>Classname provided does not exist!</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_multiplier">
+                  <English>Set multipler for ammo supply</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_ace_rearm">
+                  <English>ACE Rearm</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_ace_rearm_tooltip">
+                  <English>Set as ACE Rearm vehicle</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_medical">
+                  <English>Medical</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_medical_tooltip">
+                  <English>Add Medical supplies</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_airdrop_height">
+                  <English>Airdrop height [m]</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_flyfrom">
+                  <English>Fly From</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_N">
+                  <English>N</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_NE">
+                  <English>NE</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_E">
+                  <English>E</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_SE">
+                  <English>SE</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_S">
+                  <English>S</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_SW">
+                  <English>SW</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_W">
+                  <English>W</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_NW">
+                  <English>NW</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_custom_type">
+                  <English>Custom Type (Optional)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_custom_type_tooltip">
+                  <English>Provide classname to aircraft you want to use, instead of using dropdown list</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_choose_aircraft">
+                  <English>Choose Aircraft</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_choose_aircraft_tooltip">
+                  <English>What aircraft to drop the supply from</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_aircraft">
+                  <English>Aircraft</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_aircraft_tooltip">
+                  <English>Make aircraft drop it</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_airdrop">
+                  <English>Airdrop</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_airdrop_tooltip">
+                  <English>Make it airdrop from 300m</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_resupply_loadouts_multiplier_dialog">
+                  <English>Multiplier (amount per player)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_restore_trees_dialog">
+                  <English>Restore Trees and bushes in radius</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_restore_trees_radius">
+                  <English>Radius</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_restore_trees_trees">
+                  <English>Trees</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_restore_trees_trees_tooltip">
+                  <English>Enable restoration of trees</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_restore_trees_bushes">
+                  <English>Bushes</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_restore_trees_bushes_tooltip">
+                  <English>Enable restoration of bushes</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_restore_trees_stones">
+                  <English>Stones</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_restore_trees_stones_tooltip">
+                  <English>Enable restoration of stones</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_trees_dialog">
+                  <English>Remove terrain objects selected in radius</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_trees_stones_tooltip">
+                  <English>Enable removal of stones</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_trees_bushes_tooltip">
+                  <English>Enable removal of bushes</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_trees_trees_tooltip">
+                  <English>Enable removal of trees</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_radio_bino_error">
+                  <English>Zeus has removed your radio and/or binoculars</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_radio_bino">
+                  <English>Remove Equipment</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_radio_bino_remove_bino">
+                  <English>Remove Binoculars</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_radio_bino_remove_bino_tooltip">
+                  <English>Removes binoculars from units binocular slot</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_radio_bino_remove_radio">
+                  <English>Remove Radio</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_radio_bino_remove_radio_tooltip">
+                  <English>Removes radios from units radio slot</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_radio_bino_group">
+                  <English>Entire Group</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_radio_bino_group_tooltip">
+                  <English>Applies to entire group, or only unit selected</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_remove_radio_bino_side">
+                  <English>Side</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_radius_to_heal">
+                  <English>Radius to heal</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_loadout">
+                  <English>Loadout</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_SL">
+                  <English>SL</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_weight">
+                  <English>Weight</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_dialog">
+                  <English>Select Firesupport Type and Area</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_type">
+                  <English>Type</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_custom_type">
+                  <English>Custom Type (ex.)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_seconds_salvo">
+                  <English>Seconds between Salvos</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_start_after">
+                  <English>Start after ... seconds</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_stop_after">
+                  <English>Stop After Salvos (0 = indef.)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_guns">
+                  <English>Guns</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_display_radius">
+                  <English>Display Radius (only &lt;=200m)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_mortar">
+                  <English>82 mm Mortar</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_howitzer">
+                  <English>155 mm Howitzer</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_rocket">
+                  <English>230 mm Rocket</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_flare_white">
+                  <English>Flare 40mm White</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_fire_support_smoke_white">
+                  <English>Smoke 120mm White</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_delete_dead">
+                  <English>Are you sure you want to delete ALL dead?</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_delete_bodies">
+                  <English>Delete Bodies</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_delete_bodies_tooltip">
+                  <English>Deletes all dead bodies not inside vehicles</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_delete_wrecks">
+                  <English>Delete Wrecks</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_delete_wrecks_tooltip">
+                  <English>Deletes all wrecks and any crew inside</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_delete_animal_followers">
+                  <English>Are you sure you will delete all animals following people?</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_ignore_players">
+                  <English>Ignore players</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_removed">
+                  <English>removed</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_replaced">
+                  <English>replaced</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_zeus_has_removed">
+                  <English>Zeus has %1 your %2</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_whole_group">
+                  <English>Whole Group</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_whole_group_tooltip">
+                  <English>Remove items from this unit's group</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_item_type">
+                  <English>Item Type</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_item_type_tooltip">
+                  <English>"Signals" includes smoke grenades, chemlights, IR strobes, and UGL smokes.&lt;br/&gt;"UGL" includes explosive ammo for under-barrel and dedicated grenade launchers</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_signals">
+                  <English>Signals</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_grenades">
+                  <English>Grenades</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_explosives">
+                  <English>Explosives</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_ugl">
+                  <English>UGL</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_launchers">
+                  <English>Launchers</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_replace_with">
+                  <English>Replace with</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_replace_with_custom">
+                  <English>Replace with (custom)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_replace_with_custom_tooltip">
+                  <English>A custom magazine or item to replace with&lt;br/&gt;(Must be in "CfgMagazines" or inherit from "ItemCore")</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_leave_untouched">
+                  <English>Leave untouched</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_leave_untouched_tooltip">
+                  <English>Amount of unit's inventory to leave unchanged.&lt;br/&gt;Does not guarantee which type is preserved if the unit has, e.g. multiple colours of smoke.</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_strip_explosives_dialog">
+                  <English>Remove Explosives</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke">
+                  <English>Suitcase Device</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_edit">
+                  <English>Edit Suitcase Device</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_error_zeusPlacement">
+                  <English>Must be place on an existing Device, or nothing</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuse">
+                  <English>Defuse Device</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_none">
+                  <English>Nothing</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_explosion_small">
+                  <English>Explosion (Small)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_explosion_large">
+                  <English>Explosion (Large)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_explosion_nuclear">
+                  <English>Explosion (Nuclear)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_smoke_red">
+                  <English>Smoke (Red)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_smoke_yellow">
+                  <English>Smoke (Yellow)</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_emp">
+                  <English>EMP</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_timer">
+                  <English>Timer</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_timer_tooltip">
+                  <English>How long until the device activates in MM:SS</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect">
+                  <English>Effect</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_tooltip">
+                  <English>What happens when the device activates</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable">
+                  <English>Defusable</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_tooltip">
+                  <English>Who can attempt to defuse the device</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_noone">
+                  <English>No-one</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_specialist">
+                  <English>Explosive Specialists</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_engineer">
+                  <English>Engineers</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_any">
+                  <English>Anyone</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defusetimer">
+                  <English>Defuse Time</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defusetimer_tooltip">
+                  <English>How long does it take to defuse the device in MM:SS</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_armed">
+                  <English>Armed</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_suitcaseNuke_armed_tooltip">
+                  <English>Whether the device can be detonated&lt;br/&gt;If not armed, countdown is paused</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_follow_animal">
+                  <English>Select Animal Type</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal">
+                  <English>Animal</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_dog">
+                  <English>Dog</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_sheep">
+                  <English>Sheep</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_goat">
+                  <English>Goat</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_rabbit">
+                  <English>Rabbit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_hen">
+                  <English>Hen</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_snake">
+                  <English>Snake</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_amount">
+                  <English>Amount</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_spawn_offset">
+                  <English>Spawn offset [m]</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_spawn_offset_tooltip">
+                  <English>How far away in random direction the animals should spawn</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_scale">
+                  <English>Scale*</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_scale_tooltip">
+                  <English>Experimental feature that doesn't always work. Works best on snakes</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_invincible">
+                  <English>Set Invincible</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_attack_nearby">
+                  <English>Attack Nearby Units</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_pet_animal">
+                  <English>Pet</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_sound_dog">
+                  <English>WOOF</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_sound_sheep">
+                  <English>MÆÆÆÆÆHH</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_sound_goat">
+                  <English>MAAAAA..Mariner..AAAA</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_sound_rabbit">
+                  <English>PUUUUUUURRRRR</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_sound_hen">
+                  <English>CLUCK-CLUCK</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Misc_animal_sound_snake">
+                  <English>HISSSSS, No Step On Snek!</English>
+            </Key>
+      </Package>
+</Project>
+
+

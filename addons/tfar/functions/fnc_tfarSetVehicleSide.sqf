@@ -12,7 +12,7 @@ Set TFAR sides for vehicles. Only independent, west and east is available. Civil
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
 // exit if not a vehicle
-if (!(_unit isKindOf "AllVehicles")) exitWith { ["Selected unit is not a vehicle"] call EFUNC(main,showHint); };
+if (!(_unit isKindOf "AllVehicles")) exitWith { ["STR_CROWSZA_tfar_error"] call EFUNC(main,showHint); };
 
 private _onConfirm =
 {
@@ -35,9 +35,9 @@ private _onConfirm =
 	[format ["Vehicle TFAR side set to %1", str(_vicSide)], true] call EFUNC(main,showHint);
 };
 [
-	"Set TFAR Vehicle Side", 
+	localize "STR_CROWSZA_tfar_radio_side", 
 	[
-		["SIDES","TFAR Vehicle Side", west]
+		["SIDES", localize "STR_CROWSZA_tfar_side", west]
 	],
 	_onConfirm,
 	{},

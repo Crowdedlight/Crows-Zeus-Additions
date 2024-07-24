@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Crows Zeus Additions">
+      <Package name="ace">
+            <Key ID="STR_CROWSZA_ACE_module_add_damage">
+                  <English>ACE Add Damage to Unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_module_unconscious_toggle">
+                  <English>Mass-Unconscious Toggle</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_module_capture_player">
+                  <English>Capture Player</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_module_mass_surrender">
+                  <English>Mass-Surrender Toggle</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_module_supply_vic">
+                  <English>Set Supply Vehicle</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_module_jshk">
+                  <English>JSHK Heal</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_supplyvic_name">
+                  <English>Set vehicle as...</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_supplyvic_rearm">
+                  <English>Rearm</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_supplyvic_rearm_tooltip">
+                  <English>Set vehicle as rearm vehicle</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_supplyvic_repair">
+                  <English>Repair</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_supplyvic_repair_tooltip">
+                  <English>Set vehicle as repair vehicle</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_supplyvic_refuel">
+                  <English>Refuel</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_supplyvic_refuel_tooltip">
+                  <English>Set vehicle as refuel vehicle</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_supplyvic_refuel_amount">
+                  <English>Refuel Amount [liters]</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_massunconscious_name">
+                  <English>Mass Unconscious</English>
+            </Key>            
+            <Key ID="STR_CROWSZA_ACE_massunconscious_units">
+                  <English>Units</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_masssurrender_name">
+                  <English>Mass Surrender/Captive</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_masssurrender_action">
+                  <English>Action</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_masssurrender_surrender">
+                  <English>Surrender</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_masssurrender_captive">
+                  <English>Captive</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_name">
+                  <English>Add ACE Damage to Unit</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_bodypart">
+                  <English>Body Part</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_head">
+                  <English>Head</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_body">
+                  <English>Body</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_leg_l">
+                  <English>Left Leg</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_leg_r">
+                  <English>Right Leg</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_hand_l">
+                  <English>Left Hand</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_hand_r">
+                  <English>Right Hand</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_falling">
+                  <English>Falling</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_ropeburn">
+                  <English>Ropeburn</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_vehiclecrash">
+                  <English>Vehiclecrash</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_collision">
+                  <English>Collision</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_unknown">
+                  <English>Unkown</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_explosive">
+                  <English>Explosive</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_grenade">
+                  <English>Grenade</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_shell">
+                  <English>Shell</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_bullet">
+                  <English>Bullet</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_backblast">
+                  <English>Backblast</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_bite">
+                  <English>Bite</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_punch">
+                  <English>Punch</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_stab">
+                  <English>Stab</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_drowning">
+                  <English>Drowning</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_burn">
+                  <English>Burn</English>
+            </Key>
+            <Key ID="STR_CROWSZA_ACE_adddamage_damage">
+                  <English>Damage</English>
+            </Key>
+      </Package>
+</Project>

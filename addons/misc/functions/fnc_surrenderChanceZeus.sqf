@@ -35,11 +35,11 @@ private _onConfirm =
 };
 
 private _controls = [
-		["SLIDER:RADIUS", ["Radius", "Apply this effect to all units in radius"], [1, 100, 30, 0, ASLtoAGL _pos, [1, 0, 0, 0.7]]],
-		["SLIDER", ["Confrontation Radius", "Radius within which pointing a weapon at the unit will trigger a response"], [5, 50, 15, 0]],
-		["SLIDER:PERCENT", "Surrender Chance", [0, 1, 0.33, 0]],
-		["CHECKBOX", ["Hold Fire", "Units will hold fire until confronted"], [true]],
-		["SLIDER", ["Hesitation", "Maximum time (in seconds) that the unit will hesitate for after being confronted"], [0, 5, 0, 1]]
+		["SLIDER:RADIUS", [localize "STR_CROWSZA_Misc_surrender_chance_radius", localize "STR_CROWSZA_Misc_surrender_chance_radius_tooltip"], [1, 100, 30, 0, ASLtoAGL _pos, [1, 0, 0, 0.7]]],
+		["SLIDER", [localize "STR_CROWSZA_Misc_surrender_chance_confrontation_radius", localize "STR_CROWSZA_Misc_surrender_chance_confrontation_radius_tooltip"], [5, 50, 15, 0]],
+		["SLIDER:PERCENT", localize "STR_CROWSZA_Misc_surrender_chance_name", [0, 1, 0.33, 0]],
+		["CHECKBOX", [localize "STR_CROWSZA_Misc_surrender_chance_hold_fire", localize "STR_CROWSZA_Misc_surrender_chance_hold_fire_tooltip"], [true]],
+		["SLIDER", [localize "STR_CROWSZA_Misc_surrender_chance_hesitation", localize "STR_CROWSZA_Misc_surrender_chance_hesitation_tooltip"], [0, 5, 0, 1]]
 ];
 
 if(!(isNull _unit)) then {
@@ -48,7 +48,7 @@ if(!(isNull _unit)) then {
 
 
 [
-	"Surrender Chance",
+	localize "STR_CROWSZA_Misc_surrender_chance_name",
 	_controls,
 	_onConfirm,
 	{},

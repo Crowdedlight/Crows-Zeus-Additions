@@ -13,6 +13,3 @@ class CfgPatches {
 };
 
 #include "CfgEventhandlers.hpp"
-
-// gui include
-#include "\z\crowsza\addons\drawbuild\ui\drawbuildGui.hpp"

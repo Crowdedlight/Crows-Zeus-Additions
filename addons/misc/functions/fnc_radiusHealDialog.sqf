@@ -26,9 +26,9 @@ private _onConfirm =
 };
 
 [
-	"Radius to heal", 
+	localize "STR_CROWSZA_Misc_radius_to_heal", 
 	[
-		["SLIDER","Radius",[0,500,10,0]] //0 to 500, default 10 and showing 0 decimal
+		["SLIDER", localize "STR_CROWSZA_Misc_surrender_chance_radius",[0,500,10,0]] //0 to 500, default 10 and showing 0 decimal
 	],
 	_onConfirm,
 	{},

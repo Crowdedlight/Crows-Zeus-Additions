@@ -14,7 +14,7 @@ GVAR(hidden) = false;
 [
 	QGVAR(CBA_Setting_enabled),
 	"CHECKBOX",
-	["Enable PingBox", "Pingbox sits in lower left corner and shows the last 3 zeus pings and how long since it was pinged"],
+	[localize "STR_CROWSZA_Pingbox_setting_enable", localize "STR_CROWSZA_Pingbox_setting_enable_tooltip"],
 	["Crows Zeus Additions", "PingBox"],
 	true,
 	0, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
@@ -25,7 +25,7 @@ GVAR(hidden) = false;
 [
 	QGVAR(CBA_Setting_oldLimit),
 	"SLIDER",
-	["Remove Threshold", "Time before a ping will automatically be removed from the PingBox"],
+	[localize "STR_CROWSZA_Pingbox_setting_threshold", localize "STR_CROWSZA_Pingbox_setting_threshold_tooltip"],
 	["Crows Zeus Additions", "PingBox"],
 	[1, 900, 600, 0] // data for this setting: [min, max, default, number of shown trailing decimals]
 ] call CBA_fnc_addSetting;
@@ -34,7 +34,7 @@ GVAR(hidden) = false;
 [
 	QGVAR(CBA_Setting_fade_enabled),
 	"CHECKBOX",
-	["Enable Fading", "PingBox will fade from view after set duration, and reappear when a new ping is received"],
+	[localize "STR_CROWSZA_Pingbox_setting_fading", localize "STR_CROWSZA_Pingbox_setting_fading_tooltip"],
 	["Crows Zeus Additions", "PingBox"],
 	true,
 	nil,
@@ -49,7 +49,7 @@ GVAR(hidden) = false;
 [
 	QGVAR(CBA_Setting_fade_duration),
 	"SLIDER",
-	["Duration Before Fade", "Time before the PingBox will fade from view if Fading is enabled"],
+	[localize "STR_CROWSZA_Pingbox_setting_fade_duration", localize "STR_CROWSZA_Pingbox_setting_fade_duration_tooltip"],
 	["Crows Zeus Additions", "PingBox"],
 	[1, 900, 300, 0]
 ] call CBA_fnc_addSetting;

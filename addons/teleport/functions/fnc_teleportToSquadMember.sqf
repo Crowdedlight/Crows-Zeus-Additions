@@ -54,20 +54,20 @@ private _allSquadMembersNames = _allSquadMembers apply {
 	private _name = "";
 	if (_x == leader _x) then 
 	{
-		_name = format ["%1 [SquadLeader]", name _x]
+		_name = format ["%1 [%2]", name _x, localize "STR_CROWSZA_Teleport_squadleader"]
 	} else 
 	{
 		_name = name _x
 	};
 	//if in vic, add vic tag
-	if (_x != vehicle _x) then {_name = _name + " [In Vehicle]"};
+	if (_x != vehicle _x) then {_name = _name + " " + localize "STR_CROWSZA_Teleport_in_vehicle"};
 	_name;
 };
 
 [
-	"Select SquadMember to teleport to", 
+	localize "STR_CROWSZA_Teleport_select_member_to_teleport_to", 
 	[
-		["LIST","Squad Members",[_allSquadMembers, _allSquadMembersNames,0, 10]]
+		["LIST",localize "STR_CROWSZA_Teleport_squad_members",[_allSquadMembers, _allSquadMembersNames,0, 10]]
 	],
 	_onConfirm,
 	{},

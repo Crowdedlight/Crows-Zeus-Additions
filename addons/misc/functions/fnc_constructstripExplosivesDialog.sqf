@@ -49,12 +49,12 @@ private _onConfirm = {
 		case 4: { "launchers" };
 	};
 	private _logSide = if(_u in [west, east, independent, civilian]) then {
-		format ["%1 side", _u]
+		format ["%1 %2", _u, localize "STR_CROWSZA_Misc_side"]
 	} else {
 		if(_group) then {
-			format ["group %1", group _u]
+			format ["%2 %1", group _u, localize "STR_CROWSZA_Misc_group"]
 		} else {
-			format ["unit %1", _u]
+			format ["%2 %1", _u, localize "STR_CROWSZA_Misc_unit"]
 		}
 	};
 	private _logPlayers = switch(_ignorePlayers) do {
@@ -70,8 +70,8 @@ private _onConfirm = {
 			if(!(isPlayer _x) || {!_ignorePlayers}) then {
 				[_x, _itemType, _replace, _replaceCustom, _leave] call FUNC(stripExplosives);
 				if (isPlayer _x) then {
-					private _removed = if(_replace == 0) then { "removed" } else { "replaced" };
-				    (format ["Zeus has %1 your %2", _removed, _logItem]) remoteExec ["hint", _x];
+					private _logAction = ["removed", "replaced"] select (_replace);
+				    (format [localize "STR_CROWSZA_Misc_strip_explosives_zeus_has_removed", _logAction, _logItem]) remoteExec ["hint", _x];
 				};
 				sleep 0.01;
 			};
@@ -83,13 +83,13 @@ private _onConfirm = {
 private _controls = [];
 
 if((_controlValues select 0) in [west, east, independent, civilian]) then {
-	_controls pushBack ["SIDES", "Side", _controlValues select 0, _default];
+	_controls pushBack ["SIDES", localize "STR_CROWSZA_Misc_remove_radio_bino_side", _controlValues select 0, _default];
 }
 else {
-	_controls pushBack ["CHECKBOX", ["Whole Group", "Remove items from this unit's group"], _controlValues select 0, _default];
+	_controls pushBack ["CHECKBOX", [localize "STR_CROWSZA_Misc_strip_explosives_whole_group", localize "STR_CROWSZA_Misc_strip_explosives_whole_group_tooltip"], _controlValues select 0, _default];
 };
-_controls pushBack ["CHECKBOX", "Ignore players", _controlValues select 1, _default];
-_controls pushBack ["TOOLBOX", ["Item Type", """Signals"" includes smoke grenades, chemlights, IR strobes, and UGL smokes."+endl+"""UGL"" includes explosive ammo for under-barrel & dedicated grenade launchers"], [_controlValues select 2, 1, 5, ["Signals", "Grenades", "Explosives", "UGL", "Launchers"]], _default];
+_controls pushBack ["CHECKBOX", localize "STR_CROWSZA_Misc_strip_explosives_ignore_players", _controlValues select 1, _default];
+_controls pushBack ["TOOLBOX", [localize "STR_CROWSZA_Misc_strip_explosives_item_type", (localize "STR_CROWSZA_Misc_strip_explosives_item_type_tooltip") regexReplace ["<br/>",endl]], [_controlValues select 2, 1, 5, [localize "STR_CROWSZA_Misc_strip_explosives_signals", localize "STR_CROWSZA_Misc_strip_explosives_grenades", localize "STR_CROWSZA_Misc_strip_explosives_explosives", localize "STR_CROWSZA_Misc_strip_explosives_ugl", localize "STR_CROWSZA_Misc_strip_explosives_launchers"]], _default];
 private _replace = ["Nothing"];
 
 
@@ -133,19 +133,19 @@ switch (_controlValues select 2) do {
 };
 
 if((_controlValues select 2) < 4) then {
-	_controls pushBack ["TOOLBOX", "Replace with", [_controlValues select 3, 1, count _replace, _replace], _default];
+	_controls pushBack ["TOOLBOX", localize "STR_CROWSZA_Misc_strip_explosives_replace_with", [_controlValues select 3, 1, count _replace, _replace], _default];
 
 	private _replaceCustom = if(count _controlValues >= 6) then { _controlValues select 4 } else { "" }; // TODO: could store the previous value as a (global) variable rather than clearing if not set
-	_controls pushBack ["EDIT", ["Replace with (custom)", "A custom magazine or item to replace with"+endl+"(Must be in ""CfgMagazines"" or inherit from ""ItemCore"")"], [_replaceCustom], _default];
+	_controls pushBack ["EDIT", [localize "STR_CROWSZA_Misc_strip_explosives_replace_with_custom", (localize "STR_CROWSZA_Misc_strip_explosives_replace_with_custom_tooltip") regexReplace ["<br/>",endl]], [_replaceCustom], _default];
 
 	private _leave = if(count _controlValues >= 6) then { _controlValues select 5 } else { 0 };
-	_controls pushBack ["SLIDER", ["Leave untouched", "Amount of unit's inventory to leave unchanged."+endl+"Does not guarantee which type is preserved if the unit has, e.g. multiple colours of smoke."], [0, 10, _leave, 0], _default];
+	_controls pushBack ["SLIDER", [localize "STR_CROWSZA_Misc_strip_explosives_leave_untouched", (localize "STR_CROWSZA_Misc_strip_explosives_leave_untouched_tooltip") regexReplace ["<br/>",endl]], [0, 10, _leave, 0], _default];
 };
 
 GVAR(strip_explosives_previousValues) = _controlValues;
 
 [
-	"Remove Explosives",
+	localize "STR_CROWSZA_Misc_strip_explosives_dialog",
 	_controls,
 	_onConfirm,
 	{},

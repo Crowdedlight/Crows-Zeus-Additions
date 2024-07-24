@@ -42,7 +42,7 @@ GVAR(clearSurrender) = {
 
 if(isNull _unit) exitWith { false };
 
-if(_unit getVariable ["crowsza_surrender_chance_applied", false]) exitWith { ["Surrender chance already applied to this unit"] call EFUNC(main,showHint); false };
+if(_unit getVariable ["crowsza_surrender_chance_applied", false]) exitWith { ["STR_CROWSZA_Misc_surrender_chance_error"] call EFUNC(main,showHint); false };
 
 // Tag this unit so that this function isn't applied twice
 _unit setVariable ["crowsza_surrender_chance_applied", true, true];

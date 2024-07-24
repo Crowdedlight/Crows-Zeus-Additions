@@ -5,9 +5,9 @@ if (!hasInterface) exitWith {};
 
 // zeus modules
 private _moduleList = [
-    ["Scatter Teleport",{_this call FUNC(scatterTeleportZeus)}, QPATHTOF(data\tp.paa)],
-    ["Teleport To Squadmember",{_this call FUNC(teleportToSquadMember)}, QPATHTOF(data\tpToSquad.paa)],
-    ["Set Teleport to Squadmember",{_this call FUNC(setTeleportToSquadMemberZeus)}, QPATHTOF(data\tpToSquad.paa)]
+    [localize "STR_CROWSZA_Teleport_scatter_teleport",{_this call FUNC(scatterTeleportZeus)}, QPATHTOF(data\tp.paa)],
+    [localize "STR_CROWSZA_Teleport_teleport_to_squadmate",{_this call FUNC(teleportToSquadMember)}, QPATHTOF(data\tpToSquad.paa)],
+    [localize "STR_CROWSZA_Teleport_set_teleport_to_squadmate",{_this call FUNC(setTeleportToSquadMemberZeus)}, QPATHTOF(data\tpToSquad.paa)]
 ];
 
 {
@@ -23,7 +23,7 @@ private _moduleList = [
 private _contextActionList = [
     // Action name, Display name, Icon and Icon colour, code, Condition to show, arguments, dynamic children, modifier functions
     [
-        ["teleport_to_squadmate","Teleport To Squadmate",QPATHTOF(data\tpToSquad.paa),
+        ["teleport_to_squadmate",localize "STR_CROWSZA_Teleport_teleport_to_squadmate",QPATHTOF(data\tpToSquad.paa),
         {[[],_hoveredEntity] call FUNC(teleportToSquadMember)}, 
         {!isNull _hoveredEntity && [_hoveredEntity] call EFUNC(main,isAliveManUnit) && (count units group leader _hoveredEntity) > 1}] call zen_context_menu_fnc_createAction,
         [],

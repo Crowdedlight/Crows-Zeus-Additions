@@ -12,7 +12,7 @@ show hint for the zeus
 params ["_msg", "_silent"];
 
 if (_silent) then {
-	hintSilent _msg;
+	hintSilent (_msg call BIS_fnc_localize);
 } else {
-	hint _msg;
+	hint (_msg call BIS_fnc_localize);
 };

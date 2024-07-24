@@ -10,3 +10,5 @@ GVAR(jshkLoaded) = isClass (configFile >> "CfgPatches" >> "JSHK_contam");
 GVAR(amfHelicoptersLoaded) = isClass (configfile >> "CfgPatches" >> "AMF_Heli_Transport_01");
 GVAR(rhsLoaded) = isClass (configfile >> "CfgPatches" >> "rhs_main");
 GVAR(sogLoaded) = isClass (configfile >> "CfgMods" >> "vn");
+GVAR(optreLoaded) = isClass (configfile >> "CfgMods" >> "OPTRE_Core");
+GVAR(crowsEWLoaded) = isClass (configFile >> "CfgPatches" >> "crowsEW_main");

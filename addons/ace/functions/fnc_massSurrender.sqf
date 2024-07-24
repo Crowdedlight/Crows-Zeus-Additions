@@ -83,10 +83,10 @@ private _onConfirm =
 	} forEach _selectArray;
 };
 [
-	"Mass Surrender/Captive", 
+	localize "STR_CROWSZA_ACE_masssurrender_name", 
 	[
-		["OWNERS","Units",[[],[],[],0], true], //no preselected defaults, and default tab open side. Forcing defaults to deselect.
-		["LIST","Action",[["surrender","captive"],["Surrender", "Captive"],0,2]]
+		["OWNERS",localize "STR_CROWSZA_ACE_massunconscious_units",[[],[],[],0], true], //no preselected defaults, and default tab open side. Forcing defaults to deselect.
+		["LIST",localize "STR_CROWSZA_ACE_masssurrender_action",[["surrender","captive"],[localize "STR_CROWSZA_ACE_masssurrender_surrender", localize "STR_CROWSZA_ACE_masssurrender_captive"],0,2]]
 	],
 	_onConfirm,
 	{},

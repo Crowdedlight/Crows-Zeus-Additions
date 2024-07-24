@@ -2,7 +2,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: drawBuildSelectPosition.sqf
+File: fnc_drawBuildSelectPosition.sqf
 Parameters:
 Return: none
 
@@ -11,10 +11,19 @@ handles selection of multiple points to draw lines between them
 Inspired by how ZEN handles selection with teleport player
 
 *///////////////////////////////////////////////
-params ["_object", "_enableSim", "_enableDmg"];
+params ["_dialogResult","_in"];
+_dialogResult params ["_filter", "_object", "_customObject", "_enableSim", "_enableDmg"];
 
 // exit if instance is already running
 if (GVAR(selectPositionActive)) exitWith {};
+
+// exit if custom class isn't recognised
+if(_customObject isNotEqualTo "") then { _object = _customObject; };
+
+if(! isClass (configFile >> "CfgVehicles" >> _object)) exitWith {
+    hint parseText format [localize "STR_CROWSZA_Drawbuild_error_unknown_object", _object];
+};
+
 
 // set as active 
 GVAR(selectPositionActive) = true;
@@ -26,8 +35,8 @@ GVAR(startPos) = [];
 private _angle = 45;
 private _colour = [0.28, 0.78, 0.96, 1]; //xcom blue
 private _icon = "\a3\ui_f\data\igui\cfg\cursors\select_target_ca.paa";
-private _text = "Build to here";
-private _textStart = "Start Position";
+private _text = localize "STR_CROWSZA_Drawbuild_build_to_here";
+private _textStart = localize "STR_CROWSZA_Drawbuild_start_pos";
 
 // display vars 
 private _display = findDisplay IDD_RSCDISPLAYCURATOR;
@@ -47,7 +56,7 @@ private _mouseEH = [_display, "MouseButtonDown", {
     if ((count GVAR(startPos)) != 0) then {
         // get extra options
         _thisArgs params ["_object", "_enableSim", "_enableDmg"];
-        
+
         // call build function 
         [GVAR(startPos), _position, _object, _enableSim, _enableDmg] call FUNC(drawBuild);   
     };

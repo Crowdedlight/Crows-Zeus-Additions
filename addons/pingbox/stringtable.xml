@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Crows Zeus Additions">
+      <Package name="pingbox">
+            <Key ID="STR_CROWSZA_Pingbox_setting_enable">
+                  <English>Enable PingBox</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Pingbox_setting_enable_tooltip">
+                  <English>Pingbox sits in lower left corner and shows the last 3 zeus pings and how long since it was pinged</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Pingbox_setting_threshold">
+                  <English>Remove Threshold</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Pingbox_setting_threshold_tooltip">
+                  <English>Time before a ping will automatically be removed from the PingBox</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Pingbox_setting_fading">
+                  <English>Enable Fading</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Pingbox_setting_fading_tooltip">
+                  <English>PingBox will fade from view after set duration, and reappear when a new ping is received</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Pingbox_setting_fade_duration">
+                  <English>Duration Before Fade</English>
+            </Key>
+            <Key ID="STR_CROWSZA_Pingbox_setting_fade_duration_tooltip">
+                  <English>Time before the PingBox will fade from view if Fading is enabled</English>
+            </Key>
+      </Package>
+</Project>

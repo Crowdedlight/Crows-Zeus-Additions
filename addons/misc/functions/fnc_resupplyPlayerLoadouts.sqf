@@ -132,7 +132,7 @@ private _onConfirm =
 				// test if classname exists, then save it in _selectedAircraft
 				private _validAircraft = isClass (configFile >> "CfgVehicles" >> _customAircraft);
 				if (_validAircraft == false) then {
-					hint "Classname provided does not exist!"; 
+					hint localize "STR_CROWSZA_Misc_resupply_loadouts_error"; 
 					breakOut "main";
 				};
 				_selectedAircraft = _customAircraft;
@@ -228,51 +228,29 @@ private _onConfirm =
 	};
 };
 
-// check if SOG is loaded, then offer the huey as transport
-private _aircraftList = ["B_T_VTOL_01_vehicle_F"];
-private _aircraftDisplayList = ["Blackfish"];
-
-// SOG loaded
-if (EGVAR(main,sogLoaded)) then {
-	_aircraftList pushBack "vn_b_air_uh1c_07_07";
-	_aircraftDisplayList pushBack "Huey Slick (SOG)";
-};
-
-// RHS loaded 
-if (EGVAR(main,rhsLoaded)) then {
-	_aircraftList append ["RHS_C130J_Cargo", "rhsusf_CH53e_USMC_D_cargo", "RHS_CH_47F_cargo", "RHS_Mi8t_civilian"];
-	_aircraftDisplayList append ["C-130 Plane (RHS)", "CH-53 Sea Stallion (RHS)", "CH-47F Chinook (RHS)", "MI-8T Civilian Helicopter (RHS)"];
-};
-
-// AMF loaded
-if (EGVAR(main,amfHelicoptersLoaded)) then {
-	_aircraftList append ["amf_nh90_tth_cargo", "B_AMF_PLANE_TRANSPORT_01_F"];
-	_aircraftDisplayList append ["NH-90 Helicopter (AMF)", "CASA CN-235 Plane (AMF)"];
-};
-
-private _dialogOptions = [EGVAR(main,aceLoaded), _aircraftList, _aircraftDisplayList] call {
+private _dialogOptions = [EGVAR(main,aceLoaded), GVAR(resupply_aircraftList), GVAR(resupply_aircraftDisplayList)] call {
 	params ["_aceLoaded", "_aircraftList", "_aircraftDisplayList"];
 	private _arr = [];
 
 	_arr = [
-		["SLIDER","Multiplier (amount per player)",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
-		["CHECKBOX",["Airdrop", "Make it airdrop from 300m"],[true]],
-		["CHECKBOX",["Aircraft", "Make aircraft drop it"],[true]],
-		["COMBO",["Choose Aircraft", "What aircraft to drop the supply from"],[_aircraftList, _aircraftDisplayList,0]],
-		["EDIT",["Custom Type (Optional)", "Provide classname to aircraft you want to use, instead of using dropdown list"], "", false],
-		["TOOLBOX", "Fly From", [0, 1, 8, ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]]],
-		["SLIDER","Airdrop height [m]",[50,1000,200,0]],
-		["CHECKBOX",["Medical", "Add Medical supplies"],[true]]
+		["SLIDER", localize "STR_CROWSZA_Misc_resupply_loadouts_multiplier_dialog",[0,50,5,0]], //0 to 50, default 5 and showing 0 decimal
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_resupply_loadouts_airdrop", localize "STR_CROWSZA_Misc_resupply_loadouts_airdrop_tooltip"],[true]],
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_resupply_loadouts_aircraft", localize "STR_CROWSZA_Misc_resupply_loadouts_aircraft_tooltip"],[true]],
+		["COMBO",[localize "STR_CROWSZA_Misc_resupply_loadouts_choose_aircraft", localize "STR_CROWSZA_Misc_resupply_loadouts_choose_aircraft_tooltip"],[_aircraftList, _aircraftDisplayList,0]],
+		["EDIT",[localize "STR_CROWSZA_Misc_resupply_loadouts_custom_type", localize "STR_CROWSZA_Misc_resupply_loadouts_custom_type_tooltip"], "", false],
+		["TOOLBOX", localize "STR_CROWSZA_Misc_resupply_loadouts_flyfrom", [0, 1, 8, [localize "STR_CROWSZA_Misc_N", localize "STR_CROWSZA_Misc_NE", localize "STR_CROWSZA_Misc_E", localize "STR_CROWSZA_Misc_SE", localize "STR_CROWSZA_Misc_S", localize "STR_CROWSZA_Misc_SW", localize "STR_CROWSZA_Misc_W", localize "STR_CROWSZA_Misc_NW"]]],
+		["SLIDER",localize "STR_CROWSZA_Misc_resupply_loadouts_airdrop_height",[50,1000,200,0]],
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_resupply_loadouts_medical", localize "STR_CROWSZA_Misc_resupply_loadouts_medical_tooltip"],[true]]
 	];
 
 	// add options for ace rearm vehicle if ace is used
 	if (_aceLoaded) then {
-		_arr pushBack ["CHECKBOX",["ACE Rearm", "Set as ACE Rearm vehicle"],[false]];
+		_arr pushBack ["CHECKBOX",[localize "STR_CROWSZA_Misc_resupply_loadouts_ace_rearm", localize "STR_CROWSZA_Misc_resupply_loadouts_ace_rearm_tooltip"],[false]];
 	};
 	_arr;
 };
 [
-	"Set multipler for ammo supply", 
+	localize "STR_CROWSZA_Misc_resupply_loadouts_multiplier", 
 	_dialogOptions,
 	_onConfirm,
 	{},

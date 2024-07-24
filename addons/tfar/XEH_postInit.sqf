@@ -8,7 +8,7 @@ if (!EGVAR(main,tfarLoaded)) exitWith {};
 
 // zeus modules
 private _moduleList = [
-	["Set TFAR Vehicle Radio Side",{_this call FUNC(tfarSetVehicleSide)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
+	[localize "STR_CROWSZA_tfar_radio_side",{_this call FUNC(tfarSetVehicleSide)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
 ];
 
 {
