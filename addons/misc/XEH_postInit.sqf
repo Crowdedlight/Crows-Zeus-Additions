@@ -7,6 +7,8 @@ publicVariable QGVAR(animalFollowList);
 
 // zeus modules
 private _moduleList = [
+    [localize "STR_CROWSZA_Misc_activate_on_death",{_this call FUNC(onDeathZeus)}, "\a3\ui_f_curator\data\cfgmarkers\kia_ca.paa"],
+    [localize "STR_CROWSZA_Misc_remove_activate_on_death",{_this call FUNC(removeOnDeathZeus)}, "\a3\ui_f_curator\data\cfgmarkers\kia_ca.paa"],
     [localize "STR_CROWSZA_Misc_remove_trees",{_this call FUNC(removeTreesZeus)}, QPATHTOF(data\axe.paa)],
     [localize "STR_CROWSZA_Misc_restore_trees",{_this call FUNC(restoreTreesZeus)}, QPATHTOF(data\tree.paa)],
     [localize "STR_CROWSZA_Misc_follow_unit_animals",{_this call FUNC(animalFollowZeus)}, QPATHTOF(data\sheep.paa)],
