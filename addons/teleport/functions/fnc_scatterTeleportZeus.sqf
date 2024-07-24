@@ -79,7 +79,7 @@ private _onConfirm =
 	localize "STR_CROWSZA_Teleport_scatter", 
 	[
 		["OWNERS",localize "STR_CROWSZA_Teleport_scatter_units_to_tp",[[],[],[],1], true], //no preselected defaults, and default tab open is groups. Forcing defaults to deselect tp selection.
-		["SLIDER",localize "STR_CROWSZA_Teleport_scatter_distance_between",[5,500,15,0]], //5 to 500, default 15 and showing 0 decimal. (Don't allow teleport with 0 seperation, use normal TP for that...)
+		["SLIDER",localize "STR_CROWSZA_Teleport_scatter_distance_between",[5,2000,15,0]], //5 to 2000, default 15 and showing 0 decimal. (Don't allow teleport with 0 seperation, use normal TP for that...)
 		["SLIDER",localize "STR_CROWSZA_Teleport_scatter_altitude",[0,10000,1000,0]], //0 to 10km, default 1km and showing 0 decimal
 		["TOOLBOX:YESNO", [localize "STR_CROWSZA_Teleport_scatter_include_vehicle", localize "STR_CROWSZA_Teleport_scatter_include_vehicle_tooltip"], false],
 		["COMBO",[localize "STR_CROWSZA_Teleport_scatter_pattern", localize "STR_CROWSZA_Teleport_scatter_pattern_tooltip"],[["outward_spiral", "line", "odd"], [localize "STR_CROWSZA_Teleport_scatter_pattern_spiral", localize "STR_CROWSZA_Teleport_scatter_pattern_line", localize "STR_CROWSZA_Teleport_scatter_pattern_p"],0]],
