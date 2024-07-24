@@ -22,6 +22,7 @@ private _moduleList = [
     [localize "STR_CROWSZA_Misc_remove_bino_radio",{_this call FUNC(removeRadioBino)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
     [localize "STR_CROWSZA_Misc_spawn_ied_clutter",{_this call FUNC(spawnIEDClutterZeus)}, "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa"],
     [localize "STR_CROWSZA_Misc_strip_explosives",{_this call FUNC(stripExplosivesZeus)}, "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa"],
+    [localize "STR_CROWSZA_Misc_suitcaseNuke",{_this call FUNC(suitcaseNukeZeus)}, "\x\zen\addons\modules\ui\nuke_ca.paa"],
     [localize "STR_CROWSZA_Misc_surrender_chance",{_this call FUNC(surrenderChanceZeus)}, "\a3\ui_f\data\igui\cfg\holdactions\holdAction_secure_ca.paa"]
 ];
 
