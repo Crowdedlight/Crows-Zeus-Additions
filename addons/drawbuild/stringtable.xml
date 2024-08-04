@@ -1,41 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Crows Zeus Additions">
-      <Package name="drawbuild">
-            <Key ID="STR_CROWSZA_Drawbuild_module_name">
-                  <English>DrawBuild</English>
-            </Key>
-            <Key ID="STR_CROWSZA_Drawbuild_build_to_here">
-                  <English>Build to here</English>
-            </Key>
-            <Key ID="STR_CROWSZA_Drawbuild_start_pos">
-                  <English>Start Position</English>
-            </Key>
-            <Key ID="STR_CROWSZA_Drawbuild_filter">
-                  <English>Filter</English>
-            </Key>
-            <Key ID="STR_CROWSZA_Drawbuild_error_unknown_object">
-                  <English>"Object not recognised:&lt;br/&gt;%1"</English>
-            </Key>
-            <Key ID="STR_CROWSZA_Drawbuild_objects_to_build">
-                  <English>Select Object To Build</English>
-            </Key>
-            <Key ID="STR_CROWSZA_Drawbuild_custom_object">
-                  <English>Custom Object</English>
-            </Key>
-            <Key ID="STR_CROWSZA_Drawbuild_custom_object_tooltip">
-                  <English>classname of an object to be used&lt;br/&gt;The smaller the object, the more will be created&lt;br/&gt;Warning: behaviour is experimental and not guaranteed!</English>
-            </Key>
-            <Key ID="STR_CROWSZA_Drawbuild_custom_offset">
-                  <English>Offset</English>
-            </Key>
-            <Key ID="STR_CROWSZA_Drawbuild_custom_offset_tooltip">
-                  <English>Distance to offset each object by&lt;br/&gt;Smaller distance results in overlapping objects; larger distance results in spacing between objects&lt;br/&gt;Leave empty for default offset</English>
-            </Key>
-            <Key ID="STR_CROWSZA_Drawbuild_enable_simulation">
-                  <English>Enable Simulation</English>
-            </Key>
-            <Key ID="STR_CROWSZA_Drawbuild_enable_damage">
-                  <English>Enable Damage</English>
-            </Key>
-      </Package>
+    <Package name="drawbuild">
+        <Key ID="STR_CROWSZA_Drawbuild_module_name">
+            <English>DrawBuild</English>
+            <Chinesesimp>建造</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Drawbuild_build_to_here">
+            <English>Build to here</English>
+            <Chinesesimp>建造到此处</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Drawbuild_start_pos">
+            <English>Start Position</English>
+            <Chinesesimp>起始位置</Chinesesimp>
+        </Key>
+		<Key ID="STR_CROWSZA_Drawbuild_filter">
+            <English>Filter</English>
+            <Chinesesimp>筛选器</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Drawbuild_error_unknown_object">
+            <English>"Object not recognised:&lt;br/&gt;%1"</English>
+            <Chinesesimp>"未识别的对象:&lt;br/&gt;%1"</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Drawbuild_objects_to_build">
+            <English>Select Object To Build</English>
+            <Chinesesimp>选择要建造的对象</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Drawbuild_custom_object">
+            <English>Custom Object</English>
+            <Chinesesimp>自定义对象</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Drawbuild_custom_object_tooltip">
+            <English>classname of an object to be used&lt;br/&gt;The smaller the object, the more will be created&lt;br/&gt;Warning: behaviour is experimental and not guaranteed!</English>
+            <Chinesesimp>要使用的对象的类名&lt;br/&gt;对象越小,创建的就越多&lt;br/&gt;警告:行为是实验性的,无法保证!</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Drawbuild_custom_offset">
+            <English>Offset</English>
+            <Chinesesimp>偏移量</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Drawbuild_custom_offset_tooltip">
+			<English>Distance to offset each object by&lt;br/&gt;Smaller distance results in overlapping objects; larger distance results in spacing between objects&lt;br/&gt;Leave empty for default offset</English>
+            <Chinesesimp>用于偏移每个对象的距离&lt;br/&gt;留空以使用默认偏移量&lt;br/&gt;</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Drawbuild_enable_simulation">
+            <English>Enable Simulation</English>
+            <Chinesesimp>启用模拟</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Drawbuild_enable_damage">
+            <English>Enable Damage</English>
+            <Chinesesimp>启用伤害</Chinesesimp>
+        </Key>
+    </Package>
 </Project>
