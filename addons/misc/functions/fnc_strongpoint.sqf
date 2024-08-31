@@ -31,9 +31,13 @@ else {
 // If an HC is registered, spawn units directly on that. Otherwise, spawn locally
 private _hcRegister = GETMVAR(EGVAR(main,hcRegister),[]);
 private _client = if(count _hcRegister > 0) then {
+    // Get the HC(s) with the lowest fps
     private _minfps = selectMin (values _hcRegister);
-    selectRandom ((keys _hcRegister) select { _hcRegister get _x == _minfps})
-    // Technically could return nothing if the values are updated between setting minfps and checking it
+    private _clients = (keys _hcRegister) select { _hcRegister get _x <= _minfps};
+    if(count _clients > 0) exitWith { selectRandom _clients };
+    // If we can't find a client for some reason (e.g. the register has updated since getting the fps)
+    // just return any HC
+    selectRandom (keys _hcRegister)
 } else { clientOwner };
 
 // Get all buildings in radius
