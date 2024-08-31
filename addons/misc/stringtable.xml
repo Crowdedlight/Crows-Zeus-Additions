@@ -761,6 +761,39 @@
             <English>Remove Explosives</English>
             <Chinesesimp>移除爆炸物</Chinesesimp>
         </Key>
+        <Key ID="STR_CROWSZA_Misc_strongpoint">
+            <English>Strongpoint</English>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strongpoint_error_no_unit">
+            <English>Module must be placed on a unit&lt;br/&gt;Unit's group determines the units placed</English>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strongpoint_radius">
+            <English>Radius</English>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strongpoint_ui_strongpoints">
+            <English>Max Strongpoints</English>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strongpoint_ui_strongpoints_tooltip">
+            <English>Maximum number of buildings to turn into strongpoints</English>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strongpoint_ui_fill">
+            <English>Fill %</English>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strongpoint_ui_fill_tooltip">
+            <English>% of each building to fill with units</English>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strongpoint_ui_sandbags">
+            <English>Sandbags</English>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strongpoint_ui_sandbags_tooltip">
+            <English>Place sandbags and other defences on the strongpoint</English>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strongpoint_ui_patrol">
+            <English>Patrols</English>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strongpoint_ui_patrol_tooltip">
+            <English>Number of patroling groups to place in the radius</English>
+        </Key>
         <Key ID="STR_CROWSZA_Misc_suitcaseNuke">
             <English>Suitcase Device</English>
             <Chinesesimp>手提箱设备</Chinesesimp>
