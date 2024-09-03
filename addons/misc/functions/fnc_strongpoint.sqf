@@ -11,7 +11,7 @@ params ["_dialogResult","_in"];
 
 _in params [["_pos",[0,0,0],[[]],3], "_unit"];
 
-private _params = ["_composition", "_radius","_desiredStrongpointCount","_fill","_sandbags","_patrols"];
+private _params = ["_composition", "_radius", "_desiredStrongpointCount", "_fill", "_sandbags", "_patrols"];
 if(!isNull _unit) then { _params = _params - ["_composition"]; };
 if(!EGVAR(main,zeiLoaded)) then { _params = _params - ["_sandbags"]; };
 
