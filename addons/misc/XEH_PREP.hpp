@@ -30,6 +30,8 @@ PREP(spawnSupplyDrop);
 PREP(stripExplosives);
 PREP(stripExplosivesZeus);
 PREP(suitcaseNukeZeus);
+PREP(strongpoint);
+PREP(strongpointZeus);
 PREP(surrenderChance);
 PREP(surrenderChanceZeus);
 PREP(surrender);
