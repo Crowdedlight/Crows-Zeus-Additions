@@ -72,7 +72,7 @@ private _onConfirm =
 	// add medical if enabled. Either ACE or base-game
 	if (_medical) then {
 		if (EGVAR(main,aceLoaded)) then {
-			_itemList append ["ACE_quikclot", "ACE_elasticBandage", "ACE_packingBandage", "ACE_adenosine", "ACE_epinephrine", "ACE_morphine", "ACE_splint", "ACE_salineIV_500", "ACE_salineIV", "ACE_tourniquet", "ACE_fieldDressing"];
+			_itemList append ["ACE_quikclot", "ACE_elasticBandage", "ACE_packingBandage", "ACE_adenosine", "ACE_epinephrine", "ACE_morphine", "ACE_splint", "ACE_salineIV_500", "ACE_salineIV", "ACE_tourniquet", "ACE_fieldDressing", "ACE_suture"];
 		} else {
 			_itemList append ["FirstAidKit"];
 		}
