@@ -2,6 +2,7 @@
 #include "\z\crowsza\addons\main\script_mod.hpp"
 
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
+#include "\a3\ui_f\hpp\defineResincl.inc"
 #include "\z\crowsza\addons\main\gui_defines.hpp"
 
 // #define DEBUG_MODE_FULL
