@@ -30,7 +30,7 @@ params [
 // Remove unit from list of units with the module applied, and associated variables
 GVAR(clearSurrender) = {
 	params ["_unit"];
-	deletevehicle (_unit getVariable "_trigger");
+	deleteVehicle (_unit getVariable "_trigger");
 	_unit removeEventHandler ["HandleDamage", _unit getVariable "crowsza_surrChance_ehDamaged"];
 	_unit setVariable ["crowsza_surrender_chance_applied", nil, true];
 	private _surrenderUnits = missionNamespace getVariable["crowsZA_surrenderUnits", []];

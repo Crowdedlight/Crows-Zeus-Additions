@@ -38,7 +38,7 @@ if (_stoneRemoval) then {
 
 // these are the main classes of objects, only run if we have at least one selected, as it otherwise removes everything
 if (count _hideMainTypes > 0) then {
-	{ _hideTObjs pushBack _x } foreach (nearestTerrainObjects [_posAGL,_hideMainTypes,_radius, false, true]); //enable 2d mode
+	{ _hideTObjs pushBack _x } forEach (nearestTerrainObjects [_posAGL,_hideMainTypes,_radius, false, true]); //enable 2d mode
 };
 
 // but there are some other model names (unclassified) that we should clean up too
@@ -49,10 +49,10 @@ if (count _hideMainTypes > 0) then {
 		_hideTObjs pushBack _x;
 	};
 
-} foreach (nearestTerrainObjects [_posAGL,[],_radius, false, true]);
+} forEach (nearestTerrainObjects [_posAGL,[],_radius, false, true]);
 
 //log
 diag_log format["crowsZA-removeTrees: Hiding %1 objects", count _hideTObjs];
 
 // remote exec on server side, has to be with [argument, code] and "spawn" otherwise it doesn't work properly...
-[_hideTObjs,{{_x hideObjectGlobal true} foreach _this}] remoteExec ["spawn",2]; 
+[_hideTObjs,{{_x hideObjectGlobal true} forEach _this}] remoteExec ["spawn",2]; 

@@ -27,10 +27,10 @@ private _onConfirm =
 	if (isNull _unit) exitWith { _return; };
 
 	//reset velocity 
-	_unit setvelocity [0,0,0];
+	_unit setVelocity [0,0,0];
 
 	//if target in vehicle
-	if (_tpTarget != vehicle _tpTarget) then
+	if (!isNull objectParent _tpTarget) then
 	{
 		//try to move into vehicle, if it can't, just move next to vehicle
 		private _movedIntoVic = _unit moveInAny (vehicle _tpTarget);
@@ -60,7 +60,7 @@ private _allSquadMembersNames = _allSquadMembers apply {
 		_name = name _x
 	};
 	//if in vic, add vic tag
-	if (_x != vehicle _x) then {_name = _name + " " + localize "STR_CROWSZA_Teleport_in_vehicle"};
+	if (!isNull objectParent _x) then {_name = _name + " " + localize "STR_CROWSZA_Teleport_in_vehicle"};
 	_name;
 };
 

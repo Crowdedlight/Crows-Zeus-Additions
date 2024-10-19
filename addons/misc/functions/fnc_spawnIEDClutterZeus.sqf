@@ -43,7 +43,7 @@ private _iedTypeToolbox = if(EGVAR(main,aceLoaded)) then {
 [
 	localize "STR_CROWSZA_Misc_ied_clutter_name", 
 	[
-		["SLIDER:RADIUS", localize "STR_CROWSZA_Misc_ied_clutter_radius", [1, 30, 10, 0, ASLtoAGL _pos, [1, 0, 0, 0.7]]],
+		["SLIDER:RADIUS", localize "STR_CROWSZA_Misc_ied_clutter_radius", [1, 30, 10, 0, ASLToAGL _pos, [1, 0, 0, 0.7]]],
 		["SLIDER:PERCENT", localize "STR_CROWSZA_Misc_ied_clutter_density", [0.1, 1, 0.4, 0]],
 		["TOOLBOX", localize "STR_CROWSZA_Misc_ied_clutter_max_clutter_size", [1, 1, 3, [localize "STR_CROWSZA_Misc_ied_clutter_small", localize "STR_CROWSZA_Misc_ied_clutter_medium", localize "STR_CROWSZA_Misc_ied_clutter_large"]]],
 		// ["CHECKBOX", "Junk", [true]],

@@ -80,7 +80,7 @@
                   <English>In Pain, Bleed Rate</English>
             </Key>
             <Key ID="STR_CROWSZA_zeustext_bleed_rate">
-                  <English>Bleed Rate:%2, In Cardiac Arrest!</English>
+                  <English>Bleed Rate:%1, In Cardiac Arrest!</English>
             </Key>
             <Key ID="STR_CROWSZA_zeustext_effected_by">
                   <English>Effected by</English>

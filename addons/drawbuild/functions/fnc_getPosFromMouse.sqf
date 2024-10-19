@@ -21,7 +21,7 @@ if (visibleMap) then {
     // get the 2D position from the map
     private _pos2D = _ctrlMap ctrlMapScreenToWorld _screenPos;
     // set position from map
-    _position = AGLtoASL (_pos2D + [0])
+    _position = AGLToASL (_pos2D + [0])
 } else {
     // get mouse pos mapped to world 
     _position = AGLToASL screenToWorld _screenPos;

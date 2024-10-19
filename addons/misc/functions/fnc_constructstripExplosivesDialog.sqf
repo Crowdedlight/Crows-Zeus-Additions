@@ -75,7 +75,7 @@ private _onConfirm = {
 				};
 				sleep 0.01;
 			};
-		} foreach _units;
+		} forEach _units;
 	};
 };
 

@@ -253,7 +253,7 @@ for "_i" from 1 to _iedAmount do {
 
 		private _activation = "
 		(thisTrigger getVariable ""_ied"") setDamage 1;
-		deletevehicle thisTrigger;
+		deleteVehicle thisTrigger;
 		";
 
 		_trigger setTriggerStatements [

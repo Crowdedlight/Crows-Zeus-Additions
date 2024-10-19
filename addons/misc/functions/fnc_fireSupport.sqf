@@ -256,7 +256,7 @@ if(_isFireSupport) then {
 			[localize "STR_CROWSZA_Misc_fire_support_mortar", localize "STR_CROWSZA_Misc_fire_support_howitzer", localize "STR_CROWSZA_Misc_fire_support_rocket", localize "STR_CROWSZA_Misc_fire_support_flare_white", localize "STR_CROWSZA_Misc_fire_support_smoke_white"]
 			,_type],_isFireSupport],
 		["EDIT", localize "STR_CROWSZA_Misc_fire_support_custom_type",_customType,_isFireSupport],
-		["SLIDER:RADIUS", localize "STR_CROWSZA_Misc_surrender_chance_radius",[0,5000,_radius,0, ASLtoAGL _pos, [1, 0, 0, 0.7]],_isFireSupport],
+		["SLIDER:RADIUS", localize "STR_CROWSZA_Misc_surrender_chance_radius",[0,5000,_radius,0, ASLToAGL _pos, [1, 0, 0, 0.7]],_isFireSupport],
 		["SLIDER",localize "STR_CROWSZA_Misc_fire_support_seconds_salvo",[0,30,_seconds,1],_isFireSupport],
 		["SLIDER",localize "STR_CROWSZA_Misc_fire_support_start_after",[0,30,1,1],_isFireSupport],
 		["SLIDER",localize "STR_CROWSZA_Misc_fire_support_stop_after",[0,100,_salvos,0],_isFireSupport],

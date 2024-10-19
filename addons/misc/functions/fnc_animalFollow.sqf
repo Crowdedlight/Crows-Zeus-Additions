@@ -57,7 +57,7 @@ for "_x" from 1 to round _amount do {
 	};
 
 	//save animal to public var
-	GVAR(animalFollowList) pushback _animal;
+	GVAR(animalFollowList) pushBack _animal;
 
 	//make animal curator editable 
 	["zen_common_updateEditableObjects", [[_animal]]] call CBA_fnc_serverEvent;
@@ -120,7 +120,7 @@ for "_x" from 1 to round _amount do {
 				}; 
 			}; 
 
-			if ( _animalMoving ) then { _animal moveto getPos _src; }; 
+			if ( _animalMoving ) then { _animal moveTo getPos _src; }; 
 
 			// if attack, get closest unit and attack it
 			if (_attack) then {

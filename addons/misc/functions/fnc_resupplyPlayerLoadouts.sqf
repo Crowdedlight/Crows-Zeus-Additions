@@ -131,7 +131,7 @@ private _onConfirm =
 			if (_customAircraft != "") then {
 				// test if classname exists, then save it in _selectedAircraft
 				private _validAircraft = isClass (configFile >> "CfgVehicles" >> _customAircraft);
-				if (_validAircraft == false) then {
+				if (!_validAircraft) then {
 					hint localize "STR_CROWSZA_Misc_resupply_loadouts_error"; 
 					breakOut "main";
 				};

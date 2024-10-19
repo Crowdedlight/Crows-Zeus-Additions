@@ -28,7 +28,7 @@ if(isNull _unit || _itemType < 0 || _itemType > 4) exitWith { false };
 
 // If an unrecognised custom class is provided, simply fail and notify zeus
 // TODO: alternatively, default to "normal" behaviour
-if(_replaceCustom isNotEqualTo "" && { !isclass(configFile >> "CfgMagazines" >> _replaceCustom) && !isclass(configFile >> "CfgWeapons" >> _replaceCustom) && { "ItemCore" in ([configFile >> "CfgWeapons" >> _replaceCustom, true] call BIS_fnc_returnParents) } }) exitWith {
+if(_replaceCustom isNotEqualTo "" && { !isClass(configFile >> "CfgMagazines" >> _replaceCustom) && !isClass(configFile >> "CfgWeapons" >> _replaceCustom) && { "ItemCore" in ([configFile >> "CfgWeapons" >> _replaceCustom, true] call BIS_fnc_returnParents) } }) exitWith {
 	hint format ["%2: %1", _replaceCustom, localize "STR_CROWSZA_Misc_strip_explosives_error"];
 	false
 };
@@ -85,7 +85,7 @@ _grenades append _grenadeNotSmoke;
 			_unit removeMagazineGlobal _item;
 
 			if(_replaceCustom isNotEqualTo "") then {
-				if(isclass(configFile >> "CfgMagazines" >> _replaceCustom)) then {
+				if(isClass(configFile >> "CfgMagazines" >> _replaceCustom)) then {
 					_unit addMagazineGlobal _replaceCustom;
 				} else {
 					_unit addItem _replaceCustom;
@@ -115,7 +115,7 @@ _grenades append _grenadeNotSmoke;
 			_unit removeMagazineGlobal _item;
 
 			if(_replaceCustom isNotEqualTo "") then {
-				if(isclass(configFile >> "CfgMagazines" >> _replaceCustom)) then {
+				if(isClass(configFile >> "CfgMagazines" >> _replaceCustom)) then {
 					_unit addMagazineGlobal _replaceCustom;
 				} else {
 					_unit addItem _replaceCustom;
@@ -157,7 +157,7 @@ _grenades append _grenadeNotSmoke;
 		if(_leave <= 0) then {
 			_unit removeMagazineGlobal _item;
 			if(_replaceCustom isNotEqualTo "") then {
-				if(isclass(configFile >> "CfgMagazines" >> _replaceCustom)) then {
+				if(isClass(configFile >> "CfgMagazines" >> _replaceCustom)) then {
 					_unit addMagazineGlobal _replaceCustom;
 				} else {
 					_unit addItem _replaceCustom;
