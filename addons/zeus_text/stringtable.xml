@@ -1,89 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Crows Zeus Additions">
-      <Package name="zeus_text">
-            <Key ID="STR_CROWSZA_zeustext_setting_medical_overlay">
-                  <English>Show medical overlay</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_setting_medical_overlay_tooltip">
-                  <English>Shows medical info for players in zeus view for units. (medical status)</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_num_wounds">
-                  <English>Show No. of wounds and HR.</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_num_wounds_tooltip">
-                  <English>Show line with number of wounds and heart rate.</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_medical_hud">
-                  <English>Medical HUD (default:  Ctrl + Shift + H)</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_show_pain">
-                  <English>Show pain and bleeding rate</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_show_pain_tooltip">
-                  <English>Show if player is in pain and bleeding rate</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_show_medications">
-                  <English>Show medications</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_show_medications_tooltip">
-                  <English>Show what medications is effecting the player</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_show_rc_icon">
-                  <English>Show RC Icon</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_show_rc_icon_tooltip">
-                  <English>Shows an zeus icon over units currently being RC'ed by any zeus</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_icon_colour">
-                  <English>Icon Colour</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_icon_colour_tooltip">
-                  <English>What colour the icon is shown with</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_surrender_icon">
-                  <English>Show Surrender Icon</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_surrender_icon_tooltip">
-                  <English>Shows an icon over units with a chance to surrender</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_surrender_chance">
-                  <English>Surrender Chance</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_surrender_icon_colour">
-                  <English>Icon Colour</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_surrender_icon_colour_tooltip">
-                  <English>What colour the icon is shown with</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_onkilled_icon">
-                  <English>Show "Activate On Death" Icon</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_onkilled_icon_tooltip">
-                  <English>Shows an icon over units with custom "Activate On Death" actions applied by zeus</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_onkilled_icon_colour">
-                  <English>Icon Colour</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_onkilled_icon_colour_tooltip">
-                  <English>What colour the icon is shown with</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_onkilled">
-                  <English>Activate On Death</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_wounds">
-                  <English>Wounds</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_hr">
-                  <English>HR</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_in_pain">
-                  <English>In Pain, Bleed Rate</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_bleed_rate">
-                  <English>Bleed Rate:%1, In Cardiac Arrest!</English>
-            </Key>
-            <Key ID="STR_CROWSZA_zeustext_effected_by">
-                  <English>Effected by</English>
-            </Key>
-      </Package>
+    <Package name="zeus_text">
+        <Key ID="STR_CROWSZA_zeustext_setting_medical_overlay">
+            <English>Show medical overlay</English>
+            <Chinesesimp>显示医疗覆盖图</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_setting_medical_overlay_tooltip">
+            <English>Shows medical info for players in zeus view for units. (medical status)</English>
+            <Chinesesimp>在宙斯视图中显示单位玩家的医疗信息. (医疗状态)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_num_wounds">
+            <English>Show No. of wounds and HR.</English>
+            <Chinesesimp>显示伤口数量和心率.</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_num_wounds_tooltip">
+            <English>Show line with number of wounds and heart rate.</English>
+            <Chinesesimp>显示伤口数量和心率的线条.</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_medical_hud">
+            <English>Medical HUD (default:  Ctrl + Shift + H)</English>
+            <Chinesesimp>医疗 HUD (默认:Ctrl + Shift + H)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_show_pain">
+            <English>Show pain and bleeding rate</English>
+            <Chinesesimp>显示疼痛和出血率</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_show_pain_tooltip">
+            <English>Show if player is in pain and bleeding rate</English>
+            <Chinesesimp>显示玩家是否疼痛和出血率</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_show_medications">
+            <English>Show medications</English>
+            <Chinesesimp>显示药物</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_show_medications_tooltip">
+            <English>Show what medications is effecting the player</English>
+            <Chinesesimp>显示哪些药物对玩家有影响</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_show_rc_icon">
+            <English>Show RC Icon</English>
+            <Chinesesimp>显示 RC 图标</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_show_rc_icon_tooltip">
+            <English>Shows an zeus icon over units currently being RC'ed by any zeus</English>
+            <Chinesesimp>在当前被任何宙斯 RC 的单位上显示一个宙斯图标</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_icon_colour">
+            <English>Icon Colour</English>
+            <Chinesesimp>图标颜色</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_icon_colour_tooltip">
+            <English>What colour the icon is shown with</English>
+            <Chinesesimp>图标显示的颜色</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_surrender_icon">
+            <English>Show Surrender Icon</English>
+            <Chinesesimp>显示投降图标</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_surrender_icon_tooltip">
+            <English>Shows an icon over units with a chance to surrender</English>
+            <Chinesesimp>在有机会投降的单位上显示一个图标</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_surrender_chance">
+            <English>Surrender Chance</English>
+            <Chinesesimp>投降的机会</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_surrender_icon_colour">
+            <English>Icon Colour</English>
+            <Chinesesimp>图标颜色</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_surrender_icon_colour_tooltip">
+            <English>What colour the icon is shown with</English>
+            <Chinesesimp>图标显示的颜色</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_onkilled_icon">
+            <English>Show "Activate On Death" Icon</English>
+            <Chinesesimp>显示"死亡激活"图标</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_onkilled_icon_tooltip">
+            <English>Shows an icon over units with custom "Activate On Death" actions applied by zeus</English>
+            <Chinesesimp>在由Zeus应用了自定义"死亡激活"动作的单位上显示图标</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_onkilled_icon_colour">
+            <English>Icon Colour</English>
+            <Chinesesimp>图标颜色</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_onkilled_icon_colour_tooltip">
+            <English>What colour the icon is shown with</English>
+            <Chinesesimp>图标显示的颜色</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_onkilled">
+            <English>Activate On Death</English>
+            <Chinesesimp>死亡激活</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_wounds">
+            <English>Wounds</English>
+            <Chinesesimp>伤势</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_hr">
+            <English>HR</English>
+            <Chinesesimp>心率</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_in_pain">
+            <English>In Pain, Bleed Rate</English>
+            <Chinesesimp>疼痛,出血率</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_bleed_rate">
+            <English>Bleed Rate:%1, In Cardiac Arrest!</English>
+            <Chinesesimp>出血率:%1,心脏骤停!</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_zeustext_effected_by">
+            <English>Effected by</English>
+            <Chinesesimp>受...影响</Chinesesimp>
+        </Key>
+    </Package>
 </Project>
