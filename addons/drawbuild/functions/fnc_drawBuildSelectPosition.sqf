@@ -129,7 +129,7 @@ private _keyboardEH = [_display, "KeyDown", {
     _visuals params ["_text", "_icon", "_angle", "_color", "_textStart"];
     
 	// convert to AGL for drawing
-	_currPos = ASLtoAGL _currPos;
+	_currPos = ASLToAGL _currPos;
     
 	// draw from start pos, only if we got start pos
     if ((count GVAR(startPos) ) > 0) then {

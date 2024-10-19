@@ -72,7 +72,7 @@ private _onConfirm =
 	// add medical if enabled. Either ACE or base-game
 	if (_medical) then {
 		if (EGVAR(main,aceLoaded)) then {
-			_itemList append ["ACE_quikclot", "ACE_elasticBandage", "ACE_packingBandage", "ACE_adenosine", "ACE_epinephrine", "ACE_morphine", "ACE_splint", "ACE_salineIV_500", "ACE_salineIV", "ACE_tourniquet", "ACE_fieldDressing"];
+			_itemList append ["ACE_quikclot", "ACE_elasticBandage", "ACE_packingBandage", "ACE_adenosine", "ACE_epinephrine", "ACE_morphine", "ACE_splint", "ACE_salineIV_500", "ACE_salineIV", "ACE_tourniquet", "ACE_fieldDressing", "ACE_suture"];
 		} else {
 			_itemList append ["FirstAidKit"];
 		}
@@ -131,7 +131,7 @@ private _onConfirm =
 			if (_customAircraft != "") then {
 				// test if classname exists, then save it in _selectedAircraft
 				private _validAircraft = isClass (configFile >> "CfgVehicles" >> _customAircraft);
-				if (_validAircraft == false) then {
+				if (!_validAircraft) then {
 					hint localize "STR_CROWSZA_Misc_resupply_loadouts_error"; 
 					breakOut "main";
 				};

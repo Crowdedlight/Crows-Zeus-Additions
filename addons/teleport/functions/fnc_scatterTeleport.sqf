@@ -17,8 +17,8 @@ params ["_targetPos", "_players", "_playerOffset", "_targetAltitude", "_tpPatter
 // validation of inputs, we need at least some players and none of the paramteres can be null
 if ((count _targetPos) > 3) exitWith { diag_log "CrowsZA-ScatterTeleport: position for TP target can not be null"};
 if ((count _players) <= 0) exitWith { diag_log "CrowsZA-ScatterTeleport: No units to teleport..."};
-if (typename _playerOffset != "SCALAR") exitWith { diag_log "CrowsZA-ScatterTeleport: should always get a player offset which is a scalar, we didn't.... indicates internal script error"};
-if (typename _targetAltitude != "SCALAR") exitWith { diag_log "CrowsZA-ScatterTeleport: should always get a altitude which is a scalar, we didn't.... indicates internal script error"};
+if (typeName _playerOffset != "SCALAR") exitWith { diag_log "CrowsZA-ScatterTeleport: should always get a player offset which is a scalar, we didn't.... indicates internal script error"};
+if (typeName _targetAltitude != "SCALAR") exitWith { diag_log "CrowsZA-ScatterTeleport: should always get a altitude which is a scalar, we didn't.... indicates internal script error"};
 
 // get array of TP positions, split into own file for future support of different "shapes"/patterns
 private _tpArray = [];
@@ -66,7 +66,7 @@ private _playerEffect = {
 	};
 	
 	// reset velocity 
-	_x setvelocity [0,0,0];
+	_x setVelocity [0,0,0];
 
 	// set position, use setPos for vics too as setVehiclePosition doesn't allow altitude setting
 	_x setPos (_tpArray select _forEachIndex);

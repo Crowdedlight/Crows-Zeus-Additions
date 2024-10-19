@@ -31,21 +31,21 @@ private _onConfirm =
 			params["_deleteBodies", "_deleteWrecks"];
 
 			// if bodies is enabled
-			if (_deleteBodies && (_x iskindof "man")) then {
+			if (_deleteBodies && (_x isKindOf "man")) then {
 				// don't delete crew in vehicles, as that is part of vehicle removal 
-				if (vehicle _x == _x) then {
+				if (isNull objectParent _x) then {
 					deleteVehicle _x; 
 					sleep 0.01; 
 				};
 			};
 
 			// if wrecks is enabled 
-			if (_deleteWrecks && !(_x iskindof "man")) then {
+			if (_deleteWrecks && !(_x isKindOf "man")) then {
 				deleteVehicleCrew _x; //Works with game version v2.06. Deletes all crew members
 				deleteVehicle _x;
 				sleep 0.01;
 			};
-		} foreach allDead;
+		} forEach allDead;
 	}
 };
 [

@@ -106,8 +106,8 @@
             <Chinesesimp>疼痛,出血率</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_zeustext_bleed_rate">
-            <English>Bleed Rate:%2, In Cardiac Arrest!</English>
-            <Chinesesimp>出血率:2%,心脏骤停!</Chinesesimp>
+            <English>Bleed Rate:%1, In Cardiac Arrest!</English>
+            <Chinesesimp>出血率:%1,心脏骤停!</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_zeustext_effected_by">
             <English>Effected by</English>

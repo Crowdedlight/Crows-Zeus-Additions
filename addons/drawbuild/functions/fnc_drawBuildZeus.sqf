@@ -30,12 +30,12 @@ FUNC(updateDrawBuildUI) = {
     _edit ctrlSetText str _offset;
 };
 
-private _drawPresets = [keys GVAR(drawBuildPresets), [], { getText(configfile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy;
+private _drawPresets = [keys GVAR(drawBuildPresets), [], { getText(configFile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy;
 
 private _objects = [];
 private _prettyNames = [];
 {
-    private _displayName = getText (configfile >> "CfgVehicles" >> _x >> "displayName");
+    private _displayName = getText (configFile >> "CfgVehicles" >> _x >> "displayName");
     private _picture = getText (configFile >> "CfgVehicles" >> _x >> "editorPreview");
     if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "icon") };
     if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "picture") };
@@ -47,7 +47,7 @@ private _prettyNames = [];
 
 
 // Get the offset of the first (alphabetical) object, to populate the default for the appropriate field
-private _firstObject = ([keys GVAR(drawBuildPresets), [], { getText(configfile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy)#0;
+private _firstObject = ([keys GVAR(drawBuildPresets), [], { getText(configFile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy)#0;
 private _initialOffset = str((GVAR(drawBuildPresets) get _firstObject)#0);
 
 [
@@ -55,14 +55,14 @@ private _initialOffset = str((GVAR(drawBuildPresets) get _firstObject)#0);
     [
         ["EDIT",localize "STR_CROWSZA_Drawbuild_filter",["", {
             private _filter = _this;
-            private _filteredObjects = (keys GVAR(drawBuildPresets) select { ([_filter, getText(configfile >> "CfgVehicles" >> _x >> "displayName")] call BIS_fnc_inString) });
-            _filteredObjects = [_filteredObjects, [], { getText(configfile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy;
+            private _filteredObjects = (keys GVAR(drawBuildPresets) select { ([_filter, getText(configFile >> "CfgVehicles" >> _x >> "displayName")] call BIS_fnc_inString) });
+            _filteredObjects = [_filteredObjects, [], { getText(configFile >> "CfgVehicles" >> _x >> "displayName") }] call BIS_fnc_sortBy;
 
             private _listbox = (allControls (uiNamespace getVariable "zen_common_display")) select { ctrlType _x == 5} select 0;
             lbClear _listbox;
             private _index = 0;
             {
-                _listbox lbAdd getText(configfile >> "CfgVehicles" >> _x >> "displayName");
+                _listbox lbAdd getText(configFile >> "CfgVehicles" >> _x >> "displayName");
                 private _picture = getText (configFile >> "CfgVehicles" >> _x >> "editorPreview");
                 if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "icon") };
                 if !(fileExists _picture) then { _picture = getText (configFile >> "CfgVehicles" >> _x >> "picture") };

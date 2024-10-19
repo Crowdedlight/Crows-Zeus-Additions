@@ -44,8 +44,8 @@ private _medicList = [];
 	private _txt2 = "";
 	private _txt3 = "";
 
-	if(_inPain == true || _bleedingRate > 0) then { _txt2 = format["%3:%2", _inPain, _bleedingRate, localize "STR_CROWSZA_zeustext_in_pain"] };
-	if(_inCRDC) then { _txt2 = format[localize "STR_CROWSZA_zeustext_bleed_rate", _inPain, _bleedingRate] };
+	if(_inPain || _bleedingRate > 0) then { _txt2 = format["%2:%1", _bleedingRate, localize "STR_CROWSZA_zeustext_in_pain"] };
+	if(_inCRDC) then { _txt2 = format[localize "STR_CROWSZA_zeustext_bleed_rate", _bleedingRate] };
 
 	if(count _medications > 0) then 
 	{

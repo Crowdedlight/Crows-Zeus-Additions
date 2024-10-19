@@ -32,7 +32,7 @@ private _onConfirm =
 [
 	localize "STR_CROWSZA_Misc_restore_trees_dialog", 
 	[
-		["SLIDER:RADIUS", localize "STR_CROWSZA_Misc_restore_trees_radius",[0,500,10,0,ASLtoAGL _pos, [1, 0, 0, 0.7]]], //0 to 500, default 10 and showing 0 decimal
+		["SLIDER:RADIUS", localize "STR_CROWSZA_Misc_restore_trees_radius",[0,500,10,0,ASLToAGL _pos, [1, 0, 0, 0.7]]], //0 to 500, default 10 and showing 0 decimal
 		["CHECKBOX",[localize "STR_CROWSZA_Misc_restore_trees_trees", localize "STR_CROWSZA_Misc_restore_trees_trees_tooltip"],[true]],
 		["CHECKBOX",[localize "STR_CROWSZA_Misc_restore_trees_bushes", localize "STR_CROWSZA_Misc_restore_trees_bushes_tooltip"],[false]],
 		["CHECKBOX",[localize "STR_CROWSZA_Misc_restore_trees_stones", localize "STR_CROWSZA_Misc_restore_trees_stones_tooltip"],[false]]

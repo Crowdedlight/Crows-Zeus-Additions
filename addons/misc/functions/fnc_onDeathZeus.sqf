@@ -176,8 +176,8 @@ if (EGVAR(main,crowsEWLoaded)) then {
     private _sounds = [""];
     private _soundNames = ["None"];
     {
-        _sounds pushback _x;
-        _soundNames pushback (EMGVAR(crowsEW,sounds,soundAttributes) get _x)#2;
+        _sounds pushBack _x;
+        _soundNames pushBack (EMGVAR(crowsEW,sounds,soundAttributes) get _x)#2;
     } forEach ([(keys EMGVAR(crowsEW,sounds,soundAttributes)), [], { (EMGVAR(crowsEW,sounds,soundAttributes) get _x)#2 }] call BIS_fnc_sortBy);
 
     _options append [
