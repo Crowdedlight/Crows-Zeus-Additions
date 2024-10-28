@@ -12,3 +12,4 @@ GVAR(rhsLoaded) = isClass (configFile >> "CfgPatches" >> "rhs_main");
 GVAR(sogLoaded) = isClass (configFile >> "CfgMods" >> "vn");
 GVAR(optreLoaded) = isClass (configFile >> "CfgMods" >> "OPTRE_Core");
 GVAR(crowsEWLoaded) = isClass (configFile >> "CfgPatches" >> "crowsEW_main");
+GVAR(wsLoaded) = isClass (configFile >> "CfgMods" >> "ws");
