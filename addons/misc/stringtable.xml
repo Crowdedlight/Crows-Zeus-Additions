@@ -893,6 +893,9 @@
             <English>Snake</English>
             <Chinesesimp>蛇</Chinesesimp>
         </Key>
+        <Key ID="STR_CROWSZA_Misc_camel">
+            <English>Camel</English>
+        </Key>
         <Key ID="STR_CROWSZA_Misc_animal_amount">
             <English>Amount</English>
             <Chinesesimp>数量</Chinesesimp>
