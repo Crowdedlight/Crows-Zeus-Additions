@@ -22,6 +22,7 @@ switch (_animalType) do {
 	case "Hen": 	 { _animalClassname = "Hen_random_F"; 	        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_hen"; 	    _animalAceOffset = [0,0.2,0.3];	}; 
 	case "Snake": 	 { _animalClassname = "Snake_random_F"; 	    _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_snake"; 	    _animalAceOffset = [0,0,0];		};  
 	case "Dromedary":{ _animalClassname = "Dromedary_random_lxWS";  _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dromedary";   _animalAceOffset = [0,1.2,1.4];	};
+	case "Rat":		 { _animalClassname = "SPE_Black_Rat";  		_animalResponse = localize "STR_CROWSZA_Misc_animal_sound_rat";   		_animalAceOffset = [0,0,0];		};
 	default 		 { _animalClassname = "Fin_random_F"; 	        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dog"; 	    _animalAceOffset = [0,0,0.5]; 	}; // Dog as default
 };
 
@@ -100,11 +101,12 @@ for "_x" from 1 to round _amount do {
 		_animalGoMove = _animalType + "_Run"; _animalIdleMove = _animalType + "_Idle_Stop"; 
 
 		switch (_animalType) do {
-			case "Dog": 	  { _animalGoMove = "Dog_Sprint";  }; 
-			case "Rabbit": 	  { _animalGoMove = "Rabbit_Hop";  }; 
-			case "Hen": 	  { _animalGoMove = "Hen_Walk";    }; 
-			case "Snake": 	  { _animalGoMove = "Snakes_Move"; }; 
-			case "Dromedary": { _animalGoMove = "Camel_Walk";  };
+			case "Dog": 	  { _animalGoMove = "Dog_Sprint";  			}; 
+			case "Rabbit": 	  { _animalGoMove = "Rabbit_Hop";  			}; 
+			case "Hen": 	  { _animalGoMove = "Hen_Walk";    			}; 
+			case "Snake": 	  { _animalGoMove = "Snakes_Move"; 			}; 
+			case "Dromedary": { _animalGoMove = "Camel_Walk";  			};
+			case "Rat": 	  { _animalGoMove = "SPE_Rat_idle_Sprint";  };
 		};
 
 		_moveDist = 3; 

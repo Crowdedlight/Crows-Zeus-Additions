@@ -43,6 +43,11 @@ if (EGVAR(main,wsLoaded)) then {
 	_selectAnimal_title append [localize "STR_CROWSZA_Misc_dromedary"]
 };
 
+if (EGVAR(main,speLoaded)) then {
+	_selectAnimal_value append ["Rat"];
+	_selectAnimal_title append [localize "STR_CROWSZA_Misc_rat"]
+};
+
 [
 	localize "STR_CROWSZA_Misc_follow_animal", 
 	[
