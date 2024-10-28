@@ -12,14 +12,14 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5468.4878,83.91584,10166.428};
-		dir[]={-0.8675459,-0.17364819,-0.46605858};
-		up[]={-0.15297174,0.98480767,-0.082178704};
-		aside[]={-0.47324824,7.4505806e-09,0.88092917};
+		pos[]={5476.7739,83.91584,10150.756};
+		dir[]={-0.87122047,-0.34426361,0.34994626};
+		up[]={-0.31945667,0.93887269,0.12831731};
+		aside[]={0.37273005,1.5919795e-08,0.92794228};
 	};
 };
 binarizationWanted=0;
-sourceName="WS";
+sourceName="ws";
 addons[]=
 {
 	"Characters_f_lxWS",
@@ -91,7 +91,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={5455.5928,75.671547,10155.004};
-						angles[]={0,5.5656214,-0};
+						angles[]={0,5.5656214,0};
 					};
 					side="West";
 					flags=7;
@@ -115,8 +115,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={5448.2256,76.437469,10165.493};
-				angles[]={6.1756034,0,6.1519437};
+				position[]={5393.7466,79.49791,10211.594};
+				angles[]={0.079829417,0,6.1519461};
 			};
 			id=2;
 			type="ModuleAnimals_F";
