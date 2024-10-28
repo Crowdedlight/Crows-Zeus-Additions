@@ -15,14 +15,14 @@ private["_animalClassname", "_animalResponse", "_animalAceOffset"];
 // set correct class names
 
 switch (_animalType) do {
-	case "Dog": 	{ _animalClassname = "Fin_random_F"; 	_animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dog"; 	_animalAceOffset = [0,0,0.5]; 	};
-	case "Sheep": 	{ _animalClassname = "Sheep_random_F"; 	_animalResponse = localize "STR_CROWSZA_Misc_animal_sound_sheep"; 	_animalAceOffset = [0,0.5,0.8];	}
-	case "Goat": 	{ _animalClassname = "Goat_random_F"; 	_animalResponse = localize "STR_CROWSZA_Misc_animal_sound_goat"; 	_animalAceOffset = [0,0.4,0.7];	}; 
-	case "Rabbit": 	{ _animalClassname = "Rabbit_F"; 		_animalResponse = localize "STR_CROWSZA_Misc_animal_sound_rabbit"; 	_animalAceOffset = [0,0.2,0.2];	}; 
-	case "Hen": 	{ _animalClassname = "Hen_random_F"; 	_animalResponse = localize "STR_CROWSZA_Misc_animal_sound_hen"; 	_animalAceOffset = [0,0.2,0.3];	}; 
-	case "Snake": 	{ _animalClassname = "Snake_random_F"; 	_animalResponse = localize "STR_CROWSZA_Misc_animal_sound_snake"; 	_animalAceOffset = [0,0,0];		};  
-//	case "Camel": 	{ _animalClassname = "Fin_random_F"; 	_animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dog"; 	_animalAceOffset = [0,0,0.5]; 	}; // To be changed
-	default 		{ _animalClassname = "Fin_random_F"; 	_animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dog"; 	_animalAceOffset = [0,0,0.5]; 	}; // Dog as default
+	case "Dog": 	 { _animalClassname = "Fin_random_F"; 	        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dog"; 	    _animalAceOffset = [0,0,0.5]; 	};
+	case "Sheep": 	 { _animalClassname = "Sheep_random_F"; 	    _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_sheep"; 	    _animalAceOffset = [0,0.5,0.8];	};
+	case "Goat": 	 { _animalClassname = "Goat_random_F"; 	        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_goat"; 	    _animalAceOffset = [0,0.4,0.7];	}; 
+	case "Rabbit": 	 { _animalClassname = "Rabbit_F"; 		        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_rabbit"; 	    _animalAceOffset = [0,0.2,0.2];	}; 
+	case "Hen": 	 { _animalClassname = "Hen_random_F"; 	        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_hen"; 	    _animalAceOffset = [0,0.2,0.3];	}; 
+	case "Snake": 	 { _animalClassname = "Snake_random_F"; 	    _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_snake"; 	    _animalAceOffset = [0,0,0];		};  
+//	case "Dromedary":{ _animalClassname = "Dromedary_random_lxWS";  _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dromedary";   _animalAceOffset = [0,0,0.5]; 	}; // To be changed
+	default 		 { _animalClassname = "Fin_random_F"; 	        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dog"; 	    _animalAceOffset = [0,0,0.5]; 	}; // Dog as default
 };
 
 GVAR(addAceActionPetDog) = 
