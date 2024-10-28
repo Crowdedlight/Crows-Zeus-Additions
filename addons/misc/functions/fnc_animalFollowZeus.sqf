@@ -34,10 +34,19 @@ private _onConfirm =
 	//spawn script with animal type
 	[_animalType, _unit, _amount, _invincible, _offset, _scale, _attack] call FUNC(animalFollow);
 };
+
+private _selectAnimal_value = ["Dog", "Sheep", "Goat", "Rabbit", "Hen", "Snake"];
+private _selectAnimal_title = [localize "STR_CROWSZA_Misc_dog", localize "STR_CROWSZA_Misc_sheep", localize "STR_CROWSZA_Misc_goat", localize "STR_CROWSZA_Misc_rabbit", localize "STR_CROWSZA_Misc_hen", localize "STR_CROWSZA_Misc_snake"];
+
+if (EGVAR(main,wsLoaded)) then {
+	_selectAnimal_value append ["Dromedary"];
+	_selectAnimal_title append [localize "STR_CROWSZA_Misc_dromedary"]
+};
+
 [
 	localize "STR_CROWSZA_Misc_follow_animal", 
 	[
-		["COMBO",localize "STR_CROWSZA_Misc_animal",[["Dog", "Sheep", "Goat", "Rabbit", "Hen", "Snake"], [localize "STR_CROWSZA_Misc_dog", localize "STR_CROWSZA_Misc_sheep", localize "STR_CROWSZA_Misc_goat", localize "STR_CROWSZA_Misc_rabbit", localize "STR_CROWSZA_Misc_hen", localize "STR_CROWSZA_Misc_snake"],0]],
+		["COMBO",localize "STR_CROWSZA_Misc_animal",[_selectAnimal_value, _selectAnimal_title,0]],
 		["SLIDER",localize "STR_CROWSZA_Misc_animal_amount",[1,20,1,0]], //1 to 20, default 1 and showing 0 decimal
 		["SLIDER",[localize "STR_CROWSZA_Misc_animal_spawn_offset", localize "STR_CROWSZA_Misc_animal_spawn_offset_tooltip"],[0,200,0,0]], //0 to 200, default 0 and showing 0 decimal
 		["SLIDER",[localize "STR_CROWSZA_Misc_animal_scale", localize "STR_CROWSZA_Misc_animal_scale_tooltip"],[1,10,1,0]], //1 to 10, default 1 and showing 0 decimal

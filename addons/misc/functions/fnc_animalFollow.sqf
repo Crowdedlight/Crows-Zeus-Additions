@@ -13,12 +13,17 @@ params ["_animalType", "_src", "_amount", "_invincible", "_offset", "_scale", "_
 private["_animalClassname", "_animalResponse", "_animalAceOffset"]; 
 
 // set correct class names
-if ( _animalType == "Dog" ) then { _animalClassname = "Fin_random_F"; _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dog"; _animalAceOffset = [0,0,0.5]; }; 
-if ( _animalType == "Sheep" ) then { _animalClassname = "Sheep_random_F"; _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_sheep"; _animalAceOffset = [0,0.5,0.8];}; 
-if ( _animalType == "Goat" ) then { _animalClassname = "Goat_random_F"; _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_goat"; _animalAceOffset = [0,0.4,0.7];}; 
-if ( _animalType == "Rabbit" ) then { _animalClassname = "Rabbit_F"; _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_rabbit"; _animalAceOffset = [0,0.2,0.2];}; 
-if ( _animalType == "Hen" ) then { _animalClassname = "Hen_random_F"; _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_hen"; _animalAceOffset = [0,0.2,0.3];}; 
-if ( _animalType == "Snake" ) then { _animalClassname = "Snake_random_F"; _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_snake"; _animalAceOffset = [0,0,0];}; 
+
+switch (_animalType) do {
+	case "Dog": 	 { _animalClassname = "Fin_random_F"; 	        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dog"; 	    _animalAceOffset = [0,0,0.5]; 	};
+	case "Sheep": 	 { _animalClassname = "Sheep_random_F"; 	    _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_sheep"; 	    _animalAceOffset = [0,0.5,0.8];	};
+	case "Goat": 	 { _animalClassname = "Goat_random_F"; 	        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_goat"; 	    _animalAceOffset = [0,0.4,0.7];	}; 
+	case "Rabbit": 	 { _animalClassname = "Rabbit_F"; 		        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_rabbit"; 	    _animalAceOffset = [0,0.2,0.2];	}; 
+	case "Hen": 	 { _animalClassname = "Hen_random_F"; 	        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_hen"; 	    _animalAceOffset = [0,0.2,0.3];	}; 
+	case "Snake": 	 { _animalClassname = "Snake_random_F"; 	    _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_snake"; 	    _animalAceOffset = [0,0,0];		};  
+	case "Dromedary":{ _animalClassname = "Dromedary_random_lxWS";  _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dromedary";   _animalAceOffset = [0,1.2,1.4];	};
+	default 		 { _animalClassname = "Fin_random_F"; 	        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dog"; 	    _animalAceOffset = [0,0,0.5]; 	}; // Dog as default
+};
 
 GVAR(addAceActionPetDog) = 
 {
@@ -94,10 +99,13 @@ for "_x" from 1 to round _amount do {
 		params["_src", "_animal", "_animalType", "_attack"]; 
 		_animalGoMove = _animalType + "_Run"; _animalIdleMove = _animalType + "_Idle_Stop"; 
 
-		if ( _animalType == "Dog" ) then { _animalGoMove = "Dog_Sprint"; }; 
-		if ( _animalType == "Rabbit" ) then { _animalGoMove = "Rabbit_Hop"; }; 
-		if ( _animalType == "Hen" ) then { _animalGoMove = "Hen_Walk"; }; 
-		if ( _animalType == "Snake" ) then { _animalGoMove = "Snakes_Move"; }; 
+		switch (_animalType) do {
+			case "Dog": 	  { _animalGoMove = "Dog_Sprint";  }; 
+			case "Rabbit": 	  { _animalGoMove = "Rabbit_Hop";  }; 
+			case "Hen": 	  { _animalGoMove = "Hen_Walk";    }; 
+			case "Snake": 	  { _animalGoMove = "Snakes_Move"; }; 
+			case "Dromedary": { _animalGoMove = "Camel_Walk";  };
+		};
 
 		_moveDist = 3; 
 		_animalMoving = false; 
