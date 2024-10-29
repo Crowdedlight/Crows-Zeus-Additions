@@ -935,6 +935,12 @@
             <English>WOOF</English>
             <Chinesesimp>汪汪 (狗叫声)</Chinesesimp>
         </Key>
+        <Key ID="STR_CROWSZA_Misc_animal_sound_dromedary">
+            <English>MRUHRHRHRHRHRHHRRRR OmNomNom</English>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_animal_sound_rat">
+            <English>Squirk Squirk!</English>
+        </Key>
         <Key ID="STR_CROWSZA_Misc_animal_sound_sheep">
             <English>MÆÆÆÆÆHH</English>
             <Chinesesimp>呜呜呜 (动物的哀鸣声)</Chinesesimp>
