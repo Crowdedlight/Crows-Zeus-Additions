@@ -23,3 +23,7 @@ mission = "WS.SefrouRamal"
 extends = "default"
 dlc = ["spe"]
 mission = "SPE.SPE_Mortain"
+
+[BOTH]
+extends = "WS"
+dlc = ["spe"]
