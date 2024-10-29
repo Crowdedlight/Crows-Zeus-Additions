@@ -99,21 +99,20 @@ for "_x" from 1 to round _amount do {
 	[_src, _animal, _animalType, _attack] spawn { 
 		params["_src", "_animal", "_animalType", "_attack"]; 
 		
-
 		_animalGoMove = switch (_animalType) do {
-			case "Dog": 	  { "Dog_Sprint";  			}; 
-			case "Rabbit": 	  { "Rabbit_Hop";  			}; 
-			case "Hen": 	  { "Hen_Walk";    			}; 
-			case "Snake": 	  { "Snakes_Move"; 			}; 
-			case "Dromedary": { "Camel_Walk";  			};
-			case "Rat": 	  { "SPE_Rat_idle_Sprint";  };
-			default { _animalType + "_Run"; };
+			case "Dog": 	  { "Dog_Sprint" }; 
+			case "Rabbit": 	  { "Rabbit_Hop" }; 
+			case "Hen": 	  { "Hen_Walk" }; 
+			case "Snake": 	  { "Snakes_Move" }; 
+			case "Dromedary": { "Camel_Walk" };
+			case "Rat": 	  { "SPE_Rat_idle_Sprint" };
+			default { _animalType + "_Run" };
 		};
 		
 		_animalIdleMove = switch (_animalType) do {
 			case "Snake": 	  { "Snakes_Idle_Stop" }; 
 			case "Dromedary": { "Camel_Idle_Stop" };
-			case "Rat": 	  { "SPE_Rat_Idle_Stop";  };
+			case "Rat": 	  { "SPE_Rat_Idle_Stop" };
 			default { _animalType + "_Idle_Stop" };
 		};
 
