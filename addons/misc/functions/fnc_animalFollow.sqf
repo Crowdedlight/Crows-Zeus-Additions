@@ -22,6 +22,7 @@ switch (_animalType) do {
 	case "Hen": 	 { _animalClassname = "Hen_random_F"; 	        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_hen"; 	    _animalAceOffset = [0,0.2,0.3];	}; 
 	case "Snake": 	 { _animalClassname = "Snake_random_F"; 	    _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_snake"; 	    _animalAceOffset = [0,0,0];		};  
 	case "Dromedary":{ _animalClassname = "Dromedary_random_lxWS";  _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dromedary";   _animalAceOffset = [0,1.2,1.4];	};
+	case "Rat":		 { _animalClassname = "SPE_Black_Rat";  		_animalResponse = localize "STR_CROWSZA_Misc_animal_sound_rat";   		_animalAceOffset = [0,0,0];		};
 	default 		 { _animalClassname = "Fin_random_F"; 	        _animalResponse = localize "STR_CROWSZA_Misc_animal_sound_dog"; 	    _animalAceOffset = [0,0,0.5]; 	}; // Dog as default
 };
 
@@ -97,15 +98,27 @@ for "_x" from 1 to round _amount do {
 	// spawn thread that handle behaviour
 	[_src, _animal, _animalType, _attack] spawn { 
 		params["_src", "_animal", "_animalType", "_attack"]; 
-		_animalGoMove = _animalType + "_Run"; _animalIdleMove = _animalType + "_Idle_Stop"; 
+		
 
-		switch (_animalType) do {
-			case "Dog": 	  { _animalGoMove = "Dog_Sprint";  }; 
-			case "Rabbit": 	  { _animalGoMove = "Rabbit_Hop";  }; 
-			case "Hen": 	  { _animalGoMove = "Hen_Walk";    }; 
-			case "Snake": 	  { _animalGoMove = "Snakes_Move"; }; 
-			case "Dromedary": { _animalGoMove = "Camel_Walk";  };
+		_animalGoMove = switch (_animalType) do {
+			case "Dog": 	  { "Dog_Sprint";  			}; 
+			case "Rabbit": 	  { "Rabbit_Hop";  			}; 
+			case "Hen": 	  { "Hen_Walk";    			}; 
+			case "Snake": 	  { "Snakes_Move"; 			}; 
+			case "Dromedary": { "Camel_Walk";  			};
+			case "Rat": 	  { "SPE_Rat_idle_Sprint";  };
+			default { _animalType + "_Run"; };
 		};
+		
+		_animalIdleMove = switch (_animalType) do {
+			case "Snake": 	  { "Snakes_Idle_Stop" }; 
+			case "Dromedary": { "Camel_Idle_Stop" };
+			case "Rat": 	  { "SPE_Rat_Idle_Stop";  };
+			default { _animalType + "_Idle_Stop" };
+		};
+
+
+
 
 		_moveDist = 3; 
 		_animalMoving = false; 

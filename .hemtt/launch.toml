@@ -18,3 +18,8 @@ optionals = []
 extends = "default"
 dlc = ["ws"]
 mission = "WS.SefrouRamal"
+
+[SPE]
+extends = "default"
+dlc = ["spe"]
+mission = "SPE.SPE_Mortain"

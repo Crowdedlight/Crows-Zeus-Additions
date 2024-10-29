@@ -896,6 +896,9 @@
         <Key ID="STR_CROWSZA_Misc_dromedary">
             <English>Dromedary</English>
         </Key>
+        <Key ID="STR_CROWSZA_Misc_rat">
+            <English>Rat</English>
+        </Key>
         <Key ID="STR_CROWSZA_Misc_animal_amount">
             <English>Amount</English>
             <Chinesesimp>数量</Chinesesimp>
@@ -931,9 +934,6 @@
         <Key ID="STR_CROWSZA_Misc_animal_sound_dog">
             <English>WOOF</English>
             <Chinesesimp>汪汪 (狗叫声)</Chinesesimp>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_animal_sound_dromedary">
-            <English>MRUHRHRHRHRHRHHRRRR OmNomNom</English>
         </Key>
         <Key ID="STR_CROWSZA_Misc_animal_sound_sheep">
             <English>MÆÆÆÆÆHH</English>
