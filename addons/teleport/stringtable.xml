@@ -4,122 +4,152 @@
         <Key ID="STR_CROWSZA_Teleport_scatter_teleport">
             <English>Scatter Teleport</English>
             <Chinesesimp>传送 - 分散传送</Chinesesimp>
+            <French>Téléportation par dispersion</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_teleport_to_squadmate">
             <English>Teleport To Squadmember</English>
             <Chinesesimp>传送 - 传送至小队成员</Chinesesimp>
+            <French>Téléportation vers un membre de l'escadron</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_set_teleport_to_squadmate">
             <English>Set Teleport to Squadmember</English>
             <Chinesesimp>传送 - 将远程传送设置为小队成员</Chinesesimp>
+            <French>Régler la téléportation sur le membre de l'escadron</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_select_member_to_teleport_to">
             <English>Select SquadMember to teleport to</English>
             <Chinesesimp>选择要传送到的小队成员</Chinesesimp>
+            <French>Sélectionner le membre de l'escouade vers lequel se téléporter</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_squadleader">
             <English>SquadLeader</English>
             <Chinesesimp>小队长</Chinesesimp>
+            <French>Chef d'escouade</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_in_vehicle">
             <English>[In Vehicle]</English>
             <Chinesesimp>[在载具中]</Chinesesimp>
+            <French>[Dans le véhicule]</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_squad_members">
             <English>Squad Members</English>
             <Chinesesimp>小队成员</Chinesesimp>
+            <French>Membres de l'escouade</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_action_teleport_to_squadmate">
             <English>&lt;t color="#FFFF00"&gt;Teleport To Squadmate</English>
             <Chinesesimp>&lt;t color="#FFFF00"&gt;传送到小队成员</Chinesesimp>
+            <French>&lt;t color="#FFFF00"&gt;Téléportation vers le coéquipier</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_action_error">
             <English>You must select an object</English>
             <Chinesesimp>你必须选择一个对象</Chinesesimp>
+            <French>Vous devez sélectionner un objet</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter">
             <English>Scatter Teleport Players</English>
             <Chinesesimp>散射传送玩家</Chinesesimp>
+            <French>Dispersion des joueurs téléportés</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_units_to_tp">
             <English>Units to TP</English>
             <Chinesesimp>要传送的单位</Chinesesimp>
+            <French>Unités à TP</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_distance_between">
             <English>Distance Between Players [m]</English>
             <Chinesesimp>玩家之间的距离 [米]</Chinesesimp>
+            <French>Distance entre les joueurs [m]</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_altitude">
             <English>Altitude Above Ground [m]</English>
             <Chinesesimp>距离地面的高度 [米]</Chinesesimp>
+            <French>Altitude au-dessus du sol [m]</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_include_vehicle">
             <English>Include Vehicles</English>
             <Chinesesimp>包括载具</Chinesesimp>
+            <French>Inclure les véhicules</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_include_vehicle_tooltip">
             <English>Teleports vehicles if selected player is crew</English>
             <Chinesesimp>如果选定的玩家是载具成员，则传送载具</Chinesesimp>
+            <French>Téléporte les véhicules si le joueur sélectionné est un équipage</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_pattern">
             <English>TP Pattern</English>
             <Chinesesimp>传送模式</Chinesesimp>
+            <French>Mode de répartition</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_pattern_tooltip">
             <English>What pattern the units should be teleported as</English>
             <Chinesesimp>单位应以何种模式进行传送</Chinesesimp>
+            <French>Modèle de téléportation des unités</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_pattern_spiral">
             <English>Outward Spiral</English>
             <Chinesesimp>向外螺旋</Chinesesimp>
+            <French>Spirale vers l'extérieur</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_pattern_line">
             <English>Line</English>
             <Chinesesimp>直线模式</Chinesesimp>
+            <French>Line</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_pattern_p">
             <English>P Pattern</English>
             <Chinesesimp>P字型模式</Chinesesimp>
+            <French>Modèle en forme de P</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_direction">
             <English>Direction (If LinePattern)</English>
             <Chinesesimp>方向(如果使用直线模式)</Chinesesimp>
+            <French>Direction (en cas d'utilisation du mode linéaire)</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_direction_tooltip">
             <English>The direction the line grows</English>
             <Chinesesimp>线条增长的方向</Chinesesimp>
+            <French>Direction de la croissance de la ligne</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_n">
             <English>North</English>
             <Chinesesimp>北</Chinesesimp>
+            <French>Nord</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_ne">
             <English>North East</English>
             <Chinesesimp>东北</Chinesesimp>
+            <French>Nord-Est</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_nw">
             <English>North West</English>
             <Chinesesimp>西北</Chinesesimp>
+            <French>Nord-Ouest</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_e">
             <English>East</English>
             <Chinesesimp>东</Chinesesimp>
+            <French>Est</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_s">
             <English>South</English>
             <Chinesesimp>南</Chinesesimp>
+            <French>Sud</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_se">
             <English>South East</English>
             <Chinesesimp>东南</Chinesesimp>
+            <French>Sud-Est</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_sw">
             <English>South West</English>
             <Chinesesimp>西南</Chinesesimp>
+            <French>Sud-Ouest</French>
         </Key>
         <Key ID="STR_CROWSZA_Teleport_scatter_w">
             <English>West</English>
             <Chinesesimp>西</Chinesesimp>
+            <French>Ouest</French>
         </Key>
     </Package>
 </Project>
