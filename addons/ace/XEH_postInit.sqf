@@ -30,7 +30,7 @@ private _contextActionList = [
     [
         ["jshk_heal",localize "STR_CROWSZA_ACE_module_jshk","\z\ace\addons\medical_gui\ui\cross.paa", 
 		{_hoveredEntity call FUNC(jshkHeal)}, 
-		{[_hoveredEntity] call EFUNC(main,isAliveManUnit) && EGVAR(main,aceLoaded) && EGVAR(main,jshkLoaded) && (_hoveredEntity getVariable ["ACE_isUnconscious", false]) == true}] call zen_context_menu_fnc_createAction,
+		{_hoveredEntity isEqualType {} && {[_hoveredEntity] call EFUNC(main,isAliveManUnit) && EGVAR(main,aceLoaded) && EGVAR(main,jshkLoaded) && (_hoveredEntity getVariable ["ACE_isUnconscious", false]) == true}}] call zen_context_menu_fnc_createAction,
         ["HealUnits"],
         0
     ]

@@ -39,12 +39,12 @@ private _moduleList = [
 private _contextActionList = [
     // Action name, Display name, Icon and Icon colour, code, Condition to show, arguments, dynamic children, modifier functions
     [
-        ["camera_center_unit",localize "STR_CROWSZA_Misc_camera_center_unit",QPATHTOF(data\camera.paa), {_hoveredEntity call FUNC(centerZeusViewUnit)}, {!isNull _hoveredEntity && (typeName _hoveredEntity) isNotEqualTo "GROUP"}] call zen_context_menu_fnc_createAction,
+        ["camera_center_unit",localize "STR_CROWSZA_Misc_camera_center_unit",QPATHTOF(data\camera.paa), {_hoveredEntity call FUNC(centerZeusViewUnit)}, {_hoveredEntity isEqualType {} && {!isNull _hoveredEntity && (typeName _hoveredEntity) isNotEqualTo "GROUP"}}] call zen_context_menu_fnc_createAction,
         [],
         0
     ],
     [
-        ["paste_loadout_to_inventory", localize "STR_CROWSZA_Misc_paste_loadout",QPATHTOF(data\paste.paa), {_hoveredEntity call FUNC(contextPasteLoadout)}, {!isNil "zen_context_actions_loadout" && !isNull _hoveredEntity}] call zen_context_menu_fnc_createAction,
+        ["paste_loadout_to_inventory", localize "STR_CROWSZA_Misc_paste_loadout",QPATHTOF(data\paste.paa), {_hoveredEntity call FUNC(contextPasteLoadout)}, {!isNil "zen_context_actions_loadout" && _hoveredEntity isEqualType {} && {!isNull _hoveredEntity}}] call zen_context_menu_fnc_createAction,
         ["Inventory"],
         0
     ],
