@@ -1,4 +1,5 @@
 #define COMPONENT misc
+#define COMPONENT_BEAUTIFIED Misc
 #include "\z\crowsza\addons\main\script_mod.hpp"
 
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"

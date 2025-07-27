@@ -1,4 +1,5 @@
 #define COMPONENT pingbox
+#define COMPONENT_BEAUTIFIED Ping Box
 #include "\z\crowsza\addons\main\script_mod.hpp"
 
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"

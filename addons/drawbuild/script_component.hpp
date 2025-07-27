@@ -1,4 +1,5 @@
 #define COMPONENT drawbuild
+#define COMPONENT_BEAUTIFIED Draw Build
 #include "\z\crowsza\addons\main\script_mod.hpp"
 
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
