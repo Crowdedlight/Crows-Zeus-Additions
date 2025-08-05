@@ -1,4 +1,5 @@
 #define COMPONENT ace
+#define COMPONENT_BEAUTIFIED ACE
 #include "\z\crowsza\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL

@@ -1,4 +1,5 @@
 #define COMPONENT tfar
+#define COMPONENT_BEAUTIFIED TFAR
 #include "\z\crowsza\addons\main\script_mod.hpp"
 
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"

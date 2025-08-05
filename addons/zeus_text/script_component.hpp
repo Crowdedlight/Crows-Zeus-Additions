@@ -1,4 +1,5 @@
 #define COMPONENT zeus_text
+#define COMPONENT_BEAUTIFIED Zeus Text
 #include "\z\crowsza\addons\main\script_mod.hpp"
 
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
