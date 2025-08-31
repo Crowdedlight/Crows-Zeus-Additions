@@ -26,6 +26,7 @@ private _onConfirm =
 		"_flyfrom",
 		"_height",
 		"_medical",
+		"_includeZeus",
 		"_rearm"
 	];
 	//Get in params again
@@ -41,7 +42,7 @@ private _onConfirm =
 	// run though all players
 	{
 		// if zeus, skip it
-		if (!isNull (getAssignedCuratorLogic _x)) then { continue; };
+		if (!isNull (getAssignedCuratorLogic _x) && !_includeZeus) then { continue; };
 
 		// get all magazines from players
 		private _mags = magazines [_x, true];
@@ -240,7 +241,8 @@ private _dialogOptions = [EGVAR(main,aceLoaded), GVAR(resupply_aircraftList), GV
 		["EDIT",[localize "STR_CROWSZA_Misc_resupply_loadouts_custom_type", localize "STR_CROWSZA_Misc_resupply_loadouts_custom_type_tooltip"], "", false],
 		["TOOLBOX", localize "STR_CROWSZA_Misc_resupply_loadouts_flyfrom", [0, 1, 8, [localize "STR_CROWSZA_Misc_N", localize "STR_CROWSZA_Misc_NE", localize "STR_CROWSZA_Misc_E", localize "STR_CROWSZA_Misc_SE", localize "STR_CROWSZA_Misc_S", localize "STR_CROWSZA_Misc_SW", localize "STR_CROWSZA_Misc_W", localize "STR_CROWSZA_Misc_NW"]]],
 		["SLIDER",localize "STR_CROWSZA_Misc_resupply_loadouts_airdrop_height",[50,1000,200,0]],
-		["CHECKBOX",[localize "STR_CROWSZA_Misc_resupply_loadouts_medical", localize "STR_CROWSZA_Misc_resupply_loadouts_medical_tooltip"],[true]]
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_resupply_loadouts_medical", localize "STR_CROWSZA_Misc_resupply_loadouts_medical_tooltip"],[true]],
+		["CHECKBOX",[localize "STR_CROWSZA_Misc_resupply_loadouts_zeus", localize "STR_CROWSZA_Misc_resupply_loadouts_zeus_tooltip"],[false]]
 	];
 
 	// add options for ace rearm vehicle if ace is used
