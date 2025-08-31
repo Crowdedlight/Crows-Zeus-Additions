@@ -541,6 +541,16 @@
             <Chinesesimp>添加医疗物资</Chinesesimp>
             <French>Ajouter du matériel médical</French>
         </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_zeus">
+            <English>Include Zeus</English>
+            <Chinesesimp>包括宙斯</Chinesesimp>
+            <French>Inclure Zeus</French>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_zeus_tooltip">
+            <English>Include Zeus' loadout to resupply</English>
+            <Chinesesimp>包括宙斯的装备以进行补给</Chinesesimp>
+            <French>Ajouter l'équipement du Zeus dans le réapprovisionnement</French>
+        </Key>
         <Key ID="STR_CROWSZA_Misc_resupply_loadouts_airdrop_height">
             <English>Airdrop height [m]</English>
             <Chinesesimp>空投高度[米]</Chinesesimp>
