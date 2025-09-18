@@ -16,6 +16,13 @@ params ["_player"];
 // ARRAY is made so newest entries are first, and oldest pushed at the back
 // [[_playername, timeAtPing], ...]
 
+// Remove existing entry for this player (if any)
+// This prevents older pings from getting "buried" by spam pinging
+private _index = GVAR(ping_list) findIf {(_x select 0) isEqualTo _player};
+if (_index > -1) then {
+    GVAR(ping_list) deleteAt _index;
+};
+
 // check count of global array with entries, if > 3, pop the oldest in array. (FIFO)
 if (count GVAR(ping_list) >= 3) then {
 	GVAR(ping_list) deleteAt 2;
