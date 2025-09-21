@@ -28,7 +28,7 @@ if (_index > -1) then {
 	
 	// If the last ping was less than a minute ago, we count it as ping-spamming
 	private _timeDiff = round(time - _previousPingTime);
-	if (_timeDiff < 60) then {
+	if (_timeDiff < GVAR(CBA_Setting_spamPing_threshold)) then {
 		_numPings = _previousNumPings + 1;
 	};
 	

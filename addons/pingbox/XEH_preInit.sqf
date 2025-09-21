@@ -30,6 +30,15 @@ GVAR(hidden) = false;
 	[1, 900, 600, 0] // data for this setting: [min, max, default, number of shown trailing decimals]
 ] call CBA_fnc_addSetting;
 
+// TIME window where pings would be grouped together into one spam ping
+[
+	QGVAR(CBA_Setting_spamPing_threshold),
+	"SLIDER",
+	[localize "STR_CROWSZA_Pingbox_setting_spamPing_threshold", localize "STR_CROWSZA_Pingbox_setting_spamPing_threshold_tooltip"],
+	["Crows Zeus Additions", "PingBox"],
+	[0, 120, 60, 0] // data for this setting: [min, max, default, number of shown trailing decimals]
+] call CBA_fnc_addSetting;
+
 // FADE OUT for pingbox
 [
 	QGVAR(CBA_Setting_fade_enabled),
