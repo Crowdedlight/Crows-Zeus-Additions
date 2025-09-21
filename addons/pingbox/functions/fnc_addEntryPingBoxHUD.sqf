@@ -26,7 +26,7 @@ if (_index > -1) then {
 	private _previousPing = GVAR(ping_list) select _index;
 	_previousPing params ["_name", "_previousPingTime", "_previousNumPings"];
 	
-	// If the last ping was less than a minute ago, we count it as ping-spamming
+	// If the last ping was less than a spamPing_threshold seconds ago, we count it as ping-spamming
 	private _timeDiff = round(time - _previousPingTime);
 	if (_timeDiff < GVAR(CBA_Setting_spamPing_threshold)) then {
 		_numPings = _previousNumPings + 1;
