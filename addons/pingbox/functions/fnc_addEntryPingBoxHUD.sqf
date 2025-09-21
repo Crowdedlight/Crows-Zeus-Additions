@@ -14,12 +14,24 @@ Enables and displays the pingbox hud
 params ["_player"];
 
 // ARRAY is made so newest entries are first, and oldest pushed at the back
-// [[_playername, timeAtPing], ...]
+// [[_playername, timeAtPing, numberOfRecentPings], ...]
+
+// How many times the player has pinged recently
+private _numPings = 1;
 
 // Remove existing entry for this player (if any)
 // This prevents older pings from getting "buried" by spam pinging
 private _index = GVAR(ping_list) findIf {(_x select 0) isEqualTo _player};
 if (_index > -1) then {
+	private _previousPing = GVAR(ping_list) select _index;
+	_previousPing params ["_name", "_previousPingTime", "_previousNumPings"];
+	
+	// If the last ping was less than a minute ago, we count it as ping-spamming
+	private _timeDiff = round(time - _previousPingTime);
+	if (_timeDiff < 60) then {
+		_numPings = _previousNumPings + 1;
+	};
+	
     GVAR(ping_list) deleteAt _index;
 };
 
@@ -29,7 +41,7 @@ if (count GVAR(ping_list) >= 3) then {
 };
 
 // pushBack to array 
-GVAR(ping_list) pushBack [_player, time];
+GVAR(ping_list) pushBack [_player, time, _numPings];
 
 // sort array 
 GVAR(ping_list) = [GVAR(ping_list), [], {_x select 1}, "DESC"] call BIS_fnc_sortBy;
