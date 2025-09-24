@@ -34,6 +34,8 @@
 //IDC for pingbox
 #define IDC_PINGBOX 			1720
 #define IDC_PINGBOX_LIST 		1730
+#define IDC_PINGBOX_TITLE 		1740
+#define IDC_PINGBOX_BACKGROUND	1750
 
 //array types
 #define TYPE_WEAPON "weapon"

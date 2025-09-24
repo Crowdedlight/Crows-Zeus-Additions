@@ -37,7 +37,7 @@ class RscTitles
             };
             class title: RscText
             {
-                idc = -1;
+                idc = IDC_PINGBOX_TITLE;
                 text = "PingBox";
                 style = QUOTE(ST_CENTER);
                 x = QUOTE(0.139062 * safezoneW + safezoneX);
@@ -47,7 +47,7 @@ class RscTitles
                 colorBackground[] = GUI_THEME_COLOR;
             };
             class ListBackground: RscText {
-                idc = -1;
+                idc = IDC_PINGBOX_BACKGROUND;
                 style = QUOTE(ST_CENTER);
                 x = QUOTE(0.139062 * safezoneW + safezoneX);
                 y = QUOTE(0.929 * safezoneH + safezoneY);
