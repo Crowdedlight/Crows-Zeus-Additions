@@ -21,6 +21,15 @@ GVAR(hidden) = false;
 	FUNC(enablePingBoxHUD) // function that will be executed once on mission start and every time the setting is changed.
 ] call CBA_fnc_addSetting;
 
+[
+	QGVAR(CBA_Setting_Pingbox_Size), 
+	"LIST",     
+	["Pingbox Size", "-tooltip-"], 
+	["Crows Zeus Additions", "PingBox"], 
+	[[3, 5, 7], ["Small (3 entries)","Medium (5 entries)","Large (7 entries)"], 0],
+	0
+] call CBA_fnc_addSetting;
+
 // TIME before removing old entries
 [
 	QGVAR(CBA_Setting_oldLimit),
