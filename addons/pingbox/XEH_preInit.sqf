@@ -24,9 +24,12 @@ GVAR(hidden) = false;
 [
 	QGVAR(CBA_Setting_Pingbox_Size), 
 	"LIST",     
-	["Pingbox Size", "-tooltip-"], 
+	[localize "STR_CROWSZA_Pingbox_setting_size", localize "STR_CROWSZA_Pingbox_setting_size_tooltip"], 
 	["Crows Zeus Additions", "PingBox"], 
-	[[3, 5, 7], ["Small (3 entries)","Medium (5 entries)","Large (7 entries)"], 0],
+	[[3, 5, 7], [localize "STR_CROWSZA_Pingbox_setting_size_option_small",
+         localize "STR_CROWSZA_Pingbox_setting_size_option_medium",
+         localize "STR_CROWSZA_Pingbox_setting_size_option_large"
+	], 0],
 	0,
 	FUNC(resizePingBoxHUD)
 ] call CBA_fnc_addSetting;
