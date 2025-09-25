@@ -27,7 +27,8 @@ GVAR(hidden) = false;
 	["Pingbox Size", "-tooltip-"], 
 	["Crows Zeus Additions", "PingBox"], 
 	[[3, 5, 7], ["Small (3 entries)","Medium (5 entries)","Large (7 entries)"], 0],
-	0
+	0,
+	FUNC(resizePingBoxHUD)
 ] call CBA_fnc_addSetting;
 
 // TIME before removing old entries

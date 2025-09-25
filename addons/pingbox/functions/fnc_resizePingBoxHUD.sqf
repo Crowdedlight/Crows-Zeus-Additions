@@ -26,9 +26,13 @@ private _resizeCtrl = {
 	};
 };
 
+// If the list size is more than 3 we need to move pingbox up a bit
+private _extraSize = _desiredSize - PINGBOX_SIZE_DEFAULT;
+private _yOffset = _extraSize * PINGBOX_LINE_HEIGHT;
+
 private _posList = [
 	PINGBOX_POS_X_DEFAULT * safezoneW + safezoneX,
-	PINGBOX_POS_Y_DEFAULT * safezoneH + safezoneY,
+	(PINGBOX_POS_Y_DEFAULT - _yOffset) * safezoneH + safezoneY,
 	PINGBOX_WIDTH_DEFAULT * safezoneW,
 	PINGBOX_LINE_HEIGHT * _desiredSize * safezoneH
 ];
@@ -36,5 +40,23 @@ private _posList = [
 [IDC_PINGBOX_LIST, _posList] call _resizeCtrl;
 [IDC_PINGBOX_BACKGROUND, _posList] call _resizeCtrl;
 
+private _posTitle = [
+	PINGBOX_POS_X_DEFAULT * safezoneW + safezoneX,
+	(PINGBOX_POS_Y_DEFAULT - _yOffset - PINGBOX_LINE_HEIGHT) * safezoneH + safezoneY,
+	PINGBOX_WIDTH_DEFAULT * safezoneW,
+	PINGBOX_LINE_HEIGHT * safezoneH
+];
+
+[IDC_PINGBOX_TITLE, _posTitle] call _resizeCtrl;
 
 GVAR(currentSize) = _desiredSize;
+GVAR(ping_list) = [];
+GVAR(ping_list_update) = 0;
+
+private _display = uiNamespace getVariable "crowsza_pingbox_hud";
+
+//get list 
+private _ctrlList = _display displayCtrl IDC_PINGBOX_LIST;
+
+// clear list 
+lnbClear _ctrlList;
