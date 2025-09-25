@@ -27,25 +27,15 @@ if (GVAR(CBA_Setting_fade_enabled) && _fadeDiff > GVAR(CBA_Setting_fade_duration
 	GVAR(faded) = true;
 };
 
+// Resize HUD according to CBA settings
+private _size = GVAR(CBA_Setting_Pingbox_Size);
+if (GVAR(currentSize) isEqualTo 0 || {not (GVAR(currentSize) isEqualTo _size)}) then {
+	[_size] call FUNC(resizePingBoxHUD);
+	hint ("calc to " + str(_size));
+};
+
 //get display
 private _display = uiNamespace getVariable "crowsza_pingbox_hud";
-
-//--- DYNAMIC HEIGHT UPDATE ---
-private _size = GVAR(CBA_Setting_Pingbox_Size); // from CBA setting
-private _newHeight = (_size / 3) * (0.066 * safezoneH);
-
-// update list + background height
-{
-	private _ctrl = _display displayCtrl _x;
-	if (!isNull _ctrl) then {
-		private _pos = ctrlPosition _ctrl;
-		if !((_pos select 3) isEqualTo _newHeight) then { // only update if different
-			_pos set [3, _newHeight];
-			_ctrl ctrlSetPosition _pos;
-			_ctrl ctrlCommit 0;
-		};
-	};
-} foreach [IDC_PINGBOX_LIST, IDC_PINGBOX_BACKGROUND];
 
 // check if anything to draw 
 if (count GVAR(ping_list) == 0) exitWith {};

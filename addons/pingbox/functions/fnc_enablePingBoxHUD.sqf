@@ -23,6 +23,7 @@ GVAR(ping_list) = [];
 GVAR(faded) = false;
 GVAR(ping_list_update) = 0;
 GVAR(hidden) = false;
+GVAR(currentSize) = 0;
 
 //create hud 
 QGVAR(layer) cutRsc ["crowsza_pingbox_hud","PLAIN", 0, true]; 

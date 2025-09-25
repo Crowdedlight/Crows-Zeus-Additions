@@ -26,9 +26,9 @@ class RscTitles
             {
                 idc = IDC_PINGBOX_LIST;
                 x = QUOTE(0.139062 * safezoneW + safezoneX);
-                y = QUOTE(0.929 * safezoneH + safezoneY);
-                w = QUOTE(0.108281 * safezoneW);
-                h = QUOTE(0.066 * safezoneH);
+                y = QUOTE(PINGBOX_POS_Y_DEFAULT * safezoneH + safezoneY);
+                w = QUOTE(PINGBOX_WIDTH_DEFAULT * safezoneW);
+                h = QUOTE(3 * PINGBOX_LINE_HEIGHT * safezoneH);
                 drawSideArrows = 0;
                 disableOverflow = 1;
                 tooltipPerColumn = 0;
@@ -41,8 +41,8 @@ class RscTitles
                 text = "PingBox";
                 style = QUOTE(ST_CENTER);
                 x = QUOTE(0.139062 * safezoneW + safezoneX);
-                y = QUOTE(0.907 * safezoneH + safezoneY);
-                w = QUOTE(0.108281 * safezoneW);
+                y = QUOTE((PINGBOX_POS_Y_DEFAULT - PINGBOX_LINE_HEIGHT) * safezoneH + safezoneY);
+                w = QUOTE(PINGBOX_WIDTH_DEFAULT * safezoneW);
                 h = QUOTE(0.022 * safezoneH);
                 colorBackground[] = GUI_THEME_COLOR;
             };
@@ -50,9 +50,9 @@ class RscTitles
                 idc = IDC_PINGBOX_BACKGROUND;
                 style = QUOTE(ST_CENTER);
                 x = QUOTE(0.139062 * safezoneW + safezoneX);
-                y = QUOTE(0.929 * safezoneH + safezoneY);
-                w = QUOTE(0.108281 * safezoneW);
-                h = QUOTE(0.066 * safezoneH);
+                y = QUOTE(PINGBOX_POS_Y_DEFAULT * safezoneH + safezoneY);
+                w = QUOTE(PINGBOX_WIDTH_DEFAULT * safezoneW);
+                h = QUOTE(3 * PINGBOX_LINE_HEIGHT * safezoneH);
                 colorText[] = {1, 1, 1, 0.5};
                 colorBackground[] = {0, 0, 0, 0.5};
             };
