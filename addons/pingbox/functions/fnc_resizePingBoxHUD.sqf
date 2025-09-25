@@ -15,20 +15,26 @@ Resizes the pingbox HUD according to the current CBA settings
 
 params ["_desiredSize"];
 
-//get display
-private _display = uiNamespace getVariable "crowsza_pingbox_hud";
-
-private _newHeight = PINGBOX_LINE_HEIGHT * _desiredSize * safezoneH;
-
-// update list + background height
-{
-	private _ctrl = _display displayCtrl _x;
+private _resizeCtrl = {
+	params ["_id", "_pos"];
+	private _display = uiNamespace getVariable "crowsza_pingbox_hud";
+	private _ctrl = _display displayCtrl _id;
+	
 	if (!isNull _ctrl) then {
-		private _pos = ctrlPosition _ctrl;
-		_pos set [3, _newHeight];
 		_ctrl ctrlSetPosition _pos;
 		_ctrl ctrlCommit 0;
 	};
-} foreach [IDC_PINGBOX_LIST, IDC_PINGBOX_BACKGROUND];
+};
+
+private _posList = [
+	PINGBOX_POS_X_DEFAULT * safezoneW + safezoneX,
+	PINGBOX_POS_Y_DEFAULT * safezoneH + safezoneY,
+	PINGBOX_WIDTH_DEFAULT * safezoneW,
+	PINGBOX_LINE_HEIGHT * _desiredSize * safezoneH
+];
+
+[IDC_PINGBOX_LIST, _posList] call _resizeCtrl;
+[IDC_PINGBOX_BACKGROUND, _posList] call _resizeCtrl;
+
 
 GVAR(currentSize) = _desiredSize;
