@@ -25,7 +25,7 @@ class RscTitles
             class list: ctrlListNBox
             {
                 idc = IDC_PINGBOX_LIST;
-                x = QUOTE(0.139062 * safezoneW + safezoneX);
+                x = QUOTE(PINGBOX_POS_X_DEFAULT * safezoneW + safezoneX);
                 y = QUOTE(PINGBOX_POS_Y_DEFAULT * safezoneH + safezoneY);
                 w = QUOTE(PINGBOX_WIDTH_DEFAULT * safezoneW);
                 h = QUOTE(3 * PINGBOX_LINE_HEIGHT * safezoneH);
@@ -40,16 +40,16 @@ class RscTitles
                 idc = IDC_PINGBOX_TITLE;
                 text = "PingBox";
                 style = QUOTE(ST_CENTER);
-                x = QUOTE(0.139062 * safezoneW + safezoneX);
+                x = QUOTE(PINGBOX_POS_X_DEFAULT * safezoneW + safezoneX);
                 y = QUOTE((PINGBOX_POS_Y_DEFAULT - PINGBOX_LINE_HEIGHT) * safezoneH + safezoneY);
                 w = QUOTE(PINGBOX_WIDTH_DEFAULT * safezoneW);
-                h = QUOTE(0.022 * safezoneH);
+                h = QUOTE(PINGBOX_LINE_HEIGHT * safezoneH);
                 colorBackground[] = GUI_THEME_COLOR;
             };
             class ListBackground: RscText {
                 idc = IDC_PINGBOX_BACKGROUND;
                 style = QUOTE(ST_CENTER);
-                x = QUOTE(0.139062 * safezoneW + safezoneX);
+                x = QUOTE(PINGBOX_POS_X_DEFAULT * safezoneW + safezoneX);
                 y = QUOTE(PINGBOX_POS_Y_DEFAULT * safezoneH + safezoneY);
                 w = QUOTE(PINGBOX_WIDTH_DEFAULT * safezoneW);
                 h = QUOTE(3 * PINGBOX_LINE_HEIGHT * safezoneH);

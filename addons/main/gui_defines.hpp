@@ -40,6 +40,7 @@
 //Pingbox Sizes
 #define PINGBOX_LINE_HEIGHT    0.022
 #define PINGBOX_POS_Y_DEFAULT  0.929
+#define PINGBOX_POS_X_DEFAULT  0.139062
 #define PINGBOX_WIDTH_DEFAULT  0.108281
 
 //array types

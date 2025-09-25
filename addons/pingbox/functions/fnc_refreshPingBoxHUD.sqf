@@ -28,10 +28,10 @@ if (GVAR(CBA_Setting_fade_enabled) && _fadeDiff > GVAR(CBA_Setting_fade_duration
 };
 
 // Resize HUD according to CBA settings
-private _size = GVAR(CBA_Setting_Pingbox_Size);
-if (GVAR(currentSize) isEqualTo 0 || {not (GVAR(currentSize) isEqualTo _size)}) then {
-	[_size] call FUNC(resizePingBoxHUD);
-	hint ("calc to " + str(_size));
+private _desiredSize = GVAR(CBA_Setting_Pingbox_Size);
+if (not (GVAR(currentSize) isEqualTo _desiredSize)) then {
+	[_desiredSize] call FUNC(resizePingBoxHUD);
+	hint ("calc to " + str(_desiredSize));
 };
 
 //get display
