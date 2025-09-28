@@ -34,6 +34,15 @@
 //IDC for pingbox
 #define IDC_PINGBOX 			1720
 #define IDC_PINGBOX_LIST 		1730
+#define IDC_PINGBOX_TITLE 		1740
+#define IDC_PINGBOX_BACKGROUND	1750
+
+//Pingbox Sizes
+#define PINGBOX_LINE_HEIGHT    0.020
+#define PINGBOX_POS_Y_DEFAULT  0.929
+#define PINGBOX_POS_X_DEFAULT  0.139062
+#define PINGBOX_WIDTH_DEFAULT  0.108281
+#define PINGBOX_SIZE_DEFAULT   3
 
 //array types
 #define TYPE_WEAPON "weapon"

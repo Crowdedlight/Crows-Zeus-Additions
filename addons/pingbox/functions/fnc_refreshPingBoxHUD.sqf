@@ -27,11 +27,17 @@ if (GVAR(CBA_Setting_fade_enabled) && _fadeDiff > GVAR(CBA_Setting_fade_duration
 	GVAR(faded) = true;
 };
 
-// check if anything to draw 
-if (count GVAR(ping_list) == 0) exitWith {};
+// Resize HUD according to CBA settings
+private _desiredSize = GVAR(CBA_Setting_Pingbox_Size);
+if (not (GVAR(currentSize) isEqualTo _desiredSize)) then {
+	[_desiredSize] call FUNC(resizePingBoxHUD);
+};
 
 //get display
 private _display = uiNamespace getVariable "crowsza_pingbox_hud";
+
+// check if anything to draw 
+if (count GVAR(ping_list) == 0) exitWith {};
 
 //get list 
 private _ctrlList = _display displayCtrl IDC_PINGBOX_LIST;

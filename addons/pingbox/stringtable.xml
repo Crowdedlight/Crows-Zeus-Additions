@@ -41,5 +41,30 @@
             <Chinesesimp>如果启用渐变 , PingBox 从视图中淡出前的时间</Chinesesimp>
             <French>Temps avant que la PingBox ne disparaisse de la vue si l'option Fondu est activée</French>
         </Key>
+		<Key ID="STR_CROWSZA_Pingbox_setting_size">
+			<English>Pingbox Size</English>
+			<Chinesesimp>Pingbox 大小</Chinesesimp>
+			<French>Taille du Pingbox</French>
+		</Key>
+		<Key ID="STR_CROWSZA_Pingbox_setting_size_tooltip">
+			<English>How many entries can fit into the pingbox</English>
+			<Chinesesimp>Pingbox 可容纳的条目数量</Chinesesimp>
+			<French>Nombre d’entrées pouvant tenir dans le pingbox</French>
+		</Key>
+		<Key ID="STR_CROWSZA_Pingbox_setting_size_option_small">
+			<English>Small (3 entries)</English>
+			<Chinesesimp>小 (3 个条目)</Chinesesimp>
+			<French>Petit (3 entrées)</French>
+		</Key>
+		<Key ID="STR_CROWSZA_Pingbox_setting_size_option_medium">
+			<English>Medium (5 entries)</English>
+			<Chinesesimp>中 (5 个条目)</Chinesesimp>
+			<French>Moyen (5 entrées)</French>
+		</Key>
+		<Key ID="STR_CROWSZA_Pingbox_setting_size_option_large">
+			<English>Large (7 entries)</English>
+			<Chinesesimp>大 (7 个条目)</Chinesesimp>
+			<French>Grand (7 entrées)</French>
+		</Key>
     </Package>
 </Project>
