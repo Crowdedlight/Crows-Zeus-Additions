@@ -35,13 +35,13 @@ if (_index > -1) then {
     GVAR(ping_list) deleteAt _index;
 };
 
-// check count of global array with entries, if > 3, pop the oldest in array. (FIFO)
-if (count GVAR(ping_list) >= 3) then {
-	GVAR(ping_list) deleteAt 2;
-};
-
 // pushBack to array 
 GVAR(ping_list) pushBack [_player, time, _numPings];
+
+// check count of global array with entries, if > CBA_Setting_Pingbox_Size, pop the oldest in array. (FIFO)
+if (count GVAR(ping_list) > GVAR(CBA_Setting_Pingbox_Size)) then {
+	GVAR(ping_list) deleteAt (GVAR(CBA_Setting_Pingbox_Size));
+};
 
 // sort array 
 GVAR(ping_list) = [GVAR(ping_list), [], {_x select 1}, "DESC"] call BIS_fnc_sortBy;

@@ -50,6 +50,30 @@
 			<English>Time threshold in seconds during which repeated pings from the same player are counted as spam pings. If more time has passed, the ping is considered a completely new one.</English>
 			<Chinesesimp>在此时间阈值内 , 同一玩家的重复标记将被视为连续标记并合并显示。超过该时间后 , 标记将被视为全新的标记。</Chinesesimp>
 			<French>Seuil en secondes pendant lequel plusieurs pings du même joueur sont considérés comme des pings répétés et sont regroupés. Si plus de temps s’est écoulé, le ping est traité comme un tout nouveau.</French>
+		<Key ID="STR_CROWSZA_Pingbox_setting_size">
+			<English>Pingbox Size</English>
+			<Chinesesimp>Pingbox 大小</Chinesesimp>
+			<French>Taille du Pingbox</French>
+		</Key>
+		<Key ID="STR_CROWSZA_Pingbox_setting_size_tooltip">
+			<English>How many entries can fit into the pingbox</English>
+			<Chinesesimp>Pingbox 可容纳的条目数量</Chinesesimp>
+			<French>Nombre d’entrées pouvant tenir dans le pingbox</French>
+		</Key>
+		<Key ID="STR_CROWSZA_Pingbox_setting_size_option_small">
+			<English>Small (3 entries)</English>
+			<Chinesesimp>小 (3 个条目)</Chinesesimp>
+			<French>Petit (3 entrées)</French>
+		</Key>
+		<Key ID="STR_CROWSZA_Pingbox_setting_size_option_medium">
+			<English>Medium (5 entries)</English>
+			<Chinesesimp>中 (5 个条目)</Chinesesimp>
+			<French>Moyen (5 entrées)</French>
+		</Key>
+		<Key ID="STR_CROWSZA_Pingbox_setting_size_option_large">
+			<English>Large (7 entries)</English>
+			<Chinesesimp>大 (7 个条目)</Chinesesimp>
+			<French>Grand (7 entrées)</French>
 		</Key>
     </Package>
 </Project>
