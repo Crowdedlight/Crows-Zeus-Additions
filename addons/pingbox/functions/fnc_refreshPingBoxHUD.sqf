@@ -48,9 +48,13 @@ lnbClear _ctrlList;
 private _delArr = [];
 // add new entry
 {
-	_x params ["_player", "_pingtime"];
+	_x params ["_player", "_pingtime", "_numPings"];
 	private _timeDiff = round(time - _pingtime);
 	private _name = name _player;
+	
+	if (_numPings > 1) then {
+		_name = format ["%1 (%2)", _name, _numPings];
+	};
 
 	// if we are over the set threshold, we should not draw and remove instead
 	if (_timeDiff > GVAR(CBA_Setting_oldLimit)) then {
