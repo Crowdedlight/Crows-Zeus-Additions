@@ -14,7 +14,7 @@ params ["_unit"];
 // always updates array with changes, as the toggle setting check happens in draw handler
 private _rcUnits = missionNamespace getVariable[QGVAR(rcUnits), []];
 // remove unit
-_rcUnits = _rcUnits - [_unit];
+_rcUnits = _rcUnits - [[_unit, name player]];
 // remove duplicates by chance
 _rcUnits = _rcUnits arrayIntersect _rcUnits;
 // push update

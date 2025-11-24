@@ -9,7 +9,7 @@ Return: none
 Draws Icon as called
 
 *///////////////////////////////////////////////
-params ["_zeusPos", "_unit", "_icon", "_color"];
+params ["_zeusPos", "_unit", "_icon", "_color", ["_name", ""]];
 
 // calculate distance from zeus camera to unit
 private _dist = _zeusPos distance _unit;
@@ -32,4 +32,9 @@ if (_dist > 60) then {
 private _pos = ASLToAGL getPosASLVisual _unit;
 _pos = _pos vectorAdd [0, 0, 2.15 + _offset];
 
-drawIcon3D [_icon, _color, _pos, 1 + _scale, 1 + _scale, 0];
+// if given name, also show name above icon
+if (_name != "") then {
+	drawIcon3D [_icon, _color, _pos, 1 + _scale, 1 + _scale, 0, _name, 1, 0.04 , "RobotoCondensed", "right", false, 0.005, -0.03];
+} else {
+	drawIcon3D [_icon, _color, _pos, 1 + _scale, 1 + _scale, 0];
+};

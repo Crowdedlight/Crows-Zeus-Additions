@@ -65,8 +65,9 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 
 	// RC ICON
 	{
-		_x params["_unit"];
-		[_zeusPos, _unit, "\a3\ui_f_curator\data\logos\arma3_curator_eye_512_ca.paa", GVAR(CBA_Setting_rc_helper_color)] call FUNC(drawIcon);
+		_x params["_unit", "_name"];
+		[_zeusPos, _unit, "\a3\ui_f_curator\data\logos\arma3_curator_eye_512_ca.paa", GVAR(CBA_Setting_rc_helper_color), _name] call FUNC(drawIcon);
+
 	} forEach _rcUnits;
 }];
 
