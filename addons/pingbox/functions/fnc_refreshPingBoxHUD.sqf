@@ -71,6 +71,6 @@ private _delArr = [];
 } forEach GVAR(ping_list);
 
 // delete entries that is over the time threshold
-if (count _delArr > 0) then {
+if (_delArr isNotEqualTo []) then {
 	GVAR(ping_list) = GVAR(ping_list) - _delArr;	
 };

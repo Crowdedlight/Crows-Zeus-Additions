@@ -76,9 +76,9 @@ _grenades append _grenadeNotSmoke;
 	// NOTE: This includes chemlights, IR strobes, and UGL smokes
 	if(_itemType == 0 &&
 		// Check that the item is of the specified type (or inherits from something that is)
-		{ count (_smokes arrayIntersect _itemAndParents) > 0 } &&
+		{ _smokes arrayIntersect _itemAndParents isNotEqualTo [] } &&
 		// Check there are no exceptions for this item (and that it doesn't inherit from something with an exception)
-		{ count ( _grenadeNotSmoke arrayIntersect _itemAndParents) == 0 }
+		{ _grenadeNotSmoke arrayIntersect _itemAndParents isEqualTo [] }
 	)
 	then {
 		if(_leave <= 0) then {
@@ -106,10 +106,10 @@ _grenades append _grenadeNotSmoke;
 
 	if(_itemType == 1 &&
 		// Check that the item is of the specified type (or inherits from something that is)
-		{ count (_grenades arrayIntersect _itemAndParents) > 0 } &&
+		{ _grenades arrayIntersect _itemAndParents isNotEqualTo [] } &&
 		// Check there are no exceptions for this item (and that it doesn't inherit from something with an exception)
-		{!("SmokeShell" in _itemAndParents) || count (_grenadeNotSmoke arrayIntersect _itemAndParents) > 0 } &&
-		{ count ( _smokeNotGrenade arrayIntersect _itemAndParents) == 0 }
+		{!("SmokeShell" in _itemAndParents) || _grenadeNotSmoke arrayIntersect _itemAndParents isNotEqualTo [] } &&
+		{ _smokeNotGrenade arrayIntersect _itemAndParents isEqualTo [] }
 	) then {
 		if(_leave <= 0) then {
 			_unit removeMagazineGlobal _item;
@@ -153,7 +153,7 @@ _grenades append _grenadeNotSmoke;
 		
 	};
 
-	if(_itemType == 2 && { count (_explosives arrayIntersect _itemAndParents) > 0 }) then {
+	if(_itemType == 2 && { _explosives arrayIntersect _itemAndParents isNotEqualTo [] }) then {
 		if(_leave <= 0) then {
 			_unit removeMagazineGlobal _item;
 			if(_replaceCustom isNotEqualTo "") then {

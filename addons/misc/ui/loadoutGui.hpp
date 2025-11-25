@@ -1,9 +1,5 @@
 class RscText;
-class RscEdit;
-class ctrlButton;
 class ctrlListNBox;
-class ctrlProgress;
-class ctrlButtonPicture;
 class RscButtonMenuOK;
 class RscButtonMenuCancel;
 class RscControlsGroupNoScrollbars;

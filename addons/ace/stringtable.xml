@@ -1,225 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Crows Zeus Additions">
     <Package name="ace">
-        <Key ID="STR_CROWSZA_ACE_module_add_damage">
-            <English>ACE Add Damage to Unit</English>
-            <Chinesesimp>ACE - 为单位增加 ACE 伤害</Chinesesimp>
-            <French>Ajout de dommages à l'unité</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_module_unconscious_toggle">
-            <English>Mass-Unconscious Toggle</English>
-            <Chinesesimp>ACE - 无意识切换</Chinesesimp>
-            <French>Inconscience collective</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_module_capture_player">
-            <English>Capture Player</English>
-            <Chinesesimp>ACE - 抓捕玩家</Chinesesimp>
-            <French>Capturer le joueur</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_module_mass_surrender">
-            <English>Mass-Surrender Toggle</English>
-            <Chinesesimp>ACE - 集体投降切换</Chinesesimp>
-            <French>Reddition collective</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_module_supply_vic">
-            <English>Set Supply Vehicle</English>
-            <Chinesesimp>ACE - 设置补给车</Chinesesimp>
-            <French>Véhicule de ravitaillement</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_module_jshk">
-            <English>JSHK Heal</English>
-            <Chinesesimp>JSHK Heal</Chinesesimp>
-            <French>JSHK Heal</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_supplyvic_name">
-            <English>Set vehicle as...</English>
-            <Chinesesimp>将车辆设置为...</Chinesesimp>
-            <French>Définir le véhicule comme...</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_supplyvic_rearm">
-            <English>Rearm</English>
-            <Chinesesimp>重新武装</Chinesesimp>
-            <French>Réarmement</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_supplyvic_rearm_tooltip">
-            <English>Set vehicle as rearm vehicle</English>
-            <Chinesesimp>将车辆设置为重新武装车辆</Chinesesimp>
-            <French>Définir le véhicule comme véhicule de réarmement</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_supplyvic_repair">
-            <English>Repair</English>
-            <Chinesesimp>修理</Chinesesimp>
-            <French>Réparation</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_supplyvic_repair_tooltip">
-            <English>Set vehicle as repair vehicle</English>
-            <Chinesesimp>将车辆设置为修理车</Chinesesimp>
-            <French>Définir le véhicule comme véhicule de réparation</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_supplyvic_refuel">
-            <English>Refuel</English>
-            <Chinesesimp>加油</Chinesesimp>
-            <French>Ravitaillement</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_supplyvic_refuel_tooltip">
-            <English>Set vehicle as refuel vehicle</English>
-            <Chinesesimp>将车辆设置为加油车</Chinesesimp>
-            <French>Définir le véhicule comme véhicule de ravitaillement</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_supplyvic_refuel_amount">
-            <English>Refuel Amount [liters]</English>
-            <Chinesesimp>为加油车设置油量 [升]</Chinesesimp>
-            <French>Quantité de carburant [litres]</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_massunconscious_name">
-            <English>Mass Unconscious</English>
-            <Chinesesimp>ACE - 无意识切换菜单</Chinesesimp>
-            <French>Inconscience de masse</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_massunconscious_units">
-            <English>Units</English>
-            <Chinesesimp>单位</Chinesesimp>
-            <French>Unités</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_masssurrender_name">
-            <English>Mass Surrender/Captive</English>
-            <Chinesesimp>ACE - 集体投降切换菜单</Chinesesimp>
-            <French>Massif Capitulation/Captivité</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_masssurrender_action">
-            <English>Action</English>
-            <Chinesesimp>行动</Chinesesimp>
-            <French>Action</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_masssurrender_surrender">
-            <English>Surrender</English>
-            <Chinesesimp>投降</Chinesesimp>
-            <French>Capitulation</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_masssurrender_captive">
-            <English>Captive</English>
-            <Chinesesimp>俘虏</Chinesesimp>
-            <French>Captif</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_name">
-            <English>Add ACE Damage to Unit</English>
-            <Chinesesimp>ACE - 为单位增加 ACE 伤害菜单</Chinesesimp>
-            <French>Ajouter les dommages ACE à l'unité</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart">
-            <English>Body Part</English>
-            <Chinesesimp>身体部位</Chinesesimp>
-            <French>Partie du corps</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_head">
-            <English>Head</English>
-            <Chinesesimp>头</Chinesesimp>
-            <French>Tête</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_body">
-            <English>Body</English>
-            <Chinesesimp>身体</Chinesesimp>
-            <French>Corps</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_leg_l">
-            <English>Left Leg</English>
-            <Chinesesimp>左腿</Chinesesimp>
-            <French>Jambe gauche</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_leg_r">
-            <English>Right Leg</English>
-            <Chinesesimp>右腿</Chinesesimp>
-            <French>Jambe droite</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_hand_l">
-            <English>Left Hand</English>
-            <Chinesesimp>左手</Chinesesimp>
-            <French>Main gauche</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_hand_r">
-            <English>Right Hand</English>
-            <Chinesesimp>右手</Chinesesimp>
-            <French>Main droite</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_falling">
-            <English>Falling</English>
-            <Chinesesimp>坠落</Chinesesimp>
-            <French>Chute</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_ropeburn">
-            <English>Ropeburn</English>
-            <Chinesesimp>Ropeburn</Chinesesimp>
-            <French>Brûlure de la corde</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_vehiclecrash">
-            <English>Vehiclecrash</English>
-            <Chinesesimp>车辆撞击</Chinesesimp>
-            <French>Accident de véhicule</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_collision">
-            <English>Collision</English>
-            <Chinesesimp>碰撞</Chinesesimp>
-            <French>Collision</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_unknown">
-            <English>Unkown</English>
-            <Chinesesimp>未知</Chinesesimp>
-            <French>Inconnu</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_explosive">
-            <English>Explosive</English>
-            <Chinesesimp>爆炸</Chinesesimp>
-            <French>Explosif</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_grenade">
-            <English>Grenade</English>
-            <Chinesesimp>手榴弹</Chinesesimp>
-            <French>Grenade</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_shell">
-            <English>Shell</English>
-            <Chinesesimp>炮轰</Chinesesimp>
-            <French>Obus</French>
-        </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_bullet">
-            <English>Bullet</English>
-            <Chinesesimp>子弹</Chinesesimp>
-            <French>Balle</French>
-        </Key>
         <Key ID="STR_CROWSZA_ACE_adddamage_backblast">
             <English>Backblast</English>
-            <Chinesesimp>反向爆破</Chinesesimp>
             <French>Backblast</French>
+            <Chinesesimp>反向爆破</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_ACE_adddamage_bite">
             <English>Bite</English>
-            <Chinesesimp>咬</Chinesesimp>
             <French>Morsure</French>
+            <Chinesesimp>咬</Chinesesimp>
         </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_punch">
-            <English>Punch</English>
-            <Chinesesimp>被揍</Chinesesimp>
-            <French>Frapper</French>
+        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart">
+            <English>Body Part</English>
+            <French>Partie du corps</French>
+            <Chinesesimp>身体部位</Chinesesimp>
         </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_stab">
-            <English>Stab</English>
-            <Chinesesimp>捅</Chinesesimp>
-            <French>Stab</French>
+        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_body">
+            <English>Body</English>
+            <French>Corps</French>
+            <Chinesesimp>身体</Chinesesimp>
         </Key>
-        <Key ID="STR_CROWSZA_ACE_adddamage_drowning">
-            <English>Drowning</English>
-            <Chinesesimp>溺水</Chinesesimp>
-            <French>Noyer</French>
+        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_hand_l">
+            <English>Left Hand</English>
+            <French>Main gauche</French>
+            <Chinesesimp>左手</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_hand_r">
+            <English>Right Hand</English>
+            <French>Main droite</French>
+            <Chinesesimp>右手</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_head">
+            <English>Head</English>
+            <French>Tête</French>
+            <Chinesesimp>头</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_leg_l">
+            <English>Left Leg</English>
+            <French>Jambe gauche</French>
+            <Chinesesimp>左腿</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_bodypart_leg_r">
+            <English>Right Leg</English>
+            <French>Jambe droite</French>
+            <Chinesesimp>右腿</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_bullet">
+            <English>Bullet</English>
+            <French>Balle</French>
+            <Chinesesimp>子弹</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_ACE_adddamage_burn">
             <English>Burn</English>
-            <Chinesesimp>烧伤</Chinesesimp>
             <French>Brûler</French>
+            <Chinesesimp>烧伤</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_collision">
+            <English>Collision</English>
+            <French>Collision</French>
+            <Chinesesimp>碰撞</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_ACE_adddamage_damage">
             <English>Damage</English>
-            <Chinesesimp>损坏</Chinesesimp>
             <French>Dégâts</French>
+            <Chinesesimp>损坏</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_drowning">
+            <English>Drowning</English>
+            <French>Noyer</French>
+            <Chinesesimp>溺水</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_explosive">
+            <English>Explosive</English>
+            <French>Explosif</French>
+            <Chinesesimp>爆炸</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_falling">
+            <English>Falling</English>
+            <French>Chute</French>
+            <Chinesesimp>坠落</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_grenade">
+            <English>Grenade</English>
+            <French>Grenade</French>
+            <Chinesesimp>手榴弹</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_name">
+            <English>Add ACE Damage to Unit</English>
+            <French>Ajouter les dommages ACE à l'unité</French>
+            <Chinesesimp>ACE - 为单位增加 ACE 伤害菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_punch">
+            <English>Punch</English>
+            <French>Frapper</French>
+            <Chinesesimp>被揍</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_ropeburn">
+            <English>Ropeburn</English>
+            <French>Brûlure de la corde</French>
+            <Chinesesimp>Ropeburn</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_shell">
+            <English>Shell</English>
+            <French>Obus</French>
+            <Chinesesimp>炮轰</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_stab">
+            <English>Stab</English>
+            <French>Stab</French>
+            <Chinesesimp>捅</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_unknown">
+            <English>Unkown</English>
+            <French>Inconnu</French>
+            <Chinesesimp>未知</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_adddamage_vehiclecrash">
+            <English>Vehiclecrash</English>
+            <French>Accident de véhicule</French>
+            <Chinesesimp>车辆撞击</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_masssurrender_action">
+            <English>Action</English>
+            <French>Action</French>
+            <Chinesesimp>行动</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_masssurrender_captive">
+            <English>Captive</English>
+            <French>Captif</French>
+            <Chinesesimp>俘虏</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_masssurrender_name">
+            <English>Mass Surrender/Captive</English>
+            <French>Massif Capitulation/Captivité</French>
+            <Chinesesimp>ACE - 集体投降切换菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_masssurrender_surrender">
+            <English>Surrender</English>
+            <French>Capitulation</French>
+            <Chinesesimp>投降</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_massunconscious_name">
+            <English>Mass Unconscious</English>
+            <French>Inconscience de masse</French>
+            <Chinesesimp>ACE - 无意识切换菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_massunconscious_units">
+            <English>Units</English>
+            <French>Unités</French>
+            <Chinesesimp>单位</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_module_add_damage">
+            <English>ACE Add Damage to Unit</English>
+            <French>Ajout de dommages à l'unité</French>
+            <Chinesesimp>ACE - 为单位增加 ACE 伤害</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_module_capture_player">
+            <English>Capture Player</English>
+            <French>Capturer le joueur</French>
+            <Chinesesimp>ACE - 抓捕玩家</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_module_jshk">
+            <English>JSHK Heal</English>
+            <French>JSHK Heal</French>
+            <Chinesesimp>JSHK Heal</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_module_mass_surrender">
+            <English>Mass-Surrender Toggle</English>
+            <French>Reddition collective</French>
+            <Chinesesimp>ACE - 集体投降切换</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_module_supply_vic">
+            <English>Set Supply Vehicle</English>
+            <French>Véhicule de ravitaillement</French>
+            <Chinesesimp>ACE - 设置补给车</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_module_unconscious_toggle">
+            <English>Mass-Unconscious Toggle</English>
+            <French>Inconscience collective</French>
+            <Chinesesimp>ACE - 无意识切换</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_supplyvic_name">
+            <English>Set vehicle as...</English>
+            <French>Définir le véhicule comme...</French>
+            <Chinesesimp>将车辆设置为...</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_supplyvic_rearm">
+            <English>Rearm</English>
+            <French>Réarmement</French>
+            <Chinesesimp>重新武装</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_supplyvic_rearm_tooltip">
+            <English>Set vehicle as rearm vehicle</English>
+            <French>Définir le véhicule comme véhicule de réarmement</French>
+            <Chinesesimp>将车辆设置为重新武装车辆</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_supplyvic_refuel">
+            <English>Refuel</English>
+            <French>Ravitaillement</French>
+            <Chinesesimp>加油</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_supplyvic_refuel_amount">
+            <English>Refuel Amount [liters]</English>
+            <French>Quantité de carburant [litres]</French>
+            <Chinesesimp>为加油车设置油量 [升]</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_supplyvic_refuel_tooltip">
+            <English>Set vehicle as refuel vehicle</English>
+            <French>Définir le véhicule comme véhicule de ravitaillement</French>
+            <Chinesesimp>将车辆设置为加油车</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_supplyvic_repair">
+            <English>Repair</English>
+            <French>Réparation</French>
+            <Chinesesimp>修理</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_ACE_supplyvic_repair_tooltip">
+            <English>Set vehicle as repair vehicle</English>
+            <French>Définir le véhicule comme véhicule de réparation</French>
+            <Chinesesimp>将车辆设置为修理车</Chinesesimp>
         </Key>
     </Package>
 </Project>

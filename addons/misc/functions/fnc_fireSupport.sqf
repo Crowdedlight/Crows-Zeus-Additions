@@ -109,7 +109,7 @@ private _onConfirm =
 			// check if parent of flare, then reduce vertical speed
 			private _ammoParent = str(inheritsFrom (configFile >> "CfgAmmo" >> _type));
 			_ammoParent = ([_ammoParent, "/"] call BIS_fnc_splitString);
-			_ammoParent = _ammoParent select (count _ammoParent - 1);
+			_ammoParent = _ammoParent select -1;
 
 			private _verticalSpeed = 150; //default 
 			if (_ammoParent in ["FlareCore", "FlareBase"]) then {_verticalSpeed = 2;};

@@ -17,7 +17,7 @@ Toggle pathing for the passed units
 
 params [["_units",[],[[objNull]],[]], ["_action", 0, [0]]];
 
-if(count _units == 0 || _action < 0 || _action > 2) exitWith { false };
+if(_units isEqualTo [] || _action < 0 || _action > 2) exitWith { false };
 
 {
 	if(isPlayer _x) then { continue };

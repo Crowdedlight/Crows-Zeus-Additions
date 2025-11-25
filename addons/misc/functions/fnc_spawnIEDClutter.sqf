@@ -140,7 +140,7 @@ private _largeClutter = _mediumJunk + _largeWrecks + _largeConstruction;
 /*/////////////////////////////////////////////////
 
 // TODO: Amount may require fine-tuning
-private _clutterAmount = 3.14 * _radius * _radius * _density * 0.1;
+private _clutterAmount = pi * _radius * _radius * _density * 0.1;
 for "_i" from 1 to _clutterAmount do {
 	private _safePos = [_pos, 0, _radius, 0.5, 0, 0, 0, [], [[0,0], [0,0]]] call BIS_fnc_findSafePos;
 

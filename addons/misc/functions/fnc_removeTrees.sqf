@@ -37,7 +37,7 @@ if (_stoneRemoval) then {
 };
 
 // these are the main classes of objects, only run if we have at least one selected, as it otherwise removes everything
-if (count _hideMainTypes > 0) then {
+if (_hideMainTypes isNotEqualTo []) then {
 	{ _hideTObjs pushBack _x } forEach (nearestTerrainObjects [_posAGL,_hideMainTypes,_radius, false, true]); //enable 2d mode
 };
 

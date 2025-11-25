@@ -53,7 +53,7 @@ private _mouseEH = [_display, "MouseButtonDown", {
     private _position = [] call FUNC(getPosFromMouse);
 
     // check if first position, and set start point
-    if ((count GVAR(startPos)) != 0) then {
+    if (GVAR(startPos) isNotEqualTo []) then {
         // get extra options
         _thisArgs params ["_object", "_enableSim", "_enableDmg"];
 

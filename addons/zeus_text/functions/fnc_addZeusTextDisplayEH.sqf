@@ -14,7 +14,7 @@ Adds the drawEvent handlers to zeus to show the helper text for modules applied 
 GVAR(unit_medical_drawEH) = addMissionEventHandler ["Draw3D", {
 	// if zeus display is null, exit. Only drawing when zeus display is open
 	//if (isNull(findDisplay 312)) exitWith {};
-	if (isNull _x) exitWith {};
+	if (isNull(findDisplay 312)) exitWith {};
 	if (!GVAR(medicalDisplay)) exitWith {};
 
 	// cam position
@@ -51,9 +51,8 @@ GVAR(unit_medical_drawEH) = addMissionEventHandler ["Draw3D", {
 }];
 
 GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
-	// if zeus display is null, exit. Only drawing when zeus display is open
+	// if zeus display is null, exit. Only drawing when zeus display is open // Changed, we draw this so zeus while RC'ing others, can see who else RC at same time
 	//if (isNull(findDisplay 312)) exitWith {};
-	if (isNull _x) exitWith {};
 	if (!GVAR(CBA_Setting_rc_helper)) exitWith {};
 	if (uiNamespace getVariable ["RscDisplayCurator_screenshotMode", false]) exitWith {};
 
@@ -74,8 +73,7 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 
 GVAR(unit_surrender_drawEH) = addMissionEventHandler ["Draw3D", {
 	// if zeus display is null, exit. Only drawing when zeus display is open
-	//if (isNull(findDisplay 312)) exitWith {};
-	if (isNull _x) exitWith {};
+	if (isNull(findDisplay 312)) exitWith {};
 	if (!GVAR(CBA_Setting_surrender_helper)) exitWith {};
 	if (uiNamespace getVariable ["RscDisplayCurator_screenshotMode", false]) exitWith {};
 
@@ -91,8 +89,7 @@ GVAR(unit_surrender_drawEH) = addMissionEventHandler ["Draw3D", {
 
 GVAR(unit_onKilledModule_drawEH) = addMissionEventHandler ["Draw3D", {
 	// if zeus display is null, exit. Only drawing when zeus display is open
-	//if (isNull(findDisplay 312)) exitWith {};
-	if (isNull _x ||
+	if (isNull(findDisplay 312) ||
 		{!GVAR(CBA_Setting_OnKilledModule_helper) ||
 		{uiNamespace getVariable ["RscDisplayCurator_screenshotMode", false]}}
 	) exitWith {};

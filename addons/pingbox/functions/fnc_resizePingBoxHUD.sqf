@@ -33,20 +33,20 @@ private _yOffset = _extraSize * PINGBOX_LINE_HEIGHT;
 
 // Calculate and apply the position array for the list and its background
 private _posList = [
-	PINGBOX_POS_X_DEFAULT * safezoneW + safezoneX,
-	(PINGBOX_POS_Y_DEFAULT - _yOffset) * safezoneH + safezoneY,
-	PINGBOX_WIDTH_DEFAULT * safezoneW,
-	PINGBOX_LINE_HEIGHT * _desiredSize * safezoneH
+	PINGBOX_POS_X_DEFAULT * safeZoneW + safeZoneX,
+	(PINGBOX_POS_Y_DEFAULT - _yOffset) * safeZoneH + safeZoneY,
+	PINGBOX_WIDTH_DEFAULT * safeZoneW,
+	PINGBOX_LINE_HEIGHT * _desiredSize * safeZoneH
 ];
 [IDC_PINGBOX_LIST, _posList] call _resizeCtrl;
 [IDC_PINGBOX_BACKGROUND, _posList] call _resizeCtrl;
 
 // Calculate and apply the position array for the pingbox title
 private _posTitle = [
-	PINGBOX_POS_X_DEFAULT * safezoneW + safezoneX,
-	(PINGBOX_POS_Y_DEFAULT - _yOffset - PINGBOX_LINE_HEIGHT) * safezoneH + safezoneY,
-	PINGBOX_WIDTH_DEFAULT * safezoneW,
-	PINGBOX_LINE_HEIGHT * safezoneH
+	PINGBOX_POS_X_DEFAULT * safeZoneW + safeZoneX,
+	(PINGBOX_POS_Y_DEFAULT - _yOffset - PINGBOX_LINE_HEIGHT) * safeZoneH + safeZoneY,
+	PINGBOX_WIDTH_DEFAULT * safeZoneW,
+	PINGBOX_LINE_HEIGHT * safeZoneH
 ];
 [IDC_PINGBOX_TITLE, _posTitle] call _resizeCtrl;
 

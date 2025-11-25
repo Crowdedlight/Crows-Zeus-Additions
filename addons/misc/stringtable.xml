@@ -1,1186 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Crows Zeus Additions">
     <Package name="misc">
-        <Key ID="STR_CROWSZA_Misc_activate_on_death">
-            <English>Activate On Death</English>
-            <Chinesesimp>死亡时激活</Chinesesimp>
-            <French>Activation à la mort</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_activate_on_death">
-            <English>Remove Activate On Death</English>
-            <Chinesesimp>移除死亡时激活</Chinesesimp>
-            <French>Suppression de l'activation à la mort</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_trees">
-            <English>Remove Trees</English>
-            <Chinesesimp>杂项 - 移除树木</Chinesesimp>
-            <French>Enlever les arbres</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_restore_trees">
-            <English>Restore Trees</English>
-            <Chinesesimp>杂项 - 恢复树木</Chinesesimp>
-            <French>Restaurer les arbres</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_follow_unit_animals">
-            <English>Follow Unit With Animal</English>
-            <Chinesesimp>杂项 - 生成跟随动物</Chinesesimp>
-            <French>Suivre l'unité avec l'animal</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_delete_follow_unit_animals">
-            <English>Delete All Follow Animals</English>
-            <Chinesesimp>杂项 - 删除所有跟随动物</Chinesesimp>
-            <French>Supprimer tous les animaux suivis</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_spawn_arsenal">
-            <English>Spawn Arsenal</English>
-            <Chinesesimp>杂项 - 生成军火库</Chinesesimp>
-            <French>Génération d'un arsenal</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_set_numberplate">
-            <English>Set Numberplate</English>
-            <Chinesesimp>杂项 - 设置车牌号</Chinesesimp>
-            <French>Définir la plaque d'immatriculation</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_delete_all_dead">
-            <English>Delete ALL dead</English>
-            <Chinesesimp>杂项 - 删除所有死亡单位</Chinesesimp>
-            <French>Supprimer TOUS les morts</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_set_colour">
-            <English>Set Colour</English>
-            <Chinesesimp>杂项 - 设置颜色</Chinesesimp>
-            <French>Choix des couleurs</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support">
-            <English>Fire Support</English>
-            <Chinesesimp>杂项 - 火力支援</Chinesesimp>
-            <French>Appui-feu</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_player_loadouts">
-            <English>Resupply Player Loadouts</English>
-            <Chinesesimp>杂项 - 补给玩家装备</Chinesesimp>
-            <French>Réapprovisionnement de l'équipement des joueurs</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_bino_radio">
-            <English>Remove Radio/Bino</English>
-            <Chinesesimp>杂项 - 移除 无线电/Bino</Chinesesimp>
-            <French>Enlever la radio/Bino</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_spawn_ied_clutter">
-            <English>Spawn IED Clutter</English>
-            <Chinesesimp>杂项 - 生成 IED 杂物</Chinesesimp>
-            <French>Générer des IED divers</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives">
-            <English>Strip Explosives</English>
-            <Chinesesimp>杂项 - Strip 爆炸物</Chinesesimp>
-            <French>Explosifs en bande</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_surrender_chance">
-            <English>Surrender Chance</English>
-            <Chinesesimp>杂项 - 投降的机会</Chinesesimp>
-            <French>La chance de la reddition</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_camera_center_unit">
-            <English>Camera Center Unit</English>
-            <Chinesesimp>摄像机中心单位</Chinesesimp>
-            <French>Caméra centrée sur l'unité</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_paste_loadout">
-            <English>Paste Loadout</English>
-            <Chinesesimp>粘贴装备</Chinesesimp>
-            <French>Coller l'équipement</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_view">
-            <English>View</English>
-            <Chinesesimp>查看</Chinesesimp>
-            <French>Voir</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_radius_heal">
-            <English>Radius Heal</English>
-            <Chinesesimp>半径治疗</Chinesesimp>
-            <French>Rayon de guérison</French>
+        <Key ID="STR_CROWSZA_Misc_100m">
+            <English>100m</English>
+            <French>100m</French>
+            <Chinesesimp>100m</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_10m">
             <English>10m</English>
-            <Chinesesimp>10m</Chinesesimp>
             <French>10m</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_50m">
-            <English>50m</English>
-            <Chinesesimp>50m</Chinesesimp>
-            <French>50m</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_100m">
-            <English>100m</English>
-            <Chinesesimp>100m</Chinesesimp>
-            <French>100m</French>
+            <Chinesesimp>10m</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_150m">
             <English>150m</English>
-            <Chinesesimp>150m</Chinesesimp>
             <French>150m</French>
+            <Chinesesimp>150m</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_200m">
             <English>200m</English>
-            <Chinesesimp>200m</Chinesesimp>
             <French>200m</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_toggle_pathing">
-            <English>Toggle Pathing</English>
-            <Chinesesimp>切换路径</Chinesesimp>
-            <French>Changement de voie</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_on">
-            <English>On</English>
-            <Chinesesimp>开启</Chinesesimp>
-            <French>Marche</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_off">
-            <English>Off</English>
-            <Chinesesimp>关闭</Chinesesimp>
-            <French>Arrêt</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_toggle">
-            <English>Toggle</English>
-            <Chinesesimp>切换</Chinesesimp>
-            <French>Basculer</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_unit">
-            <English>Unit</English>
-            <Chinesesimp>单位</Chinesesimp>
-            <French>Unité</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_group">
-            <English>Group</English>
-            <Chinesesimp>小组</Chinesesimp>
-            <French>Groupe</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_side">
-            <English>Side</English>
-            <Chinesesimp>侧面</Chinesesimp>
-            <French>Côté</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_blufor">
-            <English>BLUFOR</English>
-            <Chinesesimp>BLUFOR</Chinesesimp>
-            <French>BLUFOR</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_opfor">
-            <English>OPFOR</English>
-            <Chinesesimp>OPFOR</Chinesesimp>
-            <French>OPFOR</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_indfor">
-            <English>INDFOR</English>
-            <Chinesesimp>INDFOR</Chinesesimp>
-            <French>INDFOR</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_civ">
-            <English>CIV</English>
-            <Chinesesimp>CIV</Chinesesimp>
-            <French>CIV</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled">
-            <English>Activate On Death</English>
-            <Chinesesimp>在死亡时激活</Chinesesimp>
-            <French>Activation à la mort</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_error_unit">
-            <English>Must be placed on a unit or object</English>
-            <Chinesesimp>必须放置在单位或对象上</Chinesesimp>
-            <French>Doit être placé sur une unité ou un objet</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_error_hint">
-            <English>Something has gone wrong (no unit)!</English>
-            <Chinesesimp>发生了错误 (没有单位)!</Chinesesimp>
-            <French>Un problème s'est produit (pas d'unité) !</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_error_null">
-            <English>Nothing set - no action taken!</English>
-            <Chinesesimp>未设置任何内容 - 不采取任何行动!</Chinesesimp>
-            <French>Rien n'est fixé - aucune action n'est entreprise !</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_error_empty">
-            <English>No on-killed-module events to remove!</English>
-            <Chinesesimp>没有可移除的"被杀时"模块事件!</Chinesesimp>
-            <French>Il n'y a pas d'événements liés aux modules à tuer à supprimer !</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_hint_killer">
-            <English>Hint (Killer)</English>
-            <Chinesesimp>提示(杀手)</Chinesesimp>
-            <French>Indice (Tueur)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_hint_killer_tooltip">
-            <English>Display a hint to the player that killed the unit</English>
-            <Chinesesimp>向杀死单位的玩家显示提示</Chinesesimp>
-            <French>Afficher un indice au joueur qui a tué l'unité</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_hint_all">
-            <English>Hint (All)</English>
-            <Chinesesimp>提示(所有人)</Chinesesimp>
-            <French>Indice (Tous)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_hint_all_tooltip">
-            <English>Display a hint to all players</English>
-            <Chinesesimp>向所有玩家显示提示</Chinesesimp>
-            <French>Afficher un indice à tous les joueurs</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_hint_zeus">
-            <English>Hint (Zeus)</English>
-            <Chinesesimp>提示(宙斯)</Chinesesimp>
-            <French>Indice (Zeus)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_hint_zeus_tooltip">
-            <English>Display a hint to (all) Zeus players</English>
-            <Chinesesimp>向(所有)宙斯玩家显示提示</Chinesesimp>
-            <French>Afficher un indice pour (tous) les joueurs de Zeus</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_delete_remains">
-            <English>Delete Remains</English>
-            <Chinesesimp>删除残留</Chinesesimp>
-            <French>Supprimer les cadavres</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_hint_delete_remains_tooltip">
-            <English>Delete the 'dead' object or unit</English>
-            <Chinesesimp>删除‘死亡’的物体或单位</Chinesesimp>
-            <French>Supprimer l'objet ou l'unité « mort ».</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_explosion">
-            <English>Explosion</English>
-            <Chinesesimp>爆炸</Chinesesimp>
-            <French>Explosion</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_hint_explosion_tooltip">
-            <English>Detonate an explosive on the position of the killed unit</English>
-            <Chinesesimp>在被杀死单位的位置引爆爆炸物</Chinesesimp>
-            <French>Déclencher un explosif sur la position de l'unité tuée</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_explosion_none">
-            <English>None</English>
-            <Chinesesimp>无</Chinesesimp>
-            <French>Aucun</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_explosion_small">
-            <English>Small</English>
-            <Chinesesimp>小型</Chinesesimp>
-            <French>Petit</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_explosion_large">
-            <English>Large</English>
-            <Chinesesimp>大型</Chinesesimp>
-            <French>Grand format</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_explosion_nuclear">
-            <English>Nuclear</English>
-            <Chinesesimp>核</Chinesesimp>
-            <French>Nucléaire</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_emp">
-            <English>EMP</English>
-            <Chinesesimp>电磁脉冲</Chinesesimp>
-            <French>IEM</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_emp_tooltip">
-            <English>Detonate an EMP that affects lights, radios, unprotected vehicles,&lt;br/&gt;and other electronic equipment within 500m</English>
-            <Chinesesimp>引爆电磁脉冲，影响 500 米范围内的灯光、无线电、无保护车辆&lt;br/&gt;和 500 米内的其他电子设备</Chinesesimp>
-            <French>Déclencher une IEM qui affecte les lumières, les radios, les véhicules non protégés et tout autre équipement électronique dans un rayon de 500 mètres.</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_sound_killer">
-            <English>Sound (Killer)</English>
-            <Chinesesimp>声音 (杀手)</Chinesesimp>
-            <French>Son (Tueur)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_sound_killer_tooltip">
-            <English>Play a sound to the player that killed the unit</English>
-            <Chinesesimp>向杀死单位的玩家播放声音</Chinesesimp>
-            <French>Jouer un son au joueur qui a tué l'unité</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_sound_all">
-            <English>Sound (All)</English>
-            <Chinesesimp>声音 (所有人)</Chinesesimp>
-            <French>Son (Tous)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_sound_all_tooltip">
-            <English>Play a sound to all players</English>
-            <Chinesesimp>向所有玩家播放声音</Chinesesimp>
-            <French>Jouer un son à tous les joueurs</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_customcode">
-            <English>Custom Code</English>
-            <Chinesesimp>自定义代码</Chinesesimp>
-            <French>Code personnalisé</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_customcode_tooltip">
-            <English>Custom code to execute on unit's death&lt;br/&gt;Arguments: _unit, _killer, _instigator, _useEffects&lt;br/&gt;Written at your own risk - if unsure, leave blank!</English>
-            <Chinesesimp>单位死亡时执行的自定义代码&lt;br/&gt;参数:单位,_杀手,_执行者,_使用效果&lt;br/&gt;风险自负--如果不确定,请留空!</Chinesesimp>
-            <French>Code personnalisé à exécuter à la mort de l'unité&lt;/br&gt;Arguments : _unit, _killer, _instigator, _useEffects&lt;/br&gt;Ecrit à vos risques et périls - si vous n'êtes pas sûr, laissez vide !</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_codetarget">
-            <English>Code Target</English>
-            <Chinesesimp>代码目标</Chinesesimp>
-            <French>Cible du code</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_tooltip">
-            <English>Which machine(s) to run the custom code on</English>
-            <Chinesesimp>在哪个机器上运行自定义代码</Chinesesimp>
-            <French>Code cible</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_client">
-            <English>Clients</English>
-            <Chinesesimp>客户端</Chinesesimp>
-            <French>Clients</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_server">
-            <English>Server</English>
-            <Chinesesimp>服务器</Chinesesimp>
-            <French>Serveur</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_clientserver">
-            <English>Clients + Server</English>
-            <Chinesesimp>客户端 + 服务器</Chinesesimp>
-            <French>Clients + Serveur</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_surrender_chance_name">
-            <English>Surrender Chance</English>
-            <Chinesesimp>投降的机会</Chinesesimp>
-            <French>Chance de la reddition</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_surrender_chance_hesitation">
-            <English>Hesitation</English>
-            <Chinesesimp>犹豫</Chinesesimp>
-            <French>Hésitation</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_surrender_chance_hesitation_tooltip">
-            <English>Maximum time (in seconds) that the unit will hesitate for after being confronted</English>
-            <Chinesesimp>单位在面对面后犹豫的最长时间(以秒为单位)</Chinesesimp>
-            <French>Durée maximale (en secondes) pendant laquelle une unité hésite après s'être retrouvée face à face</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_surrender_chance_hold_fire">
-            <English>Hold Fire</English>
-            <Chinesesimp>保持火力</Chinesesimp>
-            <French>Tenir le feu</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_surrender_chance_hold_fire_tooltip">
-            <English>Units will hold fire until confronted</English>
-            <Chinesesimp>单位将保持火力直到被对抗</Chinesesimp>
-            <French>Les unités resteront en position de tir jusqu'à ce qu'elles soient confrontées</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_surrender_chance_confrontation_radius">
-            <English>Confrontation Radius</English>
-            <Chinesesimp>对抗半径</Chinesesimp>
-            <French>Rayon de confrontation</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_surrender_chance_confrontation_radius_tooltip">
-            <English>Radius within which pointing a weapon at the unit will trigger a response</English>
-            <Chinesesimp>将武器指向该单位将触发响应的半径</Chinesesimp>
-            <French>Rayon dans lequel le fait de pointer une arme sur l'unité déclenchera une réaction</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_surrender_chance_radius">
-            <English>Radius</English>
-            <Chinesesimp>半径</Chinesesimp>
-            <French>Rayon</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_surrender_chance_radius_tooltip">
-            <English>Apply this effect to all units in radius</English>
-            <Chinesesimp>将此效果应用于半径内的所有单位</Chinesesimp>
-            <French>Appliquer cet effet à toutes les unités dans le rayon</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_surrender_chance_error">
-            <English>Surrender chance already applied to this unit</English>
-            <Chinesesimp>投降概率已应用于该单位</Chinesesimp>
-            <French>La probabilité de reddition a été appliquée à l'unité</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_error">
-            <English>Unrecognised custom replacement</English>
-            <Chinesesimp>无法识别的自定义替换</Chinesesimp>
-            <French>Remplacement personnalisé non reconnu</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_ied_amount">
-            <English>IED Amount</English>
-            <Chinesesimp>IED的数量</Chinesesimp>
-            <French>Quantité d'IED</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_ied_size">
-            <English>IED Size</English>
-            <Chinesesimp>IED的尺寸</Chinesesimp>
-            <French>Taille de l'IED</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_small">
-            <English>Small</English>
-            <Chinesesimp>小型</Chinesesimp>
-            <French>Petit</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_medium">
-            <English>Medium</English>
-            <Chinesesimp>中型</Chinesesimp>
-            <French>Moyen</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_large">
-            <English>Large</English>
-            <Chinesesimp>大型</Chinesesimp>
-            <French>Grandes dimensions</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_random">
-            <English>Random</English>
-            <Chinesesimp>随机</Chinesesimp>
-            <French>Au hasard</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_max_clutter_size">
-            <English>Max Clutter Size</English>
-            <Chinesesimp>生成杂物的范围</Chinesesimp>
-            <French>Champ d'application de la production de débris</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_density">
-            <English>Density</English>
-            <Chinesesimp>密度</Chinesesimp>
-            <French>Densité</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_radius">
-            <English>Radius</English>
-            <Chinesesimp>半径</Chinesesimp>
-            <French>Rayon</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_name">
-            <English>Spawn IED Clutter</English>
-            <Chinesesimp>生成 IED 杂物菜单</Chinesesimp>
-            <French>Génération d'un engins explosifs improvisés</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_ied_type">
-            <English>IED Type</English>
-            <Chinesesimp>IED 类型</Chinesesimp>
-            <French>Type d'engin explosif improvisé</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_ied_type_tooltip">
-            <English>"Clutter" transforms a random object of clutter into an IED</English>
-            <Chinesesimp>"杂物"可将杂乱无章的随机物体变成IED</Chinesesimp>
-            <French>La fonction « Clutter » transforme des objets en désordre en engins explosifs improvisés.</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_urban">
-            <English>Urban</English>
-            <Chinesesimp>城市</Chinesesimp>
-            <French>Urbain</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_clutter">
-            <English>Clutter</English>
-            <Chinesesimp>杂乱</Chinesesimp>
-            <French>Désordre</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_ied_clutter_dug_in">
-            <English>Dug-in</English>
-            <Chinesesimp>深挖</Chinesesimp>
-            <French>Creusé</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_numberplate_name">
-            <English>Set Numberplate</English>
-            <Chinesesimp>设置车牌号菜单</Chinesesimp>
-            <French>Définir la plaque d'immatriculation</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_numberplate_text">
-            <English>Text</English>
-            <Chinesesimp>号码</Chinesesimp>
-            <French>Texte</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_set_colour_reset">
-            <English>RESET</English>
-            <Chinesesimp>重置</Chinesesimp>
-            <French>RÉINITIALISATION (RESET)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_set_colour_reset_tooltip">
-            <English>Resets Texture to default</English>
-            <Chinesesimp>将纹理重置为默认值</Chinesesimp>
-            <French>Réinitialise la texture par défaut</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_set_colour_apply_textures">
-            <English>Apply to all textures</English>
-            <Chinesesimp>适用于所有纹理</Chinesesimp>
-            <French>S'applique à toutes les textures</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_set_colour_apply_textures_tooltip">
-            <English>Adds the colour to all textures</English>
-            <Chinesesimp>为所有纹理添加颜色</Chinesesimp>
-            <French>Ajoute la couleur à toutes les textures</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_set_colour_colour">
-            <English>Colour</English>
-            <Chinesesimp>颜色</Chinesesimp>
-            <French>Couleur</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_set_colour_texture">
-            <English>Texture</English>
-            <Chinesesimp>纹理</Chinesesimp>
-            <French>Texture</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_error">
-            <English>Classname provided does not exist!</English>
-            <Chinesesimp>提供的类名不存在!</Chinesesimp>
-            <French>Le nom de classe fourni n'existe pas !</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_multiplier">
-            <English>Set multipler for ammo supply</English>
-            <Chinesesimp>设置玩家补给菜单</Chinesesimp>
-            <French>Régler le multiplicateur pour l'approvisionnement en munitions</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_ace_rearm">
-            <English>ACE Rearm</English>
-            <Chinesesimp>ACE 重新装备</Chinesesimp>
-            <French>Réarmement ACE</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_ace_rearm_tooltip">
-            <English>Set as ACE Rearm vehicle</English>
-            <Chinesesimp>设置为 ACE 重新装备载具</Chinesesimp>
-            <French>Véhicule de réarmement ACE</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_medical">
-            <English>Medical</English>
-            <Chinesesimp>医疗</Chinesesimp>
-            <French>Médical</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_medical_tooltip">
-            <English>Add Medical supplies</English>
-            <Chinesesimp>添加医疗物资</Chinesesimp>
-            <French>Ajouter du matériel médical</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_zeus">
-            <English>Include Zeus</English>
-            <Chinesesimp>包括宙斯</Chinesesimp>
-            <French>Inclure Zeus</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_zeus_tooltip">
-            <English>Include Zeus' loadout to resupply</English>
-            <Chinesesimp>包括宙斯的装备以进行补给</Chinesesimp>
-            <French>Ajouter l'équipement du Zeus dans le réapprovisionnement</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_airdrop_height">
-            <English>Airdrop height [m]</English>
-            <Chinesesimp>空投高度[米]</Chinesesimp>
-            <French>Hauteur de largage [m]</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_flyfrom">
-            <English>Fly From</English>
-            <Chinesesimp>起飞地点</Chinesesimp>
-            <French>Vol de départ</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_N">
-            <English>N</English>
-            <Chinesesimp>N - 北</Chinesesimp>
-            <French>N</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_NE">
-            <English>NE</English>
-            <Chinesesimp>NE - 东北</Chinesesimp>
-            <French>NE</French>
+            <Chinesesimp>200m</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_50m">
+            <English>50m</English>
+            <French>50m</French>
+            <Chinesesimp>50m</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_E">
             <English>E</English>
-            <Chinesesimp>E - 东</Chinesesimp>
             <French>E</French>
+            <Chinesesimp>E - 东</Chinesesimp>
         </Key>
-        <Key ID="STR_CROWSZA_Misc_SE">
-            <English>SE</English>
-            <Chinesesimp>SE - 东南</Chinesesimp>
-            <French>SE</French>
+        <Key ID="STR_CROWSZA_Misc_N">
+            <English>N</English>
+            <French>N</French>
+            <Chinesesimp>N - 北</Chinesesimp>
         </Key>
-        <Key ID="STR_CROWSZA_Misc_S">
-            <English>S</English>
-            <Chinesesimp>S - 南</Chinesesimp>
-            <French>S</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_SW">
-            <English>SW</English>
-            <Chinesesimp>SW - 西南</Chinesesimp>
-            <French>SW</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_W">
-            <English>W</English>
-            <Chinesesimp>W - 西</Chinesesimp>
-            <French>W</French>
+        <Key ID="STR_CROWSZA_Misc_NE">
+            <English>NE</English>
+            <French>NE</French>
+            <Chinesesimp>NE - 东北</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_NW">
             <English>NW</English>
-            <Chinesesimp>NW - 西北</Chinesesimp>
             <French>NW</French>
+            <Chinesesimp>NW - 西北</Chinesesimp>
         </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_custom_type">
-            <English>Custom Type (Optional)</English>
-            <Chinesesimp>自定义类型 (可选)</Chinesesimp>
-            <French>Type personnalisé (optionnel)</French>
+        <Key ID="STR_CROWSZA_Misc_S">
+            <English>S</English>
+            <French>S</French>
+            <Chinesesimp>S - 南</Chinesesimp>
         </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_custom_type_tooltip">
-            <English>Provide classname to aircraft you want to use, instead of using dropdown list</English>
-            <Chinesesimp>为要使用的飞机提供类名，而不是使用下拉列表</Chinesesimp>
-            <French>Indiquez le nom de classe de l'aéronef que vous souhaitez utiliser, au lieu d'utiliser la liste déroulante.</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_choose_aircraft">
-            <English>Choose Aircraft</English>
-            <Chinesesimp>选择飞机</Chinesesimp>
-            <French>Choisir un aéronef</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_choose_aircraft_tooltip">
-            <English>What aircraft to drop the supply from</English>
-            <Chinesesimp>选择哪架飞机投放补给</Chinesesimp>
-            <French>Quel avion utiliser pour larguer l'approvisionnement ?</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_aircraft">
-            <English>Aircraft</English>
-            <Chinesesimp>飞机</Chinesesimp>
-            <French>Avions</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_aircraft_tooltip">
-            <English>Make aircraft drop it</English>
-            <Chinesesimp>让飞机空投</Chinesesimp>
-            <French>Faire tomber l'avion</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_airdrop">
-            <English>Airdrop</English>
-            <Chinesesimp>空投</Chinesesimp>
-            <French>Largage</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_airdrop_tooltip">
-            <English>Make it airdrop from 300m</English>
-            <Chinesesimp>让它从 300 米处空投</Chinesesimp>
-            <French>Le largager à partir de 300 m</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_multiplier_dialog">
-            <English>Multiplier (amount per player)</English>
-            <Chinesesimp>倍增器（每位玩家的数量）</Chinesesimp>
-            <French>Multiplicateur (montant par joueur)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_restore_trees_dialog">
-            <English>Restore Trees and bushes in radius</English>
-            <Chinesesimp>恢复地形对象菜单</Chinesesimp>
-            <French>Restauration d'arbres et de buissons dans un rayon</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_restore_trees_radius">
-            <English>Radius</English>
-            <Chinesesimp>半径</Chinesesimp>
-            <French>Rayon</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_restore_trees_trees">
-            <English>Trees</English>
-            <Chinesesimp>树木</Chinesesimp>
-            <French>Arbres</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_restore_trees_trees_tooltip">
-            <English>Enable restoration of trees</English>
-            <Chinesesimp>可以恢复的树木</Chinesesimp>
-            <French>Autoriser la restauration des arbres</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_restore_trees_bushes">
-            <English>Bushes</English>
-            <Chinesesimp>灌木丛</Chinesesimp>
-            <French>Buissons</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_restore_trees_bushes_tooltip">
-            <English>Enable restoration of bushes</English>
-            <Chinesesimp>可以恢复的灌木丛</Chinesesimp>
-            <French>Autoriser la restauration des buissons</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_restore_trees_stones">
-            <English>Stones</English>
-            <Chinesesimp>石头</Chinesesimp>
-            <French>Pierres</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_restore_trees_stones_tooltip">
-            <English>Enable restoration of stones</English>
-            <Chinesesimp>可以恢复的石头</Chinesesimp>
-            <French>Autoriser la restauration des pierres</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_trees_dialog">
-            <English>Remove terrain objects selected in radius</English>
-            <Chinesesimp>删除地形对象菜单</Chinesesimp>
-            <French>Supprimer les objets de terrain sélectionnés dans le rayon</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_trees_stones_tooltip">
-            <English>Enable removal of stones</English>
-            <Chinesesimp>可以移除的石头</Chinesesimp>
-            <French>Autoriser la suppression des pierres</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_trees_bushes_tooltip">
-            <English>Enable removal of bushes</English>
-            <Chinesesimp>可以移除的灌木丛</Chinesesimp>
-            <French>Autoriser la suppression des buissons</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_trees_trees_tooltip">
-            <English>Enable removal of trees</English>
-            <Chinesesimp>可以移除的树木</Chinesesimp>
-            <French>Autoriser l'abattage d'arbres</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_error">
-            <English>Zeus has removed your radio and/or binoculars</English>
-            <Chinesesimp>宙斯已移除您的无线电 和/或 望远镜</Chinesesimp>
-            <French>Zeus a enlevé votre radio et/ou vos jumelles</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_radio_bino">
-            <English>Remove Equipment</English>
-            <Chinesesimp>移除设备</Chinesesimp>
-            <French>Enlever l'équipement</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_remove_bino">
-            <English>Remove Binoculars</English>
-            <Chinesesimp>移除望远镜</Chinesesimp>
-            <French>Retirer les jumelles</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_remove_bino_tooltip">
-            <English>Removes binoculars from units binocular slot</English>
-            <Chinesesimp>从设备的望远镜插槽中移除望远镜</Chinesesimp>
-            <French>Retire les jumelles de l'emplacement jumelles de l'unité</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_remove_radio">
-            <English>Remove Radio</English>
-            <Chinesesimp>移除无线电</Chinesesimp>
-            <French>Retirer la radio</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_remove_radio_tooltip">
-            <English>Removes radios from units radio slot</English>
-            <Chinesesimp>从设备的无线电插槽中移除无线电</Chinesesimp>
-            <French>Retire les radios de l'emplacement radio de l'unité</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_group">
-            <English>Entire Group</English>
-            <Chinesesimp>整个小组</Chinesesimp>
-            <French>Groupe entier</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_group_tooltip">
-            <English>Applies to entire group, or only unit selected</English>
-            <Chinesesimp>适用于整个组，或仅适用于所选单位</Chinesesimp>
-            <French>S'applique à l'ensemble du groupe ou seulement à l'unité sélectionnée</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_side">
-            <English>Side</English>
-            <Chinesesimp>侧面</Chinesesimp>
-            <French>Côté</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_radius_to_heal">
-            <English>Radius to heal</English>
-            <Chinesesimp>治疗半径</Chinesesimp>
-            <French>Rayon de soin</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_loadout">
-            <English>Loadout</English>
-            <Chinesesimp>装备配置</Chinesesimp>
-            <French>Configuration de l'équipement</French>
+        <Key ID="STR_CROWSZA_Misc_SE">
+            <English>SE</English>
+            <French>SE</French>
+            <Chinesesimp>SE - 东南</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_SL">
             <English>SL</English>
-            <Chinesesimp>小队长</Chinesesimp>
             <French>SL</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_weight">
-            <English>Weight</English>
-            <Chinesesimp>重量</Chinesesimp>
-            <French>Poids</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_dialog">
-            <English>Select Firesupport Type and Area</English>
-            <Chinesesimp>选择火力支援的类型和区域菜单</Chinesesimp>
-            <French>Sélection du type d'appui-feu et du menu de zone</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_type">
-            <English>Type</English>
-            <Chinesesimp>类型</Chinesesimp>
-            <French>Type</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_custom_type">
-            <English>Custom Type (ex.)</English>
-            <Chinesesimp>自定义类型 (例.)</Chinesesimp>
-            <French>Type de personnalisation (ex.)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_seconds_salvo">
-            <English>Seconds between Salvos</English>
-            <Chinesesimp>每发之间的间隔时间</Chinesesimp>
-            <French>Intervalle entre les séries</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_start_after">
-            <English>Start after ... seconds</English>
-            <Chinesesimp>... 秒后启动</Chinesesimp>
-            <French>Démarrage après ... secondes</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_stop_after">
-            <English>Stop After Salvos (0 = indef.)</English>
-            <Chinesesimp>在射击齐发后停止 (0 = 无限)</Chinesesimp>
-            <French>Arrêt après une série de tirs (0 = illimité)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_guns">
-            <English>Guns</English>
-            <Chinesesimp>枪支</Chinesesimp>
-            <French>Armes à feu</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_display_radius">
-            <English>Display Radius (only &lt;=200m)</English>
-            <Chinesesimp>显示半径 (仅 &lt;=200m)</Chinesesimp>
-            <French>Rayon d'affichage (seulement &lt;=200m)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_mortar">
-            <English>82 mm Mortar</English>
-            <Chinesesimp>82 mm 迫击炮</Chinesesimp>
-            <French>Mortier de 82 mm</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_howitzer">
-            <English>155 mm Howitzer</English>
-            <Chinesesimp>155 mm 榴弹炮</Chinesesimp>
-            <French>Obusier de 155 mm</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_rocket">
-            <English>230 mm Rocket</English>
-            <Chinesesimp>230 mm 火箭弹</Chinesesimp>
-            <French>230 mm Roquette</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_flare_white">
-            <English>Flare 40mm White</English>
-            <Chinesesimp>40mm 白色照明弹</Chinesesimp>
-            <French>Fusée 40mm Blanc</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_fire_support_smoke_white">
-            <English>Smoke 120mm White</English>
-            <Chinesesimp>120 毫米白色烟雾弹</Chinesesimp>
-            <French>Fumée 120mm Blanc</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_delete_dead">
-            <English>Are you sure you want to delete ALL dead?</English>
-            <Chinesesimp>您确定要删除所有的死亡尸体吗?</Chinesesimp>
-            <French>Êtes-vous sûr de vouloir supprimer TOUTES les morts ?</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_delete_bodies">
-            <English>Delete Bodies</English>
-            <Chinesesimp>删除尸体</Chinesesimp>
-            <French>Supprimer les cadavres</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_delete_bodies_tooltip">
-            <English>Deletes all dead bodies not inside vehicles</English>
-            <Chinesesimp>删除所有不在车辆内的尸体</Chinesesimp>
-            <French>Supprime tous les cadavres qui ne se trouvent pas à l'intérieur d'un véhicule</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_delete_wrecks">
-            <English>Delete Wrecks</English>
-            <Chinesesimp>删除残骸</Chinesesimp>
-            <French>Supprimer les épaves</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_delete_wrecks_tooltip">
-            <English>Deletes all wrecks and any crew inside</English>
-            <Chinesesimp>删除所有残骸和车内的尸体</Chinesesimp>
-            <French>Supprime toutes les épaves et tous les membres de l'équipage qui s'y trouvent.</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_delete_animal_followers">
-            <English>Are you sure you will delete all animals following people?</English>
-            <Chinesesimp>你确定要删除跟随的所有动物吗?</Chinesesimp>
-            <French>Êtes-vous sûr de vouloir supprimer tous les animaux qui suivent les personnes ?</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_ignore_players">
-            <English>Ignore players</English>
-            <Chinesesimp>忽略玩家</Chinesesimp>
-            <French>Ignorer les joueurs</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_removed">
-            <English>removed</English>
-            <Chinesesimp>移除</Chinesesimp>
-            <French>supprimée</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_replaced">
-            <English>replaced</English>
-            <Chinesesimp>替换</Chinesesimp>
-            <French>remplacés</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_zeus_has_removed">
-            <English>Zeus has %1 your %2</English>
-            <Chinesesimp>Zeus 已经 %1 你的 %2</Chinesesimp>
-            <French>Zeus a %1 votre %2.</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_whole_group">
-            <English>Whole Group</English>
-            <Chinesesimp>整个小组</Chinesesimp>
-            <French>Groupe entier</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_whole_group_tooltip">
-            <English>Remove items from this unit's group</English>
-            <Chinesesimp>从此单位的小组中移除物品</Chinesesimp>
-            <French>Retirer des éléments du groupe de cette unité</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_item_type">
-            <English>Item Type</English>
-            <Chinesesimp>物品种类</Chinesesimp>
-            <French>Type d'objet</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_item_type_tooltip">
-            <English>"Signals" includes smoke grenades, chemlights, IR strobes, and UGL smokes.&lt;br/&gt;"UGL" includes explosive ammo for under-barrel and dedicated grenade launchers</English>
-            <Chinesesimp>"信号"包括烟雾弹,化学灯,红外闪光灯和UGL烟雾.&lt;br/&gt;"UGL"包括用于下挂和专用榴弹发射器的爆炸弹药</Chinesesimp>
-            <French>Les « signaux » comprennent les grenades fumigènes, les lampes de poche, les stroboscopes à infrarouge et les fumigènes UGL.&lt;br/&gt;Les « UGL » comprennent les munitions explosives pour les lanceurs de grenades sous le canon et les lanceurs de grenades dédiés.</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_signals">
-            <English>Signals</English>
-            <Chinesesimp>信号</Chinesesimp>
-            <French>Signaux</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_grenades">
-            <English>Grenades</English>
-            <Chinesesimp>手榴弹</Chinesesimp>
-            <French>Grenades</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_explosives">
-            <English>Explosives</English>
-            <Chinesesimp>爆炸物</Chinesesimp>
-            <French>Explosifs</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_ugl">
-            <English>UGL</English>
-            <Chinesesimp>UGL(下挂榴弹发射器)</Chinesesimp>
-            <French>UGL (lance-grenades monté sous le fusil)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_launchers">
-            <English>Launchers</English>
-            <Chinesesimp>发射器</Chinesesimp>
-            <French>Lanceurs</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_replace_with">
-            <English>Replace with</English>
-            <Chinesesimp>替换为</Chinesesimp>
-            <French>Remplacer par</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_replace_with_custom">
-            <English>Replace with (custom)</English>
-            <Chinesesimp>替换为(自定义)</Chinesesimp>
-            <French>Remplacer par (personnalisé)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_replace_with_custom_tooltip">
-            <English>A custom magazine or item to replace with&lt;br/&gt;(Must be in "CfgMagazines" or inherit from "ItemCore")</English>
-            <Chinesesimp>用于替换的自定义弹匣或物品&lt;br/&gt;(必须在 "CfgMagazines" 中或继承自 "ItemCore")</Chinesesimp>
-            <French>Un magazine ou un article personnalisé à remplacer&lt;br/&gt;(Doit être dans « CfgMagazines » ou hériter de « ItemCore »)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_leave_untouched">
-            <English>Leave untouched</English>
-            <Chinesesimp>保持不变</Chinesesimp>
-            <French>Laisser en l'état</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_leave_untouched_tooltip">
-            <English>Amount of unit's inventory to leave unchanged.&lt;br/&gt;Does not guarantee which type is preserved if the unit has, e.g. multiple colours of smoke.</English>
-            <Chinesesimp>保持单位库存不变的数量.&lt;br/&gt;如果单位有多种类型的物品,如不同颜色的烟雾,不能保证保留哪种类型</Chinesesimp>
-            <French>La quantité d'inventaire de l'unité à laisser inchangée.&lt;br/&gt;ne garantit pas le type qui sera conservé si l'unité possède, par exemple, plusieurs couleurs de fumée.</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_strip_explosives_dialog">
-            <English>Remove Explosives</English>
-            <Chinesesimp>移除爆炸物</Chinesesimp>
-            <French>Enlever les explosifs</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke">
-            <English>Suitcase Device</English>
-            <Chinesesimp>手提箱设备</Chinesesimp>
-            <French>Équipement de valise</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_edit">
-            <English>Edit Suitcase Device</English>
-            <Chinesesimp>编辑手提箱设备</Chinesesimp>
-            <French>Édition de l'équipement de la valise</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_error_zeusPlacement">
-            <English>Must be place on an existing Device, or nothing</English>
-            <Chinesesimp>必须放置在现有设备上, 或者不放置任何东西</Chinesesimp>
-            <French>Doit être placé au-dessus de l'équipement existant, ou ne pas être placé du tout</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuse">
-            <English>Defuse Device</English>
-            <Chinesesimp>解除设备</Chinesesimp>
-            <French>Dispositif de désamorçage</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_none">
-            <English>Nothing</English>
-            <Chinesesimp>无</Chinesesimp>
-            <French>Rien</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_explosion_small">
-            <English>Explosion (Small)</English>
-            <Chinesesimp>爆炸 (小型)</Chinesesimp>
-            <French>Explosion (petite)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_explosion_large">
-            <English>Explosion (Large)</English>
-            <Chinesesimp>爆炸 (大型)</Chinesesimp>
-            <French>Explosion (grande)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_explosion_nuclear">
-            <English>Explosion (Nuclear)</English>
-            <Chinesesimp>爆炸 (核)</Chinesesimp>
-            <French>Explosion (nucléaire)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_smoke_red">
-            <English>Smoke (Red)</English>
-            <Chinesesimp>烟雾 (红色)</Chinesesimp>
-            <French>Fumée (rouge)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_smoke_yellow">
-            <English>Smoke (Yellow)</English>
-            <Chinesesimp>烟雾 (黄色)</Chinesesimp>
-            <French>Fumée (jaune)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_emp">
-            <English>EMP</English>
-            <Chinesesimp>电磁脉冲</Chinesesimp>
-            <French>IEM</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_timer">
-            <English>Timer</English>
-            <Chinesesimp>定时器</Chinesesimp>
-            <French>Minuterie</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_timer_tooltip">
-            <English>How long until the device activates in MM:SS</English>
-            <Chinesesimp>设备启动前还有多少时间，格式为分:秒</Chinesesimp>
-            <French>Délai d'activation de l'appareil en MM:SS</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect">
-            <English>Effect</English>
-            <Chinesesimp>效果</Chinesesimp>
-            <French>Effet</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_tooltip">
-            <English>What happens when the device activates</English>
-            <Chinesesimp>当设备启动时会发生什么</Chinesesimp>
-            <French>Que se passe-t-il lorsque le dispositif est activé ?</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable">
-            <English>Defusable</English>
-            <Chinesesimp>可解除的</Chinesesimp>
-            <French>Désamorçage</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_tooltip">
-            <English>Who can attempt to defuse the device</English>
-            <Chinesesimp>谁可以尝试解除设备</Chinesesimp>
-            <French>Qui peut tenter de désamorcer le dispositif</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_noone">
-            <English>No-one</English>
-            <Chinesesimp>无人</Chinesesimp>
-            <French>Personne</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_specialist">
-            <English>Explosive Specialists</English>
-            <Chinesesimp>爆炸专家</Chinesesimp>
-            <French>Spécialistes en explosifs</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_engineer">
-            <English>Engineers</English>
-            <Chinesesimp>工程师</Chinesesimp>
-            <French>Ingénieurs</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_any">
-            <English>Anyone</English>
-            <Chinesesimp>任何人</Chinesesimp>
-            <French>Tout le monde</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defusetimer">
-            <English>Defuse Time</English>
-            <Chinesesimp>解除时间</Chinesesimp>
-            <French>Durée de désamorçage</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defusetimer_tooltip">
-            <English>How long does it take to defuse the device in MM:SS</English>
-            <Chinesesimp>需要多少时间来解除设备(以分:秒为单位)</Chinesesimp>
-            <French>Combien de temps faut-il pour désamorcer l'engin en MM:SS</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_armed">
-            <English>Armed</English>
-            <Chinesesimp>已装填/已激活</Chinesesimp>
-            <French>Armé</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_armed_tooltip">
-            <English>Whether the device can be detonated&lt;br/&gt;If not armed, countdown is paused</English>
-            <Chinesesimp>设备是否可以被引爆&lt;br/&gt; 如果未装填/未激活, 倒计时暂停</Chinesesimp>
-            <French>L'engin est-il prêt à exploser&lt;br/&gt;S'il n'est pas ammorcé, le compte à rebours s'interrompt.</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_follow_animal">
-            <English>Select Animal Type</English>
-            <Chinesesimp>动物生成菜单</Chinesesimp>
-            <French>Sélectionner le type d'animal</French>
+            <Chinesesimp>小队长</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_SW">
+            <English>SW</English>
+            <French>SW</French>
+            <Chinesesimp>SW - 西南</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_W">
+            <English>W</English>
+            <French>W</French>
+            <Chinesesimp>W - 西</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_activate_on_death">
+            <English>Activate On Death</English>
+            <French>Activation à la mort</French>
+            <Chinesesimp>死亡时激活</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_animal">
             <English>Animal</English>
-            <Chinesesimp>动物</Chinesesimp>
             <French>Animal</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_dog">
-            <English>Dog</English>
-            <Chinesesimp>狗</Chinesesimp>
-            <French>Chien</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_sheep">
-            <English>Sheep</English>
-            <Chinesesimp>绵羊</Chinesesimp>
-            <French>Moutons</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_goat">
-            <English>Goat</English>
-            <Chinesesimp>山羊</Chinesesimp>
-            <French>Chèvre</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_rabbit">
-            <English>Rabbit</English>
-            <Chinesesimp>兔子</Chinesesimp>
-            <French>Lapin</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_hen">
-            <English>Hen</English>
-            <Chinesesimp>母鸡</Chinesesimp>
-            <French>Poule</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_snake">
-            <English>Snake</English>
-            <Chinesesimp>蛇</Chinesesimp>
-            <French>Serpent</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_dromedary">
-            <English>Dromedary</English>
-            <French>Dromadaire</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_rat">
-            <English>Rat</English>
-            <French>Rat</French>
+            <Chinesesimp>动物</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_animal_amount">
             <English>Amount</English>
-            <Chinesesimp>数量</Chinesesimp>
             <French>Volumes</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_animal_spawn_offset">
-            <English>Spawn offset [m]</English>
-            <Chinesesimp>生成偏移 [m]</Chinesesimp>
-            <French>Décalage de la production [m]</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_animal_spawn_offset_tooltip">
-            <English>How far away in random direction the animals should spawn</English>
-            <Chinesesimp>动物随机生成的方向距离</Chinesesimp>
-            <French>A partir de quelle distance, dans une direction aléatoire, les animaux apparaissent.</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_animal_scale">
-            <English>Scale*</English>
-            <Chinesesimp>大小*</Chinesesimp>
-            <French>Échelle*</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_animal_scale_tooltip">
-            <English>Experimental feature that doesn't always work. Works best on snakes</English>
-            <Chinesesimp>试验性功能'并非总是有效. 在蛇身上效果最佳</Chinesesimp>
-            <French>La « fonction expérimentale » ne fonctionne pas toujours. Elle fonctionne mieux sur les serpents.</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_animal_invincible">
-            <English>Set Invincible</English>
-            <Chinesesimp>设置无敌</Chinesesimp>
-            <French>Définir Invincible</French>
+            <Chinesesimp>数量</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_animal_attack_nearby">
             <English>Attack Nearby Units</English>
-            <Chinesesimp>攻击附近单位</Chinesesimp>
             <French>Attaquer les unités proches</French>
+            <Chinesesimp>攻击附近单位</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_animal_invincible">
+            <English>Set Invincible</English>
+            <French>Définir Invincible</French>
+            <Chinesesimp>设置无敌</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_animal_pet_animal">
             <English>Pet</English>
-            <Chinesesimp>宠物</Chinesesimp>
             <French>Animaux de compagnie</French>
+            <Chinesesimp>宠物</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_animal_scale">
+            <English>Scale*</English>
+            <French>Échelle*</French>
+            <Chinesesimp>大小*</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_animal_scale_tooltip">
+            <English>Experimental feature that doesn't always work. Works best on snakes</English>
+            <French>La « fonction expérimentale » ne fonctionne pas toujours. Elle fonctionne mieux sur les serpents.</French>
+            <Chinesesimp>试验性功能'并非总是有效. 在蛇身上效果最佳</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_animal_sound_dog">
             <English>WOOF</English>
-            <Chinesesimp>汪汪 (狗叫声)</Chinesesimp>
             <French>WOOF (Chien)</French>
+            <Chinesesimp>汪汪 (狗叫声)</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_animal_sound_dromedary">
             <English>MRUHRHRHRHRHRHHRRRR OmNomNom</English>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_animal_sound_goat">
+            <English>MAAAAA..Mariner..AAAA</English>
+            <French>MAAAAA..Mariner..AAAA (Imite le cri d'une mouette ou l'appel d'un marin.)</French>
+            <Chinesesimp>呜呜...航海者...呜呜 (模仿海鸥叫声或海员的呼唤声)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_animal_sound_hen">
+            <English>CLUCK-CLUCK</English>
+            <French>CLUCK-CLUCK (Poule)</French>
+            <Chinesesimp>咯咯 (鸡叫声)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_animal_sound_rabbit">
+            <English>PUUUUUUURRRRR</English>
+            <French>PUUUUUUURRRRR (Lapin)</French>
+            <Chinesesimp>纯粹 (猫叫声)</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_animal_sound_rat">
             <English>Squirk Squirk!</English>
@@ -1188,28 +140,1066 @@
         </Key>
         <Key ID="STR_CROWSZA_Misc_animal_sound_sheep">
             <English>MÆÆÆÆÆHH</English>
-            <Chinesesimp>呜呜呜 (动物的哀鸣声)</Chinesesimp>
             <French>Woo-woo-woo. (Gémissements d'animaux)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_animal_sound_goat">
-            <English>MAAAAA..Mariner..AAAA</English>
-            <Chinesesimp>呜呜...航海者...呜呜 (模仿海鸥叫声或海员的呼唤声)</Chinesesimp>
-            <French>MAAAAA..Mariner..AAAA (Imite le cri d'une mouette ou l'appel d'un marin.)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_animal_sound_rabbit">
-            <English>PUUUUUUURRRRR</English>
-            <Chinesesimp>纯粹 (猫叫声)</Chinesesimp>
-            <French>PUUUUUUURRRRR (Lapin)</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Misc_animal_sound_hen">
-            <English>CLUCK-CLUCK</English>
-            <Chinesesimp>咯咯 (鸡叫声)</Chinesesimp>
-            <French>CLUCK-CLUCK (Poule)</French>
+            <Chinesesimp>呜呜呜 (动物的哀鸣声)</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Misc_animal_sound_snake">
             <English>HISSSSS, No Step On Snek!</English>
-            <Chinesesimp>嘶嘶嘶, 不要踩到蛇!</Chinesesimp>
             <French>HISSSSS, ne marchez pas sur le serpent !</French>
+            <Chinesesimp>嘶嘶嘶, 不要踩到蛇!</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_animal_spawn_offset">
+            <English>Spawn offset [m]</English>
+            <French>Décalage de la production [m]</French>
+            <Chinesesimp>生成偏移 [m]</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_animal_spawn_offset_tooltip">
+            <English>How far away in random direction the animals should spawn</English>
+            <French>A partir de quelle distance, dans une direction aléatoire, les animaux apparaissent.</French>
+            <Chinesesimp>动物随机生成的方向距离</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_blufor">
+            <English>BLUFOR</English>
+            <French>BLUFOR</French>
+            <Chinesesimp>BLUFOR</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_camera_center_unit">
+            <English>Camera Center Unit</English>
+            <French>Caméra centrée sur l'unité</French>
+            <Chinesesimp>摄像机中心单位</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_civ">
+            <English>CIV</English>
+            <French>CIV</French>
+            <Chinesesimp>CIV</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_delete_all_dead">
+            <English>Delete ALL dead</English>
+            <French>Supprimer TOUS les morts</French>
+            <Chinesesimp>杂项 - 删除所有死亡单位</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_delete_animal_followers">
+            <English>Are you sure you will delete all animals following people?</English>
+            <French>Êtes-vous sûr de vouloir supprimer tous les animaux qui suivent les personnes ?</French>
+            <Chinesesimp>你确定要删除跟随的所有动物吗?</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_delete_bodies">
+            <English>Delete Bodies</English>
+            <French>Supprimer les cadavres</French>
+            <Chinesesimp>删除尸体</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_delete_bodies_tooltip">
+            <English>Deletes all dead bodies not inside vehicles</English>
+            <French>Supprime tous les cadavres qui ne se trouvent pas à l'intérieur d'un véhicule</French>
+            <Chinesesimp>删除所有不在车辆内的尸体</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_delete_dead">
+            <English>Are you sure you want to delete ALL dead?</English>
+            <French>Êtes-vous sûr de vouloir supprimer TOUTES les morts ?</French>
+            <Chinesesimp>您确定要删除所有的死亡尸体吗?</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_delete_follow_unit_animals">
+            <English>Delete All Follow Animals</English>
+            <French>Supprimer tous les animaux suivis</French>
+            <Chinesesimp>杂项 - 删除所有跟随动物</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_delete_wrecks">
+            <English>Delete Wrecks</English>
+            <French>Supprimer les épaves</French>
+            <Chinesesimp>删除残骸</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_delete_wrecks_tooltip">
+            <English>Deletes all wrecks and any crew inside</English>
+            <French>Supprime toutes les épaves et tous les membres de l'équipage qui s'y trouvent.</French>
+            <Chinesesimp>删除所有残骸和车内的尸体</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_dog">
+            <English>Dog</English>
+            <French>Chien</French>
+            <Chinesesimp>狗</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_dromedary">
+            <English>Dromedary</English>
+            <French>Dromadaire</French>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support">
+            <English>Fire Support</English>
+            <French>Appui-feu</French>
+            <Chinesesimp>杂项 - 火力支援</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_custom_type">
+            <English>Custom Type (ex.)</English>
+            <French>Type de personnalisation (ex.)</French>
+            <Chinesesimp>自定义类型 (例.)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_dialog">
+            <English>Select Firesupport Type and Area</English>
+            <French>Sélection du type d'appui-feu et du menu de zone</French>
+            <Chinesesimp>选择火力支援的类型和区域菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_display_radius">
+            <English>Display Radius (only &lt;=200m)</English>
+            <French>Rayon d'affichage (seulement &lt;=200m)</French>
+            <Chinesesimp>显示半径 (仅 &lt;=200m)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_flare_white">
+            <English>Flare 40mm White</English>
+            <French>Fusée 40mm Blanc</French>
+            <Chinesesimp>40mm 白色照明弹</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_guns">
+            <English>Guns</English>
+            <French>Armes à feu</French>
+            <Chinesesimp>枪支</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_howitzer">
+            <English>155 mm Howitzer</English>
+            <French>Obusier de 155 mm</French>
+            <Chinesesimp>155 mm 榴弹炮</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_mortar">
+            <English>82 mm Mortar</English>
+            <French>Mortier de 82 mm</French>
+            <Chinesesimp>82 mm 迫击炮</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_rocket">
+            <English>230 mm Rocket</English>
+            <French>230 mm Roquette</French>
+            <Chinesesimp>230 mm 火箭弹</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_seconds_salvo">
+            <English>Seconds between Salvos</English>
+            <French>Intervalle entre les séries</French>
+            <Chinesesimp>每发之间的间隔时间</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_smoke_white">
+            <English>Smoke 120mm White</English>
+            <French>Fumée 120mm Blanc</French>
+            <Chinesesimp>120 毫米白色烟雾弹</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_start_after">
+            <English>Start after ... seconds</English>
+            <French>Démarrage après ... secondes</French>
+            <Chinesesimp>... 秒后启动</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_stop_after">
+            <English>Stop After Salvos (0 = indef.)</English>
+            <French>Arrêt après une série de tirs (0 = illimité)</French>
+            <Chinesesimp>在射击齐发后停止 (0 = 无限)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_fire_support_type">
+            <English>Type</English>
+            <French>Type</French>
+            <Chinesesimp>类型</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_follow_animal">
+            <English>Select Animal Type</English>
+            <French>Sélectionner le type d'animal</French>
+            <Chinesesimp>动物生成菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_follow_unit_animals">
+            <English>Follow Unit With Animal</English>
+            <French>Suivre l'unité avec l'animal</French>
+            <Chinesesimp>杂项 - 生成跟随动物</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_goat">
+            <English>Goat</English>
+            <French>Chèvre</French>
+            <Chinesesimp>山羊</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_group">
+            <English>Group</English>
+            <French>Groupe</French>
+            <Chinesesimp>小组</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_hen">
+            <English>Hen</English>
+            <French>Poule</French>
+            <Chinesesimp>母鸡</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_clutter">
+            <English>Clutter</English>
+            <French>Désordre</French>
+            <Chinesesimp>杂乱</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_density">
+            <English>Density</English>
+            <French>Densité</French>
+            <Chinesesimp>密度</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_dug_in">
+            <English>Dug-in</English>
+            <French>Creusé</French>
+            <Chinesesimp>深挖</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_ied_amount">
+            <English>IED Amount</English>
+            <French>Quantité d'IED</French>
+            <Chinesesimp>IED的数量</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_ied_size">
+            <English>IED Size</English>
+            <French>Taille de l'IED</French>
+            <Chinesesimp>IED的尺寸</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_ied_type">
+            <English>IED Type</English>
+            <French>Type d'engin explosif improvisé</French>
+            <Chinesesimp>IED 类型</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_ied_type_tooltip">
+            <English>"Clutter" transforms a random object of clutter into an IED</English>
+            <French>La fonction « Clutter » transforme des objets en désordre en engins explosifs improvisés.</French>
+            <Chinesesimp>"杂物"可将杂乱无章的随机物体变成IED</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_large">
+            <English>Large</English>
+            <French>Grandes dimensions</French>
+            <Chinesesimp>大型</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_max_clutter_size">
+            <English>Max Clutter Size</English>
+            <French>Champ d'application de la production de débris</French>
+            <Chinesesimp>生成杂物的范围</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_medium">
+            <English>Medium</English>
+            <French>Moyen</French>
+            <Chinesesimp>中型</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_name">
+            <English>Spawn IED Clutter</English>
+            <French>Génération d'un engins explosifs improvisés</French>
+            <Chinesesimp>生成 IED 杂物菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_radius">
+            <English>Radius</English>
+            <French>Rayon</French>
+            <Chinesesimp>半径</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_random">
+            <English>Random</English>
+            <French>Au hasard</French>
+            <Chinesesimp>随机</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_small">
+            <English>Small</English>
+            <French>Petit</French>
+            <Chinesesimp>小型</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_ied_clutter_urban">
+            <English>Urban</English>
+            <French>Urbain</French>
+            <Chinesesimp>城市</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_indfor">
+            <English>INDFOR</English>
+            <French>INDFOR</French>
+            <Chinesesimp>INDFOR</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_loadout">
+            <English>Loadout</English>
+            <French>Configuration de l'équipement</French>
+            <Chinesesimp>装备配置</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_numberplate_name">
+            <English>Set Numberplate</English>
+            <French>Définir la plaque d'immatriculation</French>
+            <Chinesesimp>设置车牌号菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_numberplate_text">
+            <English>Text</English>
+            <French>Texte</French>
+            <Chinesesimp>号码</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_off">
+            <English>Off</English>
+            <French>Arrêt</French>
+            <Chinesesimp>关闭</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_on">
+            <English>On</English>
+            <French>Marche</French>
+            <Chinesesimp>开启</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled">
+            <English>Activate On Death</English>
+            <French>Activation à la mort</French>
+            <Chinesesimp>在死亡时激活</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_codetarget">
+            <English>Code Target</English>
+            <French>Cible du code</French>
+            <Chinesesimp>代码目标</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_client">
+            <English>Clients</English>
+            <French>Clients</French>
+            <Chinesesimp>客户端</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_clientserver">
+            <English>Clients + Server</English>
+            <French>Clients + Serveur</French>
+            <Chinesesimp>客户端 + 服务器</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_server">
+            <English>Server</English>
+            <French>Serveur</French>
+            <Chinesesimp>服务器</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_codetarget_tooltip">
+            <English>Which machine(s) to run the custom code on</English>
+            <French>Code cible</French>
+            <Chinesesimp>在哪个机器上运行自定义代码</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_customcode">
+            <English>Custom Code</English>
+            <French>Code personnalisé</French>
+            <Chinesesimp>自定义代码</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_customcode_tooltip">
+            <English>Custom code to execute on unit's death&lt;br/&gt;Arguments: _unit, _killer, _instigator, _useEffects&lt;br/&gt;Written at your own risk - if unsure, leave blank!</English>
+            <French>Code personnalisé à exécuter à la mort de l'unité&lt;/br&gt;Arguments : _unit, _killer, _instigator, _useEffects&lt;/br&gt;Ecrit à vos risques et périls - si vous n'êtes pas sûr, laissez vide !</French>
+            <Chinesesimp>单位死亡时执行的自定义代码&lt;br/&gt;参数:单位,_杀手,_执行者,_使用效果&lt;br/&gt;风险自负--如果不确定,请留空!</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_delete_remains">
+            <English>Delete Remains</English>
+            <French>Supprimer les cadavres</French>
+            <Chinesesimp>删除残留</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_emp">
+            <English>EMP</English>
+            <French>IEM</French>
+            <Chinesesimp>电磁脉冲</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_emp_tooltip">
+            <English>Detonate an EMP that affects lights, radios, unprotected vehicles,&lt;br/&gt;and other electronic equipment within 500m</English>
+            <French>Déclencher une IEM qui affecte les lumières, les radios, les véhicules non protégés et tout autre équipement électronique dans un rayon de 500 mètres.</French>
+            <Chinesesimp>引爆电磁脉冲，影响 500 米范围内的灯光、无线电、无保护车辆&lt;br/&gt;和 500 米内的其他电子设备</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_error_empty">
+            <English>No on-killed-module events to remove!</English>
+            <French>Il n'y a pas d'événements liés aux modules à tuer à supprimer !</French>
+            <Chinesesimp>没有可移除的"被杀时"模块事件!</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_error_hint">
+            <English>Something has gone wrong (no unit)!</English>
+            <French>Un problème s'est produit (pas d'unité) !</French>
+            <Chinesesimp>发生了错误 (没有单位)!</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_error_null">
+            <English>Nothing set - no action taken!</English>
+            <French>Rien n'est fixé - aucune action n'est entreprise !</French>
+            <Chinesesimp>未设置任何内容 - 不采取任何行动!</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_error_unit">
+            <English>Must be placed on a unit or object</English>
+            <French>Doit être placé sur une unité ou un objet</French>
+            <Chinesesimp>必须放置在单位或对象上</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_explosion">
+            <English>Explosion</English>
+            <French>Explosion</French>
+            <Chinesesimp>爆炸</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_explosion_large">
+            <English>Large</English>
+            <French>Grand format</French>
+            <Chinesesimp>大型</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_explosion_none">
+            <English>None</English>
+            <French>Aucun</French>
+            <Chinesesimp>无</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_explosion_nuclear">
+            <English>Nuclear</English>
+            <French>Nucléaire</French>
+            <Chinesesimp>核</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_explosion_small">
+            <English>Small</English>
+            <French>Petit</French>
+            <Chinesesimp>小型</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_hint_all">
+            <English>Hint (All)</English>
+            <French>Indice (Tous)</French>
+            <Chinesesimp>提示(所有人)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_hint_all_tooltip">
+            <English>Display a hint to all players</English>
+            <French>Afficher un indice à tous les joueurs</French>
+            <Chinesesimp>向所有玩家显示提示</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_hint_delete_remains_tooltip">
+            <English>Delete the 'dead' object or unit</English>
+            <French>Supprimer l'objet ou l'unité « mort ».</French>
+            <Chinesesimp>删除‘死亡’的物体或单位</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_hint_explosion_tooltip">
+            <English>Detonate an explosive on the position of the killed unit</English>
+            <French>Déclencher un explosif sur la position de l'unité tuée</French>
+            <Chinesesimp>在被杀死单位的位置引爆爆炸物</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_hint_killer">
+            <English>Hint (Killer)</English>
+            <French>Indice (Tueur)</French>
+            <Chinesesimp>提示(杀手)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_hint_killer_tooltip">
+            <English>Display a hint to the player that killed the unit</English>
+            <French>Afficher un indice au joueur qui a tué l'unité</French>
+            <Chinesesimp>向杀死单位的玩家显示提示</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_hint_zeus">
+            <English>Hint (Zeus)</English>
+            <French>Indice (Zeus)</French>
+            <Chinesesimp>提示(宙斯)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_hint_zeus_tooltip">
+            <English>Display a hint to (all) Zeus players</English>
+            <French>Afficher un indice pour (tous) les joueurs de Zeus</French>
+            <Chinesesimp>向(所有)宙斯玩家显示提示</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_sound_all">
+            <English>Sound (All)</English>
+            <French>Son (Tous)</French>
+            <Chinesesimp>声音 (所有人)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_sound_all_tooltip">
+            <English>Play a sound to all players</English>
+            <French>Jouer un son à tous les joueurs</French>
+            <Chinesesimp>向所有玩家播放声音</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_sound_killer">
+            <English>Sound (Killer)</English>
+            <French>Son (Tueur)</French>
+            <Chinesesimp>声音 (杀手)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_onkilled_sound_killer_tooltip">
+            <English>Play a sound to the player that killed the unit</English>
+            <French>Jouer un son au joueur qui a tué l'unité</French>
+            <Chinesesimp>向杀死单位的玩家播放声音</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_opfor">
+            <English>OPFOR</English>
+            <French>OPFOR</French>
+            <Chinesesimp>OPFOR</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_paste_loadout">
+            <English>Paste Loadout</English>
+            <French>Coller l'équipement</French>
+            <Chinesesimp>粘贴装备</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_rabbit">
+            <English>Rabbit</English>
+            <French>Lapin</French>
+            <Chinesesimp>兔子</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_radius_heal">
+            <English>Radius Heal</English>
+            <French>Rayon de guérison</French>
+            <Chinesesimp>半径治疗</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_radius_to_heal">
+            <English>Radius to heal</English>
+            <French>Rayon de soin</French>
+            <Chinesesimp>治疗半径</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_rat">
+            <English>Rat</English>
+            <French>Rat</French>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_activate_on_death">
+            <English>Remove Activate On Death</English>
+            <French>Suppression de l'activation à la mort</French>
+            <Chinesesimp>移除死亡时激活</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_bino_radio">
+            <English>Remove Radio/Bino</English>
+            <French>Enlever la radio/Bino</French>
+            <Chinesesimp>杂项 - 移除 无线电/Bino</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_radio_bino">
+            <English>Remove Equipment</English>
+            <French>Enlever l'équipement</French>
+            <Chinesesimp>移除设备</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_error">
+            <English>Zeus has removed your radio and/or binoculars</English>
+            <French>Zeus a enlevé votre radio et/ou vos jumelles</French>
+            <Chinesesimp>宙斯已移除您的无线电 和/或 望远镜</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_group">
+            <English>Entire Group</English>
+            <French>Groupe entier</French>
+            <Chinesesimp>整个小组</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_group_tooltip">
+            <English>Applies to entire group, or only unit selected</English>
+            <French>S'applique à l'ensemble du groupe ou seulement à l'unité sélectionnée</French>
+            <Chinesesimp>适用于整个组，或仅适用于所选单位</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_remove_bino">
+            <English>Remove Binoculars</English>
+            <French>Retirer les jumelles</French>
+            <Chinesesimp>移除望远镜</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_remove_bino_tooltip">
+            <English>Removes binoculars from units binocular slot</English>
+            <French>Retire les jumelles de l'emplacement jumelles de l'unité</French>
+            <Chinesesimp>从设备的望远镜插槽中移除望远镜</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_remove_radio">
+            <English>Remove Radio</English>
+            <French>Retirer la radio</French>
+            <Chinesesimp>移除无线电</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_remove_radio_tooltip">
+            <English>Removes radios from units radio slot</English>
+            <French>Retire les radios de l'emplacement radio de l'unité</French>
+            <Chinesesimp>从设备的无线电插槽中移除无线电</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_radio_bino_side">
+            <English>Side</English>
+            <French>Côté</French>
+            <Chinesesimp>侧面</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_trees">
+            <English>Remove Trees</English>
+            <French>Enlever les arbres</French>
+            <Chinesesimp>杂项 - 移除树木</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_trees_bushes_tooltip">
+            <English>Enable removal of bushes</English>
+            <French>Autoriser la suppression des buissons</French>
+            <Chinesesimp>可以移除的灌木丛</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_trees_dialog">
+            <English>Remove terrain objects selected in radius</English>
+            <French>Supprimer les objets de terrain sélectionnés dans le rayon</French>
+            <Chinesesimp>删除地形对象菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_trees_stones_tooltip">
+            <English>Enable removal of stones</English>
+            <French>Autoriser la suppression des pierres</French>
+            <Chinesesimp>可以移除的石头</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_remove_trees_trees_tooltip">
+            <English>Enable removal of trees</English>
+            <French>Autoriser l'abattage d'arbres</French>
+            <Chinesesimp>可以移除的树木</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_restore_trees">
+            <English>Restore Trees</English>
+            <French>Restaurer les arbres</French>
+            <Chinesesimp>杂项 - 恢复树木</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_restore_trees_bushes">
+            <English>Bushes</English>
+            <French>Buissons</French>
+            <Chinesesimp>灌木丛</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_restore_trees_bushes_tooltip">
+            <English>Enable restoration of bushes</English>
+            <French>Autoriser la restauration des buissons</French>
+            <Chinesesimp>可以恢复的灌木丛</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_restore_trees_dialog">
+            <English>Restore Trees and bushes in radius</English>
+            <French>Restauration d'arbres et de buissons dans un rayon</French>
+            <Chinesesimp>恢复地形对象菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_restore_trees_radius">
+            <English>Radius</English>
+            <French>Rayon</French>
+            <Chinesesimp>半径</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_restore_trees_stones">
+            <English>Stones</English>
+            <French>Pierres</French>
+            <Chinesesimp>石头</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_restore_trees_stones_tooltip">
+            <English>Enable restoration of stones</English>
+            <French>Autoriser la restauration des pierres</French>
+            <Chinesesimp>可以恢复的石头</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_restore_trees_trees">
+            <English>Trees</English>
+            <French>Arbres</French>
+            <Chinesesimp>树木</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_restore_trees_trees_tooltip">
+            <English>Enable restoration of trees</English>
+            <French>Autoriser la restauration des arbres</French>
+            <Chinesesimp>可以恢复的树木</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_ace_rearm">
+            <English>ACE Rearm</English>
+            <French>Réarmement ACE</French>
+            <Chinesesimp>ACE 重新装备</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_ace_rearm_tooltip">
+            <English>Set as ACE Rearm vehicle</English>
+            <French>Véhicule de réarmement ACE</French>
+            <Chinesesimp>设置为 ACE 重新装备载具</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_aircraft">
+            <English>Aircraft</English>
+            <French>Avions</French>
+            <Chinesesimp>飞机</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_aircraft_tooltip">
+            <English>Make aircraft drop it</English>
+            <French>Faire tomber l'avion</French>
+            <Chinesesimp>让飞机空投</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_airdrop">
+            <English>Airdrop</English>
+            <French>Largage</French>
+            <Chinesesimp>空投</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_airdrop_height">
+            <English>Airdrop height [m]</English>
+            <French>Hauteur de largage [m]</French>
+            <Chinesesimp>空投高度[米]</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_airdrop_tooltip">
+            <English>Make it airdrop from 300m</English>
+            <French>Le largager à partir de 300 m</French>
+            <Chinesesimp>让它从 300 米处空投</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_choose_aircraft">
+            <English>Choose Aircraft</English>
+            <French>Choisir un aéronef</French>
+            <Chinesesimp>选择飞机</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_choose_aircraft_tooltip">
+            <English>What aircraft to drop the supply from</English>
+            <French>Quel avion utiliser pour larguer l'approvisionnement ?</French>
+            <Chinesesimp>选择哪架飞机投放补给</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_custom_type">
+            <English>Custom Type (Optional)</English>
+            <French>Type personnalisé (optionnel)</French>
+            <Chinesesimp>自定义类型 (可选)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_custom_type_tooltip">
+            <English>Provide classname to aircraft you want to use, instead of using dropdown list</English>
+            <French>Indiquez le nom de classe de l'aéronef que vous souhaitez utiliser, au lieu d'utiliser la liste déroulante.</French>
+            <Chinesesimp>为要使用的飞机提供类名，而不是使用下拉列表</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_error">
+            <English>Classname provided does not exist!</English>
+            <French>Le nom de classe fourni n'existe pas !</French>
+            <Chinesesimp>提供的类名不存在!</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_flyfrom">
+            <English>Fly From</English>
+            <French>Vol de départ</French>
+            <Chinesesimp>起飞地点</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_medical">
+            <English>Medical</English>
+            <French>Médical</French>
+            <Chinesesimp>医疗</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_medical_tooltip">
+            <English>Add Medical supplies</English>
+            <French>Ajouter du matériel médical</French>
+            <Chinesesimp>添加医疗物资</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_multiplier">
+            <English>Set multipler for ammo supply</English>
+            <French>Régler le multiplicateur pour l'approvisionnement en munitions</French>
+            <Chinesesimp>设置玩家补给菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_multiplier_dialog">
+            <English>Multiplier (amount per player)</English>
+            <French>Multiplicateur (montant par joueur)</French>
+            <Chinesesimp>倍增器（每位玩家的数量）</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_zeus">
+            <English>Include Zeus</English>
+            <French>Inclure Zeus</French>
+            <Chinesesimp>包括宙斯</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_loadouts_zeus_tooltip">
+            <English>Include Zeus' loadout to resupply</English>
+            <French>Ajouter l'équipement du Zeus dans le réapprovisionnement</French>
+            <Chinesesimp>包括宙斯的装备以进行补给</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_resupply_player_loadouts">
+            <English>Resupply Player Loadouts</English>
+            <French>Réapprovisionnement de l'équipement des joueurs</French>
+            <Chinesesimp>杂项 - 补给玩家装备</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_set_colour">
+            <English>Set Colour</English>
+            <French>Choix des couleurs</French>
+            <Chinesesimp>杂项 - 设置颜色</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_set_colour_apply_textures">
+            <English>Apply to all textures</English>
+            <French>S'applique à toutes les textures</French>
+            <Chinesesimp>适用于所有纹理</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_set_colour_apply_textures_tooltip">
+            <English>Adds the colour to all textures</English>
+            <French>Ajoute la couleur à toutes les textures</French>
+            <Chinesesimp>为所有纹理添加颜色</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_set_colour_colour">
+            <English>Colour</English>
+            <French>Couleur</French>
+            <Chinesesimp>颜色</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_set_colour_reset">
+            <English>RESET</English>
+            <French>RÉINITIALISATION (RESET)</French>
+            <Chinesesimp>重置</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_set_colour_reset_tooltip">
+            <English>Resets Texture to default</English>
+            <French>Réinitialise la texture par défaut</French>
+            <Chinesesimp>将纹理重置为默认值</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_set_colour_texture">
+            <English>Texture</English>
+            <French>Texture</French>
+            <Chinesesimp>纹理</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_set_numberplate">
+            <English>Set Numberplate</English>
+            <French>Définir la plaque d'immatriculation</French>
+            <Chinesesimp>杂项 - 设置车牌号</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_sheep">
+            <English>Sheep</English>
+            <French>Moutons</French>
+            <Chinesesimp>绵羊</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_side">
+            <English>Side</English>
+            <French>Côté</French>
+            <Chinesesimp>侧面</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_snake">
+            <English>Snake</English>
+            <French>Serpent</French>
+            <Chinesesimp>蛇</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_spawn_arsenal">
+            <English>Spawn Arsenal</English>
+            <French>Génération d'un arsenal</French>
+            <Chinesesimp>杂项 - 生成军火库</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_spawn_ied_clutter">
+            <English>Spawn IED Clutter</English>
+            <French>Générer des IED divers</French>
+            <Chinesesimp>杂项 - 生成 IED 杂物</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives">
+            <English>Strip Explosives</English>
+            <French>Explosifs en bande</French>
+            <Chinesesimp>杂项 - Strip 爆炸物</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_dialog">
+            <English>Remove Explosives</English>
+            <French>Enlever les explosifs</French>
+            <Chinesesimp>移除爆炸物</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_error">
+            <English>Unrecognised custom replacement</English>
+            <French>Remplacement personnalisé non reconnu</French>
+            <Chinesesimp>无法识别的自定义替换</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_explosives">
+            <English>Explosives</English>
+            <French>Explosifs</French>
+            <Chinesesimp>爆炸物</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_grenades">
+            <English>Grenades</English>
+            <French>Grenades</French>
+            <Chinesesimp>手榴弹</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_ignore_players">
+            <English>Ignore players</English>
+            <French>Ignorer les joueurs</French>
+            <Chinesesimp>忽略玩家</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_item_type">
+            <English>Item Type</English>
+            <French>Type d'objet</French>
+            <Chinesesimp>物品种类</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_item_type_tooltip">
+            <English>"Signals" includes smoke grenades, chemlights, IR strobes, and UGL smokes.&lt;br/&gt;"UGL" includes explosive ammo for under-barrel and dedicated grenade launchers</English>
+            <French>Les « signaux » comprennent les grenades fumigènes, les lampes de poche, les stroboscopes à infrarouge et les fumigènes UGL.&lt;br/&gt;Les « UGL » comprennent les munitions explosives pour les lanceurs de grenades sous le canon et les lanceurs de grenades dédiés.</French>
+            <Chinesesimp>"信号"包括烟雾弹,化学灯,红外闪光灯和UGL烟雾.&lt;br/&gt;"UGL"包括用于下挂和专用榴弹发射器的爆炸弹药</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_launchers">
+            <English>Launchers</English>
+            <French>Lanceurs</French>
+            <Chinesesimp>发射器</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_leave_untouched">
+            <English>Leave untouched</English>
+            <French>Laisser en l'état</French>
+            <Chinesesimp>保持不变</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_leave_untouched_tooltip">
+            <English>Amount of unit's inventory to leave unchanged.&lt;br/&gt;Does not guarantee which type is preserved if the unit has, e.g. multiple colours of smoke.</English>
+            <French>La quantité d'inventaire de l'unité à laisser inchangée.&lt;br/&gt;ne garantit pas le type qui sera conservé si l'unité possède, par exemple, plusieurs couleurs de fumée.</French>
+            <Chinesesimp>保持单位库存不变的数量.&lt;br/&gt;如果单位有多种类型的物品,如不同颜色的烟雾,不能保证保留哪种类型</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_replace_with">
+            <English>Replace with</English>
+            <French>Remplacer par</French>
+            <Chinesesimp>替换为</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_replace_with_custom">
+            <English>Replace with (custom)</English>
+            <French>Remplacer par (personnalisé)</French>
+            <Chinesesimp>替换为(自定义)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_replace_with_custom_tooltip">
+            <English>A custom magazine or item to replace with&lt;br/&gt;(Must be in "CfgMagazines" or inherit from "ItemCore")</English>
+            <French>Un magazine ou un article personnalisé à remplacer&lt;br/&gt;(Doit être dans « CfgMagazines » ou hériter de « ItemCore »)</French>
+            <Chinesesimp>用于替换的自定义弹匣或物品&lt;br/&gt;(必须在 "CfgMagazines" 中或继承自 "ItemCore")</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_signals">
+            <English>Signals</English>
+            <French>Signaux</French>
+            <Chinesesimp>信号</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_ugl">
+            <English>UGL</English>
+            <French>UGL (lance-grenades monté sous le fusil)</French>
+            <Chinesesimp>UGL(下挂榴弹发射器)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_whole_group">
+            <English>Whole Group</English>
+            <French>Groupe entier</French>
+            <Chinesesimp>整个小组</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_whole_group_tooltip">
+            <English>Remove items from this unit's group</English>
+            <French>Retirer des éléments du groupe de cette unité</French>
+            <Chinesesimp>从此单位的小组中移除物品</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_strip_explosives_zeus_has_removed">
+            <English>Zeus has %1 your %2</English>
+            <French>Zeus a %1 votre %2.</French>
+            <Chinesesimp>Zeus 已经 %1 你的 %2</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke">
+            <English>Suitcase Device</English>
+            <French>Équipement de valise</French>
+            <Chinesesimp>手提箱设备</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_armed">
+            <English>Armed</English>
+            <French>Armé</French>
+            <Chinesesimp>已装填/已激活</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_armed_tooltip">
+            <English>Whether the device can be detonated&lt;br/&gt;If not armed, countdown is paused</English>
+            <French>L'engin est-il prêt à exploser&lt;br/&gt;S'il n'est pas ammorcé, le compte à rebours s'interrompt.</French>
+            <Chinesesimp>设备是否可以被引爆&lt;br/&gt; 如果未装填/未激活, 倒计时暂停</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuse">
+            <English>Defuse Device</English>
+            <French>Dispositif de désamorçage</French>
+            <Chinesesimp>解除设备</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable">
+            <English>Defusable</English>
+            <French>Désamorçage</French>
+            <Chinesesimp>可解除的</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_any">
+            <English>Anyone</English>
+            <French>Tout le monde</French>
+            <Chinesesimp>任何人</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_engineer">
+            <English>Engineers</English>
+            <French>Ingénieurs</French>
+            <Chinesesimp>工程师</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_noone">
+            <English>No-one</English>
+            <French>Personne</French>
+            <Chinesesimp>无人</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_specialist">
+            <English>Explosive Specialists</English>
+            <French>Spécialistes en explosifs</French>
+            <Chinesesimp>爆炸专家</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defuseable_tooltip">
+            <English>Who can attempt to defuse the device</English>
+            <French>Qui peut tenter de désamorcer le dispositif</French>
+            <Chinesesimp>谁可以尝试解除设备</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defusetimer">
+            <English>Defuse Time</English>
+            <French>Durée de désamorçage</French>
+            <Chinesesimp>解除时间</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_defusetimer_tooltip">
+            <English>How long does it take to defuse the device in MM:SS</English>
+            <French>Combien de temps faut-il pour désamorcer l'engin en MM:SS</French>
+            <Chinesesimp>需要多少时间来解除设备(以分:秒为单位)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_edit">
+            <English>Edit Suitcase Device</English>
+            <French>Édition de l'équipement de la valise</French>
+            <Chinesesimp>编辑手提箱设备</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect">
+            <English>Effect</English>
+            <French>Effet</French>
+            <Chinesesimp>效果</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_emp">
+            <English>EMP</English>
+            <French>IEM</French>
+            <Chinesesimp>电磁脉冲</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_explosion_large">
+            <English>Explosion (Large)</English>
+            <French>Explosion (grande)</French>
+            <Chinesesimp>爆炸 (大型)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_explosion_nuclear">
+            <English>Explosion (Nuclear)</English>
+            <French>Explosion (nucléaire)</French>
+            <Chinesesimp>爆炸 (核)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_explosion_small">
+            <English>Explosion (Small)</English>
+            <French>Explosion (petite)</French>
+            <Chinesesimp>爆炸 (小型)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_none">
+            <English>Nothing</English>
+            <French>Rien</French>
+            <Chinesesimp>无</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_smoke_red">
+            <English>Smoke (Red)</English>
+            <French>Fumée (rouge)</French>
+            <Chinesesimp>烟雾 (红色)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_smoke_yellow">
+            <English>Smoke (Yellow)</English>
+            <French>Fumée (jaune)</French>
+            <Chinesesimp>烟雾 (黄色)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_effect_tooltip">
+            <English>What happens when the device activates</English>
+            <French>Que se passe-t-il lorsque le dispositif est activé ?</French>
+            <Chinesesimp>当设备启动时会发生什么</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_error_zeusPlacement">
+            <English>Must be place on an existing Device, or nothing</English>
+            <French>Doit être placé au-dessus de l'équipement existant, ou ne pas être placé du tout</French>
+            <Chinesesimp>必须放置在现有设备上, 或者不放置任何东西</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_timer">
+            <English>Timer</English>
+            <French>Minuterie</French>
+            <Chinesesimp>定时器</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_suitcaseNuke_timer_tooltip">
+            <English>How long until the device activates in MM:SS</English>
+            <French>Délai d'activation de l'appareil en MM:SS</French>
+            <Chinesesimp>设备启动前还有多少时间，格式为分:秒</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_surrender_chance">
+            <English>Surrender Chance</English>
+            <French>La chance de la reddition</French>
+            <Chinesesimp>杂项 - 投降的机会</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_surrender_chance_confrontation_radius">
+            <English>Confrontation Radius</English>
+            <French>Rayon de confrontation</French>
+            <Chinesesimp>对抗半径</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_surrender_chance_confrontation_radius_tooltip">
+            <English>Radius within which pointing a weapon at the unit will trigger a response</English>
+            <French>Rayon dans lequel le fait de pointer une arme sur l'unité déclenchera une réaction</French>
+            <Chinesesimp>将武器指向该单位将触发响应的半径</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_surrender_chance_error">
+            <English>Surrender chance already applied to this unit</English>
+            <French>La probabilité de reddition a été appliquée à l'unité</French>
+            <Chinesesimp>投降概率已应用于该单位</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_surrender_chance_hesitation">
+            <English>Hesitation</English>
+            <French>Hésitation</French>
+            <Chinesesimp>犹豫</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_surrender_chance_hesitation_tooltip">
+            <English>Maximum time (in seconds) that the unit will hesitate for after being confronted</English>
+            <French>Durée maximale (en secondes) pendant laquelle une unité hésite après s'être retrouvée face à face</French>
+            <Chinesesimp>单位在面对面后犹豫的最长时间(以秒为单位)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_surrender_chance_hold_fire">
+            <English>Hold Fire</English>
+            <French>Tenir le feu</French>
+            <Chinesesimp>保持火力</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_surrender_chance_hold_fire_tooltip">
+            <English>Units will hold fire until confronted</English>
+            <French>Les unités resteront en position de tir jusqu'à ce qu'elles soient confrontées</French>
+            <Chinesesimp>单位将保持火力直到被对抗</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_surrender_chance_name">
+            <English>Surrender Chance</English>
+            <French>Chance de la reddition</French>
+            <Chinesesimp>投降的机会</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_surrender_chance_radius">
+            <English>Radius</English>
+            <French>Rayon</French>
+            <Chinesesimp>半径</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_surrender_chance_radius_tooltip">
+            <English>Apply this effect to all units in radius</English>
+            <French>Appliquer cet effet à toutes les unités dans le rayon</French>
+            <Chinesesimp>将此效果应用于半径内的所有单位</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_toggle">
+            <English>Toggle</English>
+            <French>Basculer</French>
+            <Chinesesimp>切换</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_toggle_pathing">
+            <English>Toggle Pathing</English>
+            <French>Changement de voie</French>
+            <Chinesesimp>切换路径</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_unit">
+            <English>Unit</English>
+            <French>Unité</French>
+            <Chinesesimp>单位</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_view">
+            <English>View</English>
+            <French>Voir</French>
+            <Chinesesimp>查看</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Misc_weight">
+            <English>Weight</English>
+            <French>Poids</French>
+            <Chinesesimp>重量</Chinesesimp>
         </Key>
     </Package>
 </Project>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Crows Zeus Additions">
     <Package name="tfar">
+        <Key ID="STR_CROWSZA_tfar_error">
+            <English>Selected unit is not a vehicle</English>
+            <French>L'unité sélectionnée n'est pas un véhicule</French>
+            <Chinesesimp>选定的单位不是载具</Chinesesimp>
+        </Key>
         <Key ID="STR_CROWSZA_tfar_radio_side">
             <English>Set TFAR Vehicle Radio Side</English>
-            <Chinesesimp>设置 TFAR 车辆无线电</Chinesesimp>
             <French>Configuration de la radio du véhicule TFAR</French>
+            <Chinesesimp>设置 TFAR 车辆无线电</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_tfar_side">
             <English>TFAR Vehicle Side</English>
-            <Chinesesimp>TFAR 载具 Side</Chinesesimp>
             <French>TFAR Côté du véhicule</French>
-        </Key>
-        <Key ID="STR_CROWSZA_tfar_error">
-            <English>Selected unit is not a vehicle</English>
-            <Chinesesimp>选定的单位不是载具</Chinesesimp>
-            <French>L'unité sélectionnée n'est pas un véhicule</French>
+            <Chinesesimp>TFAR 载具 Side</Chinesesimp>
         </Key>
     </Package>
 </Project>

@@ -3,78 +3,78 @@
     <Package name="pingbox">
         <Key ID="STR_CROWSZA_Pingbox_setting_enable">
             <English>Enable PingBox</English>
-            <Chinesesimp>启用 PingBox</Chinesesimp>
             <French>Activer PingBox</French>
+            <Chinesesimp>启用 PingBox</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Pingbox_setting_enable_tooltip">
             <English>Pingbox sits in lower left corner and shows the last 3 zeus pings and how long since it was pinged</English>
-            <Chinesesimp>Pingbox 位于左下角 , 显示最近 3 次 Zeus ping 的时间以及被 ping 的时间</Chinesesimp>
             <French>Pingbox se trouve dans le coin inférieur gauche et affiche les 3 derniers pings de zeus et le temps écoulé depuis le ping.</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Pingbox_setting_threshold">
-            <English>Remove Threshold</English>
-            <Chinesesimp>移除时间</Chinesesimp>
-            <French>Délai de suppression</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Pingbox_setting_threshold_tooltip">
-            <English>Time before a ping will automatically be removed from the PingBox</English>
-            <Chinesesimp>Ping 从 PingBox 自动移除前的时间</Chinesesimp>
-            <French>Délai avant qu'un ping ne soit automatiquement retiré de la PingBox</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Pingbox_setting_fading">
-            <English>Enable Fading</English>
-            <Chinesesimp>启用淡出</Chinesesimp>
-            <French>Activer le fondu enchaîné</French>
-        </Key>
-        <Key ID="STR_CROWSZA_Pingbox_setting_fading_tooltip">
-            <English>PingBox will fade from view after set duration, and reappear when a new ping is received</English>
-            <Chinesesimp>PingBox 将在设定的持续时间后从视图中淡出 , 并在收到新的 ping 时重新出现</Chinesesimp>
-            <French>PingBox disparaît de l'écran après une durée déterminée et réapparaît lorsqu'un nouveau ping est reçu.</French>
+            <Chinesesimp>Pingbox 位于左下角 , 显示最近 3 次 Zeus ping 的时间以及被 ping 的时间</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Pingbox_setting_fade_duration">
             <English>Duration Before Fade</English>
-            <Chinesesimp>渐变前持续时间</Chinesesimp>
             <French>Durée avant le fondu</French>
+            <Chinesesimp>渐变前持续时间</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSZA_Pingbox_setting_fade_duration_tooltip">
             <English>Time before the PingBox will fade from view if Fading is enabled</English>
-            <Chinesesimp>如果启用渐变 , PingBox 从视图中淡出前的时间</Chinesesimp>
             <French>Temps avant que la PingBox ne disparaisse de la vue si l'option Fondu est activée</French>
+            <Chinesesimp>如果启用渐变 , PingBox 从视图中淡出前的时间</Chinesesimp>
         </Key>
-		<Key ID="STR_CROWSZA_Pingbox_setting_spamPing_threshold">
-			<English>Spam Ping Threshold</English>
-			<Chinesesimp>连续标记阈值</Chinesesimp>
-			<French>Seuil de pings répétés</French>
-		</Key>
-		<Key ID="STR_CROWSZA_Pingbox_setting_spamPing_threshold_tooltip">
-			<English>Time threshold in seconds during which repeated pings from the same player are counted as spam pings. If more time has passed, the ping is considered a completely new one.</English>
-			<Chinesesimp>在此时间阈值内 , 同一玩家的重复标记将被视为连续标记并合并显示。超过该时间后 , 标记将被视为全新的标记。</Chinesesimp>
-			<French>Seuil en secondes pendant lequel plusieurs pings du même joueur sont considérés comme des pings répétés et sont regroupés. Si plus de temps s’est écoulé, le ping est traité comme un tout nouveau.</French>
-		</Key>
-		<Key ID="STR_CROWSZA_Pingbox_setting_size">
-			<English>Pingbox Size</English>
-			<Chinesesimp>Pingbox 大小</Chinesesimp>
-			<French>Taille du Pingbox</French>
-		</Key>
-		<Key ID="STR_CROWSZA_Pingbox_setting_size_tooltip">
-			<English>How many entries can fit into the pingbox</English>
-			<Chinesesimp>Pingbox 可容纳的条目数量</Chinesesimp>
-			<French>Nombre d’entrées pouvant tenir dans le pingbox</French>
-		</Key>
-		<Key ID="STR_CROWSZA_Pingbox_setting_size_option_small">
-			<English>Small (3 entries)</English>
-			<Chinesesimp>小 (3 个条目)</Chinesesimp>
-			<French>Petit (3 entrées)</French>
-		</Key>
-		<Key ID="STR_CROWSZA_Pingbox_setting_size_option_medium">
-			<English>Medium (5 entries)</English>
-			<Chinesesimp>中 (5 个条目)</Chinesesimp>
-			<French>Moyen (5 entrées)</French>
-		</Key>
-		<Key ID="STR_CROWSZA_Pingbox_setting_size_option_large">
-			<English>Large (7 entries)</English>
-			<Chinesesimp>大 (7 个条目)</Chinesesimp>
-			<French>Grand (7 entrées)</French>
-		</Key>
+        <Key ID="STR_CROWSZA_Pingbox_setting_fading">
+            <English>Enable Fading</English>
+            <French>Activer le fondu enchaîné</French>
+            <Chinesesimp>启用淡出</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Pingbox_setting_fading_tooltip">
+            <English>PingBox will fade from view after set duration, and reappear when a new ping is received</English>
+            <French>PingBox disparaît de l'écran après une durée déterminée et réapparaît lorsqu'un nouveau ping est reçu.</French>
+            <Chinesesimp>PingBox 将在设定的持续时间后从视图中淡出 , 并在收到新的 ping 时重新出现</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Pingbox_setting_size">
+            <English>Pingbox Size</English>
+            <French>Taille du Pingbox</French>
+            <Chinesesimp>Pingbox 大小</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Pingbox_setting_size_option_large">
+            <English>Large (7 entries)</English>
+            <French>Grand (7 entrées)</French>
+            <Chinesesimp>大 (7 个条目)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Pingbox_setting_size_option_medium">
+            <English>Medium (5 entries)</English>
+            <French>Moyen (5 entrées)</French>
+            <Chinesesimp>中 (5 个条目)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Pingbox_setting_size_option_small">
+            <English>Small (3 entries)</English>
+            <French>Petit (3 entrées)</French>
+            <Chinesesimp>小 (3 个条目)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Pingbox_setting_size_tooltip">
+            <English>How many entries can fit into the pingbox</English>
+            <French>Nombre d’entrées pouvant tenir dans le pingbox</French>
+            <Chinesesimp>Pingbox 可容纳的条目数量</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Pingbox_setting_spamPing_threshold">
+            <English>Spam Ping Threshold</English>
+            <French>Seuil de pings répétés</French>
+            <Chinesesimp>连续标记阈值</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Pingbox_setting_spamPing_threshold_tooltip">
+            <English>Time threshold in seconds during which repeated pings from the same player are counted as spam pings. If more time has passed, the ping is considered a completely new one.</English>
+            <French>Seuil en secondes pendant lequel plusieurs pings du même joueur sont considérés comme des pings répétés et sont regroupés. Si plus de temps s’est écoulé, le ping est traité comme un tout nouveau.</French>
+            <Chinesesimp>在此时间阈值内 , 同一玩家的重复标记将被视为连续标记并合并显示。超过该时间后 , 标记将被视为全新的标记。</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Pingbox_setting_threshold">
+            <English>Remove Threshold</English>
+            <French>Délai de suppression</French>
+            <Chinesesimp>移除时间</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSZA_Pingbox_setting_threshold_tooltip">
+            <English>Time before a ping will automatically be removed from the PingBox</English>
+            <French>Délai avant qu'un ping ne soit automatiquement retiré de la PingBox</French>
+            <Chinesesimp>Ping 从 PingBox 自动移除前的时间</Chinesesimp>
+        </Key>
     </Package>
 </Project>
