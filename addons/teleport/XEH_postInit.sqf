@@ -25,7 +25,7 @@ private _contextActionList = [
     [
         ["teleport_to_squadmate",localize "STR_CROWSZA_Teleport_teleport_to_squadmate",QPATHTOF(data\tpToSquad.paa),
         {[[],_hoveredEntity] call FUNC(teleportToSquadMember)}, 
-        {_hoveredEntity isEqualType {} && {!isNull _hoveredEntity && [_hoveredEntity] call EFUNC(main,isAliveManUnit) && (count units group leader _hoveredEntity) > 1}}] call zen_context_menu_fnc_createAction,
+        {_hoveredEntity isEqualType objNull && {!isNull _hoveredEntity && [_hoveredEntity] call EFUNC(main,isAliveManUnit) && (count units group leader _hoveredEntity) > 1}}] call zen_context_menu_fnc_createAction,
         [],
         6
     ]
